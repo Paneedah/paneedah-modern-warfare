@@ -1,6 +1,5 @@
 package com.vicmatskiv.weaponlib.render.gui;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
@@ -12,6 +11,8 @@ import scala.concurrent.duration.Duration;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+
 public class GUIRenderHelper {
 	
 	public static enum StringAlignment {
@@ -19,8 +20,7 @@ public class GUIRenderHelper {
 		LEFT,
 		RIGHT
 	}
-	
-	private static final Minecraft mc = Minecraft.getMinecraft();
+
 	private static double FONT_SIZE_HALVED = mc.fontRenderer.FONT_HEIGHT/2.0;
 
 	
@@ -84,7 +84,7 @@ public class GUIRenderHelper {
 		GlStateManager.translate(x, y, 0);
 		GlStateManager.scale(scale, scale, 1.0);
 		RenderHelper.enableGUIStandardItemLighting();
-		Minecraft.getMinecraft().getRenderItem().renderItemIntoGUI(new ItemStack(item), 0, 0);
+		mc.getRenderItem().renderItemIntoGUI(new ItemStack(item), 0, 0);
 		RenderHelper.disableStandardItemLighting();
 		
 

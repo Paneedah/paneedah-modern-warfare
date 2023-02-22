@@ -7,7 +7,6 @@ import com.vicmatskiv.weaponlib.compatibility.Interceptors;
 import com.vicmatskiv.weaponlib.grenade.PlayerGrenadeInstance;
 import com.vicmatskiv.weaponlib.melee.PlayerMeleeInstance;
 import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -16,6 +15,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponEventHandler extends CompatibleWeaponEventHandler {
@@ -79,7 +79,7 @@ public class WeaponEventHandler extends CompatibleWeaponEventHandler {
 		    	fov = 0.7f;
 		    }
 		     
-		    if(Minecraft.getMinecraft().player.isSprinting()) {
+		    if(mc.player.isSprinting()) {
 		    	fov *= 1.2;
 		    }
 		    

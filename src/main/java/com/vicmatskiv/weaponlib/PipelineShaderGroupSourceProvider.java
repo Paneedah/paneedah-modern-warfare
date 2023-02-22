@@ -5,7 +5,6 @@ import com.vicmatskiv.weaponlib.compatibility.CompatibleExposureCapability;
 import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupSource;
 import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupSourceProvider;
 import com.vicmatskiv.weaponlib.shader.DynamicShaderPhase;
-import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
@@ -13,6 +12,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.UUID;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvider {
@@ -44,8 +44,8 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
                 .withUniform("Brightness", context -> brightness)
                 .withUniform("SepiaRatio", context -> sepiaRatio)
                 .withUniform("SepiaColor", context -> new float[] {colorImpairmentR, colorImpairmentG, colorImpairmentB})
-                .withUniform("IntensityAdjust", context -> 40f - Minecraft.getMinecraft().gameSettings.gammaSetting * 38)
-                .withUniform("NoiseAmplification", context ->  2f + 3f * Minecraft.getMinecraft().gameSettings.gammaSetting);
+                .withUniform("IntensityAdjust", context -> 40f - mc.gameSettings.gammaSetting * 38)
+                .withUniform("NoiseAmplification", context ->  2f + 3f * mc.gameSettings.gammaSetting);
     
     @Override
     public DynamicShaderGroupSource getShaderSource(DynamicShaderPhase phase) {

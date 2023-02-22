@@ -38,6 +38,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ClientModContext extends CommonModContext {
@@ -75,7 +76,7 @@ public class ClientModContext extends CommonModContext {
             CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
 		super.preInit(mod, modId, configurationManager, event, channel);
 
-		aspectRatio = (float)Minecraft.getMinecraft().displayWidth / Minecraft.getMinecraft().displayHeight;
+		aspectRatio = (float)mc.displayWidth / mc.displayHeight;
 
 		ClientCommandHandler.instance.registerCommand(new DebugCommand(modId));
 		
@@ -89,15 +90,15 @@ public class ClientModContext extends CommonModContext {
 		rendererRegistry.preInit();
 
 		List<IResourcePack> defaultResourcePacks = compatibility.getPrivateValue(
-				Minecraft.class, Minecraft.getMinecraft(), "defaultResourcePacks", "field_110449_ao") ;
+				Minecraft.class, mc, "defaultResourcePacks", "field_110449_ao") ;
         WeaponResourcePack weaponResourcePack = new WeaponResourcePack();
         defaultResourcePacks.add(weaponResourcePack);
-        IResourceManager resourceManager = Minecraft.getMinecraft().getResourceManager();
+        IResourceManager resourceManager = mc.getResourceManager();
         if(resourceManager instanceof IReloadableResourceManager) {
             ((SimpleReloadableResourceManager) resourceManager).reloadResourcePack(weaponResourcePack);
         }
 
-		compatibility.registerWithEventBus(new CustomGui(Minecraft.getMinecraft(), this, weaponAttachmentAspect));
+		compatibility.registerWithEventBus(new CustomGui(mc, this, weaponAttachmentAspect));
 		compatibility.registerWithEventBus(new WeaponEventHandler(this, safeGlobals));
 
 		KeyBindings.init();

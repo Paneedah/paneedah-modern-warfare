@@ -40,7 +40,7 @@ public class ParticleExSmoke extends Particle {
 	@Override
 	public void onUpdate() {
 		
-		//Minecraft.getMinecraft().getTextureManager().bindTexture(DriftCloudFX.CAR_PARTICLES);
+		//mc.getTextureManager().bindTexture(DriftCloudFX.CAR_PARTICLES);
 		this.prevPosX = this.posX;
 		this.prevPosY = this.posY;
 		this.prevPosZ = this.posZ;

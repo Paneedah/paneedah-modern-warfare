@@ -3,14 +3,15 @@ package com.vicmatskiv.weaponlib.perspective;
 import com.vicmatskiv.weaponlib.RenderableState;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.vicmatskiv.weaponlib.compatibility.Framebuffers;
-import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.GL11;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public abstract class ScreenPerspective extends Perspective<RenderableState> {
 
     public ScreenPerspective() {
-        this.width = 427; //Minecraft.getMinecraft().displayWidth >> 1;
-        this.height = 240; //Minecraft.getMinecraft().displayHeight >> 1;
+        this.width = 427; //mc.displayWidth >> 1;
+        this.height = 240; //mc.displayHeight >> 1;
     }
 
     @Override
@@ -33,11 +34,8 @@ public abstract class ScreenPerspective extends Perspective<RenderableState> {
         //compatibility.enableLightMap();
         GL11.glPopAttrib();
         GL11.glPopMatrix();
-        
-        Minecraft mc = Minecraft.getMinecraft();
-        Framebuffers.bindFramebuffer(originalFramebufferId, true,
-                mc.getFramebuffer().framebufferWidth,
-                mc.getFramebuffer().framebufferHeight);
+
+        Framebuffers.bindFramebuffer(originalFramebufferId, true, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
     }
 
     protected abstract void drawScreen();

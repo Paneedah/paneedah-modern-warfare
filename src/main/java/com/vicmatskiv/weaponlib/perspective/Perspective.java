@@ -8,9 +8,10 @@ import com.vicmatskiv.weaponlib.compatibility.CompatibleWorldRenderer;
 import com.vicmatskiv.weaponlib.compatibility.Framebuffers;
 import com.vicmatskiv.weaponlib.shader.DynamicShaderContext;
 import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupManager;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.shader.Framebuffer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public abstract class Perspective<S> {
 
@@ -46,10 +47,7 @@ public abstract class Perspective<S> {
 
         framebuffer.deleteFramebuffer();
         this.shaderGroupManager.removeAllShaders(new DynamicShaderContext(null, entityRenderer, null, 0f));
-        Minecraft mc = Minecraft.getMinecraft();
-        Framebuffers.bindFramebuffer(originalFramebufferId, true,
-                mc.getFramebuffer().framebufferWidth,
-                mc.getFramebuffer().framebufferHeight);
+        Framebuffers.bindFramebuffer(originalFramebufferId, true, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
     }
 
     public float getBrightness(RenderContext<S> context) {

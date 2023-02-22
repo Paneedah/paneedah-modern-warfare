@@ -2,7 +2,6 @@ package com.vicmatskiv.weaponlib.render.bgl;
 
 import com.vicmatskiv.weaponlib.ClientEventHandler;
 import com.vicmatskiv.weaponlib.shader.jim.Shader;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
@@ -10,6 +9,8 @@ import net.minecraft.util.math.BlockPos;
 import java.util.ArrayList;
 import java.util.Map.Entry;
 import java.util.Stack;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class LightManager {
 	
@@ -52,7 +53,7 @@ public class LightManager {
 		for(Entry<Integer, Stack<Long>> registry : ClientEventHandler.muzzleFlashMap.entrySet()) {
 			
 			if(!registry.getValue().empty() /*&& System.currentTimeMillis()-registry.getValue().peek() > 25*/) {
-				Entity entity = Minecraft.getMinecraft().world.getEntityByID(registry.getKey());
+				Entity entity = mc.world.getEntityByID(registry.getKey());
 				if(!(entity instanceof EntityPlayer)) continue;
 				
 				EntityPlayer player = (EntityPlayer) entity;
@@ -72,11 +73,11 @@ public class LightManager {
 			
 			float lightlevel = 0.0f;
 			
-			lightlevel = Minecraft.getMinecraft().world.getLight(new BlockPos(x, y, z)) * Minecraft.getMinecraft().world.getSunBrightness(1.0f);
+			lightlevel = mc.world.getLight(new BlockPos(x, y, z)) * mc.world.getSunBrightness(1.0f);
 			//System.out.println(lightlevel);
 			if(lightlevel > 8) return;
 			
-			//float lightlevel = Minecraft.getMinecraft().world.getLight(new BlockPos(x, y, z));
+			//float lightlevel = mc.world.getLight(new BlockPos(x, y, z));
 		//	System.out.println(lightlevel);
 			// bad correction maths
 			

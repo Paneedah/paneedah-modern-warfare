@@ -2,12 +2,13 @@ package com.vicmatskiv.weaponlib.crafting.ammopress;
 
 import com.vicmatskiv.weaponlib.crafting.base.TESRStation;
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class TESRAmmoPress extends TESRStation<TileEntityAmmoPress> {
 
@@ -73,7 +74,7 @@ public class TESRAmmoPress extends TESRStation<TileEntityAmmoPress> {
         GlStateManager.scale(MODEL_RESCALE_VALUE, MODEL_RESCALE_VALUE, MODEL_RESCALE_VALUE);
       
         // Render the actual model
-        double interp = InterpolationKit.interpolateValue(te.getPreviousWheelRotation(), te.getCurrentWheelRotation(), Minecraft.getMinecraft().getRenderPartialTicks());
+        double interp = InterpolationKit.interpolateValue(te.getPreviousWheelRotation(), te.getCurrentWheelRotation(), mc.getRenderPartialTicks());
         model.render((Entity)null, (float) interp, 0f, 0f, 0f, 0f, MODEL_RENDER_SCALE);
         
         // Undo block state

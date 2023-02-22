@@ -1,6 +1,5 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -25,6 +24,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class CompatibleRenderingRegistry implements ICustomModelLoader {
 
@@ -108,7 +109,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	}
 	
 	public void processDelayedRegistrations() {
-        RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+        RenderItem renderItem = mc.getRenderItem();
         delayedRegistrations.forEach(r -> { r.accept(renderItem);});
         delayedRegistrations.clear();
     }

@@ -2,7 +2,6 @@ package com.vicmatskiv.weaponlib.animation;
 
 import com.vicmatskiv.weaponlib.KeyBindings;
 import com.vicmatskiv.weaponlib.tracking.PlayerEntityTracker;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,6 +13,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class DebugPositioner {
@@ -360,7 +360,7 @@ public class DebugPositioner {
 			System.out.println("\n" + result);
 		} else {
 
-			System.out.println(Minecraft.getMinecraft().player.getHeldItemMainhand());
+			System.out.println(mc.player.getHeldItemMainhand());
 
 			StringBuilder result = new StringBuilder();
 			result.append(String.format("GL11.glScalef(%ff, %ff, %ff);\n", partPosition.scale, partPosition.scale,

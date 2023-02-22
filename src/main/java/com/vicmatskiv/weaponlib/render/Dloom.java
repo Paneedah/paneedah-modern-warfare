@@ -3,7 +3,6 @@ package com.vicmatskiv.weaponlib.render;
 import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
 import com.vicmatskiv.weaponlib.shader.jim.Shader;
 import com.vicmatskiv.weaponlib.shader.jim.ShaderManager;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
@@ -17,6 +16,8 @@ import org.lwjgl.opengl.*;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class Dloom {
 	
@@ -36,10 +37,10 @@ public class Dloom {
     	
     	//depthFrameBuffer = -1;
     	
-    	if(height != Minecraft.getMinecraft().displayHeight || width != Minecraft.getMinecraft().displayWidth || depthFrameBuffer == -1){
+    	if(height != mc.displayHeight || width != mc.displayWidth || depthFrameBuffer == -1){
     		System.out.println("CREATED DEPTH BOOFER");
-    		height = Minecraft.getMinecraft().displayHeight;
-    		width = Minecraft.getMinecraft().displayWidth;
+    		height = mc.displayHeight;
+    		width = mc.displayWidth;
     		
     		
     		GL11.glDeleteTextures(depthTexture);
@@ -50,7 +51,7 @@ public class Dloom {
     		OpenGlHelper.glBindFramebuffer(OpenGlHelper.GL_FRAMEBUFFER, depthFrameBuffer);
     		depthTexture = GL11.glGenTextures();
     		GlStateManager.bindTexture(depthTexture);
-			GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL14.GL_DEPTH_COMPONENT24, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight, 0, GL11.GL_DEPTH_COMPONENT, GL11.GL_FLOAT, (FloatBuffer)null);
+			GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL14.GL_DEPTH_COMPONENT24, mc.displayWidth, mc.displayHeight, 0, GL11.GL_DEPTH_COMPONENT, GL11.GL_FLOAT, (FloatBuffer)null);
 			GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
 			GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
 			GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
@@ -68,11 +69,11 @@ public class Dloom {
     	
     
     	
-    	OpenGlHelper.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER, Minecraft.getMinecraft().getFramebuffer().framebufferObject);
+    	OpenGlHelper.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER, mc.getFramebuffer().framebufferObject);
     	OpenGlHelper.glBindFramebuffer(GLCompatible.GL_DRAW_FRAMEBUFFER, depthFrameBuffer);
     	GLCompatible.glBlitFramebuffer(0, 0, width, height, 0, 0, width, height, GL11.GL_DEPTH_BUFFER_BIT, GL11.GL_NEAREST);
     	
-    	Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(false);
+    	mc.getFramebuffer().bindFramebuffer(false);
     }
     
     public static void doPost() {
@@ -95,9 +96,9 @@ public class Dloom {
 			GlStateManager.blendFunc(SourceFactor.ONE, DestFactor.ONE);
 			int tWidth, tHeight;
 			if(i == 0){
-				Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
-				tWidth = Minecraft.getMinecraft().getFramebuffer().framebufferWidth;
-				tHeight = Minecraft.getMinecraft().getFramebuffer().framebufferHeight;
+				mc.getFramebuffer().bindFramebuffer(true);
+				tWidth = mc.getFramebuffer().framebufferWidth;
+				tHeight = mc.getFramebuffer().framebufferHeight;
 			} else {
 				GlStateManager.glBlendEquation(GL14.GL_MAX);
 				bloomBuffers[(i-1)*2].bindFramebuffer(true);
@@ -116,7 +117,7 @@ public class Dloom {
 		bloomData.bindFramebuffer(true);
 		GlStateManager.clearColor(bloomData.framebufferColor[0], bloomData.framebufferColor[1], bloomData.framebufferColor[2], bloomData.framebufferColor[3]);
 		GlStateManager.clear(GL11.GL_COLOR_BUFFER_BIT);
-		Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
+		mc.getFramebuffer().bindFramebuffer(true);
 		
 		GlStateManager.enableAlpha();
 		GlStateManager.enableLighting();
@@ -125,8 +126,8 @@ public class Dloom {
 
     
     public static void recreateBloomFBOs(){
-    	int width = Minecraft.getMinecraft().displayWidth;
-    	int height = Minecraft.getMinecraft().displayHeight;
+    	int width = mc.displayWidth;
+    	int height = mc.displayHeight;
     	
 		if(bloomBuffers != null)
 			for(Framebuffer buf : bloomBuffers){
@@ -138,8 +139,8 @@ public class Dloom {
 		bloomData.bindFramebufferTexture();
 		GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL30.GL_RGBA16F, width, height, 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_SHORT, (IntBuffer)null);
 		bloomData.bindFramebuffer(false);
-		OpenGlHelper.glBindRenderbuffer(GL30.GL_RENDERBUFFER, Minecraft.getMinecraft().getFramebuffer().depthBuffer);
-		OpenGlHelper.glFramebufferRenderbuffer(GL30.GL_FRAMEBUFFER, GL30.GL_DEPTH_ATTACHMENT, GL30.GL_RENDERBUFFER, Minecraft.getMinecraft().getFramebuffer().depthBuffer);
+		OpenGlHelper.glBindRenderbuffer(GL30.GL_RENDERBUFFER, mc.getFramebuffer().depthBuffer);
+		OpenGlHelper.glFramebufferRenderbuffer(GL30.GL_FRAMEBUFFER, GL30.GL_DEPTH_ATTACHMENT, GL30.GL_RENDERBUFFER, mc.getFramebuffer().depthBuffer);
 		bloomData.setFramebufferFilter(GL11.GL_LINEAR);
 		bloomData.setFramebufferColor(0, 0, 0, 0);
 		bloomData.framebufferClear();

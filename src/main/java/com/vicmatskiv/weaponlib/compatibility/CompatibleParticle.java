@@ -1,7 +1,6 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
 import com.vicmatskiv.weaponlib.ModContext;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleBreaking;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -12,6 +11,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+
 public abstract class CompatibleParticle extends Particle {
 
 
@@ -21,7 +22,7 @@ public abstract class CompatibleParticle extends Particle {
 
         protected CompatibleParticleBreaking(ModContext modContext, World worldIn, double posXIn, double posYIn, double posZIn) {
             super(worldIn, posXIn, posYIn, posZIn, Items.SNOWBALL);
-            TextureAtlasSprite sprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(
+            TextureAtlasSprite sprite = mc.getTextureMapBlocks().getAtlasSprite(
                     modContext.getNamedResource(TEXTURE_BLOOD_PARTICLES).toString());
             setParticleTexture(sprite);  // initialise the icon to our custom texture
         }

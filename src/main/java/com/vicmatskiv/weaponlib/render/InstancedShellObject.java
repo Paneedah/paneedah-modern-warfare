@@ -7,12 +7,13 @@ import com.vicmatskiv.weaponlib.render.shells.ShellManager;
 import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import com.vicmatskiv.weaponlib.shader.jim.Uniform;
-import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.BlockPos;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.util.vector.Quaternion;
 
 import java.util.ArrayList;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class InstancedShellObject extends ModelInstancedObject<ShellManager> {
 	private Type type;
@@ -63,17 +64,17 @@ public class InstancedShellObject extends ModelInstancedObject<ShellManager> {
 		float[] data = new float[getInstanceDataLength()*getMaxObjects()];
 		for(Shell sh : shells) {
 			if(sh.getType() != type) continue;
-			float iX = (float) MatrixHelper.solveLerp(sh.prevPos.x, sh.pos.x, Minecraft.getMinecraft().getRenderPartialTicks());
-			float iY = (float) MatrixHelper.solveLerp(sh.prevPos.y, sh.pos.y, Minecraft.getMinecraft().getRenderPartialTicks());
-			float iZ = (float) MatrixHelper.solveLerp(sh.prevPos.z, sh.pos.z, Minecraft.getMinecraft().getRenderPartialTicks());
+			float iX = (float) MatrixHelper.solveLerp(sh.prevPos.x, sh.pos.x, mc.getRenderPartialTicks());
+			float iY = (float) MatrixHelper.solveLerp(sh.prevPos.y, sh.pos.y, mc.getRenderPartialTicks());
+			float iZ = (float) MatrixHelper.solveLerp(sh.prevPos.z, sh.pos.z, mc.getRenderPartialTicks());
 			
 			data[arrayPointer++] = (float) iX;
 			data[arrayPointer++] = (float) iY;
 			data[arrayPointer++] = (float) iZ;
 			
-			double rX = MatrixHelper.solveLerp(sh.prevRot.x, sh.rot.x, Minecraft.getMinecraft().getRenderPartialTicks());
-			double rY = MatrixHelper.solveLerp(sh.prevRot.y, sh.rot.y, Minecraft.getMinecraft().getRenderPartialTicks());
-			double rZ = MatrixHelper.solveLerp(sh.prevRot.z, sh.rot.z, Minecraft.getMinecraft().getRenderPartialTicks());
+			double rX = MatrixHelper.solveLerp(sh.prevRot.x, sh.rot.x, mc.getRenderPartialTicks());
+			double rY = MatrixHelper.solveLerp(sh.prevRot.y, sh.rot.y, mc.getRenderPartialTicks());
+			double rZ = MatrixHelper.solveLerp(sh.prevRot.z, sh.rot.z, mc.getRenderPartialTicks());
 			
 			
 			Quaternion quat = MatrixHelper.fromEulerAngles(Math.toRadians(rX), Math.toRadians(rY), Math.toRadians(rZ));
@@ -83,7 +84,7 @@ public class InstancedShellObject extends ModelInstancedObject<ShellManager> {
 			data[arrayPointer++] = quat.y;
 			data[arrayPointer++] = quat.z;
 			
-			int i = Minecraft.getMinecraft().world.getCombinedLight(new BlockPos(sh.pos.x, sh.pos.y, sh.pos.z), 0);
+			int i = mc.world.getCombinedLight(new BlockPos(sh.pos.x, sh.pos.y, sh.pos.z), 0);
 			float f = (float) (i & 65535);
 			float f1 = (float) (i >> 16);
 			

@@ -1,7 +1,6 @@
 package com.vicmatskiv.weaponlib.render.shells;
 
 import com.vicmatskiv.weaponlib.model.Bullet556;
-import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
@@ -10,6 +9,8 @@ import net.minecraft.util.math.Vec3d;
 import javax.vecmath.Vector3d;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class ShellParticleSimulator {
 	
@@ -196,11 +197,11 @@ public class ShellParticleSimulator {
 					sh.pos.z + (sh.pos.z-sh.prevPos.z)*0.5);
 			
 			/*
-			RayTraceResult rtr = Minecraft.getMinecraft().world.rayTraceBlocks(new Vec3d(sh.pos.x, sh.pos.y+0.1, sh.pos.z),
+			RayTraceResult rtr = mc.world.rayTraceBlocks(new Vec3d(sh.pos.x, sh.pos.y+0.1, sh.pos.z),
 					next, false, true, false);
 					
 			*/
-			RayTraceResult rtr = Minecraft.getMinecraft().world.rayTraceBlocks(new Vec3d(sh.prevPos.x, sh.prevPos.y, sh.prevPos.z), new Vec3d(sh.pos.x, sh.pos.y, sh.pos.z), false, true, false);
+			RayTraceResult rtr = mc.world.rayTraceBlocks(new Vec3d(sh.prevPos.x, sh.prevPos.y, sh.prevPos.z), new Vec3d(sh.pos.x, sh.pos.y, sh.pos.z), false, true, false);
 			if(rtr != null) {
 
 				EnumFacing side = rtr.sideHit;
@@ -283,7 +284,7 @@ public class ShellParticleSimulator {
 			box = box.grow(0.1);
 			box = box.offset(new Vec3d(sh.pos.x, sh.pos.y-0.9, sh.pos.z));
 			
-			List<AxisAlignedBB> list = Minecraft.getMinecraft().world.getCollisionBoxes(null, box);
+			List<AxisAlignedBB> list = mc.world.getCollisionBoxes(null, box);
 			
 			Vec3d separationVector = Vec3d.ZERO;
 			double penetrationDepth = Double.MIN_VALUE;

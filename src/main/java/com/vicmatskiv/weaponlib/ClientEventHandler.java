@@ -29,6 +29,7 @@ import java.util.UUID;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ClientEventHandler extends CompatibleClientEventHandler {
@@ -227,7 +228,7 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 	    
 		
 		
-	    Minecraft minecraft = Minecraft.getMinecraft();
+	    Minecraft minecraft = mc;
 	    if(minecraft.gameSettings.thirdPersonView == 0 && !compatibility.isShadersModEnabled()) {
 	        PlayerWeaponInstance weaponInstance = modContext.getMainHeldWeapon();
 	        
@@ -246,7 +247,7 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 	@Override
     protected void onCompatibleRenderTickEvent(CompatibleRenderTickEvent event) {
 		
-        Minecraft minecraft = Minecraft.getMinecraft();
+        Minecraft minecraft = mc;
         DynamicShaderContext shaderContext = new DynamicShaderContext(DynamicShaderPhase.POST_WORLD_RENDER,
                 minecraft.entityRenderer,
                 minecraft.getFramebuffer(), event.getRenderTickTime());

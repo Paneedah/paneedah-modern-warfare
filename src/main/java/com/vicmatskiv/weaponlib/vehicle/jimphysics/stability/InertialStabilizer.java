@@ -80,7 +80,7 @@ public class InertialStabilizer {
 			rotationPitch += (0-rotationPitch)*dampener;
 		}
 		
-		//double iy = InterpolationKit.interpolateValue(prevRotationRoll, rotationRoll, Minecraft.getMinecraft().getRenderPartialTicks());
+		//double iy = InterpolationKit.interpolateValue(prevRotationRoll, rotationRoll, mc.getRenderPartialTicks());
 		
 		GL11.glTranslated(0.0, rotationPitch, 0.0);
 		

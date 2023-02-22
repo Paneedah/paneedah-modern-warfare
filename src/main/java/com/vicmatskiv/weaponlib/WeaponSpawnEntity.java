@@ -138,7 +138,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
 	    if(compatibility.world(this).isRemote) {
 	    	
 	    	
-	    //	compatibility.playSound(Minecraft.getMinecraft().player, UniversalSoundLookup.lookupSound("headshotsfx"), 10.0f, 1.0f);
+	    //	compatibility.playSound(mc.player, UniversalSoundLookup.lookupSound("headshotsfx"), 10.0f, 1.0f);
         	
 	    	  return;
 	    }

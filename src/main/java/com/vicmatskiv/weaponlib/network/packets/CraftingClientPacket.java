@@ -8,9 +8,10 @@ import com.vicmatskiv.weaponlib.crafting.CraftingFileManager;
 import com.vicmatskiv.weaponlib.network.advanced.SimplePacket;
 import com.vicmatskiv.weaponlib.network.advanced.data.DataTypes;
 import com.vicmatskiv.weaponlib.network.advanced.data.PacketSerializer;
-import net.minecraft.client.Minecraft;
 
 import java.io.ByteArrayOutputStream;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class CraftingClientPacket extends SimplePacket {
 	
@@ -46,7 +47,7 @@ public class CraftingClientPacket extends SimplePacket {
 		@Override
 		public <T extends CompatibleMessage> T onCompatibleMessage(CraftingClientPacket compatibleMessage,
 				CompatibleMessageContext ctx) {
-			Minecraft.getMinecraft().addScheduledTask(() -> {
+			mc.addScheduledTask(() -> {
 				
 				int opcode = compatibleMessage.opcode.getValue();
 				if(opcode == RECEIVE_HASH) {
@@ -54,7 +55,7 @@ public class CraftingClientPacket extends SimplePacket {
 					boolean check = CraftingFileManager.getInstance().checkFileHashAndLoad(compatibleMessage.fileStream.getValue().toByteArray());
 					if(!check) {
 						// Tell the server that we need the file data.
-						context.getChannel().getChannel().sendToServer(new CraftingServerPacket(Minecraft.getMinecraft().player.getEntityId()));
+						context.getChannel().getChannel().sendToServer(new CraftingServerPacket(mc.player.getEntityId()));
 					}
 				} else if(opcode == RECEIVE_FILESTREAM) {
 					// We have gotten the file, save it to disk and load it.

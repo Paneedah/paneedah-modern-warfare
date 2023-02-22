@@ -1,24 +1,25 @@
 package com.vicmatskiv.weaponlib.render.bgl;
 
 import com.vicmatskiv.weaponlib.compatibility.CompatibleShellRenderer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+
 public class ModernUtil {
 	
 	public static void setupLighting(Vec3d position) {
 		GlStateManager.enableLighting();
-		Minecraft.getMinecraft().entityRenderer.enableLightmap();
-		CompatibleShellRenderer.setupLightmapCoords(Minecraft.getMinecraft().player.getPositionVector().addVector(0, 1, 0));
+		mc.entityRenderer.enableLightmap();
+		CompatibleShellRenderer.setupLightmapCoords(mc.player.getPositionVector().addVector(0, 1, 0));
 		
 	}
 	
 	public static void destructLighting(Vec3d position) {
-		Minecraft.getMinecraft().entityRenderer.disableLightmap();
+		mc.entityRenderer.disableLightmap();
 		GlStateManager.disableLighting();
 	}
 	

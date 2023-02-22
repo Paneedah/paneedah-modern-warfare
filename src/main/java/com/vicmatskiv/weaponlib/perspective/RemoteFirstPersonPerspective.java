@@ -5,7 +5,6 @@ import com.vicmatskiv.weaponlib.RenderingPhase;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleParticleManager;
 import com.vicmatskiv.weaponlib.compatibility.CompatiblePlayerCreatureWrapper;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderTickEvent;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
@@ -14,6 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public abstract class RemoteFirstPersonPerspective extends Perspective<RenderableState> {
@@ -27,16 +27,16 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
     public RemoteFirstPersonPerspective() {
         this.renderEndNanoTime = System.nanoTime();
-        this.width = 427; //Minecraft.getMinecraft().displayWidth >> 1;
-        this.height = 240; //Minecraft.getMinecraft().displayHeight >> 1;
+        this.width = 427; //mc.displayWidth >> 1;
+        this.height = 240; //mc.displayHeight >> 1;
         WorldClient world = (WorldClient) compatibility.world(compatibility.clientPlayer());
-        this.watchablePlayer = new CompatiblePlayerCreatureWrapper(Minecraft.getMinecraft(), world);
+        this.watchablePlayer = new CompatiblePlayerCreatureWrapper(mc, world);
     }
 
     @Override
     public void update(CompatibleRenderTickEvent event) {
         
-        if(Minecraft.getMinecraft().isGamePaused()) {
+        if(mc.isGamePaused()) {
             return;
         }
 
@@ -48,22 +48,22 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
         updateWatchablePlayer();
 
-        RenderGlobal origRenderGlobal = Minecraft.getMinecraft().renderGlobal;
+        RenderGlobal origRenderGlobal = mc.renderGlobal;
         CompatibleParticleManager origEffectRenderer = compatibility.getCompatibleParticleManager();
         Entity origRenderViewEntity = compatibility.getRenderViewEntity();
-        EntityRenderer origEntityRenderer = Minecraft.getMinecraft().entityRenderer;
-        int origDisplayWidth = Minecraft.getMinecraft().displayWidth;
-        int origDisplayHeight = Minecraft.getMinecraft().displayHeight;
+        EntityRenderer origEntityRenderer = mc.entityRenderer;
+        int origDisplayWidth = mc.displayWidth;
+        int origDisplayHeight = mc.displayHeight;
 
-        Minecraft.getMinecraft().displayWidth = this.width;
-        Minecraft.getMinecraft().displayHeight = this.height;
+        mc.displayWidth = this.width;
+        mc.displayHeight = this.height;
 
         framebuffer.bindFramebuffer(true);
 
-        Minecraft.getMinecraft().renderGlobal = this.renderGlobal;
-        Minecraft.getMinecraft().effectRenderer = this.effectRenderer.getParticleManager();
+        mc.renderGlobal = this.renderGlobal;
+        mc.effectRenderer = this.effectRenderer.getParticleManager();
 
-        Minecraft.getMinecraft().entityRenderer = this.entityRenderer;
+        mc.entityRenderer = this.entityRenderer;
         if (watchablePlayer.getEntityLiving() != null && !watchablePlayer.getEntityLiving().isDead) {
 
             compatibility.setRenderViewEntity(watchablePlayer.getEntityLiving());
@@ -84,14 +84,14 @@ public abstract class RemoteFirstPersonPerspective extends Perspective<Renderabl
 
         renderOverlay();
 
-        Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
+        mc.getFramebuffer().bindFramebuffer(true);
 
-        Minecraft.getMinecraft().renderGlobal = origRenderGlobal;
-        Minecraft.getMinecraft().effectRenderer = origEffectRenderer.getParticleManager();
+        mc.renderGlobal = origRenderGlobal;
+        mc.effectRenderer = origEffectRenderer.getParticleManager();
 
-        Minecraft.getMinecraft().displayWidth = origDisplayWidth;
-        Minecraft.getMinecraft().displayHeight = origDisplayHeight;
-        Minecraft.getMinecraft().entityRenderer = origEntityRenderer;
+        mc.displayWidth = origDisplayWidth;
+        mc.displayHeight = origDisplayHeight;
+        mc.entityRenderer = origEntityRenderer;
 
         this.renderEndNanoTime = System.nanoTime();
     }

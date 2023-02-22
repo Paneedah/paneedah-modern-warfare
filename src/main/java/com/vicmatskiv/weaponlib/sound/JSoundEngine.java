@@ -1,6 +1,5 @@
 package com.vicmatskiv.weaponlib.sound;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.openal.AL10;
@@ -15,6 +14,8 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 /**
  * $Id$
@@ -104,7 +105,7 @@ public class JSoundEngine {
 		ResourceLocation loc = new ResourceLocation("mw" + ":" + "sounds/m4a1.wav");
 		InputStream is = null;
 		try {
-			is = Minecraft.getMinecraft().getResourceManager().getResource(loc).getInputStream();
+			is = mc.getResourceManager().getResource(loc).getInputStream();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

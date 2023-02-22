@@ -14,7 +14,6 @@ import com.vicmatskiv.weaponlib.render.Shaders;
 import com.vicmatskiv.weaponlib.render.scopes.CyclicList;
 import com.vicmatskiv.weaponlib.render.scopes.Reticle;
 import com.vicmatskiv.weaponlib.shader.jim.Shader;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -33,6 +32,8 @@ import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 
 import java.util.function.BiConsumer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class ReflexScreen extends ModelBase implements CustomRenderer<RenderableState>{
 	
@@ -84,7 +85,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
 		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/crosshairs/okp.png");
 	
-		Minecraft.getMinecraft().getTextureManager().bindTexture(loc);
+		mc.getTextureManager().bindTexture(loc);
 		
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
@@ -151,13 +152,13 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		Shaders.reflexReticle.use();
 		
 		
-		//Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
+		//mc.getFramebuffer().bindFramebuffer(true);
 
 		// upload uniforms
 		
 		// upload texture
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		Minecraft.getMinecraft().getTextureManager().bindTexture(currentReticle.getReticleTexture());		
+		mc.getTextureManager().bindTexture(currentReticle.getReticleTexture());		
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
@@ -204,14 +205,14 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		//renderReticle(renderContext, true);
 		
 		if(ModernConfigManager.enableAllShaders && ModernConfigManager.enableReticleShaders) {
-		//	Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
+		//	mc.getFramebuffer().bindFramebuffer(true);
 			renderReticle(renderContext, false);
 		} else {
 			
 			
 			
 			//GlStateManager.disableTexture2D();
-			Minecraft.getMinecraft().getTextureManager().bindTexture(reticleList.current().getReticleTexture());
+			mc.getTextureManager().bindTexture(reticleList.current().getReticleTexture());
 			
 			GlStateManager.pushMatrix();
 			GlStateManager.enableCull();
@@ -256,7 +257,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 			/*
 			GlStateManager.disableTexture2D();
 			GlStateManager.enableBlend();
-			Minecraft.getMinecraft().getTextureManager().bindTexture(reticleList.current().getReticleTexture());
+			mc.getTextureManager().bindTexture(reticleList.current().getReticleTexture());
 			positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
 			//bb_main.render(0.065f);
 			//GlStateManager.disableTexture2D();

@@ -5,7 +5,6 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import com.vicmatskiv.weaponlib.JSONDatabaseManager;
-import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Loader;
@@ -15,6 +14,8 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.*;
 import java.util.Arrays;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class CraftingFileManager extends JSONDatabaseManager {
 
@@ -417,10 +418,10 @@ public class CraftingFileManager extends JSONDatabaseManager {
 	public void saveCacheAndLoad(ByteArrayOutputStream baos) {
 		// If we are in single player, cancel this.
 		// We have alternate loading mechanisms for this.
-		if(Minecraft.getMinecraft().isIntegratedServerRunning()) return;
+		if(mc.isIntegratedServerRunning()) return;
 		
 		// Get the server IP
-		String serverIP = Minecraft.getMinecraft().getCurrentServerData().serverIP;
+		String serverIP = mc.getCurrentServerData().serverIP;
 		
 		// Create the cache directory if it doesn't exist
 		if(!CACHE_DIR.exists()) CACHE_DIR.mkdirs();

@@ -3,7 +3,6 @@ package com.vicmatskiv.weaponlib;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleTransformType;
 import com.vicmatskiv.weaponlib.render.Bloom;
 import com.vicmatskiv.weaponlib.render.Shaders;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -13,6 +12,8 @@ import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 
 import java.util.function.BiConsumer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class LaserBeamRenderer implements CustomRenderer {
 	
@@ -86,7 +87,7 @@ public class LaserBeamRenderer implements CustomRenderer {
 			bb.pos(xOffset, yOffset, -50).color(1.0f, 0.0f, 0.0f, 0.1f).endVertex();
 			tes.draw();
 			
-			Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(false);
+			mc.getFramebuffer().bindFramebuffer(false);
 			 tes = Tessellator.getInstance();
 			 bb = tes.getBuffer();
 			bb.begin(GL11.GL_LINE_STRIP, DefaultVertexFormats.POSITION_COLOR);

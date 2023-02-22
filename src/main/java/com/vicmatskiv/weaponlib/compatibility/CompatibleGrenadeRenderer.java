@@ -9,7 +9,6 @@ import com.vicmatskiv.weaponlib.grenade.GrenadeRenderer.Builder;
 import com.vicmatskiv.weaponlib.grenade.PlayerGrenadeInstance;
 import com.vicmatskiv.weaponlib.grenade.RenderableState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -31,6 +30,8 @@ import javax.vecmath.Matrix4f;
 import java.util.Collections;
 import java.util.List;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+
 public abstract class CompatibleGrenadeRenderer extends ModelSourceRenderer implements IBakedModel {
 
     protected static class StateDescriptor {
@@ -49,7 +50,7 @@ public abstract class CompatibleGrenadeRenderer extends ModelSourceRenderer impl
 
     protected CompatibleGrenadeRenderer(Builder builder){
         this.builder = builder;
-        this.textureManager = Minecraft.getMinecraft().getTextureManager();
+        this.textureManager = mc.getTextureManager();
         this.pair = Pair.of((IBakedModel) this, null);
 //        this.playerBiped = new ModelBiped();
 //        this.playerBiped.textureWidth = 64;
@@ -154,7 +155,7 @@ public abstract class CompatibleGrenadeRenderer extends ModelSourceRenderer impl
 
     @Override
     public TextureAtlasSprite getParticleTexture() {
-        return Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
+        return mc.getTextureMapBlocks().getMissingSprite();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.vicmatskiv.weaponlib;
 
+import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.weaponlib.StatusMessageCenter.Message;
 import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
 import com.vicmatskiv.weaponlib.animation.gui.AnimationGUI;
@@ -72,7 +73,7 @@ public class CustomGui extends CompatibleGui {
 	}
 	
 	public static FontRenderer getFontRenderer() {
-		if(FONT_RENDERER == null) FONT_RENDERER = Minecraft.getMinecraft().fontRenderer;
+		if(FONT_RENDERER == null) FONT_RENDERER = ModernWarfareMod.mc.fontRenderer;
 		return FONT_RENDERER;
 	}
 	
@@ -87,7 +88,7 @@ public class CustomGui extends CompatibleGui {
 		
 		
 		if(modContext.getMainHeldWeapon() != null) {
-			ScaledResolution scaledResolution = new ScaledResolution(Minecraft.getMinecraft());
+			ScaledResolution scaledResolution = new ScaledResolution(mc);
 			double width = scaledResolution.getScaledWidth_double();
 			double height = scaledResolution.getScaledHeight_double();
 			
@@ -114,7 +115,7 @@ public class CustomGui extends CompatibleGui {
 					
 					if(AnimationGUI.getInstance().titleSafe.isState()) {
 						DebugRenderer.setupBasicRender();
-						ScaledResolution sr = new ScaledResolution(Minecraft.getMinecraft());
+						ScaledResolution sr = new ScaledResolution(mc);
 						DebugRenderer.renderPoint(new Vec3d(sr.getScaledWidth_double()/2, sr.getScaledHeight_double()/2, 0), new Vec3d(1, 0, 0));
 						
 						DebugRenderer.destructBasicRender();
@@ -285,7 +286,7 @@ public class CustomGui extends CompatibleGui {
 		
 		GlStateManager.translate((scaledWidth - AMMO_COUNTER_WIDTH * AMMO_COUNTER_SCALE), (scaledHeight - AMMO_COUNTER_Y_POS * AMMO_COUNTER_SCALE), 0);
 		GlStateManager.scale(AMMO_COUNTER_SCALE, AMMO_COUNTER_SCALE, AMMO_COUNTER_SCALE);
-		Minecraft.getMinecraft().getTextureManager().bindTexture(AMMO_COUNTER_TEXTURES);
+		mc.getTextureManager().bindTexture(AMMO_COUNTER_TEXTURES);
 		
 		
 		// Figure out the firemode, and assign it an ID
@@ -406,7 +407,7 @@ public class CustomGui extends CompatibleGui {
 		
 		
 		 if(ModernConfigManager.enableOpenDoorDisplay) {
-         	EntityPlayer player = Minecraft.getMinecraft().player;
+         	EntityPlayer player = mc.player;
          	
          	
          	

@@ -1,11 +1,12 @@
 package com.vicmatskiv.weaponlib;
 
 import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityRenderer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class ShellCasingRenderer extends CompatibleEntityRenderer {
 
@@ -27,7 +28,7 @@ public class ShellCasingRenderer extends CompatibleEntityRenderer {
         		}
         		GL11.glTranslated(x, y, z);
 
-        		float fov = Minecraft.getMinecraft().gameSettings.fovSetting;
+        		float fov = mc.gameSettings.fovSetting;
         		/*
         		 * fov    scale
         		 *  30    0.01

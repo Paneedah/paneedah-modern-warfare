@@ -1,10 +1,11 @@
 package com.vicmatskiv.weaponlib.crafting.workbench;
 
 import com.vicmatskiv.weaponlib.render.gui.GUIRenderHelper;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.util.ResourceLocation;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 /**
  * Simple class that replaces rendering of typical GUI text-boxes in
@@ -31,20 +32,20 @@ public class CustomSearchTextField extends GuiTextField {
 	public void drawTextBox() {
 
 		if(this.formatType == 1) {
-			Minecraft.getMinecraft().getTextureManager().bindTexture(tex);
+			mc.getTextureManager().bindTexture(tex);
 			GUIRenderHelper.drawTexturedRect(x, y - 4, 0, 60, 29, 20, 256, 256);
 		}
 		
 		if(getText().length() == 0 && !isFocused()) {
-			drawString(Minecraft.getMinecraft().fontRenderer, this.hintText, this.x + 3, this.y + 2, 0xFFFFFF);
+			drawString(mc.fontRenderer, this.hintText, this.x + 3, this.y + 2, 0xFFFFFF);
 		} else if(isFocused() && getText().length() == 0) {
 			if(System.currentTimeMillis()%1000 < 500) {
-				drawString(Minecraft.getMinecraft().fontRenderer, "_", this.x + 3, this.y + 2, 0xFFFFFF);
+				drawString(mc.fontRenderer, "_", this.x + 3, this.y + 2, 0xFFFFFF);
 			}
 		} else if(getText().length() != 0) {
-			drawString(Minecraft.getMinecraft().fontRenderer, getText(), this.x + 3, this.y + 2, 0xFFFFFF);
+			drawString(mc.fontRenderer, getText(), this.x + 3, this.y + 2, 0xFFFFFF);
 			if(System.currentTimeMillis()%1000 < 500) {	
-				drawString(Minecraft.getMinecraft().fontRenderer, "_", this.x + 3 + Minecraft.getMinecraft().fontRenderer.getStringWidth(getText()), this.y + 2, 0xFFFFFF);
+				drawString(mc.fontRenderer, "_", this.x + 3 + mc.fontRenderer.getStringWidth(getText()), this.y + 2, 0xFFFFFF);
 			}
 		}	
 	}

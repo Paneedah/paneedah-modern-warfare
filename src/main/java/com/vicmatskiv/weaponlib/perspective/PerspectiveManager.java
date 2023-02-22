@@ -4,12 +4,12 @@ import com.vicmatskiv.weaponlib.ClientModContext;
 import com.vicmatskiv.weaponlib.PlayerItemInstance;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleParticleManager;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleWorldRenderer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.RenderGlobal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PerspectiveManager {
@@ -68,8 +68,8 @@ public class PerspectiveManager {
 
     CompatibleWorldRenderer getEntityRenderer() {
         if(entityRenderer == null) {
-            entityRenderer = new CompatibleWorldRenderer(Minecraft.getMinecraft(),
-                    Minecraft.getMinecraft().getResourceManager());
+            entityRenderer = new CompatibleWorldRenderer(mc,
+                    mc.getResourceManager());
         }
         return entityRenderer;
     }

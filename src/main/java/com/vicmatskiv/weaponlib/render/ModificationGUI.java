@@ -6,7 +6,6 @@ import com.vicmatskiv.weaponlib.command.DebugCommand;
 import com.vicmatskiv.weaponlib.render.gui.ColorPalette;
 import com.vicmatskiv.weaponlib.render.gui.GUIRenderHelper;
 import com.vicmatskiv.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,6 +17,7 @@ import org.lwjgl.input.Mouse;
 
 import java.util.ArrayList;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 /**
@@ -29,7 +29,6 @@ public class ModificationGUI {
 
 	// Static variables
 	public static ModificationGUI instance = new ModificationGUI();
-	private static final Minecraft mc = Minecraft.getMinecraft();
 	
 	// Tabs are constant b/w weapons
 	private static ArrayList<ModificationTab> tabList = new ArrayList<>();
@@ -592,7 +591,7 @@ public class ModificationGUI {
 
 		
 
-		if (Minecraft.getMinecraft().player.ticksExisted % 50 == 0) {
+		if (mc.player.ticksExisted % 50 == 0) {
 
 			float firerate = weaponInstance.getFireRate();
 			float inaccuracy = weaponInstance.getWeapon().getInaccuracy()/10f;
@@ -870,7 +869,7 @@ public class ModificationGUI {
 			}
 
 			if (isInClick) {
-				compatibility.playSound(Minecraft.getMinecraft().player, UniversalSoundLookup.lookupSound("attachmentoff"), 10.0f, 1.0f);
+				compatibility.playSound(mc.player, UniversalSoundLookup.lookupSound("attachmentoff"), 10.0f, 1.0f);
 	        	
 				modcontext.getAttachmentAspect().forceAttachment(category, modcontext.getMainHeldWeapon(),
 						ItemStack.EMPTY);
@@ -1045,7 +1044,7 @@ public class ModificationGUI {
 										.getFormattedText());
 
 						if (isInClick) {
-							compatibility.playSound(Minecraft.getMinecraft().player, UniversalSoundLookup.lookupSound("attachmenton"), 10.0f, 1.0f);
+							compatibility.playSound(mc.player, UniversalSoundLookup.lookupSound("attachmenton"), 10.0f, 1.0f);
 				        	
 							modcontext.getAttachmentAspect().forceAttachment(category, modcontext.getMainHeldWeapon(),
 									flag.getItemStack());

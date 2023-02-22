@@ -7,7 +7,6 @@ import com.vicmatskiv.weaponlib.perspective.OpticalScopePerspective;
 import com.vicmatskiv.weaponlib.render.bgl.PostProcessPipeline;
 import com.vicmatskiv.weaponlib.render.scopes.Reticle;
 import com.vicmatskiv.weaponlib.shader.jim.Shader;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -15,6 +14,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class ViewfinderModel extends ModelBase {
 	
@@ -68,7 +69,7 @@ public class ViewfinderModel extends ModelBase {
 		
 		GlStateManager.enableAlpha();
 		GlStateManager.enableBlend();
-		Minecraft.getMinecraft().getTextureManager().bindTexture(ret.getReticleTexture());
+		mc.getTextureManager().bindTexture(ret.getReticleTexture());
 		GlStateManager.pushMatrix();
 		
 		GlStateManager.pushMatrix();
@@ -120,14 +121,14 @@ public class ViewfinderModel extends ModelBase {
 		
 	
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
-		Minecraft.getMinecraft().getTextureManager().bindTexture(ret.getReticleTexture());
+		mc.getTextureManager().bindTexture(ret.getReticleTexture());
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
     	GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
     	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
     	
     	
     	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 6);
-		Minecraft.getMinecraft().getTextureManager().bindTexture(SCOPE_GRIME_TEXTURE);
+		mc.getTextureManager().bindTexture(SCOPE_GRIME_TEXTURE);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
     	GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
     	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
@@ -135,7 +136,7 @@ public class ViewfinderModel extends ModelBase {
     	/* Code for a future hybrid scope
     	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+7);
 		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/crosshairs/reflexret.png");
-		Minecraft.getMinecraft().getTextureManager().bindTexture(loc);
+		mc.getTextureManager().bindTexture(loc);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
@@ -158,7 +159,7 @@ public class ViewfinderModel extends ModelBase {
     		scopeShader.uniform1i("depthTex", 3);
     		
     		float fogIntensity = 0.6f;
-    		fogIntensity *= Minecraft.getMinecraft().world.getRainStrength(Minecraft.getMinecraft().getRenderPartialTicks());
+    		fogIntensity *= mc.world.getRainStrength(mc.getRenderPartialTicks());
     		scopeShader.uniform1f("fogIntensity", fogIntensity);
     		scopeShader.uniform3f("baseFogColor", 0.6f, 0.6f, 0.6f);
 
@@ -172,7 +173,7 @@ public class ViewfinderModel extends ModelBase {
     	//scopeShader.uniform1i("holo", 7);
     	
     	//scopeShader.uniform2f("Velocity", (float) ClientValueRepo.scopeX.getLerpedFloat(), (float) ClientValueRepo.scopeY.getLerpedFloat());
-    	scopeShader.uniform2f("resolution", Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
+    	scopeShader.uniform2f("resolution", mc.displayWidth, mc.displayHeight);
     	scopeShader.boolean1b("isNightVisionOn", isNightVisionOn);
     	scopeShader.boolean1b("useWhitePhosphor", useWhitePhosphor);
     	scopeShader.uniform1f("time", ClientValueRepo.TICKER.getLerpedFloat());

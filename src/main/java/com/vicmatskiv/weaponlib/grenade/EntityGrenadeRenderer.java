@@ -1,12 +1,13 @@
 package com.vicmatskiv.weaponlib.grenade;
 
 import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityRenderer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class EntityGrenadeRenderer extends CompatibleEntityRenderer {
 
@@ -30,7 +31,7 @@ public class EntityGrenadeRenderer extends CompatibleEntityRenderer {
 
         GrenadeRenderer renderer = itemGrenade.getRenderer();
 
-        Minecraft.getMinecraft().renderEngine.bindTexture(
+        mc.renderEngine.bindTexture(
                 new ResourceLocation(renderer.getClientModContext().getModId(), // TODO: init entity with mod context
                 "textures/models/" + itemGrenade.getTextureName()));
 

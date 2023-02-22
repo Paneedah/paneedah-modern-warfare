@@ -2,12 +2,12 @@ package com.vicmatskiv.weaponlib.particle;
 
 import com.vicmatskiv.weaponlib.compatibility.CompatibleParticle;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleTessellator;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class FlashFX extends CompatibleParticle {
@@ -90,7 +90,7 @@ public class FlashFX extends CompatibleParticle {
     public void renderParticle(CompatibleTessellator tessellator, float partialTicks, float par3, float par4, float par5, float par6, float par7)
     {
 
-		Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(texture));
+		mc.getTextureManager().bindTexture(new ResourceLocation(texture));
 
 		GL11.glPushMatrix();
 		GL11.glPushAttrib(GL11.GL_ENABLE_BIT);

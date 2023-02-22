@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+
 public class ModernSkyRenderer extends IRenderHandler {
 	
 	public static int cubeMapTexture = -1;
@@ -100,7 +102,7 @@ public class ModernSkyRenderer extends IRenderHandler {
 	public ByteBuffer readImageFromFile(ResourceLocation location) {
 		IResource resource = null;
 		try {
-			resource = (IResource) Minecraft.getMinecraft().getResourceManager().getResource(location);
+			resource = (IResource) mc.getResourceManager().getResource(location);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -192,7 +194,7 @@ GlStateManager.disableCull();
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
 		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/crosshairs/okp.png");
 	
-		Minecraft.getMinecraft().getTextureManager().bindTexture(loc);
+		mc.getTextureManager().bindTexture(loc);
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 		
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+5);

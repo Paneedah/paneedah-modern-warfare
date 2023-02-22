@@ -1,7 +1,6 @@
 package com.vicmatskiv.weaponlib.vehicle.collisions;
 
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
@@ -11,6 +10,8 @@ import org.lwjgl.opengl.GL11;
 import javax.vecmath.Matrix3d;
 import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector3d;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class OreintedBB {
 	
@@ -124,7 +125,7 @@ public class OreintedBB {
 		
 		//GL11.glTranslated(c.x, c.y, c.z);
 		
-		float t = Minecraft.getMinecraft().getRenderPartialTicks();
+		float t = mc.getRenderPartialTicks();
 		
 		GL11.glRotated(Math.toDegrees(eulerRotations.x), 1, 0, 0);
 		GL11.glRotated(Math.toDegrees(eulerRotations.y), 0, 1, 0);

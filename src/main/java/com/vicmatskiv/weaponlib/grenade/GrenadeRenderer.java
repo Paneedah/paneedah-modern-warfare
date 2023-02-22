@@ -5,7 +5,6 @@ import com.vicmatskiv.weaponlib.animation.*;
 import com.vicmatskiv.weaponlib.animation.DebugPositioner.TransitionConfiguration;
 import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleGrenadeRenderer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -20,6 +19,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class GrenadeRenderer extends CompatibleGrenadeRenderer {
@@ -831,7 +831,7 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 			Positioner<Part, RenderContext<RenderableState>> positioner) {
 
 		if(builder.getTextureName() != null) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(builder.getModId()
+			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
 					+ ":textures/models/" + builder.getTextureName()));
 		} else {
 			String textureName = null;
@@ -841,7 +841,7 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 				textureName = weapon.getTextureName();
 			}
 
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(builder.getModId()
+			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
 					+ ":textures/models/" + textureName));
 		}
 
@@ -904,7 +904,7 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 	    }
 
 	    for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-	        Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(builder.getModId()
+	        mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
 	                + ":textures/models/" + texturedModel.getV()));
 	        GL11.glPushMatrix();
 	        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);

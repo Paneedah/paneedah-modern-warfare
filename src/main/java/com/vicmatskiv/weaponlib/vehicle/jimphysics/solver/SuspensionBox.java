@@ -1,7 +1,8 @@
 package com.vicmatskiv.weaponlib.vehicle.jimphysics.solver;
 
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
-import net.minecraft.client.Minecraft;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class SuspensionBox {
 	
@@ -28,7 +29,7 @@ public class SuspensionBox {
 	
 	
 	public double pti(double o, double n) {
-		return InterpolationKit.interpolateValue(o, n, Minecraft.getMinecraft().getRenderPartialTicks());
+		return InterpolationKit.interpolateValue(o, n, mc.getRenderPartialTicks());
 	}
 
 }

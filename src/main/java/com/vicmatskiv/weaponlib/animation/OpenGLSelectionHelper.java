@@ -1,7 +1,6 @@
 package com.vicmatskiv.weaponlib.animation;
 
 import com.vicmatskiv.weaponlib.render.Shaders;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.shader.Framebuffer;
@@ -14,11 +13,10 @@ import org.lwjgl.opengl.GL30;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+
 //https://www.lighthouse3d.com/tutorials/opengl-selection-tutorial/
 public class OpenGLSelectionHelper {
-
-	private static final Minecraft mc = Minecraft.getMinecraft();
-
 	
 	private static final ByteBuffer resultBuffer = BufferUtils.createByteBuffer(16);
 	private static final IntBuffer VIEWPORT = BufferUtils.createIntBuffer(16);
@@ -51,16 +49,16 @@ public class OpenGLSelectionHelper {
 
 	public static void bindBallBuf() {
 		if(ballBuf == null) {
-			ballBuf = new Framebuffer(Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight, true);
+			ballBuf = new Framebuffer(mc.displayWidth, mc.displayHeight, true);
 		}
 		ballBuf.bindFramebuffer(false);;
 	}
 	
 	public static void bindSelectBuffer() {
-		if (Minecraft.getMinecraft().displayWidth != width || Minecraft.getMinecraft().displayHeight != height
+		if (mc.displayWidth != width || mc.displayHeight != height
 				|| fbo == null) {
-			width = Minecraft.getMinecraft().displayWidth;
-			height = Minecraft.getMinecraft().displayHeight;
+			width = mc.displayWidth;
+			height = mc.displayHeight;
 			fbo = new Framebuffer(width, height, true);
 
 			ballBuf = new Framebuffer(width, height, true);
@@ -85,36 +83,36 @@ public class OpenGLSelectionHelper {
 		GL11.glGetInteger(GL11.GL_VIEWPORT, VIEWPORT);
 		VIEWPORT.rewind();
 		*/
-		ScaledResolution scaledResolution = new ScaledResolution(Minecraft.getMinecraft());
+		ScaledResolution scaledResolution = new ScaledResolution(mc);
 
 		int width = scaledResolution.getScaledWidth();
 		int height = scaledResolution.getScaledHeight();
 
 		/*
-		 * width = Minecraft.getMinecraft().displayWidth; height =
-		 * Minecraft.getMinecraft().displayHeight;
+		 * width = mc.displayWidth; height =
+		 * mc.displayHeight;
 		 */
 
-		int mouseX = Mouse.getX() * width / Minecraft.getMinecraft().displayWidth;
-		int mouseZ = height - Mouse.getY() * height / Minecraft.getMinecraft().displayHeight - 1;
+		int mouseX = Mouse.getX() * width / mc.displayWidth;
+		int mouseZ = height - Mouse.getY() * height / mc.displayHeight - 1;
 
 		// System.out.println( + " | " + (Mouse.getY()-boof.get(3)));
 		// System.out.println(mouseX + " | " + mouseZ);
 
-		mouseX = (int) Math.round((mouseX / (double) width) * Minecraft.getMinecraft().displayWidth);
-		mouseZ = (int) Math.round((mouseZ / (double) height) * Minecraft.getMinecraft().displayHeight);
+		mouseX = (int) Math.round((mouseX / (double) width) * mc.displayWidth);
+		mouseZ = (int) Math.round((mouseZ / (double) height) * mc.displayHeight);
 
 		// System.out.println("Pre: " + mouseX + " | " + mouseZ);
 
 		/*
-		 * mouseX = Minecraft.getMinecraft().displayWidth/2; mouseZ =
-		 * Minecraft.getMinecraft().displayHeight/2;
+		 * mouseX = mc.displayWidth/2; mouseZ =
+		 * mc.displayHeight/2;
 		 * 
 		 * mouseX = 0; mouseZ = 0;
 		 */
-		// mouseZ = Minecraft.getMinecraft().displayHeight-1;
+		// mouseZ = mc.displayHeight-1;
 
-		mouseZ = Minecraft.getMinecraft().displayHeight - mouseZ - 1;
+		mouseZ = mc.displayHeight - mouseZ - 1;
 
 		// System.out.println("Post: " + mouseX + " | " + mouseZ);
 		
@@ -134,7 +132,7 @@ public class OpenGLSelectionHelper {
 		/*
 		 * GL11.glFlush(); GL11.glFinish();
 		 */
-		// Minecraft.getMinecraft().getFramebuffer().unbindFramebufferTexture();
+		// mc.getFramebuffer().unbindFramebufferTexture();
 
 		// maybe needed
 		//GL11.glPixelStoref(GL11.GL_UNPACK_ALIGNMENT, 1);
@@ -158,18 +156,18 @@ public class OpenGLSelectionHelper {
 
 	public static ByteBuffer readScreenArea() {
 
-		ScaledResolution scaledResolution = new ScaledResolution(Minecraft.getMinecraft());
+		ScaledResolution scaledResolution = new ScaledResolution(mc);
 
 		int width = scaledResolution.getScaledWidth();
 		int height = scaledResolution.getScaledHeight();
 
-		int mouseX = Mouse.getX() * width / Minecraft.getMinecraft().displayWidth;
-		int mouseZ = height - Mouse.getY() * height / Minecraft.getMinecraft().displayHeight - 1;
+		int mouseX = Mouse.getX() * width / mc.displayWidth;
+		int mouseZ = height - Mouse.getY() * height / mc.displayHeight - 1;
 
-		mouseX = (int) Math.round((mouseX / (double) width) * Minecraft.getMinecraft().displayWidth);
-		mouseZ = (int) Math.round((mouseZ / (double) height) * Minecraft.getMinecraft().displayHeight);
+		mouseX = (int) Math.round((mouseX / (double) width) * mc.displayWidth);
+		mouseZ = (int) Math.round((mouseZ / (double) height) * mc.displayHeight);
 
-		mouseZ = Minecraft.getMinecraft().displayHeight - mouseZ - 1;
+		mouseZ = mc.displayHeight - mouseZ - 1;
 
 		
 		

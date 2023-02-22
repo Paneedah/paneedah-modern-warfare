@@ -20,7 +20,7 @@ public class VehicleClientPacket implements CompatibleMessage {
 		try {
 			this.serializer = serializer.read(buf);
 			
-			//this.serializer.vehicle = (EntityVehicle) Minecraft.getMinecraft().player.world.getEntityByID(this.serializer.entityID);
+			//this.serializer.vehicle = (EntityVehicle) mc.player.world.getEntityByID(this.serializer.entityID);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

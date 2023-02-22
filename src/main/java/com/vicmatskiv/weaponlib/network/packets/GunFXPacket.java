@@ -5,8 +5,8 @@ import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageContext;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageHandler;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.client.Minecraft;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class GunFXPacket implements CompatibleMessage {
@@ -38,7 +38,7 @@ public class GunFXPacket implements CompatibleMessage {
 		            compatibility.runInMainClientThread(() -> {
 					
 		            	
-		            if(Minecraft.getMinecraft().player.getEntityId() == m.entID) {
+		            if(mc.player.getEntityId() == m.entID) {
 		            	return;
 		            }
 					ClientEventHandler.uploadFlash(m.entID);

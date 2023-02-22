@@ -1,8 +1,9 @@
 package com.vicmatskiv.weaponlib.vehicle.smoothlib;
 
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
-import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.Vec3d;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class PTIVec {
 	
@@ -19,7 +20,7 @@ public class PTIVec {
 	
 	
 	public Vec3d get() {
-		return InterpolationKit.interpolateVector(prev, cur, Minecraft.getMinecraft().getRenderPartialTicks());
+		return InterpolationKit.interpolateVector(prev, cur, mc.getRenderPartialTicks());
 	}
 
 }

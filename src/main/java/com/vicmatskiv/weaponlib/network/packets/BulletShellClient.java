@@ -7,10 +7,10 @@ import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageHandler;
 import com.vicmatskiv.weaponlib.network.NetworkUtil;
 import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class BulletShellClient implements CompatibleMessage {
@@ -55,7 +55,7 @@ public class BulletShellClient implements CompatibleMessage {
 			 if(!ctx.isServerSide()) {
 		            compatibility.runInMainClientThread(() -> {
 					
-		            	if(Minecraft.getMinecraft().player.getEntityId() != m.shooter) {
+		            	if(mc.player.getEntityId() != m.shooter) {
 		            		Shell shell = new Shell(m.type, m.position, new Vec3d(-90, 0, 90), m.velocity);
 			            	CompatibleClientEventHandler.SHELL_MANAGER.enqueueShell(shell);
 		            	}

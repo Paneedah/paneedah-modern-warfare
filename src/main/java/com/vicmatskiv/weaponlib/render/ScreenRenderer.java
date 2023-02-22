@@ -1,12 +1,13 @@
 package com.vicmatskiv.weaponlib.render;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class ScreenRenderer {
 	
@@ -15,7 +16,7 @@ public class ScreenRenderer {
 		
 	
 		
-		//float bruh = (float) ((Minecraft.getMinecraft().player.ticksExisted%200)/200.0);
+		//float bruh = (float) ((mc.player.ticksExisted%200)/200.0);
         float scalef = 0.0625f;
 		
         GlStateManager.enableColorMaterial();
@@ -43,7 +44,7 @@ public class ScreenRenderer {
    
 
         
-        Minecraft.getMinecraft().renderEngine.bindTexture(loc);
+        mc.renderEngine.bindTexture(loc);
        
         
         model.render(null, (float) roll, (float) pitch, (float) yaw, 0.0f, 0.0f, scale);

@@ -2,13 +2,13 @@ package com.vicmatskiv.weaponlib.inventory;
 
 import com.vicmatskiv.weaponlib.compatibility.CompatibleGuiButton;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleInventoryTabs;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiInventory;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class InventoryTabs extends CompatibleInventoryTabs {
@@ -50,7 +50,7 @@ public class InventoryTabs extends CompatibleInventoryTabs {
     public void openInventoryGui() {
         compatibility.closeScreen(); //.sendQueue.addToSendQueue(new CPacketCloseWindow(mc.thePlayer.openContainer.windowId));
         GuiInventory inventory = new GuiInventory(compatibility.clientPlayer());
-        Minecraft.getMinecraft().displayGuiScreen(inventory);
+        mc.displayGuiScreen(inventory);
     }
 
     public void updateTabValues(int cornerX, int cornerY, Class<?> selectedButton) {

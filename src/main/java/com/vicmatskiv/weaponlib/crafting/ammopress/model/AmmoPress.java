@@ -1,7 +1,6 @@
 package com.vicmatskiv.weaponlib.crafting.ammopress.model;
 
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -11,6 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 
 import java.util.Arrays;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 // Made with Blockbench 4.3.1
 // Exported for Minecraft version 1.7 - 1.12
@@ -358,7 +359,7 @@ public class AmmoPress extends ModelBase {
 		
 		
 		
-		Minecraft.getMinecraft().getTextureManager().bindTexture(bulletTexture);
+		mc.getTextureManager().bindTexture(bulletTexture);
 		
 		boolean outOfBoolets = false;
 		
@@ -474,7 +475,7 @@ public class AmmoPress extends ModelBase {
 		}
 		
 		if(bulletAtPowdering) {
-			Minecraft.getMinecraft().getTextureManager().bindTexture(powderTexture);
+			mc.getTextureManager().bindTexture(powderTexture);
 			GlStateManager.pushMatrix();
 			GlStateManager.translate(0.0035, 0.101 + offset*0.0005f, 0.023);
 			GlStateManager.scale(0.0015*offset, 0.05*offset, 0.0015*offset);

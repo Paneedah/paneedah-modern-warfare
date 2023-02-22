@@ -1,7 +1,6 @@
 package com.vicmatskiv.weaponlib;
 
 import com.vicmatskiv.weaponlib.compatibility.CompatibleModelBiped;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
@@ -13,6 +12,8 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.List;
 import java.util.Random;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class ModelBipedWithAttachments extends CompatibleModelBiped {
 	
@@ -61,7 +62,7 @@ public class ModelBipedWithAttachments extends CompatibleModelBiped {
 		for(CompatibleAttachment<?> compatibleAttachment: attachments) {
 			if(compatibleAttachment != null) {
 				for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-					Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(modId 
+					mc.renderEngine.bindTexture(new ResourceLocation(modId 
 							+ ":textures/models/" + texturedModel.getV()));
 					GL11.glPushMatrix();
 					if(compatibleAttachment.getModelPositioning() != null) {

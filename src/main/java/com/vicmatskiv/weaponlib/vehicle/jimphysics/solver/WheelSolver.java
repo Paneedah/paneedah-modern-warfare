@@ -10,10 +10,11 @@ import com.vicmatskiv.weaponlib.vehicle.jimphysics.VehiclePhysUtil;
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.stability.numerical.vehicle.WheelSolutionVector;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.Vec3d;
 
 import javax.vecmath.Vector3d;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class WheelSolver implements IEncodable<WheelSolver>{
 	
@@ -127,7 +128,7 @@ public WheelSolver(TyreSize tyreSize, double mass, boolean isDrive, double grass
 	}
 	
 	public double getInterpolatedWheelRotation() {
-		return Math.toDegrees(InterpolationKit.interpolateValue(prevWheelRot, wheelRot, Minecraft.getMinecraft().getRenderPartialTicks()));
+		return Math.toDegrees(InterpolationKit.interpolateValue(prevWheelRot, wheelRot, mc.getRenderPartialTicks()));
 	}
 	
 	public Vec3d getSuspensionPosition() {

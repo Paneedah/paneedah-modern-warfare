@@ -10,7 +10,6 @@ import com.vicmatskiv.weaponlib.vehicle.collisions.RigidBody;
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.SuspensionSolver;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -29,6 +28,8 @@ import org.lwjgl.util.vector.Matrix4f;
 
 import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector3d;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class RenderVehicle2 extends CompatibleEntityRenderer
 {
@@ -67,7 +68,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		
 		DebugRenderer.setupBasicRender();
 		
-		Vec3d playerPos = Minecraft.getMinecraft().player.getPositionVector();
+		Vec3d playerPos = mc.player.getPositionVector();
 		
 		GL11.glTranslated(-playerPos.x, -playerPos.y, -playerPos.z);
 		//bruhBody = null;
@@ -200,7 +201,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		int renderPass = net.minecraftforge.client.MinecraftForgeClient.getRenderPass();
 		
 		
-		//		int pass = Minecraft.getMinecraft().getRenderManager().rend
+		//		int pass = mc.getRenderManager().rend
 
 		// RENDER VECTORS
 		/*
@@ -228,7 +229,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		
 		//DebugRenderer.renderLine(Vec3d.ZERO.addVector(0, 3, 0), Vec3d.ZERO.addVector(0, -sr*100, 0), new Vec3d(1, 0, 0));
 		GlStateManager.color(1.0f, 1f, 1f);
-		if(Minecraft.getMinecraft().getRenderManager().isDebugBoundingBox()) {
+		if(mc.getRenderManager().isDebugBoundingBox()) {
 			entityVehicle.oreintedBoundingBox.renderOBB();
 		}
 		DebugRenderer.destructBasicRender();
@@ -241,7 +242,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		GL11.glPushMatrix();
 		invertCameraTransform();
 		EntityVehicle v = entityVehicle;
-		float pt = Minecraft.getMinecraft().getRenderPartialTicks();
+		float pt = mc.getRenderPartialTicks();
 		
 
 		/*
@@ -259,7 +260,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		
 		
 		
-		float muRoll = (float) ((1 - Math.cos(Minecraft.getMinecraft().getRenderPartialTicks() * Math.PI)) / 2f);
+		float muRoll = (float) ((1 - Math.cos(mc.getRenderPartialTicks() * Math.PI)) / 2f);
 		float roll = (entityVehicle.prevRotationRollH+entityVehicle.prevRotationRoll) + ((entityVehicle.rotationRoll+entityVehicle.rotationRollH)-(entityVehicle.prevRotationRoll+entityVehicle.prevRotationRollH))*muRoll;
 		
 		
@@ -268,7 +269,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		GL11.glRotatef(180.0F - rotationYaw, 0.0F, 1.0F, 0.0F);
 		
 		
-		if(Minecraft.getMinecraft().gameSettings.thirdPersonView == 0) { 
+		if(mc.gameSettings.thirdPersonView == 0) { 
 			GL11.glRotatef(roll, 0.0f, 0.0f, 1.0f);
 		} else {
 			GL11.glRotatef(roll, 0.0f, 0.0f, 1.0f);
@@ -283,15 +284,15 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		}
 		*/
 		
-		float mu2 = Minecraft.getMinecraft().getRenderPartialTicks();
-		//float mu2 = (float) ((1 - Math.cos(Minecraft.getMinecraft().getRenderPartialTicks() * Math.PI)) / 2f);
+		float mu2 = mc.getRenderPartialTicks();
+		//float mu2 = (float) ((1 - Math.cos(mc.getRenderPartialTicks() * Math.PI)) / 2f);
 		float interpPitch = entityVehicle.prevRotationPitch + (entityVehicle.rotationPitch-entityVehicle.prevRotationPitch)*mu2;
 		
 		//interpPitch += entityVehicle.forwardLean;
 		
 		
 		// debug DD
-		if(Minecraft.getMinecraft().gameSettings.thirdPersonView != 0) {
+		if(mc.gameSettings.thirdPersonView != 0) {
 			GL11.glRotatef(interpPitch, 1.0F, 0.0F, 0.0F);
 		} else {
 
@@ -303,7 +304,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		
 
 		/* wtf does this even do???
-		if(Minecraft.getMinecraft().gameSettings.thirdPersonView == 0) {
+		if(mc.gameSettings.thirdPersonView == 0) {
 			double interp = 1.0*(roll/45.0);
 			System.out.println("fuck " + interp);
 			GL11.glTranslated(interp, 0.0, 0.0);
@@ -333,7 +334,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		
 		}*/
 		
-		if(Minecraft.getMinecraft().gameSettings.thirdPersonView == 0) {
+		if(mc.gameSettings.thirdPersonView == 0) {
 
 			//GL11.glTranslated(0.0, (Math.abs(entityVehicle.rotationPitch)/90.0)*2.0, 0.0);
 
@@ -370,7 +371,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		if(renderPass == 0) {
 			for(Entity pass : entityVehicle.getPassengers()) {
 				
-				if(Minecraft.getMinecraft().gameSettings.thirdPersonView == 0 && pass == Minecraft.getMinecraft().player) continue;
+				if(mc.gameSettings.thirdPersonView == 0 && pass == mc.player) continue;
 				
 				GL11.glPushMatrix();
 				GL11.glScaled(0.95, 0.95, 0.95);
@@ -380,10 +381,10 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 				GL11.glTranslated(-seatOffset.x, seatOffset.y, -seatOffset.z);
 				
 				if(!(pass instanceof EntityPlayer)) {
-					Minecraft.getMinecraft().getRenderManager().doRenderEntity(pass, 0, 0, 0, -pass.rotationYaw, Minecraft.getMinecraft().getRenderPartialTicks(), true);		
+					mc.getRenderManager().doRenderEntity(pass, 0, 0, 0, -pass.rotationYaw, mc.getRenderPartialTicks(), true);		
 				} else {
 					EntityPlayer player = (EntityPlayer) pass;
-					RenderManager rManager = Minecraft.getMinecraft().getRenderManager();
+					RenderManager rManager = mc.getRenderManager();
 					Render<Entity> render = rManager.getEntityRenderObject(pass);
 					
 					
@@ -413,7 +414,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 					
 					player.renderYawOffset = 180;
 					player.prevRenderYawOffset = 180;
-					render.doRender(player, 0, 0, 0, 180, Minecraft.getMinecraft().getRenderPartialTicks());		
+					render.doRender(player, 0, 0, 0, 180, mc.getRenderPartialTicks());		
 					
 					player.renderYawOffset = aYO;
 					player.prevRenderYawOffset = apYO;
@@ -491,8 +492,8 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		
 		
 		
-		EntityPlayer player = Minecraft.getMinecraft().player;
-		int gameView = Minecraft.getMinecraft().gameSettings.thirdPersonView;
+		EntityPlayer player = mc.player;
+		int gameView = mc.gameSettings.thirdPersonView;
 		boolean isPlayerRiding = player.isRiding();
 		boolean isRidingVehicle = isPlayerRiding;
 		if(isRidingVehicle) isRidingVehicle = ((player.getRidingEntity() instanceof EntityVehicle));
@@ -520,7 +521,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		}
 		
 		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/entity/suspensionblue.png");
-		Minecraft.getMinecraft().getTextureManager().bindTexture(loc);
+		mc.getTextureManager().bindTexture(loc);
 		
 		
 		
@@ -557,7 +558,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		
 		/*
 		if(entityVehicle.ticksExisted > 200) entityVehicle.ticksExisted = 0;
-		float interp = (entityVehicle.ticksExisted-1)+(entityVehicle.ticksExisted-(entityVehicle.ticksExisted-1))*Minecraft.getMinecraft().getRenderPartialTicks();
+		float interp = (entityVehicle.ticksExisted-1)+(entityVehicle.ticksExisted-(entityVehicle.ticksExisted-1))*mc.getRenderPartialTicks();
 		double tE = entityVehicle.ticksExisted;
 		
 		double dV = Math.sin(interp*2)/(Math.max(1.0, tE*tE/9000));
@@ -637,7 +638,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 		
 		
 		/*
-		if(Minecraft.getMinecraft().getRenderManager().isDebugBoundingBox()) {
+		if(mc.getRenderManager().isDebugBoundingBox()) {
 			GL11.glPushMatrix();
 			
 			DebugRenderer.setupBasicRender();

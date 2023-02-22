@@ -11,7 +11,6 @@ import com.vicmatskiv.weaponlib.inventory.OpenCustomPlayerInventoryGuiMessage;
 import com.vicmatskiv.weaponlib.render.ModificationGUI;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,6 +22,7 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.function.Function;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
@@ -115,7 +115,7 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
 	 			IBlockState state = player.world.getBlockState(rtr.getBlockPos());
 	 			if(state.getBlock() instanceof BlockDoor) {
 	 				
-	 				Minecraft.getMinecraft().playerController.processRightClickBlock(Minecraft.getMinecraft().player, Minecraft.getMinecraft().world, rtr.getBlockPos(), rtr.sideHit, rtr.hitVec, EnumHand.MAIN_HAND);
+	 				mc.playerController.processRightClickBlock(mc.player, mc.world, rtr.getBlockPos(), rtr.sideHit, rtr.hitVec, EnumHand.MAIN_HAND);
 	 				//modContext.getChannel().getChannel().sendToServer(new OpenDoorPacket(rtr.getBlockPos()));
 	 				
 	 				
@@ -259,8 +259,8 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
                 	}
                 }
                 
-               if(!Minecraft.getMinecraft().inGameHasFocus) {
-            	   Minecraft.getMinecraft().setIngameFocus();
+               if(!mc.inGameHasFocus) {
+            	   mc.setIngameFocus();
                }
                 
             }
@@ -357,7 +357,7 @@ public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
         
        
         /*else if(KeyBindings.proningSwitchKey.isPressed()) {
-        	//EntityPlayer player = Minecraft.getMinecraft().player;
+        	//EntityPlayer player = mc.player;
         	
         	
             modContext.getChannel().getChannel().sendToServer(new EntityControlMessage(player, 

@@ -11,7 +11,6 @@ import com.vicmatskiv.weaponlib.melee.MeleeRenderer.Builder;
 import com.vicmatskiv.weaponlib.melee.PlayerMeleeInstance;
 import com.vicmatskiv.weaponlib.melee.RenderableState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -35,6 +34,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+
 public abstract class CompatibleMeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 	
 	protected static class StateDescriptor {
@@ -53,7 +54,7 @@ public abstract class CompatibleMeleeRenderer extends ModelSourceRenderer implem
 	
 	protected CompatibleMeleeRenderer(Builder builder){
 		this.builder = builder;
-		this.textureManager = Minecraft.getMinecraft().getTextureManager();
+		this.textureManager = mc.getTextureManager();
         this.pair = Pair.of((IBakedModel) this, null);
 //        this.playerBiped = new ModelBiped();
 //        this.playerBiped.textureWidth = 64;
@@ -158,7 +159,7 @@ public abstract class CompatibleMeleeRenderer extends ModelSourceRenderer implem
     
     @Override
     public TextureAtlasSprite getParticleTexture() {
-        return Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
+        return mc.getTextureMapBlocks().getMissingSprite();
     }
     
     @Override

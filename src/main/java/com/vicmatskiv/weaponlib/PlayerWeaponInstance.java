@@ -13,7 +13,6 @@ import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupSource;
 import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupSourceProvider;
 import com.vicmatskiv.weaponlib.shader.DynamicShaderPhase;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,6 +28,7 @@ import java.util.Deque;
 import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
@@ -55,8 +55,8 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     public final DynamicShaderGroupSource NIGHT_VISION_SOURCE = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/vicmatskiv/weaponlib/resources/night-vision.json"))
-            .withUniform("IntensityAdjust", context -> 40f - Minecraft.getMinecraft().gameSettings.gammaSetting * 38)
-            .withUniform("NoiseAmplification", context ->  2f + 3f * Minecraft.getMinecraft().gameSettings.gammaSetting);
+            .withUniform("IntensityAdjust", context -> 40f - mc.gameSettings.gammaSetting * 38)
+            .withUniform("NoiseAmplification", context ->  2f + 3f * mc.gameSettings.gammaSetting);
 
     public final DynamicShaderGroupSource VIGNETTE_SOURCE = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/vicmatskiv/weaponlib/resources/vignette.json"))
@@ -65,7 +65,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             .withUniform("Reticle", context -> {
             	
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-            	Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/hud/reticle1.png"));
+            	mc.getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/hud/reticle1.png"));
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
             	
             	return 4;

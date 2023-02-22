@@ -1,6 +1,5 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.Render;
@@ -13,6 +12,8 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class CompatibleCustomArmor extends ItemArmor {
 
@@ -69,7 +70,7 @@ public class CompatibleCustomArmor extends ItemArmor {
 
 				if (entityLiving instanceof EntityPlayer) {
 
-					Render<AbstractClientPlayer> entityRenderObject = Minecraft.getMinecraft()
+					Render<AbstractClientPlayer> entityRenderObject = mc
 							.getRenderManager().getEntityRenderObject((AbstractClientPlayer)entityLiving);
 					RenderPlayer renderPlayer = (RenderPlayer) entityRenderObject;
 					armorModel.leftArmPose = renderPlayer.getMainModel().leftArmPose;

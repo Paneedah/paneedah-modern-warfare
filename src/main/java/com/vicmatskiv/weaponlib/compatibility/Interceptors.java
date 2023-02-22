@@ -16,7 +16,6 @@ import com.vicmatskiv.weaponlib.vehicle.jimphysics.stability.InertialStabilizer;
 import com.vicmatskiv.weaponlib.vehicle.smoothlib.QPTI;
 import com.vicmatskiv.weaponlib.vehicle.smoothlib.VehicleRFCam;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;
@@ -47,6 +46,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
@@ -80,35 +80,35 @@ public class Interceptors {
     	
         
         
-        	if(authenticFOV != 0.0f && Minecraft.getMinecraft().gameSettings.fovSetting == 80.0f) {
-        		Minecraft.getMinecraft().gameSettings.fovSetting = authenticFOV;
+        	if(authenticFOV != 0.0f && mc.gameSettings.fovSetting == 80.0f) {
+        		mc.gameSettings.fovSetting = authenticFOV;
         		authenticFOV = 0.0f;
         	}
         
         	
         
-        if(player.isRiding() && player.getRidingEntity() instanceof EntityVehicle && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0) {
+        if(player.isRiding() && player.getRidingEntity() instanceof EntityVehicle && mc.gameSettings.thirdPersonView == 0) {
         	EntityVehicle vehicle = (EntityVehicle) player.getRidingEntity();
         	// DEBUG //
         	//GL11.glRotated(-vehicle.rotationPitch*0.1, 1, 0, 0);
         	//GL11.glRotated(vehicle.sideLean, 0.0, 0.0, 1.0);
         	
         	
-        	//Minecraft.getMinecraft().setRenderViewEntity(vehicle);
+        	//mc.setRenderViewEntity(vehicle);
         	
         	
         	
-        	if(Minecraft.getMinecraft().gameSettings.thirdPersonView == 0) {
+        	if(mc.gameSettings.thirdPersonView == 0) {
         		
-        		if(Minecraft.getMinecraft().gameSettings.fovSetting != 80.0f) {
-        			authenticFOV = Minecraft.getMinecraft().gameSettings.fovSetting;
-        			Minecraft.getMinecraft().gameSettings.fovSetting = 80.0f;
+        		if(mc.gameSettings.fovSetting != 80.0f) {
+        			authenticFOV = mc.gameSettings.fovSetting;
+        			mc.gameSettings.fovSetting = 80.0f;
         		}
         		
         		
         		//MatrixHelper.applyMatrix(RenderVehicle2.tm);
         		//vehicle.rotationPitch = 0;
-        		float mu = (float) ((1 - Math.cos(Minecraft.getMinecraft().getRenderPartialTicks() * Math.PI)) / 2f);
+        		float mu = (float) ((1 - Math.cos(mc.getRenderPartialTicks() * Math.PI)) / 2f);
         		
         		/*
         		 * BEGIN YAW & PITCH
@@ -175,7 +175,7 @@ public class Interceptors {
         }
         
         
-    	if(player.isRiding() && player.getRidingEntity() instanceof EntityVehicle && Minecraft.getMinecraft().gameSettings.thirdPersonView == 1) {
+    	if(player.isRiding() && player.getRidingEntity() instanceof EntityVehicle && mc.gameSettings.thirdPersonView == 1) {
     		EntityVehicle vehicle = (EntityVehicle) player.getRidingEntity();
     		
     		/*
@@ -194,7 +194,7 @@ public class Interceptors {
     		//Vec3d vcv = vehicle.getSolver().getVelocityVector().scale(0.1);
     		//GL11.glTranslated(vcv.x, vcv.y, vcv.z);
     		
-    		//Minecraft.getMinecraft().gameSettings.fovSetting = (float) (70f + ((vehicle.getSolver().currentRPM)/500.0f) + (vehicle.getRealSpeed()/2));
+    		//mc.gameSettings.fovSetting = (float) (70f + ((vehicle.getSolver().currentRPM)/500.0f) + (vehicle.getRealSpeed()/2));
     		Vec3d pV = player.getPositionVector();
     		//GL11.glTranslated(-pV.x, -pV.y, -pV.z);
     		
@@ -241,7 +241,7 @@ public class Interceptors {
     		
     		
     		/*
-    		float muRoll = (float) ((1 - Math.cos(Minecraft.getMinecraft().getRenderPartialTicks() * Math.PI)) / 2f);
+    		float muRoll = (float) ((1 - Math.cos(mc.getRenderPartialTicks() * Math.PI)) / 2f);
     		float roll = (vehicle.prevRotationRollH+vehicle.prevRotationRoll) + ((vehicle.rotationRoll+vehicle.rotationRollH)-(vehicle.prevRotationRoll+vehicle.prevRotationRollH))*muRoll;
     		
     		GL11.glRotated(-roll, 0.0, 0.0, 1.0);
@@ -418,7 +418,7 @@ public class Interceptors {
        
         EntityPlayer entityplayer = (EntityPlayer)compatibility.getRenderViewEntity();
 
-        //ClientValueRepo.forward += Minecraft.getMinecraft().player.moveForward/25f;
+        //ClientValueRepo.forward += mc.player.moveForward/25f;
         
         
         PlayerWeaponInstance pwi = ClientModContext.getContext().getMainHeldWeapon();
@@ -533,7 +533,7 @@ public class Interceptors {
             }
             
             float appliedAmplitude = 0.0f;
-            if(Minecraft.getMinecraft().gameSettings.thirdPersonView != 0) {
+            if(mc.gameSettings.thirdPersonView != 0) {
             	appliedAmplitude = amplitude;
             } else appliedAmplitude = amplitude/7.5f;
             
@@ -643,7 +643,7 @@ public class Interceptors {
     public static boolean nauseaCameraEffect(float partialTicks) {
         boolean allowDefaultEffect = false;
 
-//        Minecraft mc = Minecraft.getMinecraft();
+//        Minecraft mc = mc;
 //
 //        float f1 = mc.thePlayer.prevTimeInPortal + (mc.thePlayer.timeInPortal - mc.thePlayer.prevTimeInPortal) * partialTicks;
 //
@@ -853,7 +853,7 @@ public class Interceptors {
     public static float adjustCameraPosition(EntityLivingBase player, float position) {
     
         return player instanceof EntityPlayer && isProning((EntityPlayer) player) 
-                && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0 ? position 
+                && mc.gameSettings.thirdPersonView == 0 ? position 
                 + player.getEyeHeight() * 1.6f : position;
     }
     
@@ -894,7 +894,7 @@ public class Interceptors {
     	
     	//ClientValueRepo.gunPow.velocity += yawDelta*0.02;
     	
-    	//compatibility.addChatMessage(Minecraft.getMinecraft().player, "Working " + Minecraft.getMinecraft().player.ticksExisted);
+    	//compatibility.addChatMessage(mc.player, "Working " + mc.player.ticksExisted);
     	
     	
     	
@@ -977,7 +977,7 @@ public class Interceptors {
        
        
         boolean canChangeRotationYaw = true;
-        if(player.getRidingEntity() instanceof EntityVehicle && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0) {
+        if(player.getRidingEntity() instanceof EntityVehicle && mc.gameSettings.thirdPersonView == 0) {
         	
             maxPitch = 90f;
 //            EntityVehicle entityVehicle = (EntityVehicle) player.ridingEntity;

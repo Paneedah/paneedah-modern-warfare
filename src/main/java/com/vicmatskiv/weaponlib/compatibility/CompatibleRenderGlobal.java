@@ -1087,7 +1087,7 @@ public class CompatibleRenderGlobal extends RenderGlobal
         float f = (float)((double)entityIn.prevRotationPitch + (double)(entityIn.rotationPitch - entityIn.prevRotationPitch) * partialTicks);
         float f1 = (float)((double)entityIn.prevRotationYaw + (double)(entityIn.rotationYaw - entityIn.prevRotationYaw) * partialTicks);
 
-        if (Minecraft.getMinecraft().gameSettings.thirdPersonView == 2)
+        if (mc.gameSettings.thirdPersonView == 2)
         {
             f += 180.0F;
         }

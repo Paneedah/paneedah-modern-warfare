@@ -4,7 +4,6 @@ import com.vicmatskiv.weaponlib.jim.util.RandomUtil;
 import com.vicmatskiv.weaponlib.render.ModelRenderTool;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -18,6 +17,8 @@ import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
 import javax.annotation.Nullable;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class CompatibleDiggingParticle extends Particle {
 	private final IBlockState sourceState;
@@ -74,7 +75,7 @@ public class CompatibleDiggingParticle extends Particle {
 	    {
 	        super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
 	        this.sourceState = state;
-	        this.setParticleTexture(Minecraft.getMinecraft().getBlockRendererDispatcher().getBlockModelShapes().getTexture(state));
+	        this.setParticleTexture(mc.getBlockRendererDispatcher().getBlockModelShapes().getTexture(state));
 	        this.particleGravity = state.getBlock().blockParticleGravity;
 	       
 	        
@@ -131,7 +132,7 @@ public class CompatibleDiggingParticle extends Particle {
 	}
 
 	protected void multiplyColor(@Nullable BlockPos p_187154_1_) {
-		int i = Minecraft.getMinecraft().getBlockColors().colorMultiplier(this.sourceState, this.world, p_187154_1_, 0);
+		int i = mc.getBlockColors().colorMultiplier(this.sourceState, this.world, p_187154_1_, 0);
 		this.particleRed *= (float) (i >> 16 & 255) / 255.0F;
 		this.particleGreen *= (float) (i >> 8 & 255) / 255.0F;
 		this.particleBlue *= (float) (i & 255) / 255.0F;

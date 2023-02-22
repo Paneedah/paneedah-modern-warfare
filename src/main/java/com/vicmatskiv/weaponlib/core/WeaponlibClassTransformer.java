@@ -697,14 +697,14 @@ public class WeaponlibClassTransformer implements IClassTransformer {
                 String[] interfaces) {
             this.classname = name;
 //            if(entityRendererClassInfo.classMatches(name)) {
-//                
+//
 //            }
-            
+
             //System.out.println("VISIT LOL");
-            
+
             this.cv.visit(version, access, name, signature, superName, interfaces);
         }
-        
+
 //        public void visit(int version, int access, String name, String signature, String superName,
 //                String[] interfaces) {
 //            this.classname = name;
@@ -720,7 +720,7 @@ public class WeaponlibClassTransformer implements IClassTransformer {
 //            }
 //            cv.visit(version, access, name, signature, superName, interfaces);
 //        }
-//        
+//
 //        @Override
 //        public void visitSource(String source, String debug) {
 //            if (modelRendererClassInfo.classMatches(classname)) {
@@ -730,73 +730,5 @@ public class WeaponlibClassTransformer implements IClassTransformer {
 //
 //            super.visitSource(source, debug);
 //        }
-
-        public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
-        	
-        	  //System.out.println("VISIT LOL 2");
-        	
-        	if(name.equals("travel")) {
-        	//	return new TestVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-        	}
-
-        	
-            if(entityRendererClassInfo.methodMatches("setupCameraTransform", "(FI)V", classname, name, desc)) {
-                return new SetupCameraTransformMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if(entityRendererClassInfo.methodMatches("setupViewBobbing", "(F)V", classname, name, desc)) {
-                return new SetupViewBobbingMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if(entityRendererClassInfo.methodMatches("hurtCameraEffect", "(F)V", classname, name, desc)) {
-            	
-                return new HurtCameraEffectMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if(entityRendererClassInfo.methodMatches("updateCameraAndRender", "(FJ)V", classname, name, desc)) {
-                return new UpdateCameraAndRenderMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if(renderBipedClassInfo != null 
-                    && renderBipedClassInfo.methodMatches("renderEquippedItems", "(Lnet/minecraft/entity/EntityLiving;F)V", classname, name, desc)) {
-                return new RenderEquippedItemsMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } /* else if(modelBipedClassInfo != null 
-                    && modelBipedClassInfo.methodMatches("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", classname, name, desc)) {
-                return new RenderMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } */ /*else if(modelPlayerClassInfo != null 
-                    && modelPlayerClassInfo.methodMatches("render", "(Lnet/minecraft/entity/Entity;FFFFFF)V", classname, name, desc)) {
-                return new RenderMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } */
-            /*
-            else if(renderLivingBaseClassInfo != null 
-                    && renderLivingBaseClassInfo.methodMatches("renderModel", "(Lnet/minecraft/entity/EntityLivingBase;FFFFFF)V", classname, name, desc)) {
-                return new RenderModelMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if(layerArmorBaseClassInfo != null 
-                    && layerArmorBaseClassInfo.methodMatches("renderArmorLayer", "(Lnet/minecraft/entity/EntityLivingBase;FFFFFFFLnet/minecraft/inventory/EntityEquipmentSlot;)V", classname, name, desc)) {
-                return new RenderArmorLayerMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } */ else if(layerHeldItemClassInfo != null 
-                    && layerHeldItemClassInfo.methodMatches("renderHeldItem", "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType;Lnet/minecraft/util/EnumHandSide;)V", classname, name, desc)) {
-                return new RenderHeldItemMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions),
-                        !name.equals("renderHeldItem"));
-            } else if(entityPlayerSPClassInfo != null 
-                    && entityPlayerSPClassInfo.methodMatches("isSneaking", "()Z", classname, name, desc)) {
-                return new IsSneakingMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if(entityPlayerSPClassInfo != null 
-                    && entityPlayerSPClassInfo.methodMatches("updateEntityActionState", "()V", classname, name, desc)) {
-                return new UpdateEntityActionStateMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if(entityPlayerMPClassInfo != null 
-                    && entityPlayerMPClassInfo.methodMatches("sendSlotContents", "(Lnet/minecraft/inventory/Container;ILnet/minecraft/item/ItemStack;)V", classname, name, desc)) {
-                return new SendSlotContentsMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions), 
-                        !name.equals("sendSlotContents"));
-            } else if(entityLivingBaseClassInfo != null 
-                    && entityLivingBaseClassInfo.methodMatches("attackEntityFrom", "(Lnet/minecraft/util/DamageSource;F)Z", classname, name, desc)) {
-                return new AttackEntityFromMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if(entityLivingBaseClassInfo != null 
-                    && entityLivingBaseClassInfo.methodMatches("attackEntityFrom", "(Lnet/minecraft/util/DamageSource;F)Z", classname, name, desc)) {
-                return new AttackEntityFromMethodVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if(modelRendererClassInfo.classMatches(classname) && name.equals("<init>")) {
-                return new ModelRendererConstructorVisitor(cv.visitMethod(access, name, desc, signature, exceptions));
-            } else if(modelRendererClassInfo != null 
-                    && modelRendererClassInfo.methodMatches("render", "(F)V", classname, name, desc)) {
-                return new ModelRendererRenderMethodVisitor(
-                        cv.visitMethod(access, name, desc, signature, exceptions), !name.equals("render"));
-            } /*else if(playSoundClassInfo != null && playSoundClassInfo.methodMatches("play", "(Lpaulscode/sound/Channel;)V", classname, name, desc)) {
-                return new SoundInterceptorMethodVistor(cv.visitMethod(access, name, desc, signature, exceptions));
-            }*/
-
-            return this.cv.visitMethod(access, name, desc, signature, exceptions);
-        }
     }
 }

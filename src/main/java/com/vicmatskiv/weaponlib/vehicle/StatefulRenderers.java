@@ -20,6 +20,8 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.function.Function;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+
 
 public class StatefulRenderers {
 
@@ -47,14 +49,14 @@ public class StatefulRenderers {
         public void render(PartRenderContext<State> context) {
             Entity entity = entitySupplier.apply(context);
             if(entity != null && entity instanceof EntityPlayer) {
-                Minecraft minecraft = Minecraft.getMinecraft();
+                Minecraft minecraft = mc;
                 if(minecraft.gameSettings.thirdPersonView == 0) {
                 	
                 
                 	
                     minecraft.getTextureManager().bindTexture(((AbstractClientPlayer) entity).getLocationSkin());
 
-                    Render<AbstractClientPlayer> entityRenderObject = Minecraft.getMinecraft().getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
+                    Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
                     RenderPlayer render = (RenderPlayer) entityRenderObject;
 
                     ModelBiped model = render.getMainModel();
@@ -103,11 +105,11 @@ public class StatefulRenderers {
         public void render(PartRenderContext<State> context) {
             Entity entity = entitySupplier.apply(context);
             if(entity != null && entity instanceof EntityPlayer) {
-                Minecraft minecraft = Minecraft.getMinecraft();
+                Minecraft minecraft = mc;
                 if(minecraft.gameSettings.thirdPersonView == 0) {
                     minecraft.getTextureManager().bindTexture(((AbstractClientPlayer) entity).getLocationSkin());
 
-                    Render<AbstractClientPlayer> entityRenderObject = Minecraft.getMinecraft().getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
+                    Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
                     RenderPlayer render = (RenderPlayer) entityRenderObject;
 
                     ModelBiped model = render.getMainModel();

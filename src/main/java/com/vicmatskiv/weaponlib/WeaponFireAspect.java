@@ -11,7 +11,6 @@ import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.vicmatskiv.weaponlib.state.Aspect;
 import com.vicmatskiv.weaponlib.state.PermitManager;
 import com.vicmatskiv.weaponlib.state.StateManager;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,6 +30,7 @@ import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
@@ -225,7 +225,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 
     @SideOnly(Side.CLIENT)
     private void playShootSound(PositionedSoundRecord psr) {
-    	Minecraft.getMinecraft().getSoundHandler().playSound(psr);
+    	mc.getSoundHandler().playSound(psr);
     }
     
     
@@ -291,15 +291,15 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	if(!VMWHooksHandler.isOnServer()) {
         		
         		//
-        		PositionedSoundRecord psr = new PositionedSoundRecord(shootSound.getSound(), SoundCategory.PLAYERS, silencerOn ? weapon.getSilencedShootSoundVolume() * 0.4f : weapon.getShootSoundVolume() * 0.4f, 1.0F, Minecraft.getMinecraft().player.getPosition().up(5));
+        		PositionedSoundRecord psr = new PositionedSoundRecord(shootSound.getSound(), SoundCategory.PLAYERS, silencerOn ? weapon.getSilencedShootSoundVolume() * 0.4f : weapon.getShootSoundVolume() * 0.4f, 1.0F, mc.player.getPosition().up(5));
             	playShootSound(psr);
-        		//Minecraft.getMinecraft().getSoundHandler().playSound(psr);
+        		//mc.getSoundHandler().playSound(psr);
         	}
         	
         	
         	
         	
-        	//Minecraft.getMinecraft().getSoundHandler().playSound(new PositionedSoundRecord(shootSound.getSound(), SoundCategory.PLAYERS,silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1f, Minecraft.getMinecraft().player.getPosition()));
+        	//mc.getSoundHandler().playSound(new PositionedSoundRecord(shootSound.getSound(), SoundCategory.PLAYERS,silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1f, mc.player.getPosition()));
             /*
         	compatibility.playSound(player, shootSound,
                     silencerOn ? weapon.getSilencedShootSoundVolume() : weapon.getShootSoundVolume(), 1F);
@@ -308,9 +308,9 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         
         int currentAmmo = weaponInstance.getAmmo();
         if(currentAmmo == 1 && weapon.getEndOfShootSound() != null && !VMWHooksHandler.isOnServer()) {
-        	PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound().getSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, Minecraft.getMinecraft().player.getPosition().up(5));
+        	PositionedSoundRecord psr = new PositionedSoundRecord(weapon.getEndOfShootSound().getSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, mc.player.getPosition().up(5));
         	playShootSound(psr);
-        	//Minecraft.getMinecraft().getSoundHandler().playSound(psr);
+        	//mc.getSoundHandler().playSound(psr);
           
            
         }
@@ -357,7 +357,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
        
         //ClientValueRepo.gunPow.prevPosition = ClientValueRepo.gunPow.position;
         ClientValueRepo.fireWeapon(weaponInstance);
-       // System.out.println("Gun tick added @ " + Minecraft.getMinecraft().player.ticksExisted);
+       // System.out.println("Gun tick added @ " + mc.player.ticksExisted);
         //System.out.println("WFA: " + System.currentTimeMillis());
 
         if(weapon.isSmokeEnabled()) {
@@ -371,10 +371,10 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	
         	
         	float fovMult = 0.0f;
-        	if(Minecraft.getMinecraft().gameSettings.fovSetting < 70f) {
-        		fovMult = (Minecraft.getMinecraft().gameSettings.fovSetting/50);
+        	if(mc.gameSettings.fovSetting < 70f) {
+        		fovMult = (mc.gameSettings.fovSetting/50);
         	} else {
-        		fovMult = -(Minecraft.getMinecraft().gameSettings.fovSetting/200f);
+        		fovMult = -(mc.gameSettings.fovSetting/200f);
             	
         	}
         	//System.out.println(fovMult);
@@ -399,12 +399,12 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	// Calculate the final position of the bullet spawn point
         	// by changing it's position along its own vector
         	double distance = 0.5;
-			Vec3d eyePos = Minecraft.getMinecraft().player.getPositionEyes(1.0f);
+			Vec3d eyePos = mc.player.getPositionEyes(1.0f);
 			Vec3d finalPosition = rawPosition.subtract(eyePos).normalize().scale(distance).add(eyePos);
 			
         	// Calculate velocity as 90 degrees to player
 			Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
-    		velocity = velocity.rotateYaw((float) Math.toRadians(-Minecraft.getMinecraft().player.rotationYaw));
+    		velocity = velocity.rotateYaw((float) Math.toRadians(-mc.player.rotationYaw));
     		
     		// Spawn in shell
     		Shell shell = new Shell(weaponInstance.getWeapon().getShellType(), new Vec3d(finalPosition.x, finalPosition.y, finalPosition.z), new Vec3d(90, 0, 90), velocity);

@@ -1,7 +1,6 @@
 package com.vicmatskiv.weaponlib.shader.jim;
 
 import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
-import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.logging.log4j.LogManager;
@@ -13,6 +12,8 @@ import org.lwjgl.opengl.GL20;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class ShaderManager {
 	
@@ -84,7 +85,7 @@ public class ShaderManager {
 		}
 		
 		private static ByteBuffer readFileToBuf(ResourceLocation file) throws IOException {
-			InputStream in = Minecraft.getMinecraft().getResourceManager().getResource(file).getInputStream();
+			InputStream in = mc.getResourceManager().getResource(file).getInputStream();
 			byte[] bytes = IOUtils.toByteArray(in);
 			IOUtils.closeQuietly(in);
 			ByteBuffer buf = BufferUtils.createByteBuffer(bytes.length);

@@ -1,7 +1,8 @@
 package com.vicmatskiv.weaponlib.vehicle.smoothlib;
 
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
-import net.minecraft.client.Minecraft;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class PTIVal {
 	
@@ -19,7 +20,7 @@ public class PTIVal {
 	}
 	
 	public float getPTI() {
-		return (float) InterpolationKit.interpolateValue(prev, cur, Minecraft.getMinecraft().getRenderPartialTicks());
+		return (float) InterpolationKit.interpolateValue(prev, cur, mc.getRenderPartialTicks());
 	}
 
 }

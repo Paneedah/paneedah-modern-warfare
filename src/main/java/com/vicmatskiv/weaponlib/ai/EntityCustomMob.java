@@ -637,7 +637,7 @@ public class EntityCustomMob extends CompatibleEntityMob
     protected void displayTradeGui(EntityPlayer player) {
         Collection<MissionOffering> redeemableMissionOfferings = Missions.getRedeemableMissionOfferings(this, player);
         if(!redeemableMissionOfferings.isEmpty()) {
-            Minecraft.getMinecraft().displayGuiScreen(
+            mc.displayGuiScreen(
                     new MissionAcceptGui(
                             true, 
                             redeemableMissionOfferings.iterator().next(), 
@@ -646,7 +646,7 @@ public class EntityCustomMob extends CompatibleEntityMob
                             getConfiguration().getRewardsBackground(),
                             null));
         } else {
-            Minecraft.getMinecraft().displayGuiScreen(
+            mc.displayGuiScreen(
                     new MissionIntroGui(this, player, modContext, 
                             getConfiguration().getDialogContent(), 
                             getConfiguration().getDialogBackground(),

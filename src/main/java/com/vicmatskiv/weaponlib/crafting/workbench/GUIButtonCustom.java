@@ -251,7 +251,7 @@ public class GUIButtonCustom extends GuiButton {
         
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		GlStateManager.enableTexture2D();
-		Minecraft.getMinecraft().getTextureManager().bindTexture(this.loc);
+		mc.getTextureManager().bindTexture(this.loc);
 		
 		
 		int stringColor = 0;
@@ -279,7 +279,7 @@ public class GUIButtonCustom extends GuiButton {
 	
 		
 		
-		GUIRenderHelper.drawScaledString(this.displayString, this.x + this.width/2.0 - Minecraft.getMinecraft().fontRenderer.getStringWidth(this.displayString)/2.0, this.y + this.height/2.0 - Minecraft.getMinecraft().fontRenderer.FONT_HEIGHT/2.0, 1.0, stringColor);
+		GUIRenderHelper.drawScaledString(this.displayString, this.x + this.width/2.0 - mc.fontRenderer.getStringWidth(this.displayString)/2.0, this.y + this.height/2.0 - mc.fontRenderer.FONT_HEIGHT/2.0, 1.0, stringColor);
 		GlStateManager.color(1, 1, 1);
 	}
 	

@@ -2,7 +2,6 @@ package com.vicmatskiv.weaponlib.particle;
 
 import com.vicmatskiv.weaponlib.compatibility.CompatibleParticle;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleTessellator;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.util.ResourceLocation;
@@ -11,6 +10,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class SmokeFX extends CompatibleParticle {
@@ -81,7 +81,7 @@ public class SmokeFX extends CompatibleParticle {
 
     	
     	
-    	Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/smokes/smokesheet.png"));
+    	mc.getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/smokes/smokesheet.png"));
 
     	Random urandom = new Random(333);
 		
@@ -116,7 +116,7 @@ public class SmokeFX extends CompatibleParticle {
 		
     	
     	if(1+1==2) return;    	
-    	//Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(SMOKE_TEXTURE));
+    	//mc.getTextureManager().bindTexture(new ResourceLocation(SMOKE_TEXTURE));
 
 		GL11.glPushMatrix();
 		GL11.glPushAttrib(GL11.GL_ENABLE_BIT);

@@ -5,9 +5,10 @@ import com.vicmatskiv.weaponlib.ClientModContext;
 import com.vicmatskiv.weaponlib.animation.MatrixHelper;
 import com.vicmatskiv.weaponlib.numerical.RandomVector;
 import com.vicmatskiv.weaponlib.numerical.SpringVector;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class NewScreenshakingManager {
 	
@@ -58,7 +59,7 @@ public class NewScreenshakingManager {
 
 	
 	public void applyWorld() {
-		float pt = Minecraft.getMinecraft().getRenderPartialTicks();
+		float pt = mc.getRenderPartialTicks();
 		//double i = MatrixHelper.solveLerp(prevIntensity, intensity, pt);
 		
 		
@@ -86,7 +87,7 @@ public class NewScreenshakingManager {
 	
 	public void applyHead() {
 		
-		float pt = Minecraft.getMinecraft().getRenderPartialTicks();
+		float pt = mc.getRenderPartialTicks();
 		double i = MatrixHelper.solveLerp(prevIntensity, intensity, pt);
 		
 		

@@ -25,7 +25,7 @@ public class CoreSoundInterceptor {
     private static int echo0;
     
     public static void init(SoundSystem snds) {
-		mc = Minecraft.getMinecraft();
+		mc = mc;
 		soundSystem = snds;
 		try {
 			setup();

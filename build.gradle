@@ -1,51 +1,43 @@
 buildscript {
     repositories {
+        // mavenCentral is currently not needed but could be useful in the future if we decide for example to use Jafama
+        // mavenCentral()
         maven {
-            name = "forge"
-            url = "https://files.minecraftforge.net/maven"
+            name 'Forge'
+            url 'https://maven.minecraftforge.net'
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'com.anatawa12.forge:ForgeGradle:2.3-1.0.7'
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle.forge'
-//Only edit below this line, the above code adds and enables the nessasary things for Forge to be setup.
 
-
-version = "0.5.0.0"
-group= "com.vicmatskiv.mw" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "mw_3.0"
-
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
-
+// Add version to the Jar name
+version project.mod_version
 
 minecraft {
     version = "1.12.2-14.23.0.2491"
-    runDir = "run"
     mappings = "snapshot_20170624"
-}
 
+    runDir = "run"
 
-dependencies {
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    def args = '-Dfml.coreMods.load=com.vicmatskiv.weaponlib.core.WeaponlibCorePlugin'
+    clientJvmArgs.add(args)
+    serverJvmArgs.add(args)
+
+    replace('@VERSION@', project.mod_version)
+    replaceIn('ModernWarfareMod.java')
 }
 
 
 processResources {
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
+    duplicatesStrategy = 'include'
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
+        expand 'version': project.mod_version
     }
 
     from ('src/main/java') {
@@ -59,10 +51,20 @@ processResources {
     }
 }
 
+sourceJar {
+    // Weird should not be needed at all, but something in Weapon Lib seems to be duplicated or something.
+    // Doing this works just fine so it will be good enough for now.
+    // For future reference or if anyone want to take a guess:
+    // Execution failed for task ':sourceJar'.
+    // > Entry com/vicmatskiv/weaponlib/model/CameraModel.java is a duplicate but no duplicate handling strategy has been set. Please refer to https://docs.gradle.org/7.6/dsl/org.gradle.api.tasks.Copy.html#org.gradle.api.tasks.Copy:duplicatesStrategy for details.
+    duplicatesStrategy = 'include'
+}
 
 jar {
-    archiveName = "${archivesBaseName}-${version}_mc${project.minecraft.version}.jar"
-    manifest {
-        attributes("FMLCorePlugin": "com.vicmatskiv.weaponlib.core.WeaponlibCorePlugin", "FMLCorePluginContainsFMLMod": "true")
-    }
+    manifest.attributes([
+            'ModSide': 'BOTH',
+            'FMLCorePlugin': 'com.vicmatskiv.weaponlib.core.WeaponlibCorePlugin',
+            'FMLCorePluginContainsFMLMod': 'true',
+            'ForceLoadAsMod': 'true'
+    ])
 }

@@ -4,7 +4,6 @@ import com.vicmatskiv.weaponlib.DefaultPart;
 import com.vicmatskiv.weaponlib.RenderContext;
 import com.vicmatskiv.weaponlib.RenderableState;
 import com.vicmatskiv.weaponlib.compatibility.Interceptors;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.GlStateManager;
@@ -22,6 +21,8 @@ import java.nio.FloatBuffer;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 
 public class MultipartRenderStateManager<State, Part, Context extends PartPositionProvider> {
@@ -193,8 +194,8 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 				if(targetState.sound != null) {
 					//System.out.println(targetState.sound.getResourceLocation());
 					
-					PositionedSoundRecord psr = new PositionedSoundRecord(targetState.sound.getSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, Minecraft.getMinecraft().player.getPosition().up(5));
-		        	Minecraft.getMinecraft().getSoundHandler().playSound(psr);
+					PositionedSoundRecord psr = new PositionedSoundRecord(targetState.sound.getSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, mc.player.getPosition().up(5));
+		        	mc.getSoundHandler().playSound(psr);
 				}
 			}
 			
@@ -272,7 +273,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 						
 						
 						
-						if(Minecraft.getMinecraft().gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
+						if(mc.gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
 								&& ((toState == RenderableState.ZOOMING && fromState == RenderableState.NORMAL) ||
 										(toState == RenderableState.NORMAL && fromState == RenderableState.ZOOMING))) {
 							
@@ -318,7 +319,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 					/*
 					 * try {
 						if(targetState.sound != null) {
-							Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(targetState.sound, 1.0f));
+							mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(targetState.sound, 1.0f));
 							
 						}
 					} catch(Exception e) {
@@ -338,7 +339,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 					
 					boolean cancelBeizer = (context instanceof RenderContext<?>) && ((RenderContext<?>) context).getCancelBeizer();
 					
-					if(!cancelBeizer && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
+					if(!cancelBeizer && mc.gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
 							&& ((toState == RenderableState.ZOOMING && fromState == RenderableState.NORMAL) ||
 									(toState == RenderableState.NORMAL && fromState == RenderableState.ZOOMING))) {
 						

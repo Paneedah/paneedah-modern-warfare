@@ -1,7 +1,8 @@
 package com.vicmatskiv.weaponlib.numerical;
 
 import com.vicmatskiv.weaponlib.animation.MatrixHelper;
-import net.minecraft.client.Minecraft;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 /**
  * Simulates a spring. Used for lots of effects that intend
@@ -134,12 +135,12 @@ public class SpringValue {
 	}
 
 	public double getLerpedPosition() {
-		return getLerpedPosition(Minecraft.getMinecraft().getRenderPartialTicks());
+		return getLerpedPosition(mc.getRenderPartialTicks());
 	}
 
 	public double getLerpedPosition(double mu) {
 		return MatrixHelper.solveLerp((float) this.prevPosition, (float) this.position,
-				Minecraft.getMinecraft().getRenderPartialTicks());
+				mc.getRenderPartialTicks());
 	}
 
 	public float getLerpedFloat() {

@@ -9,7 +9,6 @@ import com.vicmatskiv.weaponlib.animation.gui.AnimationGUI;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
 import com.vicmatskiv.weaponlib.render.SpriteSheetTools.Sprite;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -19,6 +18,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class MuzzleFlashRenderer {
 	
@@ -40,11 +41,11 @@ public class MuzzleFlashRenderer {
 		 
 		Weapon weapon = (Weapon) weaponItemStack.getItem();
 		
-		if(!(Minecraft.getMinecraft().world.getEntityByID(entityID) instanceof EntityPlayer)) {
+		if(!(mc.world.getEntityByID(entityID) instanceof EntityPlayer)) {
 			return;
 		}
 		
-		EntityPlayer player = (EntityPlayer) Minecraft.getMinecraft().world.getEntityByID(entityID);
+		EntityPlayer player = (EntityPlayer) mc.world.getEntityByID(entityID);
 		
 		
 		boolean isPetalFlash = weapon.hasFlashPedals();
@@ -58,7 +59,7 @@ public class MuzzleFlashRenderer {
 	
 		
 		
-		boolean shouldRenderCrossplane = Minecraft.getMinecraft().world.getEntityByID(entityID) != Minecraft.getMinecraft().player || Minecraft.getMinecraft().gameSettings.thirdPersonView != 0;
+		boolean shouldRenderCrossplane = mc.world.getEntityByID(entityID) != mc.player || mc.gameSettings.thirdPersonView != 0;
 
 		//OpenGlHelper.glFramebufferTexture2D(OpenGlHelper.GL_FRAMEBUFFER, GL30.GL_COLOR_ATTACHMENT1, GL11.GL_TEXTURE_2D, Bloom.data.framebufferTexture, 0);
 		//
@@ -80,7 +81,7 @@ public class MuzzleFlashRenderer {
 		}
 		GlStateManager.translate(muzzle.x, muzzle.y, muzzle.z);
 
-		Minecraft.getMinecraft().getTextureManager().bindTexture(FLASH_SHEET);
+		mc.getTextureManager().bindTexture(FLASH_SHEET);
 		
 		// This makes OpenGL sample linearly from
 		// the texture which makes it look nice instead
@@ -135,7 +136,7 @@ public class MuzzleFlashRenderer {
 	
 		if(isSuppressedFlash) {
 			Sprite suppressedSprite = SpriteSheetTools.getSquareSprite(0, 512, 512, 512);
-			Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("mw:textures/flashes/supre.png"));
+			mc.getTextureManager().bindTexture(new ResourceLocation("mw:textures/flashes/supre.png"));
 	    	
 			//GlStateManager.disableTexture2D();
 	    	renderFlippedCrossPlane(suppressedSprite, 1, 0.0, 0, size/2, size/2);

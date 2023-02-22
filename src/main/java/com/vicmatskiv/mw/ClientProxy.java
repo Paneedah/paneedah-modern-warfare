@@ -14,13 +14,14 @@ import com.vicmatskiv.weaponlib.inventory.CustomPlayerInventoryTab;
 import com.vicmatskiv.weaponlib.inventory.InventoryTabs;
 import com.vicmatskiv.weaponlib.inventory.StandardPlayerInventoryTab;
 import com.vicmatskiv.weaponlib.render.CustomArmorLayer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class ClientProxy extends CommonProxy {
 
@@ -51,27 +52,27 @@ public class ClientProxy extends CommonProxy {
 	    
 	    PlayerAnimations.init(mod, null, event);
 	    
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+        mc.getRenderItem().getItemModelMesher()
         .register(Item.getItemFromBlock(Ores.CopperOre), 0,
                 new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "copperore", "inventory"));
 
-//        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+//        mc.getRenderItem().getItemModelMesher()
 //        .register(Item.getItemFromBlock(Ores.LeadOre), 0,
 //                new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "leadore", "inventory"));
 
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+        mc.getRenderItem().getItemModelMesher()
         .register(Item.getItemFromBlock(Ores.SulfurOre), 0,
                 new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "sulfurore", "inventory"));
 
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+        mc.getRenderItem().getItemModelMesher()
         .register(Item.getItemFromBlock(Ores.TinOre), 0,
                 new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "tinore", "inventory"));
         
-//        Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+//        mc.getRenderItem().getItemModelMesher()
 //        .register(Item.getItemFromBlock(Ores.GraphiteOre), 0,
 //                new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "graphiteore", "inventory"));
 
-        RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+        RenderItem renderItem = mc.getRenderItem();
                 
         renderItem.getItemModelMesher().register(Ores.CopperIngot, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "copperingot", "inventory"));
 //        renderItem.getItemModelMesher().register(Ores.LeadIngot, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "leadingot", "inventory"));
@@ -156,6 +157,6 @@ public class ClientProxy extends CommonProxy {
 	
 	@Override
 	public void postInit(Object mod, ConfigurationManager configurationManager, FMLPostInitializationEvent event) {
-	    Minecraft.getMinecraft().getRenderManager().getSkinMap().forEach((p, r) -> r.addLayer(new CustomArmorLayer(r)));
+	    mc.getRenderManager().getSkinMap().forEach((p, r) -> r.addLayer(new CustomArmorLayer(r)));
 	}
 }

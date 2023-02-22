@@ -1,6 +1,6 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
-import net.minecraft.client.Minecraft;
+import com.vicmatskiv.mw.ModernWarfareMod;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -19,7 +19,7 @@ public abstract class CompatibleGuiContainer extends GuiContainer {
     
     public static void renderEntityWithPosYaw(EntityLivingBase entity, double x, double y, double z, float yaw,
             float partialTicks) {
-        Minecraft.getMinecraft().getRenderManager().doRenderEntity(entity, x, y, z, yaw, partialTicks, true);
+        ModernWarfareMod.mc.getRenderManager().doRenderEntity(entity, x, y, z, yaw, partialTicks, true);
     }
     
     /**
@@ -81,7 +81,7 @@ public abstract class CompatibleGuiContainer extends GuiContainer {
          entity.rotationYawHead = entity.rotationYaw;
          entity.prevRotationYawHead = entity.rotationYaw;
          GlStateManager.translate(0.0F, 0.0F, 0.0F);
-         RenderManager rendermanager = Minecraft.getMinecraft().getRenderManager();
+         RenderManager rendermanager = ModernWarfareMod.mc.getRenderManager();
          rendermanager.setPlayerViewY(180.0F);
          rendermanager.setRenderShadow(false);
          rendermanager.doRenderEntity(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, false);
@@ -108,7 +108,7 @@ public abstract class CompatibleGuiContainer extends GuiContainer {
     }
 
     protected static void setPlayerViewY(float f) {
-        Minecraft.getMinecraft().getRenderManager().playerViewY = 180.0F;
+        ModernWarfareMod.mc.getRenderManager().playerViewY = 180.0F;
     }
     
     @Override

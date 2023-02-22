@@ -13,7 +13,6 @@
  import com.vicmatskiv.weaponlib.render.SpriteSheetTools.Sprite;
  import com.vicmatskiv.weaponlib.shader.jim.Shader;
  import net.minecraft.block.state.IBlockState;
- import net.minecraft.client.Minecraft;
  import net.minecraft.client.entity.AbstractClientPlayer;
  import net.minecraft.client.gui.ScaledResolution;
  import net.minecraft.client.model.ModelBase;
@@ -54,7 +53,7 @@
  import javax.annotation.Nullable;
  import javax.imageio.ImageIO;
  import javax.vecmath.Matrix4f;
- import java.awt.*;
+ import java.awt.Color;
  import java.awt.image.BufferedImage;
  import java.io.IOException;
  import java.io.InputStream;
@@ -63,6 +62,8 @@
  import java.util.Collections;
  import java.util.List;
  import java.util.Map;
+
+ import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 		
 
 public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer implements IBakedModel {
@@ -130,7 +131,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 	protected CompatibleWeaponRenderer(WeaponRenderer.Builder builder) {
 		this.builder = builder;
 
-		this.textureManager = Minecraft.getMinecraft().getTextureManager();
+		this.textureManager = mc.getTextureManager();
 		this.pair = Pair.of((IBakedModel) this, null);
 		this.playerBiped = new ModelBiped();
 		this.playerBiped.textureWidth = 64;
@@ -203,7 +204,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 					OpenGLSelectionHelper.readValueAtMousePosition();
 				}
 
-				Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(false);
+				mc.getFramebuffer().bindFramebuffer(false);
 			}
 
 			if (currentTextureId != 0) {
@@ -243,7 +244,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 
 	@Override
 	public TextureAtlasSprite getParticleTexture() {
-		return Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
+		return mc.getTextureMapBlocks().getMissingSprite();
 	}
 
 	public void setOwner(EntityLivingBase player) {
@@ -293,13 +294,12 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 		// "animation.HKgrip.reload2", "bone4").bbTransition);
 		GL11.glPushMatrix();
 
-		// Framebuffer originalFramebuffer = Minecraft.getMinecraft().getFramebuffer();
+		// Framebuffer originalFramebuffer = mc.getFramebuffer();
 		Framebuffer framebuffer = null;
 		Integer inventoryTexture = null;
 
 		boolean inventoryTextureInitializationPhaseOn = false;
-		
-		Minecraft mc = Minecraft.getMinecraft();
+
 		final ScaledResolution scaledresolution = new ScaledResolution(mc);
 
 		int originalFramebufferId = -1;
@@ -310,7 +310,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			Object textureMapKey = this; // weaponItemStack != null ? weaponItemStack : this;
 			inventoryTexture = getClientModContext().getInventoryTextureMap().get(textureMapKey);
  
-			//Minecraft.getMinecraft().getFramebuffer()
+			//mc.getFramebuffer()
 			
 			if (inventoryTexture == null) {
 				
@@ -337,8 +337,8 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 				GLCompatible.glBindFramebuffer(GLCompatible.GL_FRAMEBUFFER, multisampleFBO);
 				multiampleTexFBO = GL11.glGenTextures();
 				
-				int width = Minecraft.getMinecraft().displayWidth;
-				int height = Minecraft.getMinecraft().displayHeight;
+				int width = mc.displayWidth;
+				int height = mc.displayHeight;
 				
 				GL11.glBindTexture(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, multiampleTexFBO);
 				GLCompatible.glTexImage2DMultisample(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 4, GL11.GL_RGBA8, width, height, false);*/
@@ -511,7 +511,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 				Shader grid = Shaders.grid;
 				// GlStateManager.rotate(45f, 0, 1, 0);
 				// GlStateManager.disableTexture2D();
-				//Minecraft.getMinecraft().getTextureManager().bindTexture(loc);
+				//mc.getTextureManager().bindTexture(loc);
 				// GlStateManager.disableDepth();
 				grid.use();
 				GlStateManager.disableCull();
@@ -589,7 +589,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			float time = (float) (35f - (ClientValueRepo.gunPow / 400));
 			if (min != 1.0)
 				time = 35f;
-			float tick = (float) ((float) maxAngle * ((Minecraft.getMinecraft().player.ticksExisted % time) / time))
+			float tick = (float) ((float) maxAngle * ((mc.player.ticksExisted % time) / time))
 					- (maxAngle / 2);
 
 			double amp = 0.07 + (ClientValueRepo.gunPow / 700);
@@ -597,7 +597,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			double b = 2;
 			double c = Math.PI;
 
-			EntityPlayer p = Minecraft.getMinecraft().player;
+			EntityPlayer p = mc.player;
 
 			float xRotation = (float) ((float) amp * Math.sin(a * tick + c));
 			float yRotation = (float) ((float) amp * Math.sin(b * tick));
@@ -667,25 +667,25 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 				fight *= min;
 				// +-+
 
-				// System.out.println(Minecraft.getMinecraft().player.motionY);
+				// System.out.println(mc.player.motionY);
 				// float prevWiggle = (float)
-				// (2*Math.PI*((Minecraft.getMinecraft().player.ticksExisted%20)/20.0))*Minecraft.getMinecraft().getRenderPartialTicks();
+				// (2*Math.PI*((mc.player.ticksExisted%20)/20.0))*mc.getRenderPartialTicks();
 				float prevTickWiggle = (float) (2 * Math.PI
-						* (((Minecraft.getMinecraft().player.ticksExisted - 1) % 20) / 20.0));
+						* (((mc.player.ticksExisted - 1) % 20) / 20.0));
 
-				// System.out.println(Minecraft.getMinecraft().player.ticksExisted);
+				// System.out.println(mc.player.ticksExisted);
 				float tickWiggle = (float) (2 * Math.PI * (((ClientValueRepo.ticker.getLerpedFloat()) % 36) / 36.0));
 
 		
 				// tickWiggle = MatrixHelper.solveLerp((float) ClientValueRepo.walkYWiggle,
-				// tickWiggle, Minecraft.getMinecraft().getRenderPartialTicks());
+				// tickWiggle, mc.getRenderPartialTicks());
 
 				
 				
 				float xWiggle = (float) ((float) Math.sin(tickWiggle) * ClientValueRepo.walkingGun.getLerpedPosition());
 				
 				// xWiggle = MatrixHelper.solveLerp((float) ClientValueRepo.walkXWiggle,
-				// xWiggle, Minecraft.getMinecraft().getRenderPartialTicks());
+				// xWiggle, mc.getRenderPartialTicks());
 
 				// ClientValueRepo.walkXWiggle = xWiggle;
 
@@ -823,7 +823,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			// Dloom.bloomData.bindFramebuffer(true);
 			// renderItem(itemStack, renderContext, positioner);
 			// GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE);
-			// Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(false);
+			// mc.getFramebuffer().bindFramebuffer(false);
 
 			
 			
@@ -857,7 +857,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 					//Bloom.initializeMultisample();
 					//GlStateManager.scale(20, 20, 20);
 					//System.out.println(GL11.glGetError());
-				//	msaaBuffer.bindMSAABuffer(Minecraft.getMinecraft().getFramebuffer().framebufferObject);
+				//	msaaBuffer.bindMSAABuffer(mc.getFramebuffer().framebufferObject);
 					GlStateManager.enableBlend();
 					GlStateManager.enableAlpha();
 					//Bloom.initializeMultisample(framebuffer);
@@ -993,8 +993,8 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 
 			
 			
-			Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
-			Bloom.renderFboTriangle(Minecraft.getMinecraft().getFramebuffer());
+			mc.getFramebuffer().bindFramebuffer(true);
+			Bloom.renderFboTriangle(mc.getFramebuffer());
 			Shaders.selectedge.release();
 
 			OpenGLSelectionHelper.bindBallBuf();
@@ -1120,7 +1120,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			GL11.glScalef(1.0F, -1.0F, 1F);
 			GlStateManager.translate(-8.0F, -8.0F, 0.0F);
 			
-			Minecraft.getMinecraft().getTextureManager().bindTexture(ResourceManager.GUN_ICON_SHEET);
+			mc.getTextureManager().bindTexture(ResourceManager.GUN_ICON_SHEET);
 
 
 			// Checks to see if the gun icon sheet has already
@@ -1130,7 +1130,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 
                 
                 try {
-                	InputStream inputStream = Minecraft.getMinecraft().getResourceManager().getResource(ResourceManager.GUN_ICON_SHEET).getInputStream();
+                	InputStream inputStream = mc.getResourceManager().getResource(ResourceManager.GUN_ICON_SHEET).getInputStream();
                     BufferedImage bf = ImageIO.read(inputStream);
 
                     gunIconSheetWidth = bf.getWidth();
@@ -1243,10 +1243,10 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 		
 		
 		
-		Render<AbstractClientPlayer> entityRenderObject = Minecraft.getMinecraft().getRenderManager()
+		Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager()
 				.getEntityRenderObject((AbstractClientPlayer) player);
 		RenderPlayer render = (RenderPlayer) entityRenderObject;
-		Minecraft.getMinecraft().getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
+		mc.getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
 
 		GL11.glPushMatrix();
 		// GL11.glTranslatef(0.5f, 0f, 0.0f);
@@ -1301,10 +1301,10 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 	static <T> void renderSpecialLeftArm(EntityLivingBase player, RenderContext<T> renderContext,
 			Positioner<Part, RenderContext<T>> positioner) {
 
-		Render<AbstractClientPlayer> entityRenderObject = Minecraft.getMinecraft().getRenderManager()
+		Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager()
 				.getEntityRenderObject((AbstractClientPlayer) player);
 		RenderPlayer render = (RenderPlayer) entityRenderObject;
-		Minecraft.getMinecraft().getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
+		mc.getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
 
 		GL11.glPushMatrix();
 	
@@ -1320,7 +1320,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 		
 		GlStateManager.translate(5,-5, -2);
 		
-		float mcT = 45f*(Minecraft.getMinecraft().player.ticksExisted%20)/20f;
+		float mcT = 45f*(mc.player.ticksExisted%20)/20f;
 		
 		GlStateManager.rotate(mcT, 0, 1, 0);
 		
@@ -1405,10 +1405,10 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 
 		//if(true) return;
 		
-		Render<AbstractClientPlayer> entityRenderObject = Minecraft.getMinecraft().getRenderManager()
+		Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager()
 				.getEntityRenderObject((AbstractClientPlayer) player);
 		RenderPlayer render = (RenderPlayer) entityRenderObject;
-		Minecraft.getMinecraft().getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
+		mc.getTextureManager().bindTexture(((AbstractClientPlayer) player).getLocationSkin());
 
 		GL11.glPushMatrix();
 		if (AnimationModeProcessor.getInstance().isLegacyMode()) {
@@ -1419,7 +1419,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 			GL11.glRotatef(10F, 0f, 0f, 1f);
 		}
 		
-		float mct = 45f*((Minecraft.getMinecraft().player.ticksExisted%45)/45f);
+		float mct = 45f*((mc.player.ticksExisted%45)/45f);
 		
 		
 	
@@ -1704,7 +1704,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 		toRender.swingProgress = 0.0F;
 		toRender.setRotationAngles(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, clientPlayer);
 
-		if (!AnimationModeProcessor.getInstance().isLegacyMode() && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0) {
+		if (!AnimationModeProcessor.getInstance().isLegacyMode() && mc.gameSettings.thirdPersonView == 0) {
 			
 			toRender.bipedLeftArm.rotateAngleX = (float) Math.toRadians(-90);
 			toRender.bipedLeftArm.rotateAngleY = 0f;
@@ -1715,7 +1715,7 @@ public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer imple
 		}
 		
 		
-		if(AnimationModeProcessor.getInstance().isLegacyMode() || Minecraft.getMinecraft().gameSettings.thirdPersonView != 0) {
+		if(AnimationModeProcessor.getInstance().isLegacyMode() || mc.gameSettings.thirdPersonView != 0) {
 			
 			toRender.bipedLeftArm.offsetX = 0f;
 			toRender.bipedLeftArm.offsetY = 0f;

@@ -3,11 +3,12 @@ package com.vicmatskiv.weaponlib;
 import com.vicmatskiv.weaponlib.animation.Transform;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityRenderer;
 import com.vicmatskiv.weaponlib.particle.BetterMuzzleSmoke;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class SpawnEntityRenderer extends CompatibleEntityRenderer {
 
@@ -78,7 +79,7 @@ public class SpawnEntityRenderer extends CompatibleEntityRenderer {
                 		      (float)0,
                 		      (int)0);
 
-                		Minecraft.getMinecraft().effectRenderer.addEffect(smokeParticle);
+                		mc.effectRenderer.addEffect(smokeParticle);
             		}
             		
             		

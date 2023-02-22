@@ -6,18 +6,18 @@ import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageContext;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageHandler;
 import com.vicmatskiv.weaponlib.crafting.base.TileEntityStation;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.client.Minecraft;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class StationClientPacket implements CompatibleMessage {
 
 	// THIS ONLY EXISTS ON THE SERVER END, THIS
 	// VARIABLE WILL BE NULL ON THE CLIENT END.
-	// USE MINECRAFT.GETMINECRAFT() INSTEAD.
+	// USE mc INSTEAD.
 	public World world;
 
 	public BlockPos pos;
@@ -73,7 +73,7 @@ public class StationClientPacket implements CompatibleMessage {
 			 if(!ctx.isServerSide()) {
 		            compatibility.runInMainClientThread(() -> {
 					
-		            	TileEntity te = Minecraft.getMinecraft().world.getTileEntity(m.pos);
+		            	TileEntity te = mc.world.getTileEntity(m.pos);
 		        		if(te != null && te instanceof TileEntityStation) {
 		        			TileEntityStation station = (TileEntityStation) te;
 		        			station.readBytesFromClientSync(m.copiedBuf);

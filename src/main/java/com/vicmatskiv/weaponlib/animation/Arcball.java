@@ -1,14 +1,12 @@
 package com.vicmatskiv.weaponlib.animation;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.util.vector.Quaternion;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+
 public class Arcball {
-	
-	public static final Minecraft mc = Minecraft.getMinecraft();
-	
 	
 	public static int grabX;
 	public static int grabY;

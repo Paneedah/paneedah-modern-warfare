@@ -5,7 +5,6 @@ import com.vicmatskiv.weaponlib.animation.jim.KeyStateAnimator;
 import com.vicmatskiv.weaponlib.render.ScreenRenderer;
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.Transmission;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.model.ModelBase;
@@ -17,12 +16,14 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
-import java.awt.*;
+import java.awt.Color;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class VehicleCustomGUI extends Gui {
 	
 	// SCALED RESOLUTION
-	public static final ScaledResolution SCALE_RES = new ScaledResolution(Minecraft.getMinecraft());
+	public static final ScaledResolution SCALE_RES = new ScaledResolution(mc);
 	
 	// LOCK & KEY MODELS
 	public static ModelBase keyModel;
@@ -82,7 +83,7 @@ public class VehicleCustomGUI extends Gui {
 		GlStateManager.color(1.0f, 1.0f, 1.0f);
 		
 		
-		double interpolatedAng = prevAngle + (angle-prevAngle)*Minecraft.getMinecraft().getRenderPartialTicks();
+		double interpolatedAng = prevAngle + (angle-prevAngle)*mc.getRenderPartialTicks();
 		
 		GlStateManager.translate(x, y, 0.0);
 		GlStateManager.rotate((float) interpolatedAng, 0, 0, 1);
@@ -209,7 +210,7 @@ public class VehicleCustomGUI extends Gui {
 		
 		Vec3d oN = pattern.doAnimation(transmission.shiftTimer, transmission.maxShiftTime, transmission.startGear, transmission.targetGear).scale(30.25);
 		
-		oN = GearShiftPattern.interpVec3d(on2, oN, Minecraft.getMinecraft().getRenderPartialTicks());
+		oN = GearShiftPattern.interpVec3d(on2, oN, mc.getRenderPartialTicks());
 		double nX = oN.z;
 		double nZ = -oN.x;
 		
@@ -234,7 +235,7 @@ public class VehicleCustomGUI extends Gui {
 		
 		// render knob
 		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/gui/caricons.png");
-		Minecraft.getMinecraft().getTextureManager().bindTexture(loc);
+		mc.getTextureManager().bindTexture(loc);
 		GlStateManager.color(1.0f, 1.0f, 1.0f);
 		GL11.glTranslated(x+nX, y+nZ, 0);
 		GL11.glScaled(0.8, 0.8, 0.8);
@@ -252,7 +253,7 @@ public class VehicleCustomGUI extends Gui {
 	
 	public void drawSpeedometer(EntityVehicle vehicle, double x, double y, int maxRPM, int gear, double rpm, double speed, double ratio) {
 		GL11.glPushMatrix();
-		double scale = (new ScaledResolution(Minecraft.getMinecraft())).getScaledWidth()/640.0;
+		double scale = (new ScaledResolution(mc)).getScaledWidth()/640.0;
 		//GL11.glScaled(scale, scale, scale);
 		//x /= scale;
 		//y /= scale;
@@ -267,8 +268,8 @@ public class VehicleCustomGUI extends Gui {
 		}
 		
 		
-		if(Minecraft.getMinecraft().gameSettings.thirdPersonView != oldPOV) {
-			oldPOV = Minecraft.getMinecraft().gameSettings.thirdPersonView;
+		if(mc.gameSettings.thirdPersonView != oldPOV) {
+			oldPOV = mc.gameSettings.thirdPersonView;
 			if(sat.isComplete()) sat.reset();
 		}
 		
@@ -294,7 +295,7 @@ public class VehicleCustomGUI extends Gui {
 		
 		float prevRPMAngle = (float) (0.0 + ((maxAng+45)-0.0)*(vehicle.solver.getPreviousRPM()/(double) maxRPM));
 		
-		//float rpmAng = prevRPMAngle + (newRPMAngle-prevRPMAngle)*Minecraft.getMinecraft().getRenderPartialTicks();
+		//float rpmAng = prevRPMAngle + (newRPMAngle-prevRPMAngle)*mc.getRenderPartialTicks();
 
 		
 		
@@ -330,7 +331,7 @@ public class VehicleCustomGUI extends Gui {
 				color = 0xc0392b;
 			}
 			
-			drawCenteredString(Minecraft.getMinecraft().fontRenderer, "" + n, (int) cos, (int) sin-4, color);
+			drawCenteredString(mc.fontRenderer, "" + n, (int) cos, (int) sin-4, color);
 		}
 		
 		GL11.glPopMatrix();
@@ -382,16 +383,16 @@ public class VehicleCustomGUI extends Gui {
 		
 		
 		if(transmission.isReverseGear) {
-			drawCenteredString(Minecraft.getMinecraft().fontRenderer, "R", 0, -4, 0x10ac84);
+			drawCenteredString(mc.fontRenderer, "R", 0, -4, 0x10ac84);
 		} else if(transmission.inNeutral()){
-			drawCenteredString(Minecraft.getMinecraft().fontRenderer, "N", 0, -4, 0xc8d6e5);
+			drawCenteredString(mc.fontRenderer, "N", 0, -4, 0xc8d6e5);
 			
 		} else {
-				drawCenteredString(Minecraft.getMinecraft().fontRenderer, "" + gear, 0, -4, 0x4cd137);
+				drawCenteredString(mc.fontRenderer, "" + gear, 0, -4, 0x4cd137);
 				
 		}
 		double valie = Math.floor(vehicle.getSolver().rearAxel.leftWheel.wheelAngularVelocity);
-		//drawCenteredString(Minecraft.getMinecraft().fontRenderer, "" + valie, 0, -48, 0x4cd137);
+		//drawCenteredString(mc.fontRenderer, "" + valie, 0, -48, 0x4cd137);
 		
 		
 		GL11.glPopMatrix();
@@ -401,11 +402,11 @@ public class VehicleCustomGUI extends Gui {
 		GL11.glTranslated(x, y, 0);
 		GL11.glScaled(2.0, 2.0, 2.0);
 		int fixedSpeed = (int) Math.round(speed*3.6);
-		drawCenteredString(Minecraft.getMinecraft().fontRenderer, "" + fixedSpeed, 20, 2, 0xc8d6e5);
+		drawCenteredString(mc.fontRenderer, "" + fixedSpeed, 20, 2, 0xc8d6e5);
 		
 		GL11.glPushMatrix();
 		GL11.glScaled(0.4, 0.4, 0.4);
-		drawCenteredString(Minecraft.getMinecraft().fontRenderer, "km/h", 53, 25, 0xc8d6e5);
+		drawCenteredString(mc.fontRenderer, "km/h", 53, 25, 0xc8d6e5);
 		
 		GL11.glPopMatrix();
 		
@@ -431,7 +432,7 @@ public class VehicleCustomGUI extends Gui {
 
 		double pM = Math.sin(vehicle.ticksExisted/2)*3;
 		double ppM = Math.sin((vehicle.ticksExisted-1)/2)*3;
-		double iPM = InterpolationKit.interpolateValue(ppM, pM, Minecraft.getMinecraft().getRenderPartialTicks());
+		double iPM = InterpolationKit.interpolateValue(ppM, pM, mc.getRenderPartialTicks());
 		
 		
 
@@ -478,7 +479,7 @@ public class VehicleCustomGUI extends Gui {
 		
 		
 		
-		//GuiInventory.drawEntityOnScreen(320, 169, 30, 30, 30, Minecraft.getMinecraft().player);
+		//GuiInventory.drawEntityOnScreen(320, 169, 30, 30, 30, mc.player);
 		
 		GL11.glPopMatrix();
 	}
@@ -486,7 +487,7 @@ public class VehicleCustomGUI extends Gui {
 	
 	public void renderGUI(EntityVehicle vehicle) {
 		
-		ScaledResolution sr = new ScaledResolution(Minecraft.getMinecraft());
+		ScaledResolution sr = new ScaledResolution(mc);
 		
 		
 		double width = sr.getScaledWidth();
@@ -520,7 +521,7 @@ public class VehicleCustomGUI extends Gui {
 		
 		if(!vehicle.isVehicleRunning()) {
 			
-			drawCenteredString(Minecraft.getMinecraft().fontRenderer, "Press " + KeyBindings.vehicleTurnOff.getDisplayName(), (int) x-80, (int) y-78, 0xc8d6e5);
+			drawCenteredString(mc.fontRenderer, "Press " + KeyBindings.vehicleTurnOff.getDisplayName(), (int) x-80, (int) y-78, 0xc8d6e5);
 			
 		}
 		

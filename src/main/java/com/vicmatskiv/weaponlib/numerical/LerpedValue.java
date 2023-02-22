@@ -1,7 +1,8 @@
 package com.vicmatskiv.weaponlib.numerical;
 
 import com.vicmatskiv.weaponlib.animation.MatrixHelper;
-import net.minecraft.client.Minecraft;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class LerpedValue {
 	
@@ -45,7 +46,7 @@ public class LerpedValue {
 	}
 	
 	public double getLerped() {
-		return MatrixHelper.solveLerp(this.previousValue, this.currentValue, Minecraft.getMinecraft().getRenderPartialTicks());
+		return MatrixHelper.solveLerp(this.previousValue, this.currentValue, mc.getRenderPartialTicks());
 	}
 	
 	public float getLerpedFloat() {

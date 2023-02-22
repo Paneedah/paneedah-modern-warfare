@@ -135,7 +135,7 @@ public class CustomTileEntityConfiguration<T extends CustomTileEntityConfigurati
                 ResourceLocation textureResource, Consumer<TileEntity> positioning, CustomTileEntityBlock tileEntityBlock) {
             try {
 
-//                Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+//                mc.getRenderItem().getItemModelMesher()
 //                    .register(Item.getItemFromBlock(tileEntityBlock), 0,
 //                        new ModelResourceLocation(context.getModId() + ":" + name, "inventory"));
                 
