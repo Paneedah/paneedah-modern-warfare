@@ -23,6 +23,10 @@ minecraft {
 
     runDir = "run"
 
+    def args = '-Dfml.coreMods.load=com.vicmatskiv.weaponlib.core.WeaponlibCorePlugin'
+    clientJvmArgs.add(args)
+    serverJvmArgs.add(args)
+
     replace('@VERSION@', project.mod_version)
     replaceIn('ModernWarfareMod.java')
 }
