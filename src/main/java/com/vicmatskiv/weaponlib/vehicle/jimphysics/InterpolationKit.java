@@ -1,16 +1,17 @@
 package com.vicmatskiv.weaponlib.vehicle.jimphysics;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class InterpolationKit {
 
 	
 	public static Vec3d interpolatedEntityPosition(Entity en) {
-		return new Vec3d(interpolateValue(en.prevPosX, en.posX, Minecraft.getMinecraft().getRenderPartialTicks()),
-				interpolateValue(en.prevPosY, en.posY, Minecraft.getMinecraft().getRenderPartialTicks()),
-				interpolateValue(en.prevPosZ, en.posZ, Minecraft.getMinecraft().getRenderPartialTicks())
+		return new Vec3d(interpolateValue(en.prevPosX, en.posX, mc.getRenderPartialTicks()),
+				interpolateValue(en.prevPosY, en.posY, mc.getRenderPartialTicks()),
+				interpolateValue(en.prevPosZ, en.posZ, mc.getRenderPartialTicks())
 				);
 		
 	}

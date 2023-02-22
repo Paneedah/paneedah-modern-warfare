@@ -1,8 +1,5 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
-import org.lwjgl.opengl.GL11;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.layers.LayerBipedArmor;
@@ -11,13 +8,16 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.GL11;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 @SideOnly(Side.CLIENT)
 public class CompatibleRenderBiped<T extends EntityLiving> extends RenderBiped<T> {
 
 
     public CompatibleRenderBiped(ModelBiped model, float f) {
-        super(Minecraft.getMinecraft().getRenderManager(), model, f);
+        super(mc.getRenderManager(), model, f);
         this.addLayer(new LayerHeldItem(this));
         this.addLayer(new LayerBipedArmor(this) {
             protected void initArmor() {

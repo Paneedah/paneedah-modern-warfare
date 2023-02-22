@@ -1,17 +1,14 @@
 package com.vicmatskiv.weaponlib.render;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-
-import javax.vecmath.Vector2d;
-
-import org.lwjgl.opengl.GL11;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import org.lwjgl.opengl.GL11;
+
+import java.util.LinkedList;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class RadarChart {
 	
@@ -214,9 +211,9 @@ public class RadarChart {
 			
 			
 			double angle = a - rotation;
-			double textCenter = Minecraft.getMinecraft().fontRenderer.getStringWidth(text)/2;
-			double centerHeight = Minecraft.getMinecraft().fontRenderer.FONT_HEIGHT/2.0;
-			Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(text, (float) (Math.cos(angle)*textRadius + x - textCenter) , (float) (Math.sin(angle)*textRadius + y - centerHeight), 0xffffff);
+			double textCenter = mc.fontRenderer.getStringWidth(text)/2;
+			double centerHeight = mc.fontRenderer.FONT_HEIGHT/2.0;
+			mc.fontRenderer.drawStringWithShadow(text, (float) (Math.cos(angle)*textRadius + x - textCenter) , (float) (Math.sin(angle)*textRadius + y - centerHeight), 0xffffff);
 		}
 		
 		

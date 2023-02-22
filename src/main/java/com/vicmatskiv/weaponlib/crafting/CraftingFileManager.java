@@ -1,43 +1,21 @@
 package com.vicmatskiv.weaponlib.crafting;
 
-import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.zip.Deflater;
-import java.util.zip.DeflaterOutputStream;
-import java.util.zip.Inflater;
-import java.util.zip.InflaterInputStream;
-import java.util.zip.InflaterOutputStream;
-import java.util.zip.ZipOutputStream;
-
-import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.ArrayUtils;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import com.vicmatskiv.weaponlib.JSONDatabaseManager;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.apache.commons.io.IOUtils;
+
+import java.io.*;
+import java.util.Arrays;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class CraftingFileManager extends JSONDatabaseManager {
 
@@ -440,10 +418,10 @@ public class CraftingFileManager extends JSONDatabaseManager {
 	public void saveCacheAndLoad(ByteArrayOutputStream baos) {
 		// If we are in single player, cancel this.
 		// We have alternate loading mechanisms for this.
-		if(Minecraft.getMinecraft().isIntegratedServerRunning()) return;
+		if(mc.isIntegratedServerRunning()) return;
 		
 		// Get the server IP
-		String serverIP = Minecraft.getMinecraft().getCurrentServerData().serverIP;
+		String serverIP = mc.getCurrentServerData().serverIP;
 		
 		// Create the cache directory if it doesn't exist
 		if(!CACHE_DIR.exists()) CACHE_DIR.mkdirs();

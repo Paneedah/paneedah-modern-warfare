@@ -1,15 +1,14 @@
 package com.vicmatskiv.weaponlib.animation.gui;
 
-import java.awt.Color;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.vector.Matrix4f;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import org.lwjgl.opengl.GL11;
+
+import java.awt.Color;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class Textbar {
 	
@@ -57,8 +56,6 @@ public class Textbar {
 				
 		};
 		
-		Minecraft mc = Minecraft.getMinecraft();
-		
 		AnimationGUI.renderRect(new Color(0x3d3d3d).darker(), x-5, y-10, w+5, h+15);
 		GlStateManager.enableTexture2D();
 		
@@ -99,8 +96,7 @@ public class Textbar {
 		
 		t.draw();
 		
-		
-		Minecraft mc = Minecraft.getMinecraft();
+
 		GlStateManager.enableTexture2D();
 		GlStateManager.pushMatrix();
 		

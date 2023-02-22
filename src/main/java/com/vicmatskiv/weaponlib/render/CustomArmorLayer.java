@@ -1,28 +1,23 @@
 package com.vicmatskiv.weaponlib.render;
 
-import java.util.function.BiConsumer;
-
 import com.vicmatskiv.weaponlib.ItemStorage;
 import com.vicmatskiv.weaponlib.ItemVest;
-import com.vicmatskiv.weaponlib.KeyBindings;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBiomeType;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
 import com.vicmatskiv.weaponlib.inventory.CustomPlayerInventory;
 import com.vicmatskiv.weaponlib.model.USMCVestTwo;
 import com.vicmatskiv.weaponlib.render.modelrepo.GearModelRepository;
-import com.vicmatskiv.weaponlib.render.modelrepo.ServerGearModelHookRegistry;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
-import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBanner;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+
+import java.util.function.BiConsumer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 
@@ -78,7 +73,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
             	
             	ModelBiped biped = GearModelRepository.pull(storage.getModelFileString());
             	ResourceLocation resource = new ResourceLocation("mw:textures/models/" + storage.getProperTextureName());
-        		Minecraft.getMinecraft().getTextureManager().bindTexture(resource);
+        		mc.getTextureManager().bindTexture(resource);
         		doEquipmentRender(biped, player, null, (a, b) -> {}, resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
             	//System.out.println("yo1");
             	
@@ -110,13 +105,13 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
             	
             	ModelBiped biped = GearModelRepository.pull(storage.getModelFileString());
             	ResourceLocation resource = new ResourceLocation("mw:textures/models/" + storage.getProperTextureName());
-        		Minecraft.getMinecraft().getTextureManager().bindTexture(resource);
+        		mc.getTextureManager().bindTexture(resource);
         		doEquipmentRender(biped, player, null, (a, b) -> {}, resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
             	//System.out.println("yo2");
             	
             	/*
             	ResourceLocation resource = new ResourceLocation("mw:textures/models/usmc.png");
-        		Minecraft.getMinecraft().getTextureManager().bindTexture(resource);
+        		mc.getTextureManager().bindTexture(resource);
         		doEquipmentRender(modeld, player, null, (a, b) -> {}, resource, limbSwing, limbSwingAmount, partialTicks, ageInTicks, netHeadYaw, headPitch, scale);
             	*/
         		
@@ -130,7 +125,7 @@ public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 			float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		
 		// Load the correct texture
-		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
+		mc.getTextureManager().bindTexture(texture);
     	
     	GlStateManager.pushMatrix();
     	

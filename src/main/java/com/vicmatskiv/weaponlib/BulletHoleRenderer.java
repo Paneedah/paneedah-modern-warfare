@@ -1,14 +1,5 @@
 package com.vicmatskiv.weaponlib;
 
-import java.util.ArrayList;
-import java.util.concurrent.LinkedBlockingQueue;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL14;
-
-import com.sun.jna.platform.win32.WinUser.HHOOK;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -17,6 +8,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class BulletHoleRenderer {
 	
@@ -56,10 +53,10 @@ public class BulletHoleRenderer {
 		
 		// Setup render beginnings
 		GlStateManager.pushMatrix();
-		EntityPlayer pla = Minecraft.getMinecraft().player;
-		double iPosX = pla.prevPosX + (pla.posX - pla.prevPosX)*Minecraft.getMinecraft().getRenderPartialTicks();
-		double iPosY = pla.prevPosY + (pla.posY - pla.prevPosY)*Minecraft.getMinecraft().getRenderPartialTicks();
-		double iPosZ = pla.prevPosZ + (pla.posZ - pla.prevPosZ)*Minecraft.getMinecraft().getRenderPartialTicks();
+		EntityPlayer pla = mc.player;
+		double iPosX = pla.prevPosX + (pla.posX - pla.prevPosX)*mc.getRenderPartialTicks();
+		double iPosY = pla.prevPosY + (pla.posY - pla.prevPosY)*mc.getRenderPartialTicks();
+		double iPosZ = pla.prevPosZ + (pla.posZ - pla.prevPosZ)*mc.getRenderPartialTicks();
 		GlStateManager.translate(-iPosX, -iPosY, -iPosZ);
 
 		
@@ -70,7 +67,7 @@ public class BulletHoleRenderer {
 		GlStateManager.disableCull();
 		
 		ResourceLocation rl = new ResourceLocation("mw:textures/entity/bullethole.png");
-		Minecraft.getMinecraft().getTextureManager().bindTexture(rl);
+		mc.getTextureManager().bindTexture(rl);
 		
 	
 	//	GL14.glBlendEquation(GL14.GL_FUNC_ADD);

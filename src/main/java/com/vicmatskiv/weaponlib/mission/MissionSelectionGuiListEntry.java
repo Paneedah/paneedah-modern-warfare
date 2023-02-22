@@ -8,6 +8,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+
 @SideOnly(Side.CLIENT)
 public class MissionSelectionGuiListEntry implements GuiListExtended.IGuiListEntry
 {
@@ -34,7 +36,7 @@ public class MissionSelectionGuiListEntry implements GuiListExtended.IGuiListEnt
         this.missionSelectionGuiList = missionSelectionGuiList;
         this.missionOffering = missionOffering;
         this.isRedeemable = isRedeemable;
-        this.client = Minecraft.getMinecraft();
+        this.client = mc;
     }
     
     protected MissionOffering getMissionOffering() {

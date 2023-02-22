@@ -1,17 +1,5 @@
 package com.vicmatskiv.weaponlib.animation;
 
-import java.awt.Color;
-import java.nio.FloatBuffer;
-import java.util.HashMap;
-import java.util.Map.Entry;
-
-import org.lwjgl.BufferUtils;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.vector.Matrix4f;
-import org.lwjgl.util.vector.Quaternion;
-
 import com.vicmatskiv.weaponlib.AttachmentCategory;
 import com.vicmatskiv.weaponlib.ClientModContext;
 import com.vicmatskiv.weaponlib.Part;
@@ -22,7 +10,6 @@ import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.vicmatskiv.weaponlib.debug.DebugRenderer;
 import com.vicmatskiv.weaponlib.render.Bloom;
 import com.vicmatskiv.weaponlib.render.Shaders;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -30,6 +17,19 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.math.Vec3d;
+import org.lwjgl.BufferUtils;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.vector.Matrix4f;
+import org.lwjgl.util.vector.Quaternion;
+
+import java.awt.Color;
+import java.nio.FloatBuffer;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class AnimationModeProcessor {
 
@@ -140,7 +140,6 @@ public class AnimationModeProcessor {
 		
 		// currentPartMatrix = DebugPositioner.rotationMatrix();
 		if(OpenGLSelectionHelper.selectID > 0 && OpenGLSelectionHelper.selectID < 5) {
-			Minecraft mc = Minecraft.getMinecraft();
 			ScaledResolution scaledresolution = new ScaledResolution(mc);
 	        final int scaledWidth = scaledresolution.getScaledWidth();
 	        final int scaledHeight = scaledresolution.getScaledHeight();
@@ -229,7 +228,7 @@ public class AnimationModeProcessor {
 		//this.transformMode = 1;
 		
 		
-		//Minecraft.getMinecraft().player.world.setWorldTime(6000);
+		//mc.player.world.setWorldTime(6000);
 		
 		if(ClientModContext.getContext() != null && ClientModContext.getContext().getMainHeldWeapon() != null) {
 			if(this.pwi == null || pwi != ClientModContext.getContext().getMainHeldWeapon()) {
@@ -272,18 +271,17 @@ public class AnimationModeProcessor {
 			
 			AnimationModeProcessor.getInstance().atGrab = null;
 		}
-		
-		Minecraft mc = Minecraft.getMinecraft();
-		
+
+
 		
 		double dx = Mouse.getDX();
 		double dy = Mouse.getDY();
 		if (permissionToDrag && colorSelected == -1) {
 
 			if (Mouse.isButtonDown(0)) {
-				// System.out.println(Minecraft.getMinecraft().mouseHelper.deltaX);
-				// double x = Minecraft.getMinecraft().mouseHelper.deltaX/1.0;
-				// double y = Minecraft.getMinecraft().mouseHelper.deltaY/300.0;
+				// System.out.println(mc.mouseHelper.deltaX);
+				// double x = mc.mouseHelper.deltaX/1.0;
+				// double y = mc.mouseHelper.deltaY/300.0;
 
 				
 				
@@ -545,8 +543,8 @@ public class AnimationModeProcessor {
 			double x = dx / 10f;
 			double y = dy / 10f;
 
-			// double x = Minecraft.getMinecraft().mouseHelper.deltaX/120.0;
-			// double y = Minecraft.getMinecraft().mouseHelper.deltaY/120.0;
+			// double x = mc.mouseHelper.deltaX/120.0;
+			// double y = mc.mouseHelper.deltaY/120.0;
 			pan = pan.addVector(-x, -y, 0);
 		}
 
@@ -618,7 +616,7 @@ public class AnimationModeProcessor {
            renderRotAxis(scalar);
 		} else {
 			//OpenGLSelectionHelper.ballBuf.framebufferClear();
-		//	Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(false);
+		//	mc.getFramebuffer().bindFramebuffer(false);
 			//OpenGLSelectionHelper.ballBuf.bindFramebuffer(false);
 		
 			renderCross();
@@ -738,7 +736,7 @@ public class AnimationModeProcessor {
 		renderAxisRing(Vec3d.ZERO, Color.BLUE, size, innerSize, (colorSelected == -1 || colorSelected == 3), false);
 		renderAxisRing(new Vec3d(0, 1, 0), Color.GREEN, size, innerSize, (colorSelected == -1 || colorSelected == 2), false);
 		
-		Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(false);
+		mc.getFramebuffer().bindFramebuffer(false);
 		
 		Bloom.initializeMultisample();
 		
@@ -893,7 +891,7 @@ public class AnimationModeProcessor {
 		GL11.glLineWidth((float) Math.abs(1 / pan.z) * 15);
 		
 		
-		Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(false);
+		mc.getFramebuffer().bindFramebuffer(false);
 		//if(1+1==2) return;
 	//	GlStateManager.disableDepth();
 		//GlStateManager.disableDepth();

@@ -1,20 +1,5 @@
 package com.vicmatskiv.weaponlib.render.bgl;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-import java.util.ArrayList;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.util.glu.Project;
-import org.lwjgl.util.vector.Matrix4f;
-
 import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
 import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
@@ -25,13 +10,8 @@ import com.vicmatskiv.weaponlib.render.DepthTexture;
 import com.vicmatskiv.weaponlib.render.HDRFramebuffer;
 import com.vicmatskiv.weaponlib.render.Shaders;
 import com.vicmatskiv.weaponlib.render.bgl.weather.ModernWeatherRenderer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
 import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -40,6 +20,21 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.IRenderHandler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.lwjgl.BufferUtils;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL13;
+import org.lwjgl.util.glu.Project;
+import org.lwjgl.util.vector.Matrix4f;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+import java.util.ArrayList;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 /**
  * Post-processing pipeline enabling modern post effects to be applied in
@@ -51,7 +46,6 @@ public class PostProcessPipeline {
 
 	private static Logger logger = LogManager.getLogger("POST PROCESS PIPELINE");
 
-	private static Minecraft mc = Minecraft.getMinecraft();
 	private static int width = -1;
 	private static int height = -1;
 
@@ -394,13 +388,13 @@ public class PostProcessPipeline {
 		// System.out.println("Core");
 
 		OpenGlHelper.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER,
-				Minecraft.getMinecraft().getFramebuffer().framebufferObject);
+				mc.getFramebuffer().framebufferObject);
 		OpenGlHelper.glBindFramebuffer(GLCompatible.GL_DRAW_FRAMEBUFFER, depthBuffer);
 
 		GLCompatible.glBlitFramebuffer(0, 0, width, height, 0, 0, width, height, GL11.GL_DEPTH_BUFFER_BIT,
 				GL11.GL_NEAREST);
 
-		Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(false);
+		mc.getFramebuffer().bindFramebuffer(false);
 		*/
 	}
 
@@ -481,7 +475,7 @@ public class PostProcessPipeline {
 
 		/*
 		OpenGlHelper.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER,
-				Minecraft.getMinecraft().getFramebuffer().framebufferObject);
+				mc.getFramebuffer().framebufferObject);
 		OpenGlHelper.glBindFramebuffer(GLCompatible.GL_DRAW_FRAMEBUFFER,
 				PostProcessPipeline.distortionBuffer.framebufferObject);
 
@@ -516,7 +510,7 @@ public class PostProcessPipeline {
 		GlStateManager.enableBlend();
 		GlStateManager.alphaFunc(GL11.GL_GREATER, 0.0F);
 		GlStateManager.blendFunc(SourceFactor.ONE, DestFactor.ONE_MINUS_SRC_ALPHA);
-		Minecraft.getMinecraft().getTextureManager().bindTexture(CLOUD_SPRITE);
+		mc.getTextureManager().bindTexture(CLOUD_SPRITE);
 
 		GlStateManager.enableDepth();
 
@@ -805,9 +799,9 @@ public class PostProcessPipeline {
 			rainKeepAlive = true;
 
 			if (raindrop[9] == 1) {
-				Minecraft.getMinecraft().getTextureManager().bindTexture(RAIN_DROP_TEXTURE);
+				mc.getTextureManager().bindTexture(RAIN_DROP_TEXTURE);
 			} else {
-				Minecraft.getMinecraft().getTextureManager().bindTexture(SNOW_FLAKE_TEXTURE);
+				mc.getTextureManager().bindTexture(SNOW_FLAKE_TEXTURE);
 			}
 
 			// Scale to size target
@@ -963,7 +957,7 @@ public class PostProcessPipeline {
 		if (shouldRecreateFramebuffer())
 			recreateFramebuffers();
 
-		// Minecraft.getMinecraft().player.world.play
+		// mc.player.world.play
 		// Draws rain droplets
 		// drawRainBuffer();
 
@@ -983,7 +977,7 @@ public class PostProcessPipeline {
 
 		// Heat distortion texture
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
-		Minecraft.getMinecraft().getTextureManager().bindTexture(HEAT_DISTORTION);
+		mc.getTextureManager().bindTexture(HEAT_DISTORTION);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 
 		// Return to default texture unit
@@ -1010,7 +1004,7 @@ public class PostProcessPipeline {
 		
 		// Draw full-screen triangle in order to ensure the fragment shader
 		// runs for every pixel on screen
-		Framebuffer boof = Minecraft.getMinecraft().getFramebuffer();
+		Framebuffer boof = mc.getFramebuffer();
 		Bloom.renderFboTriangle(boof, boof.framebufferWidth, boof.framebufferHeight);
 
 		Shaders.post.release();

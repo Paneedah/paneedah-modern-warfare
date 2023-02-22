@@ -1,22 +1,11 @@
 package com.vicmatskiv.weaponlib.perspective;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GLSync;
-
 import com.vicmatskiv.weaponlib.RenderingPhase;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderTickEvent;
-import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
-import com.vicmatskiv.weaponlib.render.DepthTexture;
-import com.vicmatskiv.weaponlib.render.Shaders;
 import com.vicmatskiv.weaponlib.render.bgl.PostProcessPipeline;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.player.EntityPlayer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class FirstPersonPerspective<S> extends Perspective<S> {
 
@@ -24,8 +13,8 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
 
     public FirstPersonPerspective() {
         this.renderEndNanoTime = System.nanoTime();
-        this.width = Minecraft.getMinecraft().displayWidth;
-        this.height = Minecraft.getMinecraft().displayHeight;
+        this.width = mc.displayWidth;
+        this.height = mc.displayHeight;
     }
     
     protected void setSize(int width, int height) {
@@ -41,23 +30,23 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
     
         modContext.getSafeGlobals().renderingPhase.set(RenderingPhase.RENDER_PERSPECTIVE);
         long p_78471_2_ = this.renderEndNanoTime + (long)(1000000000 / 60);
-        int origDisplayWidth = Minecraft.getMinecraft().displayWidth;
-        int origDisplayHeight = Minecraft.getMinecraft().displayHeight;
+        int origDisplayWidth = mc.displayWidth;
+        int origDisplayHeight = mc.displayHeight;
 
-        //RenderGlobal origRenderGlobal = Minecraft.getMinecraft().renderGlobal;
-        EntityRenderer origEntityRenderer = Minecraft.getMinecraft().entityRenderer;
+        //RenderGlobal origRenderGlobal = mc.renderGlobal;
+        EntityRenderer origEntityRenderer = mc.entityRenderer;
 
         framebuffer.bindFramebuffer(true);
 
         
        
-        Minecraft.getMinecraft().displayWidth = width;
-        Minecraft.getMinecraft().displayHeight = height;
+        mc.displayWidth = width;
+        mc.displayHeight = height;
 
-        Minecraft.getMinecraft().entityRenderer = this.entityRenderer;
+        mc.entityRenderer = this.entityRenderer;
 
-        //Minecraft.getMinecraft().renderGlobal = this.renderGlobal;
-        //Minecraft.getMinecraft().effectRenderer = this.effectRenderer;
+        //mc.renderGlobal = this.renderGlobal;
+        //mc.effectRenderer = this.effectRenderer;
 
         this.entityRenderer.setPrepareTerrain(false);
         this.entityRenderer.updateRenderer();
@@ -93,7 +82,7 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
 
        /*
         GlStateManager.pushMatrix();
-        EntityPlayer p = Minecraft.getMinecraft().player;
+        EntityPlayer p = mc.player;
         GlStateManager.translate(-p.posX, -p.posY, -p.posZ);
         GlStateManager.disableCull();
         GlStateManager.disableAlpha();
@@ -116,13 +105,13 @@ public class FirstPersonPerspective<S> extends Perspective<S> {
         GlStateManager.popMatrix();
         */
         
-        //Minecraft.getMinecraft().renderGlobal = origRenderGlobal;
-        //Minecraft.getMinecraft().effectRenderer = origEffectRenderer;
-        Minecraft.getMinecraft().entityRenderer = origEntityRenderer;
+        //mc.renderGlobal = origRenderGlobal;
+        //mc.effectRenderer = origEffectRenderer;
+        mc.entityRenderer = origEntityRenderer;
 
-        Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
-        Minecraft.getMinecraft().displayWidth = origDisplayWidth;
-        Minecraft.getMinecraft().displayHeight = origDisplayHeight;
+        mc.getFramebuffer().bindFramebuffer(true);
+        mc.displayWidth = origDisplayWidth;
+        mc.displayHeight = origDisplayHeight;
         this.renderEndNanoTime = System.nanoTime();
         
        

@@ -24,7 +24,7 @@ public class OpenMissionGuiHandler implements CompatibleMessageHandler<OpenMissi
 //                if(message.getStatusMessage() != null) {
 //                    modContext.getStatusMessageCenter().addMessage(message.getStatusMessage(), 1000);
 //                }
-//                Minecraft.getMinecraft().displayGuiScreen(new MissionsMenuGui());
+//                mc.displayGuiScreen(new MissionsMenuGui());
 
             });
         }

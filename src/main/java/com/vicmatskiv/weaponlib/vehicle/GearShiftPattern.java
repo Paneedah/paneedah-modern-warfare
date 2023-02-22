@@ -1,23 +1,20 @@
 package com.vicmatskiv.weaponlib.vehicle;
 
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-
-import org.lwjgl.opengl.GL11;
-
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Transmission;
-
 import akka.japi.Pair;
-import akka.util.Collections;
-import net.minecraft.client.Minecraft;
+import com.vicmatskiv.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.math.Vec3d;
+import org.lwjgl.opengl.GL11;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class GearShiftPattern {
 	
@@ -101,8 +98,8 @@ public class GearShiftPattern {
 			Vec3d bG = b.bottomGear.pos;
 			Vec3d m = b.median;
 			
-			drawCenteredString(Minecraft.getMinecraft().fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x, 0xffdd59, 0.5);
-			drawCenteredString(Minecraft.getMinecraft().fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x, 0xffdd59, 0.5);
+			drawCenteredString(mc.fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x, 0xffdd59, 0.5);
+			drawCenteredString(mc.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x, 0xffdd59, 0.5);
 			
 		}*/
 		
@@ -115,13 +112,13 @@ public class GearShiftPattern {
 			Vec3d bG = b.bottomGear.pos;
 			Vec3d m = b.median;
 			
-			drawCenteredString(Minecraft.getMinecraft().fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x*1.5, 0xffdd59, 0.02);
-			drawCenteredString(Minecraft.getMinecraft().fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x*1.1, 0xffdd59, 0.02);
+			drawCenteredString(mc.fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x*1.5, 0xffdd59, 0.02);
+			drawCenteredString(mc.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x*1.1, 0xffdd59, 0.02);
 			
-			//drawCenteredString(Minecraft.getMinecraft().fontRenderer, "1", 20, -5, 0xffdd59, 0.05);\
+			//drawCenteredString(mc.fontRenderer, "1", 20, -5, 0xffdd59, 0.05);\
 			/*
-			drawCenteredString(Minecraft.getMinecraft().fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x, 0xffdd59, 0.5);
-			drawCenteredString(Minecraft.getMinecraft().fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x, 0xffdd59, 0.5);
+			drawCenteredString(mc.fontRenderer, "" + b.topGear.gear, +tG.z, -tG.x, 0xffdd59, 0.5);
+			drawCenteredString(mc.fontRenderer, "" + b.bottomGear.gear, +bG.z, -bG.x, 0xffdd59, 0.5);
 			*/
 		}
 		//GlStateManager.disableAlpha();

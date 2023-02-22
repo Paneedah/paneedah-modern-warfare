@@ -1,33 +1,16 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
-import java.util.function.BiPredicate;
-import java.util.function.Predicate;
-
 import com.vicmatskiv.weaponlib.Explosion;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.ai.EntityCustomMob;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleParticle.CompatibleParticleBreaking;
 import com.vicmatskiv.weaponlib.inventory.GuiHandler;
-import com.vicmatskiv.weaponlib.melee.ItemMelee;
 import com.vicmatskiv.weaponlib.particle.CompatibleBloodParticle;
 import com.vicmatskiv.weaponlib.particle.CompatibleDiggingParticle;
 import com.vicmatskiv.weaponlib.tile.CustomTileEntityRenderer;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
@@ -46,13 +29,7 @@ import net.minecraft.client.shader.ShaderGroup;
 import net.minecraft.client.shader.ShaderManager;
 import net.minecraft.client.shader.ShaderUniform;
 import net.minecraft.enchantment.EnchantmentProtection;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
@@ -72,21 +49,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.translation.I18n;
-import net.minecraft.world.EnumDifficulty;
-import net.minecraft.world.GameRules;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
-import net.minecraft.world.WorldType;
+import net.minecraft.world.*;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.GuiOpenEvent;
@@ -113,6 +82,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.*;
+import java.util.function.BiPredicate;
+import java.util.function.Predicate;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+
 @SuppressWarnings("deprecation")
 public class Compatibility1_12_2 implements Compatibility {
 
@@ -130,13 +108,13 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     @SideOnly(Side.CLIENT)
     public EntityPlayer clientPlayer() {
-        return Minecraft.getMinecraft().player;
+        return mc.player;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void setClientPlayer(EntityPlayer player) {
-        Minecraft.getMinecraft().player = (EntityPlayerSP) player;
+        mc.player = (EntityPlayerSP) player;
     }
 
     @Override
@@ -231,7 +209,7 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     @SideOnly(Side.CLIENT)
     public FontRenderer getFontRenderer() {
-        return Minecraft.getMinecraft().fontRenderer;
+        return mc.fontRenderer;
     }
 
     @Override
@@ -249,7 +227,7 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     @SideOnly(Side.CLIENT)
     public ItemStack getHelmet() {
-        return Minecraft.getMinecraft().player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+        return mc.player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
     }
 
     @Override
@@ -316,7 +294,7 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     @SideOnly(Side.CLIENT)
     public void runInMainClientThread(Runnable runnable) {
-        Minecraft.getMinecraft().addScheduledTask(runnable);
+        mc.addScheduledTask(runnable);
     }
 
     @Override
@@ -388,7 +366,7 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public CompatibleRayTraceResult getObjectMouseOver() {
-        return CompatibleRayTraceResult.fromRayTraceResult(Minecraft.getMinecraft().objectMouseOver);
+        return CompatibleRayTraceResult.fromRayTraceResult(mc.objectMouseOver);
     }
 
     @Override
@@ -544,13 +522,13 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     @SideOnly(Side.CLIENT)
     public void disableLightMap() {
-        Minecraft.getMinecraft().entityRenderer.disableLightmap();
+        mc.entityRenderer.disableLightmap();
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void enableLightMap() {
-        Minecraft.getMinecraft().entityRenderer.enableLightmap();
+        mc.entityRenderer.enableLightmap();
     }
 
     @Override
@@ -604,7 +582,7 @@ public class Compatibility1_12_2 implements Compatibility {
 //    @Override
 //    public void addBlockHitEffect(CompatibleRayTraceResult position) {
 //        for(int i = 0; i < 6; i++) {
-//            Minecraft.getMinecraft().effectRenderer.addBlockHitEffects(
+//            mc.effectRenderer.addBlockHitEffects(
 //                    position.getBlockPos().getBlockPos(), position.getSideHit().getEnumFacing());
 //        }
 //    }
@@ -616,7 +594,7 @@ public class Compatibility1_12_2 implements Compatibility {
 
     @Override
     public void clickBlock(CompatibleBlockPos blockPos, CompatibleEnumFacing sideHit) {
-        Minecraft.getMinecraft().playerController.clickBlock(blockPos.getBlockPos(), sideHit.getEnumFacing());
+        mc.playerController.clickBlock(blockPos.getBlockPos(), sideHit.getEnumFacing());
     }
 
     @Override
@@ -632,7 +610,7 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     @SideOnly(Side.CLIENT)
     public RenderGlobal createCompatibleRenderGlobal() {
-        return /*Minecraft.getMinecraft().renderGlobal; //*/ new CompatibleRenderGlobal(Minecraft.getMinecraft());
+        return /*mc.renderGlobal; //*/ new CompatibleRenderGlobal(mc);
     }
 
     @Override
@@ -644,26 +622,26 @@ public class Compatibility1_12_2 implements Compatibility {
     @Override
     @SideOnly(Side.CLIENT)
     public Entity getRenderViewEntity() {
-        return Minecraft.getMinecraft().getRenderViewEntity();
+        return mc.getRenderViewEntity();
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void setRenderViewEntity(Entity entity) {
-        Minecraft.getMinecraft().setRenderViewEntity(entity);
+        mc.setRenderViewEntity(entity);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public CompatibleParticleManager getCompatibleParticleManager() {
-        return new CompatibleParticleManager(Minecraft.getMinecraft().effectRenderer);
+        return new CompatibleParticleManager(mc.effectRenderer);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void addBlockHitEffect(BlockPos pos, double x, double y, double z, CompatibleEnumFacing sideHit) {
     	
-    	IBlockState hitBlock = Minecraft.getMinecraft().world.getBlockState(pos);
+    	IBlockState hitBlock = mc.world.getBlockState(pos);
     	
     	if(hitBlock.getMaterial() == Material.GLASS) {
     		// Get direction
@@ -677,9 +655,9 @@ public class Compatibility1_12_2 implements Compatibility {
             	
             	Vec3d modifiedSpeedVec = speedVec.scale(new Vec3d(sX, sY, sZ).squareDistanceTo(new Vec3d(x, y, z))*2);
             	
-            	CompatibleDiggingParticle cdp = new CompatibleDiggingParticle(Minecraft.getMinecraft().world, sX, sY, sZ, modifiedSpeedVec.x, modifiedSpeedVec.y, modifiedSpeedVec.z, hitBlock);
+            	CompatibleDiggingParticle cdp = new CompatibleDiggingParticle(mc.world, sX, sY, sZ, modifiedSpeedVec.x, modifiedSpeedVec.y, modifiedSpeedVec.z, hitBlock);
         		cdp.setBlockPos(new BlockPos(x, y, z));
-        		Minecraft.getMinecraft().effectRenderer.addEffect(cdp);
+        		mc.effectRenderer.addEffect(cdp);
                         
             }
     	} else {
@@ -693,18 +671,18 @@ public class Compatibility1_12_2 implements Compatibility {
             	Vec3d individualVector = speedVec.add(spreadVector);
             	
             	
-            	CompatibleDiggingParticle cdp = new CompatibleDiggingParticle(Minecraft.getMinecraft().world, x, y, z, individualVector.x, individualVector.y, individualVector.z, hitBlock);
+            	CompatibleDiggingParticle cdp = new CompatibleDiggingParticle(mc.world, x, y, z, individualVector.x, individualVector.y, individualVector.z, hitBlock);
         		cdp.setBlockPos(new BlockPos(x, y, z));
-        		Minecraft.getMinecraft().effectRenderer.addEffect(cdp);
+        		mc.effectRenderer.addEffect(cdp);
         	
         		
         		 if(Math.random() < 0.5 && i <= 2) {
-        	        	Minecraft.getMinecraft().world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y, z, 0, 0, 0, new int[0]);
+        	        	mc.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y, z, 0, 0, 0, new int[0]);
         	            
         	        }
             	
         		/*
-            	Minecraft.getMinecraft().effectRenderer.addBlockHitEffects(
+            	mc.effectRenderer.addBlockHitEffects(
                         new BlockPos(x, y, z), sideHit.getEnumFacing());
                         */
                         
@@ -722,7 +700,7 @@ public class Compatibility1_12_2 implements Compatibility {
         double yOffset = 1;
         CompatibleParticleBreaking particle = CompatibleParticle.createParticleBreaking(
                 modContext, world(clientPlayer()), x, y + yOffset, z);
-        Minecraft.getMinecraft().effectRenderer.addEffect(particle);
+        mc.effectRenderer.addEffect(particle);
     }
     
     @Override
@@ -730,9 +708,9 @@ public class Compatibility1_12_2 implements Compatibility {
     public void addBloodParticle(ModContext modContext, double x, double y, double z, double velX, double velY, double velZ) {
     
     	
-    	CompatibleBloodParticle cdp = new CompatibleBloodParticle(modContext, Minecraft.getMinecraft().world, x, y, z, velX, velY, velZ);
+    	CompatibleBloodParticle cdp = new CompatibleBloodParticle(modContext, mc.world, x, y, z, velX, velY, velZ);
     
-		Minecraft.getMinecraft().effectRenderer.addEffect(cdp);
+		mc.effectRenderer.addEffect(cdp);
 
     }
 
@@ -1500,7 +1478,7 @@ private Optional<Field> shadersEnabledFieldOptional;
     @Override
     @SideOnly(Side.CLIENT)
     public void renderItem(EntityPlayer player, ItemStack stack) {
-        Minecraft.getMinecraft().getItemRenderer().renderItem(player, stack, null);
+        mc.getItemRenderer().renderItem(player, stack, null);
     }
 
     @Override

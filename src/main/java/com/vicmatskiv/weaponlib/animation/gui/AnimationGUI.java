@@ -1,44 +1,20 @@
 package com.vicmatskiv.weaponlib.animation.gui;
 
-import java.awt.Color;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GLSync;
-
 import com.vicmatskiv.weaponlib.AttachmentCategory;
 import com.vicmatskiv.weaponlib.ClientModContext;
 import com.vicmatskiv.weaponlib.PlayerWeaponInstance;
 import com.vicmatskiv.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
-import com.vicmatskiv.weaponlib.WeaponState;
 import com.vicmatskiv.weaponlib.WeaponRenderer.Builder;
 import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.animation.Arcball;
 import com.vicmatskiv.weaponlib.animation.DebugPositioner;
-import com.vicmatskiv.weaponlib.animation.OpenGLSelectionHelper;
 import com.vicmatskiv.weaponlib.animation.DebugPositioner.Position;
+import com.vicmatskiv.weaponlib.animation.OpenGLSelectionHelper;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleWeaponRenderer;
 import com.vicmatskiv.weaponlib.compatibility.RecoilParam;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.gui.toasts.AdvancementToast;
-import net.minecraft.client.gui.toasts.GuiToast;
-import net.minecraft.client.gui.toasts.IToast;
-import net.minecraft.client.gui.toasts.SystemToast;
-import net.minecraft.client.gui.toasts.SystemToast.Type;
-import net.minecraft.client.gui.toasts.IToast.Visibility;
-import net.minecraft.client.gui.toasts.TutorialToast;
-import net.minecraft.client.gui.toasts.TutorialToast.Icons;
 import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -46,9 +22,20 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
+import java.awt.Color;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class AnimationGUI {
 	
@@ -177,9 +164,6 @@ public class AnimationGUI {
 		
 		//if(1+1==2) return;
 		
-		
-		Minecraft mc = Minecraft.getMinecraft();
-		
 		 ScaledResolution scaledresolution = new ScaledResolution(mc);
          final int scaledWidth = scaledresolution.getScaledWidth();
          final int scaledHeight = scaledresolution.getScaledHeight();
@@ -222,7 +206,7 @@ public class AnimationGUI {
 		
 		
 		
-		ScaledResolution sr = new ScaledResolution(Minecraft.getMinecraft());
+		ScaledResolution sr = new ScaledResolution(mc);
 		position.x = (int) (sr.getScaledWidth_double()-100);
 		rotation.x = (int) (sr.getScaledWidth_double()-100);
 		
@@ -243,7 +227,7 @@ public class AnimationGUI {
 		GlStateManager.enableTexture2D();
 		String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("h:mm a"));
 		renderScaledString(time, sr.getScaledWidth_double()-40, 5, 1);
-		String fps = "FPS: " + Minecraft.getMinecraft().getDebugFPS();
+		String fps = "FPS: " + mc.getDebugFPS();
 		renderScaledString(fps, sr.getScaledWidth_double()-45, 15, 1);
 		
 		
@@ -405,7 +389,7 @@ public class AnimationGUI {
     		}
     		
 		} else if(id == switchScopes) {
-			PlayerWeaponInstance instance = ClientModContext.getContext().getPlayerItemInstanceRegistry().getMainHandItemInstance(Minecraft.getMinecraft().player, PlayerWeaponInstance.class);
+			PlayerWeaponInstance instance = ClientModContext.getContext().getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player, PlayerWeaponInstance.class);
 			ClientModContext.getContext().getAttachmentAspect().tryChange(new ChangeAttachmentPermit(AttachmentCategory.SCOPE), instance);
 			
 		} else if(id == editRotButton) {
@@ -422,7 +406,7 @@ public class AnimationGUI {
 		} else if(id == magEdit) {
 			DebugPositioner.setDebugMode(true);
 		} else if(id == forceADS) {
-			PlayerWeaponInstance instance = ClientModContext.getContext().getPlayerItemInstanceRegistry().getMainHandItemInstance(Minecraft.getMinecraft().player, PlayerWeaponInstance.class);
+			PlayerWeaponInstance instance = ClientModContext.getContext().getPlayerItemInstanceRegistry().getMainHandItemInstance(mc.player, PlayerWeaponInstance.class);
 			
 			if(id.isState()) {
 				instance.setAimed(true);
@@ -438,7 +422,7 @@ public class AnimationGUI {
 		Method f = ReflectionHelper.findMethod(AbstractClientPlayer.class, "getPlayerInfo", "getPlayerInfo", null);
 		NetworkPlayerInfo npi = null;
 		try {
-			npi = (NetworkPlayerInfo) f.invoke((AbstractClientPlayer) Minecraft.getMinecraft().player, null);
+			npi = (NetworkPlayerInfo) f.invoke((AbstractClientPlayer) mc.player, null);
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -467,7 +451,7 @@ public class AnimationGUI {
 		GlStateManager.translate(x, y, 0);
 		GlStateManager.scale(scale, scale, scale);
 		
-		Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(str, 0, 0, 0xffffff);
+		mc.fontRenderer.drawStringWithShadow(str, 0, 0, 0xffffff);
 		
 		GlStateManager.popMatrix();
 	}
@@ -501,7 +485,7 @@ public class AnimationGUI {
 	}
 	
 	public static void renderTexturedRect(int id, double x, double y, double w, double h) {
-		Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/hud/animguio.png"));
+		mc.getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/hud/animguio.png"));
 		
 		GlStateManager.enableAlpha();
 		GlStateManager.enableBlend();

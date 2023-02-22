@@ -1,22 +1,17 @@
 package com.vicmatskiv.weaponlib.particle;
 
-import java.util.Random;
-
-import org.lwjgl.opengl.GL11;
-
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.vicmatskiv.weaponlib.particle.vehicle.TurbulentSmokeParticle;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
+
+import java.util.Random;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
 
@@ -73,7 +68,7 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
 	       
 	        
 	        
-	        ind = (int) (oldInd + (ind-oldInd)*Minecraft.getMinecraft().getRenderPartialTicks());
+	        ind = (int) (oldInd + (ind-oldInd)*mc.getRenderPartialTicks());
 	        
 	        int nR = (int) (ind/4)*512;
 	        
@@ -94,14 +89,14 @@ public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
 	        double mV = 1/4.0;
 	        
 	        if(this.ran == 0) {
-	        	Minecraft.getMinecraft().getTextureManager().bindTexture(SMOKE1);
+	        	mc.getTextureManager().bindTexture(SMOKE1);
 	        } else {
-	        	Minecraft.getMinecraft().getTextureManager().bindTexture(SMOKE2);
+	        	mc.getTextureManager().bindTexture(SMOKE2);
 	        }
 	        //GlStateManager.enableBlend();
 	        
 	        double angle = Math.PI/4;
-	        Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/smokes/smoke4.png"));
+	        mc.getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/smokes/smoke4.png"));
 	    	GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 	    	GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
 	    

@@ -1,39 +1,22 @@
 package com.vicmatskiv.weaponlib.vehicle;
 
+import com.vicmatskiv.weaponlib.animation.DebugPositioner;
+import com.vicmatskiv.weaponlib.animation.MultipartPositioning;
+import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
+import com.vicmatskiv.weaponlib.animation.MultipartRenderStateManager;
+import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL14;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL21;
-import org.lwjgl.opengl.GL30;
-import org.lwjgl.opengl.GL31;
-import org.lwjgl.opengl.GL32;
-import org.lwjgl.opengl.GL33;
-import org.lwjgl.opengl.GL40;
-import org.lwjgl.opengl.GL41;
-import org.lwjgl.opengl.GL42;
-import org.lwjgl.opengl.GL43;
-import org.lwjgl.opengl.GL44;
-
-import com.vicmatskiv.weaponlib.animation.DebugPositioner;
-import com.vicmatskiv.weaponlib.animation.MultipartPositioning;
-import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
-import com.vicmatskiv.weaponlib.vehicle.network.VehicleClientPacket;
-import com.vicmatskiv.weaponlib.animation.MultipartRenderStateManager;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<State> {
     
@@ -93,9 +76,9 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
          * USE CASE: vehicle lights
          */
         if(context.shouldRenderAlternateTexture()) {
-        	Minecraft.getMinecraft().getTextureManager().bindTexture(context.getAlternateTexture());
+        	mc.getTextureManager().bindTexture(context.getAlternateTexture());
         } else {
-        	Minecraft.getMinecraft().getTextureManager().bindTexture(textureResource);
+        	mc.getTextureManager().bindTexture(textureResource);
         }
         
         
@@ -118,8 +101,8 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
             int pass = net.minecraftforge.client.MinecraftForgeClient.getRenderPass();
             
             
-            double susRoll = InterpolationKit.interpolateValue(v.getSolver().prevSuspensionRoll, v.getSolver().suspensionRoll, Minecraft.getMinecraft().getRenderPartialTicks());
-            double susPitch = InterpolationKit.interpolateValue(v.getSolver().prevSuspensionPitch, v.getSolver().suspensionPitch, Minecraft.getMinecraft().getRenderPartialTicks());
+            double susRoll = InterpolationKit.interpolateValue(v.getSolver().prevSuspensionRoll, v.getSolver().suspensionRoll, mc.getRenderPartialTicks());
+            double susPitch = InterpolationKit.interpolateValue(v.getSolver().prevSuspensionPitch, v.getSolver().suspensionPitch, mc.getRenderPartialTicks());
             
            // System.out.println(susPitch);
             if(pass == 0 && part != VehiclePart.WINDOWS) {
@@ -141,7 +124,7 @@ final class HierarchicalPartRenderer<Part, State> implements StatefulRenderer<St
             	if(part == VehiclePart.WINDOWS) {
                   	 GlStateManager.enableBlend();
                   	 float transparency = 0.5f;
-                  	 if(Minecraft.getMinecraft().gameSettings.thirdPersonView == 0) {
+                  	 if(mc.gameSettings.thirdPersonView == 0) {
                   		 transparency = 0.2f;
                   	 }
                   	 GlStateManager.color(0.1f, 0.1f, 0.15f, transparency);

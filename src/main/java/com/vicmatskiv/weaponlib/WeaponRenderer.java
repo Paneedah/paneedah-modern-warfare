@@ -1,41 +1,9 @@
 package com.vicmatskiv.weaponlib;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-import java.nio.FloatBuffer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Random;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL20;
-
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
-import com.vicmatskiv.weaponlib.animation.DebugPositioner;
+import akka.japi.Pair;
+import com.vicmatskiv.weaponlib.animation.*;
 import com.vicmatskiv.weaponlib.animation.DebugPositioner.TransitionConfiguration;
-import com.vicmatskiv.weaponlib.animation.Interpolation;
 import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
-import com.vicmatskiv.weaponlib.animation.MultipartRenderStateManager;
-import com.vicmatskiv.weaponlib.animation.MultipartTransition;
-import com.vicmatskiv.weaponlib.animation.MultipartTransitionProvider;
-import com.vicmatskiv.weaponlib.animation.OpenGLSelectionHelper;
-import com.vicmatskiv.weaponlib.animation.SpecialAttachments;
-import com.vicmatskiv.weaponlib.animation.Transform;
-import com.vicmatskiv.weaponlib.animation.Transition;
 import com.vicmatskiv.weaponlib.animation.gui.AnimationGUI;
 import com.vicmatskiv.weaponlib.animation.jim.AnimationData;
 import com.vicmatskiv.weaponlib.animation.jim.AnimationSet;
@@ -51,10 +19,6 @@ import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
 import com.vicmatskiv.weaponlib.jim.util.VMWHooksHandler;
 import com.vicmatskiv.weaponlib.render.MuzzleFlashRenderer;
 import com.vicmatskiv.weaponlib.render.Shaders;
-
-import akka.japi.Pair;
-import net.minecraft.block.BlockBanner.BlockBannerHanging;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -64,6 +28,22 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.lwjgl.BufferUtils;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL13;
+import org.lwjgl.opengl.GL20;
+
+import java.nio.FloatBuffer;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponRenderer extends CompatibleWeaponRenderer {
 
@@ -3181,7 +3161,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		}
 		
 		
-		//ClientEventHandler.uploadFlash(Minecraft.getMinecraft().player.getEntityId());
+		//ClientEventHandler.uploadFlash(mc.player.getEntityId());
 		
 		boolean shot = false;
 		if(renderContext.getPlayer() != null && (ClientEventHandler.checkShot(renderContext.getPlayer().getEntityId()) || AnimationGUI.getInstance().forceFlash.isState())) {
@@ -3190,7 +3170,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 			
 		//	Bloom.bindBloomBuffer();
 		//	MuzzleFlashRenderer.renderFlash(renderContext.getPlayer().getEntityId(), weaponItemStack, true);
-			//Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(false);
+			//mc.getFramebuffer().bindFramebuffer(false);
 			
 			
 			//Vec3d iP  = CompatibleClientEventHandler.getInterpolatedPlayerCoords();
@@ -3201,7 +3181,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 			MuzzleFlashRenderer.renderFlash(renderContext.getPlayer().getEntityId(), weaponItemStack, false);
 			
 			
-			//Vec3d distortPos = new Vec3d(0, 0, 1).rotateYaw((float) -Math.toRadians(Minecraft.getMinecraft().player.rotationYaw)).add(Minecraft.getMinecraft().player.getPositionEyes(1.0f));
+			//Vec3d distortPos = new Vec3d(0, 0, 1).rotateYaw((float) -Math.toRadians(mc.player.rotationYaw)).add(mc.player.getPositionEyes(1.0f));
 			
 			//PostProcessPipeline.createDistortionPoint((float) distortPos.x, (float) distortPos.y, (float) distortPos.z, 1f, 300);
 			
@@ -3211,13 +3191,13 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 			
 			//Dloom.bloomData.bindFramebuffer(false);
 			renderFlash(weaponItemStack, true);
-			Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(false);
+			mc.getFramebuffer().bindFramebuffer(false);
 			renderFlash(weaponItemStack, false);
 			*/
 		}
  		//System.out.println("hi " + CompatibleClientEventHandler.muzzleFlashMap.size());
 		//CompatibleClientEventHandler.muzzleFlashMap.clear();
-		//CompatibleClientEventHandler.uploadFlash(Minecraft.getMinecraft().player.getEntityId());
+		//CompatibleClientEventHandler.uploadFlash(mc.player.getEntityId());
 		
 		//Bloom.doBloom();
 		/*
@@ -3246,7 +3226,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 
 		if(getBuilder().getTextureName() != null) {
 			
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(getBuilder().getModId()
+			mc.renderEngine.bindTexture(new ResourceLocation(getBuilder().getModId()
 					+ ":textures/models/" + getBuilder().getTextureName()));
 		} else {
 			String textureName = null;
@@ -3270,7 +3250,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 				textureName = weapon.getTextureName();
 			}
 
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(getBuilder().getModId()
+			mc.renderEngine.bindTexture(new ResourceLocation(getBuilder().getModId()
 					+ ":textures/models/" + textureName));
 		}
 		
@@ -3295,7 +3275,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		
 				ItemSkin itemSkin = (ItemSkin) skin;
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 3);
-				Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(clientModContext.getModId() + ":textures/models/" + itemSkin.getTextureName() + ".png"));
+				mc.getTextureManager().bindTexture(new ResourceLocation(clientModContext.getModId() + ":textures/models/" + itemSkin.getTextureName() + ".png"));
 				
 				GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 			}
@@ -3331,9 +3311,9 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 
 		double sqDistance = 0.0;
 		
-		if(player != null && player != Minecraft.getMinecraft().player) {
+		if(player != null && player != mc.player) {
 		    Vec3d projectView = net.minecraft.client.renderer.ActiveRenderInfo.projectViewFromEntity(
-		            Minecraft.getMinecraft().player, 
+		            mc.player, 
 		            renderContext.getAgeInTicks());
 		    sqDistance = projectView.squareDistanceTo(player.posX, player.posY, player.posZ);
 		}
@@ -3369,7 +3349,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 			//	GlStateManager.translate(0, 0, test1);
 				//GlStateManager.translate(-0.05*test1, 0.01*test1, 0);
 				//GlStateManager.rotate(-10f*test1, 1, 1, 0);
-				//Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("mw:textures/items/sexmoiv.png"));
+				//mc.getTextureManager().bindTexture(new ResourceLocation("mw:textures/items/sexmoiv.png"));
 				
 				getBuilder().getModel().render(this.player,
 		                renderContext.getLimbSwing(),
@@ -3666,9 +3646,9 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		
 		
 		
-		Entity renderViewEntity = Minecraft.getMinecraft().getRenderViewEntity();
+		Entity renderViewEntity = mc.getRenderViewEntity();
 	    if(renderViewEntity == null) {
-	        renderViewEntity = Minecraft.getMinecraft().player;
+	        renderViewEntity = mc.player;
 	    }
 //	    double distanceSq = this.player != null ? renderViewEntity.getDistanceSqToEntity(this.player) : 0;
 
@@ -3680,7 +3660,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 	   
 	    
 		for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(getBuilder().getModId()
+			mc.renderEngine.bindTexture(new ResourceLocation(getBuilder().getModId()
 					+ ":textures/models/" + texturedModel.getV()));
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);

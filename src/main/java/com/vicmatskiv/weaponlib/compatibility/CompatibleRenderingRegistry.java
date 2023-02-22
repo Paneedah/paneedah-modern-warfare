@@ -1,13 +1,5 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.function.Consumer;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -25,6 +17,15 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Consumer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class CompatibleRenderingRegistry implements ICustomModelLoader {
 
@@ -108,7 +109,7 @@ public class CompatibleRenderingRegistry implements ICustomModelLoader {
 	}
 	
 	public void processDelayedRegistrations() {
-        RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+        RenderItem renderItem = mc.getRenderItem();
         delayedRegistrations.forEach(r -> { r.accept(renderItem);});
         delayedRegistrations.clear();
     }

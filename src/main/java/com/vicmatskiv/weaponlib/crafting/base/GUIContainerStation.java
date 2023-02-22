@@ -382,7 +382,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 		if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40, this.guiTop + 219, 176, 20)) {
 			int boxID = (mouseX - (this.guiLeft + 40))/20;
 			modContext.getChannel().getChannel().sendToServer(new StationPacket(StationPacket.MOVE_OUTPUT,
-					tileEntity.getPos(), Minecraft.getMinecraft().player.getEntityId(), boxID));
+					tileEntity.getPos(), mc.player.getEntityId(), boxID));
 		}
 		
 		
@@ -412,7 +412,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 		
 		// This 'if' statement prevents the GUI from closing when we hit "E" (or whatever
 		// the inventory key is!)
-		if(!(Minecraft.getMinecraft().gameSettings.keyBindInventory.isActiveAndMatches(keyCode) && searchBox.isFocused()))
+		if(!(mc.gameSettings.keyBindInventory.isActiveAndMatches(keyCode) && searchBox.isFocused()))
 			super.keyTyped(typedChar, keyCode);
 		
 		this.searchBox.textboxKeyTyped(typedChar, keyCode);
@@ -442,7 +442,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 		this.tooltipRenderItem.clear();
 		this.tooltipRenderItem.add(format(stack.getItem().getUnlocalizedName()));
 
-		ITooltipFlag flag = Minecraft.getMinecraft().gameSettings.advancedItemTooltips
+		ITooltipFlag flag = mc.gameSettings.advancedItemTooltips
 				? ITooltipFlag.TooltipFlags.ADVANCED
 				: ITooltipFlag.TooltipFlags.NORMAL;
 		stack.getItem().addInformation(stack, this.tileEntity.getWorld(), this.tooltipRenderItem, flag);
@@ -491,7 +491,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 		GlStateManager.scale(4, 4, 4);
 		GlStateManager.enableLighting();
 		RenderHelper.enableStandardItemLighting();
-		Minecraft.getMinecraft().getRenderItem().renderItem(new ItemStack(item),
+		mc.getRenderItem().renderItem(new ItemStack(item),
 				TransformType.THIRD_PERSON_LEFT_HAND);
 		RenderHelper.disableStandardItemLighting();
 		GlStateManager.disableLighting();
@@ -514,14 +514,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 		GlStateManager.enableBlend();
 		
 		if (getPage() == 1) {
-			Minecraft.getMinecraft().getTextureManager().bindTexture(GUI_INV_TEX);
+			mc.getTextureManager().bindTexture(GUI_INV_TEX);
 			drawModalRectWithCustomSizedTexture(this.guiLeft, this.guiTop, 0f, 0f, 402, 232, 480, 370);
 
 			for (int i = 0; i < 4; ++i) {
 				if (tileEntity.dismantleStatus[i] == -1 || tileEntity.dismantleDuration[i] == -1)
 					continue;
 
-				double progress = InterpolationKit.interpolateValue(tileEntity.previousDismantleStatus[i], tileEntity.dismantleStatus[i], Minecraft.getMinecraft().getRenderPartialTicks()) / (double) tileEntity.dismantleDuration[i];
+				double progress = InterpolationKit.interpolateValue(tileEntity.previousDismantleStatus[i], tileEntity.dismantleStatus[i], mc.getRenderPartialTicks()) / (double) tileEntity.dismantleDuration[i];
 				drawModalRectWithCustomSizedTexture(this.guiLeft + 261 + i * 31, this.guiTop + 57, 81, 232, 29, 7, 480,
 						370);
 				drawModalRectWithCustomSizedTexture(this.guiLeft + 261 + i * 31, this.guiTop + 57, 81, 239,
@@ -537,7 +537,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 			GlStateManager.color(1f, 1f, 1f, 1f);
 
 			GlStateManager.pushMatrix();
-			Minecraft.getMinecraft().getTextureManager().bindTexture(GUI_TEX);
+			mc.getTextureManager().bindTexture(GUI_TEX);
 
 			GlStateManager.enableBlend();
 
@@ -551,7 +551,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 			
 			 double prevProgress = (Math.max(tileEntity.prevCraftingTimer, 0)) / (double) tileEntity.craftingDuration;
              double currProgress = (Math.max(tileEntity.craftingTimer, 0)) / (double) tileEntity.craftingDuration;
-             double intpProgress = InterpolationKit.interpolateValue(prevProgress, currProgress, Minecraft.getMinecraft().getRenderPartialTicks());
+             double intpProgress = InterpolationKit.interpolateValue(prevProgress, currProgress, mc.getRenderPartialTicks());
 			double progress = (0.025) * (Math.round(intpProgress / (0.025)));
 			drawModalRectWithCustomSizedTexture(this.guiLeft + 304, this.guiTop + 185, 53f, 240f, 81, 11, 480, 370);
 			drawModalRectWithCustomSizedTexture(this.guiLeft + 304, this.guiTop + 185, 53f, 240f + 11, (int) (81 * progress), 11, 480,
@@ -620,12 +620,12 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 			
 						
 						RenderHelper.enableGUIStandardItemLighting();
-						Minecraft.getMinecraft().getRenderItem().renderItemIntoGUI(
+						mc.getRenderItem().renderItemIntoGUI(
 								new ItemStack(filteredCraftingList.get(c).getItem()), this.guiLeft + 15 + (x * 23),
 								this.guiTop + 55 + (y * 23));
 						
 						
-						Minecraft.getMinecraft().getTextureManager().bindTexture(GUI_TEX);
+						mc.getTextureManager().bindTexture(GUI_TEX);
 						RenderHelper.disableStandardItemLighting();
 						
 						c += 1;
@@ -655,7 +655,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 				GlStateManager.translate(this.guiLeft + 275, this.guiTop + 45, 0);
 				GlStateManager.scale(3, 3, 3);
 
-				Minecraft.getMinecraft().getRenderItem()
+				mc.getRenderItem()
 						.renderItemIntoGUI(new ItemStack(getSelectedCraftingPiece().getItem()), 0, 0);
 				GlStateManager.popMatrix();
 			}
@@ -676,7 +676,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 					int c = 0;
 					for (CraftingEntry stack : weapon.getModernRecipe()) {
 						ItemStack itemStack = new ItemStack(stack.getItem());
-						Minecraft.getMinecraft().getTextureManager().bindTexture(GUI_TEX);
+						mc.getTextureManager().bindTexture(GUI_TEX);
 
 						boolean hasItem = this.hasAvailiableMaterials.get(stack.getItem());
 
@@ -708,7 +708,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 							}
 
 							GlStateManager.enableTexture2D();
-							Minecraft.getMinecraft().getTextureManager().bindTexture(GUI_TEX);
+							mc.getTextureManager().bindTexture(GUI_TEX);
 							GlStateManager.enableBlend();
 
 						}
@@ -724,7 +724,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 						}
 						GlStateManager.popMatrix();
 
-						Minecraft.getMinecraft().getRenderItem().renderItemIntoGUI(itemStack, x, y);
+						mc.getRenderItem().renderItemIntoGUI(itemStack, x, y);
 
 						GUIRenderHelper.drawScaledString("x" + stack.getCount(), x + 8, y + 12, 0.6,
 								hasItem ? GREEN : RED);
@@ -741,14 +741,14 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 
 			GlStateManager.popMatrix();
 
-			boolean playerInventoryFull = Minecraft.getMinecraft().player.inventory.getFirstEmptyStack() == -1;
+			boolean playerInventoryFull = mc.player.inventory.getFirstEmptyStack() == -1;
 			if (playerInventoryFull) {
 				GUIRenderHelper.drawAlignedString("Inventory Full!", StringAlignment.LEFT, false, this.guiLeft + 245, this.guiTop + 214,
 						1.0, RED);
 			}
 			for (int i = 0; i < 9; ++i) {
 				ItemStack stack = tileEntity.mainInventory.getStackInSlot(i);
-				Minecraft.getMinecraft().getTextureManager().bindTexture(GUI_TEX);
+				mc.getTextureManager().bindTexture(GUI_TEX);
 
 				if (GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 40 + (i * 22), this.guiTop + 219, 20, 20)) {
 					GUIRenderHelper.drawTexturedRect(this.guiLeft + 39 + (i * 22), this.guiTop + 218, playerInventoryFull ? 18 : 0, 351,
@@ -758,7 +758,7 @@ public abstract class GUIContainerStation<T extends TileEntityStation> extends C
 				}
 				
 				RenderHelper.enableGUIStandardItemLighting();
-				Minecraft.getMinecraft().getRenderItem().renderItemIntoGUI(stack,
+				mc.getRenderItem().renderItemIntoGUI(stack,
 						this.guiLeft + 40 + (i * 22), this.guiTop + 219);
 				RenderHelper.disableStandardItemLighting();
 				

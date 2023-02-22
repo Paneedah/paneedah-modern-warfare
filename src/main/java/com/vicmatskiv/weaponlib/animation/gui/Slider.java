@@ -1,16 +1,14 @@
 package com.vicmatskiv.weaponlib.animation.gui;
 
-import java.awt.Color;
-
-import org.lwjgl.input.Mouse;
-
 import com.vicmatskiv.weaponlib.animation.MatrixHelper;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.util.datafix.fixes.MinecartEntityTypes;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
+import org.lwjgl.input.Mouse;
+
+import java.awt.Color;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class Slider implements IElement{
 
@@ -116,7 +114,7 @@ public class Slider implements IElement{
 		
 		GlStateManager.enableTexture2D();
 		AnimationGUI.renderScaledString(name, offsetX, offsetY-6, 0.5);
-		AnimationGUI.renderScaledString(proText, offsetX+width-Minecraft.getMinecraft().fontRenderer.getStringWidth(proText)*0.5, offsetY-6, 0.5);
+		AnimationGUI.renderScaledString(proText, offsetX+width-mc.fontRenderer.getStringWidth(proText)*0.5, offsetY-6, 0.5);
 		GlStateManager.disableTexture2D();
 	}
 

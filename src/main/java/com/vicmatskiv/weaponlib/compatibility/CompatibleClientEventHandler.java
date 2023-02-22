@@ -1,28 +1,9 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Stack;
-
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
-import com.vicmatskiv.weaponlib.BulletHoleRenderer;
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.KeyBindings;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.PlayerWeaponInstance;
-import com.vicmatskiv.weaponlib.RenderingPhase;
-import com.vicmatskiv.weaponlib.RopeSimulation;
-import com.vicmatskiv.weaponlib.Weapon;
-import com.vicmatskiv.weaponlib.WeaponState;
+import com.vicmatskiv.weaponlib.*;
 import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
 import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
 import com.vicmatskiv.weaponlib.animation.gui.AnimationGUI;
-import com.vicmatskiv.weaponlib.animation.movement.WeaponRotationHandler;
 import com.vicmatskiv.weaponlib.command.DebugCommand;
 import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
 import com.vicmatskiv.weaponlib.render.Bloom;
@@ -31,40 +12,21 @@ import com.vicmatskiv.weaponlib.render.Shaders;
 import com.vicmatskiv.weaponlib.render.VMWFrameTimer;
 import com.vicmatskiv.weaponlib.render.bgl.PostProcessPipeline;
 import com.vicmatskiv.weaponlib.render.shells.ShellManager;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
 import com.vicmatskiv.weaponlib.vehicle.collisions.OreintedBB;
 import com.vicmatskiv.weaponlib.vehicle.network.VehicleInteractPacket;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.client.event.EntityViewRenderEvent;
-import net.minecraftforge.client.event.FOVUpdateEvent;
+import net.minecraftforge.client.event.*;
 import net.minecraftforge.client.event.GuiScreenEvent.KeyboardInputEvent;
-import net.minecraftforge.client.event.MouseEvent;
-import net.minecraftforge.client.event.RenderHandEvent;
-import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.client.event.RenderWorldLastEvent;
-import net.minecraftforge.client.event.TextureStitchEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
-import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -74,6 +36,15 @@ import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
+
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Stack;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 
 /**
@@ -123,7 +94,7 @@ public abstract class CompatibleClientEventHandler {
 	@SubscribeEvent
 	public final void updateFOV(FOVUpdateEvent e) {
 
-		EntityPlayer player = Minecraft.getMinecraft().player;
+		EntityPlayer player = mc.player;
 		if (player == null || !player.isRiding() || !(player.getRidingEntity() instanceof EntityVehicle))
 			return;
 		EntityVehicle vehicle = (EntityVehicle) player.getRidingEntity();
@@ -252,8 +223,8 @@ public abstract class CompatibleClientEventHandler {
 	 * @return intepolated player coordinates
 	 */
 	public static Vec3d getInterpolatedPlayerCoords() {
-		EntityPlayer p = Minecraft.getMinecraft().player;
-		float mu = Minecraft.getMinecraft().getRenderPartialTicks();
+		EntityPlayer p = mc.player;
+		float mu = mc.getRenderPartialTicks();
 		double interpolatedX = (p.posX - p.prevPosX) * mu + p.prevPosX;
 		double interpolatedY = (p.posY - p.prevPosY) * mu + p.prevPosY;
 		double interpolatedZ = (p.posZ - p.prevPosZ) * mu + p.prevPosZ;
@@ -269,7 +240,7 @@ public abstract class CompatibleClientEventHandler {
 
 	@SubscribeEvent
 	public void connectedToServerEvent(FMLNetworkEvent.ClientConnectedToServerEvent evt) {
-		Minecraft.getMinecraft().addScheduledTask(() -> {
+		mc.addScheduledTask(() -> {
 
 			if (evt.isLocal()) {
 
@@ -333,7 +304,7 @@ public abstract class CompatibleClientEventHandler {
 			}
 
 			// Check if our
-			Framebuffer current = Minecraft.getMinecraft().getFramebuffer();
+			Framebuffer current = mc.getFramebuffer();
 
 			if (!(current instanceof HDRFramebuffer)) {
 				// Create an EXACT match, but in the HDR format. This will break w/ other mods
@@ -343,7 +314,7 @@ public abstract class CompatibleClientEventHandler {
 						current.useDepth);
 
 				try {
-					framebufferMcLink.set(Minecraft.getMinecraft(), newFBO);
+					framebufferMcLink.set(mc, newFBO);
 				} catch (IllegalArgumentException e) {
 					System.err.println("Could not hotswap framebuffer. Error: ");
 					e.printStackTrace();
@@ -379,15 +350,15 @@ public abstract class CompatibleClientEventHandler {
 
 
 		if (AnimationModeProcessor.getInstance().getFPSMode()) {
-			Minecraft.getMinecraft().setIngameNotInFocus();
+			mc.setIngameNotInFocus();
 
-			// Minecraft.getMinecraft().mouseHelper.ungrabMouseCursor();
+			// mc.mouseHelper.ungrabMouseCursor();
 			AnimationModeProcessor.getInstance().onTick();
 
-			Minecraft.getMinecraft().player.inventory.currentItem = 0;
+			mc.player.inventory.currentItem = 0;
 
 			Shaders.blackScreen.use();
-			Bloom.renderFboTriangle(Minecraft.getMinecraft().getFramebuffer());
+			Bloom.renderFboTriangle(mc.getFramebuffer());
 			Shaders.blackScreen.release();
 
 			return;
@@ -417,7 +388,7 @@ public abstract class CompatibleClientEventHandler {
 	
 		
 
-		EntityPlayer player = Minecraft.getMinecraft().player;
+		EntityPlayer player = mc.player;
 		if (player != null && event.phase == Phase.END) {
 
 			double yAmount = ClientValueRepo.recoilWoundY * 0.2;
@@ -436,12 +407,12 @@ public abstract class CompatibleClientEventHandler {
 		
 		// Past here we only want to deal with Phase.START.
 		// Also we should be in a world.
-		if(event.phase != Phase.START || Minecraft.getMinecraft().player == null) return;
+		if(event.phase != Phase.START || mc.player == null) return;
 
 		// Run recalculations for the weather renderer
 		if (ModernConfigManager.enableFancyRainAndSnow && PostProcessPipeline.getWeatherRenderer() != null &&
-				PostProcessPipeline.getWeatherRenderer().shouldRecalculateRainVectors(Minecraft.getMinecraft().player)) {
-			PostProcessPipeline.getWeatherRenderer().recalculateRainVectors(Minecraft.getMinecraft().player,
+				PostProcessPipeline.getWeatherRenderer().shouldRecalculateRainVectors(mc.player)) {
+			PostProcessPipeline.getWeatherRenderer().recalculateRainVectors(mc.player,
 					getInterpolatedPlayerCoords());
 		
 		}
@@ -463,21 +434,21 @@ public abstract class CompatibleClientEventHandler {
 
 
 		if (DebugCommand.isWorkingOnScreenShake()
-				&& Minecraft.getMinecraft().player.ticksExisted % 20 == 0
+				&& mc.player.ticksExisted % 20 == 0
 				&& getModContext().getMainHeldWeapon() != null) {
 			
-			CompatibleClientEventHandler.uploadFlash(Minecraft.getMinecraft().player.getEntityId());
+			CompatibleClientEventHandler.uploadFlash(mc.player.getEntityId());
 			ClientValueRepo.fireWeapon(getModContext().getMainHeldWeapon());
 		}
 
-		if (Minecraft.getMinecraft().player.ticksExisted % ticksRequired == 0
+		if (mc.player.ticksExisted % ticksRequired == 0
 				&& AnimationModeProcessor.getInstance().getFPSMode()
 				&& !AnimationGUI.getInstance().isPanelClosed("Recoil")) {
 
 			ClientValueRepo.fireWeapon(getModContext().getMainHeldWeapon());
 		}
 
-		ClientValueRepo.TICKER.update(Minecraft.getMinecraft().player.ticksExisted);
+		ClientValueRepo.TICKER.update(mc.player.ticksExisted);
 
 		SHELL_MANAGER.update(0.05);
 
@@ -537,7 +508,7 @@ public abstract class CompatibleClientEventHandler {
 	public void onRightHandEmpty(PlayerInteractEvent.RightClickEmpty evt) {
 
 		ClientModContext context = (ClientModContext) getModContext();
-		EntityPlayer player = Minecraft.getMinecraft().player;
+		EntityPlayer player = mc.player;
 
 		List<EntityVehicle> i = player.world.getEntitiesWithinAABB(EntityVehicle.class,
 				new AxisAlignedBB(player.getPosition()).grow(10));
@@ -551,7 +522,7 @@ public abstract class CompatibleClientEventHandler {
 				OreintedBB bb = v.getOreintedBoundingBox();
 
 				// bb.move(v.posX, v.posY, v.posZ);
-				Vec3d start = player.getPositionEyes(Minecraft.getMinecraft().getRenderPartialTicks());
+				Vec3d start = player.getPositionEyes(mc.getRenderPartialTicks());
 				Vec3d endVec = start.add(player.getLookVec().scale(7));
 
 				bb.updateInverse();
@@ -573,7 +544,7 @@ public abstract class CompatibleClientEventHandler {
 	public void onLeftHandEmpty(PlayerInteractEvent.LeftClickEmpty evt) {
 
 		ClientModContext context = (ClientModContext) getModContext();
-		EntityPlayer player = Minecraft.getMinecraft().player;
+		EntityPlayer player = mc.player;
 
 		List<EntityVehicle> i = player.world.getEntitiesWithinAABB(EntityVehicle.class,
 				new AxisAlignedBB(player.getPosition()).grow(3));
@@ -587,7 +558,7 @@ public abstract class CompatibleClientEventHandler {
 				OreintedBB bb = v.getOreintedBoundingBox();
 
 				// bb.move(v.posX, v.posY, v.posZ);
-				Vec3d start = player.getPositionEyes(Minecraft.getMinecraft().getRenderPartialTicks());
+				Vec3d start = player.getPositionEyes(mc.getRenderPartialTicks());
 				Vec3d endVec = start.add(player.getLookVec().scale(4));
 
 				// bb.updateInverse();

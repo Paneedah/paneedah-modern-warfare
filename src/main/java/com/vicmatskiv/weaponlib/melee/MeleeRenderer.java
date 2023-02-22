@@ -1,49 +1,26 @@
 package com.vicmatskiv.weaponlib.melee;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import com.vicmatskiv.weaponlib.*;
+import com.vicmatskiv.weaponlib.animation.*;
+import com.vicmatskiv.weaponlib.animation.DebugPositioner.TransitionConfiguration;
+import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
+import com.vicmatskiv.weaponlib.compatibility.CompatibleMeleeRenderer;
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.lwjgl.opengl.GL11;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.lwjgl.opengl.GL11;
-
-import com.vicmatskiv.weaponlib.AttachmentContainer;
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.CompatibleAttachment;
-import com.vicmatskiv.weaponlib.CustomRenderer;
-import com.vicmatskiv.weaponlib.DefaultPart;
-import com.vicmatskiv.weaponlib.ItemAttachment;
-import com.vicmatskiv.weaponlib.ItemSkin;
-import com.vicmatskiv.weaponlib.ModelWithAttachments;
-import com.vicmatskiv.weaponlib.Part;
-import com.vicmatskiv.weaponlib.PlayerItemInstance;
-import com.vicmatskiv.weaponlib.RenderContext;
-import com.vicmatskiv.weaponlib.Tuple;
-import com.vicmatskiv.weaponlib.animation.DebugPositioner;
-import com.vicmatskiv.weaponlib.animation.DebugPositioner.TransitionConfiguration;
-import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
-import com.vicmatskiv.weaponlib.animation.MultipartRenderStateManager;
-import com.vicmatskiv.weaponlib.animation.MultipartTransition;
-import com.vicmatskiv.weaponlib.animation.MultipartTransitionProvider;
-import com.vicmatskiv.weaponlib.animation.Transition;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMeleeRenderer;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class MeleeRenderer extends CompatibleMeleeRenderer {
 
@@ -707,7 +684,7 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 		}
 
 		if(builder.getTextureName() != null) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(builder.getModId()
+			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
 					+ ":textures/models/" + builder.getTextureName()));
 		} else {
 			String textureName = null;
@@ -730,7 +707,7 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 				textureName = weapon.getTextureName();
 			}
 
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(builder.getModId()
+			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
 					+ ":textures/models/" + textureName));
 		}
 
@@ -781,7 +758,7 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 		}
 
 		for(Tuple<ModelBase, String> texturedModel: compatibleAttachment.getAttachment().getTexturedModels()) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(builder.getModId()
+			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId()
 					+ ":textures/models/" + texturedModel.getV()));
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);

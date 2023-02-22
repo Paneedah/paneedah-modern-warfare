@@ -1,18 +1,16 @@
 package com.vicmatskiv.weaponlib;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import com.vicmatskiv.weaponlib.vehicle.collisions.GJKResult;
 import com.vicmatskiv.weaponlib.vehicle.collisions.OBBCollider;
 import com.vicmatskiv.weaponlib.vehicle.collisions.OreintedBB;
-
-import net.minecraft.block.BlockAir;
-import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class RopeSimulation {
 	
@@ -256,7 +254,7 @@ public class RopeSimulation {
 				box = box.grow(0.1);
 				box = box.offset(p.pos);
 				
-				List<AxisAlignedBB> i = Minecraft.getMinecraft().world.getCollisionBoxes(null, box);
+				List<AxisAlignedBB> i = mc.world.getCollisionBoxes(null, box);
 				
 				for(AxisAlignedBB b : i) {
 					if(b.maxY < p.pos.y) {

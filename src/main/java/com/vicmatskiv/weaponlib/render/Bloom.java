@@ -1,18 +1,7 @@
 package com.vicmatskiv.weaponlib.render;
 
-import java.nio.IntBuffer;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL14;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL30;
-
 import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
 import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -22,6 +11,13 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.shader.Framebuffer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.lwjgl.opengl.*;
+
+import java.nio.IntBuffer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 /**
  * Bloom implementation based on
@@ -36,7 +32,7 @@ import net.minecraft.client.shader.Framebuffer;
 public class Bloom {
 
 	private static final Logger LOGGER = LogManager.getLogger(Bloom.class);
-	public static final Minecraft MC = Minecraft.getMinecraft();
+	public static final Minecraft MC = mc;
 
 	public static int width = MC.displayWidth;
 	public static int height = MC.displayHeight;
@@ -60,7 +56,7 @@ public class Bloom {
 	public static void setupBloom() {
 
 		// logger.info("Creating bloom buffer, MC's Framebuffer is {}, the world is {}",
-		// Minecraft.getMinecraft().getFramebuffer(), Minecraft.getMinecraft().world);
+		// mc.getFramebuffer(), mc.world);
 		// logger.log(Level.INFO, null, message, p0, p1, p2, p3, p4, p5, p6);
 		width = MC.displayWidth;
 		height = MC.displayHeight;
@@ -184,7 +180,7 @@ public class Bloom {
 		// data.framebufferClear();
 
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0 + 4);
-		GlStateManager.bindTexture(Minecraft.getMinecraft().getFramebuffer().framebufferTexture);
+		GlStateManager.bindTexture(mc.getFramebuffer().framebufferTexture);
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 
 		data.bindFramebuffer(false);
@@ -267,9 +263,9 @@ public class Bloom {
 		 * buffers[i+1].framebufferWidth, buffers[i+1].framebufferHeight);
 		 * GlStateManager.blendFunc(SourceFactor.ONE, DestFactor.ONE); int tWidth,
 		 * tHeight; if(i == 0){
-		 * Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true); tWidth =
-		 * Minecraft.getMinecraft().getFramebuffer().framebufferWidth; tHeight =
-		 * Minecraft.getMinecraft().getFramebuffer().framebufferHeight; } else {
+		 * mc.getFramebuffer().bindFramebuffer(true); tWidth =
+		 * mc.getFramebuffer().framebufferWidth; tHeight =
+		 * mc.getFramebuffer().framebufferHeight; } else {
 		 * GlStateManager.glBlendEquation(GL14.GL_MAX);
 		 * buffers[(i-1)].bindFramebuffer(true); tWidth =
 		 * buffers[(i-1)].framebufferWidth; tHeight = buffers[(i-1)].framebufferHeight;
@@ -281,7 +277,7 @@ public class Bloom {
 		 * GlStateManager.clearColor(data.framebufferColor[0], data.framebufferColor[1],
 		 * data.framebufferColor[2], data.framebufferColor[3]);
 		 * GlStateManager.clear(GL11.GL_COLOR_BUFFER_BIT);
-		 * Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
+		 * mc.getFramebuffer().bindFramebuffer(true);
 		 * 
 		 * GlStateManager.enableAlpha(); GlStateManager.enableLighting();
 		 * GlStateManager.enableDepth();
@@ -308,9 +304,9 @@ public class Bloom {
 			int tWidth, tHeight;
 			if (i == 0) {
 
-				Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
-				tWidth = Minecraft.getMinecraft().getFramebuffer().framebufferWidth;
-				tHeight = Minecraft.getMinecraft().getFramebuffer().framebufferHeight;
+				mc.getFramebuffer().bindFramebuffer(true);
+				tWidth = mc.getFramebuffer().framebufferWidth;
+				tHeight = mc.getFramebuffer().framebufferHeight;
 			} else {
 				GlStateManager.glBlendEquation(GL14.GL_MAX);
 				buffers[(i - 1)].bindFramebuffer(true);
@@ -329,7 +325,7 @@ public class Bloom {
 		GlStateManager.clearColor(data.framebufferColor[0], data.framebufferColor[1], data.framebufferColor[2],
 				data.framebufferColor[3]);
 		GlStateManager.clear(GL11.GL_COLOR_BUFFER_BIT);
-		Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
+		mc.getFramebuffer().bindFramebuffer(true);
 
 		GlStateManager.enableAlpha();
 		GlStateManager.enableLighting();
@@ -352,11 +348,11 @@ public class Bloom {
 	}
 
 	public static void bindMinecraft() {
-		Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
+		mc.getFramebuffer().bindFramebuffer(true);
 	}
 
 	public static int getWidthTimesHeight() {
-		return Minecraft.getMinecraft().displayWidth * Minecraft.getMinecraft().displayHeight;
+		return mc.displayWidth * mc.displayHeight;
 	}
 
 	public static void setupMultisampleBuffer() {
@@ -371,8 +367,8 @@ public class Bloom {
 		GLCompatible.glBindFramebuffer(GLCompatible.GL_FRAMEBUFFER, multisampleFBO);
 		multiampleTexFBO = GL11.glGenTextures();
 
-		int width = Minecraft.getMinecraft().displayWidth;
-		int height = Minecraft.getMinecraft().displayHeight;
+		int width = mc.displayWidth;
+		int height = mc.displayHeight;
 
 		GL11.glBindTexture(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, multiampleTexFBO);
 		GLCompatible.glTexImage2DMultisample(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 4, GL11.GL_RGBA8, width, height,
@@ -407,7 +403,7 @@ public class Bloom {
 		GLCompatible.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER, initial.framebufferObject);
 
 		// GLCompatible.glBindFramebuffer(GLCompatible.GL_READ_FRAMEBUFFER,
-		// Minecraft.getMinecraft().getFramebuffer().framebufferObject);
+		// mc.getFramebuffer().framebufferObject);
 		GLCompatible.glBindFramebuffer(GLCompatible.GL_DRAW_FRAMEBUFFER, multisampleFBO);
 		GLCompatible.glBlitFramebuffer(0, 0, gWidth, gHeight, 0, 0, gWidth, gHeight, GL11.GL_COLOR_BUFFER_BIT,
 				GL11.GL_NEAREST);
@@ -419,11 +415,11 @@ public class Bloom {
 	}
 
 	public static void initializeMultisample() {
-		initializeMultisample(Minecraft.getMinecraft().getFramebuffer());
+		initializeMultisample(mc.getFramebuffer());
 	}
 
 	public static void unapplyMultisample() {
-		unapplyMultisample(Minecraft.getMinecraft().getFramebuffer());
+		unapplyMultisample(mc.getFramebuffer());
 	}
 
 	public static void unapplyMultisample(Framebuffer initial) {
@@ -431,8 +427,8 @@ public class Bloom {
 			return;
 
 		/*
-		 * int gWidth = Minecraft.getMinecraft().displayWidth; int gHeight =
-		 * Minecraft.getMinecraft().displayHeight;
+		 * int gWidth = mc.displayWidth; int gHeight =
+		 * mc.displayHeight;
 		 */
 
 		int gWidth = initial.framebufferWidth;

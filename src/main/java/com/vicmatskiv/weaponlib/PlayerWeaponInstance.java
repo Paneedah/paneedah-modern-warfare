@@ -1,21 +1,9 @@
 package com.vicmatskiv.weaponlib;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.UUID;
-import java.util.concurrent.LinkedBlockingDeque;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL20;
-
+import akka.japi.Pair;
 import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
 import com.vicmatskiv.weaponlib.animation.gui.AnimationGUI;
 import com.vicmatskiv.weaponlib.command.DebugCommand;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
 import com.vicmatskiv.weaponlib.compatibility.RecoilParam;
 import com.vicmatskiv.weaponlib.config.BalancePackManager;
 import com.vicmatskiv.weaponlib.network.TypeRegistry;
@@ -24,16 +12,24 @@ import com.vicmatskiv.weaponlib.perspective.Perspective;
 import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupSource;
 import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupSourceProvider;
 import com.vicmatskiv.weaponlib.shader.DynamicShaderPhase;
-
-import akka.japi.Pair;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.lwjgl.opengl.GL13;
+
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.UUID;
+import java.util.concurrent.LinkedBlockingDeque;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
 public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implements DynamicShaderGroupSourceProvider {
@@ -59,8 +55,8 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
     public final DynamicShaderGroupSource NIGHT_VISION_SOURCE = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/vicmatskiv/weaponlib/resources/night-vision.json"))
-            .withUniform("IntensityAdjust", context -> 40f - Minecraft.getMinecraft().gameSettings.gammaSetting * 38)
-            .withUniform("NoiseAmplification", context ->  2f + 3f * Minecraft.getMinecraft().gameSettings.gammaSetting);
+            .withUniform("IntensityAdjust", context -> 40f - mc.gameSettings.gammaSetting * 38)
+            .withUniform("NoiseAmplification", context ->  2f + 3f * mc.gameSettings.gammaSetting);
 
     public final DynamicShaderGroupSource VIGNETTE_SOURCE = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID,
             new ResourceLocation("weaponlib:/com/vicmatskiv/weaponlib/resources/vignette.json"))
@@ -69,7 +65,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
             .withUniform("Reticle", context -> {
             	
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-            	Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/hud/reticle1.png"));
+            	mc.getTextureManager().bindTexture(new ResourceLocation("mw" + ":" + "textures/hud/reticle1.png"));
             	GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
             	
             	return 4;

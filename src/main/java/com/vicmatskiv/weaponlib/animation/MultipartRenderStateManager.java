@@ -1,47 +1,28 @@
 package com.vicmatskiv.weaponlib.animation;
 
-import java.nio.FloatBuffer;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.WeakHashMap;
-import java.util.function.Function;
-import java.util.function.Supplier;
-
-import javax.vecmath.Quat4f;
-
-import org.apache.commons.codec.language.bm.BeiderMorseEncoder;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.vector.Matrix3f;
-import org.lwjgl.util.vector.Matrix4f;
-import org.lwjgl.util.vector.Quaternion;
-import org.lwjgl.util.vector.Vector3f;
-import org.lwjgl.util.vector.Vector4f;
-
-import com.vicmatskiv.weaponlib.ClientModContext;
 import com.vicmatskiv.weaponlib.DefaultPart;
 import com.vicmatskiv.weaponlib.RenderContext;
 import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.UniversalSoundLookup;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
 import com.vicmatskiv.weaponlib.compatibility.Interceptors;
-
-import akka.japi.Pair;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.Vec3d;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.lwjgl.BufferUtils;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.vector.Matrix4f;
+import org.lwjgl.util.vector.Quaternion;
+import org.lwjgl.util.vector.Vector3f;
+
+import java.nio.FloatBuffer;
+import java.util.*;
+import java.util.function.Function;
+import java.util.function.Supplier;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 
 public class MultipartRenderStateManager<State, Part, Context extends PartPositionProvider> {
@@ -213,8 +194,8 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 				if(targetState.sound != null) {
 					//System.out.println(targetState.sound.getResourceLocation());
 					
-					PositionedSoundRecord psr = new PositionedSoundRecord(targetState.sound.getSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, Minecraft.getMinecraft().player.getPosition().up(5));
-		        	Minecraft.getMinecraft().getSoundHandler().playSound(psr);
+					PositionedSoundRecord psr = new PositionedSoundRecord(targetState.sound.getSound(), SoundCategory.PLAYERS, 1.0F, 1.0F, mc.player.getPosition().up(5));
+		        	mc.getSoundHandler().playSound(psr);
 				}
 			}
 			
@@ -292,7 +273,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 						
 						
 						
-						if(Minecraft.getMinecraft().gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
+						if(mc.gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
 								&& ((toState == RenderableState.ZOOMING && fromState == RenderableState.NORMAL) ||
 										(toState == RenderableState.NORMAL && fromState == RenderableState.ZOOMING))) {
 							
@@ -338,7 +319,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 					/*
 					 * try {
 						if(targetState.sound != null) {
-							Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(targetState.sound, 1.0f));
+							mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(targetState.sound, 1.0f));
 							
 						}
 					} catch(Exception e) {
@@ -358,7 +339,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 					
 					boolean cancelBeizer = (context instanceof RenderContext<?>) && ((RenderContext<?>) context).getCancelBeizer();
 					
-					if(!cancelBeizer && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
+					if(!cancelBeizer && mc.gameSettings.thirdPersonView == 0 && part.toString().contains("MAIN_ITEM")
 							&& ((toState == RenderableState.ZOOMING && fromState == RenderableState.NORMAL) ||
 									(toState == RenderableState.NORMAL && fromState == RenderableState.ZOOMING))) {
 						

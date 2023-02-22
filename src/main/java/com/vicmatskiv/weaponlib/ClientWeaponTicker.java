@@ -1,23 +1,21 @@
 package com.vicmatskiv.weaponlib;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import org.lwjgl.input.Mouse;
-
 import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
 import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
 import com.vicmatskiv.weaponlib.config.BalancePackManager;
 import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
 import com.vicmatskiv.weaponlib.grenade.ItemGrenade;
 import com.vicmatskiv.weaponlib.melee.ItemMelee;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import org.lwjgl.input.Mouse;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 class ClientWeaponTicker extends Thread {
 
@@ -150,7 +148,7 @@ class ClientWeaponTicker extends Thread {
         	if(player.isSprinting()) {
         		player.setSprinting(false);
         		
-        		KeyBinding.setKeyBindState(Minecraft.getMinecraft().gameSettings.keyBindSprint.getKeyCode(), false);
+        		KeyBinding.setKeyBindState(mc.gameSettings.keyBindSprint.getKeyCode(), false);
         		ClientValueRepo.shouldContinueRunning = true;
         	}
             ((Weapon) item).toggleAiming();

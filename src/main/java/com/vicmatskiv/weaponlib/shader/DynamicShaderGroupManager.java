@@ -1,5 +1,19 @@
 package com.vicmatskiv.weaponlib.shader;
 
+import com.google.gson.JsonSyntaxException;
+import com.vicmatskiv.weaponlib.PlayerItemInstance;
+import com.vicmatskiv.weaponlib.TransformingResourceManager;
+import com.vicmatskiv.weaponlib.TransformingTextureManager;
+import com.vicmatskiv.weaponlib.compatibility.Framebuffers;
+import net.minecraft.client.renderer.texture.TextureManager;
+import net.minecraft.client.resources.IResourceManager;
+import net.minecraft.client.shader.Framebuffer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -7,22 +21,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import com.google.gson.JsonSyntaxException;
-import com.vicmatskiv.weaponlib.PlayerItemInstance;
-import com.vicmatskiv.weaponlib.TransformingResourceManager;
-import com.vicmatskiv.weaponlib.TransformingTextureManager;
-import com.vicmatskiv.weaponlib.compatibility.Framebuffers;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.client.resources.IResourceManager;
-import net.minecraft.client.shader.Framebuffer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class DynamicShaderGroupManager {
     
@@ -120,22 +119,16 @@ public class DynamicShaderGroupManager {
             context.getPhase().apply(context, l.group);
         }
 
-        Minecraft mc = Minecraft.getMinecraft();
-        Framebuffers.bindFramebuffer(originalFramebufferId, true,
-                mc.getFramebuffer().framebufferWidth,
-                mc.getFramebuffer().framebufferHeight);
+        Framebuffers.bindFramebuffer(originalFramebufferId, true, mc.getFramebuffer().framebufferWidth, mc.getFramebuffer().framebufferHeight);
 
         return l != null ? l.group : null;
     }
 
     private DynamicShaderGroup createShaderGroup(DynamicShaderContext context, DynamicShaderGroupSource source, ResourceLocation resourceLocation) {
 
-        Minecraft mc = Minecraft.getMinecraft();
-        IResourceManager resourceManager = new TransformingResourceManager(mc.getResourceManager(),
-                DynamicShaderGroupManager::modifyResourceLocation);
+        IResourceManager resourceManager = new TransformingResourceManager(mc.getResourceManager(), DynamicShaderGroupManager::modifyResourceLocation);
 
-        TextureManager textureManager = new TransformingTextureManager(mc.getTextureManager(),
-                DynamicShaderGroupManager::modifyResourceLocation);
+        TextureManager textureManager = new TransformingTextureManager(mc.getTextureManager(), DynamicShaderGroupManager::modifyResourceLocation);
 
         try {
             DynamicShaderGroup group = new DynamicShaderGroup(textureManager, resourceManager, context.getMainFramebuffer(), resourceLocation);

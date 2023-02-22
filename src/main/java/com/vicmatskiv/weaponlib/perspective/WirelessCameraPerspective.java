@@ -1,26 +1,24 @@
 package com.vicmatskiv.weaponlib.perspective;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-import java.util.Random;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.lwjgl.opengl.GL11;
-
 import com.vicmatskiv.weaponlib.PlayerItemInstance;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleTessellator;
 import com.vicmatskiv.weaponlib.electronics.PlayerTabletInstance;
 import com.vicmatskiv.weaponlib.electronics.SignalQuality;
 import com.vicmatskiv.weaponlib.tracking.PlayerEntityTracker;
 import com.vicmatskiv.weaponlib.tracking.TrackableEntity;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.lwjgl.opengl.GL11;
+
+import java.util.Random;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
@@ -152,7 +150,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
         } else if(totalTrackableEntities == 0) {
             framebuffer.framebufferClear();
             framebuffer.bindFramebuffer(true);
-            Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(DARK_SCREEN_TEXTURE));
+            mc.getTextureManager().bindTexture(new ResourceLocation(DARK_SCREEN_TEXTURE));
             drawTexturedQuadFit(0, 0, width, height, 0);
             color =  0xFF0000;
             message = "No Cameras Available";
@@ -177,7 +175,7 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
     public void drawStatic() {
 
-        Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(STATIC_TEXTURE));
+        mc.getTextureManager().bindTexture(new ResourceLocation(STATIC_TEXTURE));
 
         imageIndex = random.nextInt(STATIC_IMAGES_PER_ROW);
 

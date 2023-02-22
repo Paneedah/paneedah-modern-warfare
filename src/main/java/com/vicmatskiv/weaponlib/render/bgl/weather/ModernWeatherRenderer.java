@@ -1,10 +1,7 @@
 package com.vicmatskiv.weaponlib.render.bgl.weather;
 
-import org.lwjgl.opengl.GL11;
-
 import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -19,12 +16,13 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.GL11;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 @SideOnly(Side.CLIENT)
 public class ModernWeatherRenderer extends IRenderHandler {
 
-	
-	private static final Minecraft mc = Minecraft.getMinecraft();
 	private static final int RAIN_SEARCH_AREA = 4;
 	
 	/*
@@ -74,7 +72,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 	public boolean shouldRecalculateRainVectors(EntityPlayer player) {
 		
 		// If it's not raining, don't recalculate the vectors
-		if(player.world.getRainStrength(Minecraft.getMinecraft().getRenderPartialTicks()) == 0.0) return false;
+		if(player.world.getRainStrength(mc.getRenderPartialTicks()) == 0.0) return false;
 		
 		if(previousPosition == null) {
 			previousPosition = player.getPositionVector();
@@ -94,8 +92,8 @@ public class ModernWeatherRenderer extends IRenderHandler {
 		
 
 		/*
-		boolean thirdPersonFlag = Minecraft.getMinecraft().gameSettings.thirdPersonView != previousThirdPerson;
-		if(thirdPersonFlag) previousThirdPerson = Minecraft.getMinecraft().gameSettings.thirdPersonView;
+		boolean thirdPersonFlag = mc.gameSettings.thirdPersonView != previousThirdPerson;
+		if(thirdPersonFlag) previousThirdPerson = mc.gameSettings.thirdPersonView;
 		*/
 		
 		return positionFlag;
@@ -125,7 +123,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 					
 				
 						
-				int worldPos = Minecraft.getMinecraft().world.getHeight(rainPosition.getX(), rainPosition.getZ());
+				int worldPos = mc.world.getHeight(rainPosition.getX(), rainPosition.getZ());
 				rainPositions[count] = new float[] { 1.0f, (float) rainPosition.getX() + 1, (float) worldPos, rainPosition.getZ(), rainStatus ? 1 : 0};
 				count++;
 				
@@ -136,7 +134,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 		/*
 		if(true) return;
 		Vec3d direction = new Vec3d(0, 0, 1);
-		if(Minecraft.getMinecraft().gameSettings.thirdPersonView == 1) direction = new Vec3d(0, 0, -1);
+		if(mc.gameSettings.thirdPersonView == 1) direction = new Vec3d(0, 0, -1);
 		
 		
 		double delta = -20;
@@ -153,7 +151,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 				}
 				
 				BlockPos rainPosition = new BlockPos(interpolatedPosition.x + lookVector.x*length, player.getPositionVector().y, interpolatedPosition.z + lookVector.z*length);
-				int worldPos = Minecraft.getMinecraft().world.getHeight(rainPosition.getX(), rainPosition.getZ());
+				int worldPos = mc.world.getHeight(rainPosition.getX(), rainPosition.getZ());
 				rainPositions[i] = new float[] { 1.0f, (float) rainPosition.getX() + 1, (float) (rainPosition.getY() + (worldPos - player.getPosition().getY())), rainPosition.getZ()};
 
 		}
@@ -169,7 +167,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 	}
 	
 	public double getTrueHeight(BlockPos pos) {
-		return Minecraft.getMinecraft().world.getHeight(pos).getY();
+		return mc.world.getHeight(pos).getY();
 		
 	}
 
@@ -218,7 +216,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 		
 		
 		// Rain pass
-		Minecraft.getMinecraft().getTextureManager().bindTexture(RAIN_HEAVY);
+		mc.getTextureManager().bindTexture(RAIN_HEAVY);
 		timer = -ClientValueRepo.TICKER.getLerpedFloat()/3f;
 		BufferBuilder bb = t.getBuffer();
 		bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
@@ -240,7 +238,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 		
 		
 		// Snow pass
-		Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("mw:textures/environment/christmassnow.png"));
+		mc.getTextureManager().bindTexture(new ResourceLocation("mw:textures/environment/christmassnow.png"));
 		timer = -ClientValueRepo.TICKER.getLerpedFloat()/25f;
 		bb = t.getBuffer();
 		bb.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);

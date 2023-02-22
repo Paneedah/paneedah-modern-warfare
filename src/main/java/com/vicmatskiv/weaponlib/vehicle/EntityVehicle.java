@@ -1,163 +1,55 @@
 package com.vicmatskiv.weaponlib.vehicle;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import com.google.common.collect.Lists;
+import com.vicmatskiv.weaponlib.*;
+import com.vicmatskiv.weaponlib.animation.Randomizer;
+import com.vicmatskiv.weaponlib.compatibility.CompatibleVec3;
+import com.vicmatskiv.weaponlib.compatibility.sound.EngineMovingSound;
+import com.vicmatskiv.weaponlib.particle.DriftSmokeFX;
+import com.vicmatskiv.weaponlib.particle.vehicle.DriftCloudParticle;
+import com.vicmatskiv.weaponlib.particle.vehicle.ExhaustParticle;
+import com.vicmatskiv.weaponlib.particle.vehicle.TireTracks;
+import com.vicmatskiv.weaponlib.particle.vehicle.VehicleExhaustFlameParticle;
+import com.vicmatskiv.weaponlib.state.ExtendedState;
+import com.vicmatskiv.weaponlib.vehicle.collisions.*;
+import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.vicmatskiv.weaponlib.vehicle.jimphysics.Transmission;
+import com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
+import com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.WheelSolver;
+import com.vicmatskiv.weaponlib.vehicle.network.*;
+import com.vicmatskiv.weaponlib.vehicle.smoothlib.PTIVec;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.audio.MovingSound;
+import net.minecraft.client.audio.PositionedSound;
+import net.minecraft.client.audio.PositionedSoundRecord;
+import net.minecraft.crash.CrashReport;
+import net.minecraft.crash.CrashReportCategory;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.MoverType;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.*;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.*;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.io.BufferedReader;
+import javax.annotation.Nullable;
+import javax.vecmath.Vector3d;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
-import javax.annotation.Nullable;
-import javax.swing.border.MatteBorder;
-import javax.vecmath.Matrix3d;
-import javax.vecmath.Matrix4d;
-import javax.vecmath.Quat4d;
-import javax.vecmath.Quat4f;
-import javax.vecmath.Vector2d;
-import javax.vecmath.Vector3d;
-
-import org.apache.logging.log4j.core.Core;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.openal.AL10;
-import org.lwjgl.openal.EFX10;
-import org.lwjgl.util.vector.Quaternion;
-import org.objectweb.asm.Opcodes;
-
-import com.google.common.collect.Lists;
-import com.mojang.authlib.minecraft.MinecraftProfileTexture;
-import com.mojang.realmsclient.dto.UploadInfo;
-import com.vicmatskiv.weaponlib.CommonModContext;
-import com.vicmatskiv.weaponlib.Configurable;
-import com.vicmatskiv.weaponlib.Contextual;
-import com.vicmatskiv.weaponlib.CustomGui;
-import com.vicmatskiv.weaponlib.EntityClassFactory;
-import com.vicmatskiv.weaponlib.KeyBindings;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.TryFireMessage;
-import com.vicmatskiv.weaponlib.animation.Randomizer;
-import com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMathHelper;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMovingSound;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleParticle;
-import com.vicmatskiv.weaponlib.compatibility.CompatiblePositionedSound;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleVec3;
-import com.vicmatskiv.weaponlib.compatibility.RevSound;
-import com.vicmatskiv.weaponlib.compatibility.sound.AdvCompatibleMovingSound;
-import com.vicmatskiv.weaponlib.compatibility.sound.DriftMovingSound;
-import com.vicmatskiv.weaponlib.compatibility.sound.EngineMovingSound;
-import com.vicmatskiv.weaponlib.particle.DriftCloudFX;
-import com.vicmatskiv.weaponlib.particle.DriftSmokeFX;
-import com.vicmatskiv.weaponlib.particle.ParticleExSmoke;
-import com.vicmatskiv.weaponlib.particle.vehicle.DriftCloudParticle;
-import com.vicmatskiv.weaponlib.particle.vehicle.ExhaustParticle;
-import com.vicmatskiv.weaponlib.particle.vehicle.TireTracks;
-import com.vicmatskiv.weaponlib.particle.vehicle.TurbulentSmokeParticle;
-import com.vicmatskiv.weaponlib.particle.vehicle.VehicleExhaustFlameParticle;
-import com.vicmatskiv.weaponlib.state.ExtendedState;
-import com.vicmatskiv.weaponlib.vehicle.VehiclePart.Wheel;
-import com.vicmatskiv.weaponlib.vehicle.collisions.AABBTool;
-import com.vicmatskiv.weaponlib.vehicle.collisions.GJKResult;
-import com.vicmatskiv.weaponlib.vehicle.collisions.IDynamicCollision;
-import com.vicmatskiv.weaponlib.vehicle.collisions.OBBCollider;
-import com.vicmatskiv.weaponlib.vehicle.collisions.OreintedBB;
-import com.vicmatskiv.weaponlib.vehicle.collisions.RigidBody;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Engine;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.QuatUtil;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Transmission;
-
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.WheelSolver;
-import com.vicmatskiv.weaponlib.vehicle.network.VehicleClientPacket;
-import com.vicmatskiv.weaponlib.vehicle.network.VehicleClientPacketHandler;
-import com.vicmatskiv.weaponlib.vehicle.network.VehicleControlPacket;
-import com.vicmatskiv.weaponlib.vehicle.network.VehicleControlPacketHandler;
-import com.vicmatskiv.weaponlib.vehicle.network.VehicleDataContainer;
-import com.vicmatskiv.weaponlib.vehicle.network.VehicleDataSerializer;
-import com.vicmatskiv.weaponlib.vehicle.network.VehiclePacketLatencyTracker;
-import com.vicmatskiv.weaponlib.vehicle.network.VehiclePhysSerializer;
-import com.vicmatskiv.weaponlib.vehicle.network.VehicleSmoothShell;
-import com.vicmatskiv.weaponlib.vehicle.smoothlib.PTIVal;
-import com.vicmatskiv.weaponlib.vehicle.smoothlib.PTIVec;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockCarpet;
-import net.minecraft.block.BlockFence;
-import net.minecraft.block.BlockFenceGate;
-import net.minecraft.block.BlockGlass;
-import net.minecraft.block.BlockLiquid;
-import net.minecraft.block.BlockPane;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockSlab;
-import net.minecraft.block.BlockSnow;
-import net.minecraft.block.BlockSnowBlock;
-import net.minecraft.block.BlockWall;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.ISound;
-import net.minecraft.client.audio.MovingSound;
-import net.minecraft.client.audio.MovingSoundMinecart;
-import net.minecraft.client.audio.PositionedSound;
-import net.minecraft.client.audio.PositionedSoundRecord;
-import net.minecraft.client.audio.SoundHandler;
-import net.minecraft.client.renderer.vertex.VertexBuffer;
-import net.minecraft.client.resources.data.PackMetadataSection;
-import net.minecraft.crash.CrashReport;
-import net.minecraft.crash.CrashReportCategory;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EntityTracker;
-import net.minecraft.entity.MoverType;
-import net.minecraft.entity.item.EntityBoat;
-import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.passive.EntityPig;
-import net.minecraft.entity.passive.EntityWaterMob;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.network.play.client.CPacketPlayer;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EntityDamageSourceIndirect;
-import net.minecraft.util.EntitySelectors;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ReportedException;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockPos.MutableBlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.common.util.FakePlayerFactory;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.common.registry.EntityRegistry.EntityRegistration;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import paulscode.sound.libraries.SourceLWJGLOpenAL;
-import scala.actors.threadpool.Arrays;
-import scala.reflect.NameTransformer.OpCodes;
-import scala.reflect.internal.Trees.This;
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 /*   __      __  _     _      _           
 	 \ \    / / | |   (_)    | |          
@@ -369,7 +261,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 	public float getInterpolatedWheelRotation() {
 		return (float) InterpolationKit.interpolateValue(prevWheelRotationAngle, wheelRotationAngle,
-				Minecraft.getMinecraft().getRenderPartialTicks());
+				mc.getRenderPartialTicks());
 	}
 
 	public float getWheelRotationAngle() {
@@ -378,7 +270,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 	public float getInterpolatedYawDelta() {
 		return (float) InterpolationKit.interpolateValue(prevLastYawDelta, lastYawDelta,
-				Minecraft.getMinecraft().getRenderPartialTicks());
+				mc.getRenderPartialTicks());
 	}
 
 	public double getLastYawDelta() {
@@ -458,7 +350,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 			/*
 			 * float muRoll = (float) ((1 -
-			 * Math.cos(Minecraft.getMinecraft().getRenderPartialTicks() * Math.PI)) / 2f);
+			 * Math.cos(mc.getRenderPartialTicks() * Math.PI)) / 2f);
 			 * float roll = (prevRotationRollH+prevRotationRoll) +
 			 * ((rotationRoll+rotationRollH)-(prevRotationRoll+prevRotationRollH))*muRoll;
 			 * 
@@ -1153,7 +1045,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 						
 						EntityPlayer player = (EntityPlayer) ent;
 						
-					//	Minecraft.getMinecraft().getConnection().sendPacket(new CPacketPlayer.PositionRotation(this.motionX, -999.0D, this.motionZ, this.rotationYaw, this.rotationPitch, true));
+					//	mc.getConnection().sendPacket(new CPacketPlayer.PositionRotation(this.motionX, -999.0D, this.motionZ, this.rotationYaw, this.rotationPitch, true));
 			               //player.onGround = true;
 						
 						//player.fallDistance = 0.0f;
@@ -1582,7 +1474,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 	public float getInterpolatedLiftOffset() {
 		return (float) InterpolationKit.interpolateValue((double) prevLiftOffset, (double) liftOffset,
-				(double) Minecraft.getMinecraft().getRenderPartialTicks());
+				(double) mc.getRenderPartialTicks());
 	}
 
 	public void oldHC() {
@@ -2406,7 +2298,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 				.rotatePitch((float) Math.toRadians(rotationPitch)).scale(0.1);
 
 		for (int x = 0; x < 2 + (solver.synthAccelFor / 2); ++x) {
-			Minecraft.getMinecraft().effectRenderer.addEffect(new ExhaustParticle(this.world, posExhaust.x,
+			mc.effectRenderer.addEffect(new ExhaustParticle(this.world, posExhaust.x,
 					posExhaust.y, posExhaust.z, partDirExhaust.x, partDirExhaust.y, partDirExhaust.z, 2));
 
 		}
@@ -2422,13 +2314,13 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 			PositionedSound ps = new PositionedSoundRecord(getConfiguration().getBackfireSound().getSound(),
 					SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
-			Minecraft.getMinecraft().getSoundHandler().playSound(ps);
+			mc.getSoundHandler().playSound(ps);
 
 			for (int x = 0; x < 20 + (solver.synthAccelFor); ++x) {
 				// Vec3d pE =
 				// posExhaust.subtract(getPositionVector()).scale(1.0f+(Math.random()*0.5)).add(getPositionVector());
 				Vec3d pE = posExhaust;
-				Minecraft.getMinecraft().effectRenderer.addEffect(new VehicleExhaustFlameParticle(this.world, pE.x,
+				mc.effectRenderer.addEffect(new VehicleExhaustFlameParticle(this.world, pE.x,
 						pE.y, pE.z, partDirExhaust2.x * mult, 0, partDirExhaust2.z * mult));
 
 				// this.world.spawnParticle(EnumParticleTypes.FLAME, posExhaust.x, posExhaust.y,
@@ -2471,7 +2363,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 		
 		if(wSolve.isDriveWheel()) {
             if(Math.abs(Math.toDegrees(getSolver().getSideSlipAngle())) > 3) {
-            	Minecraft.getMinecraft().effectRenderer.addEffect(new TireTracks(Minecraft.getMinecraft().getTextureManager(),
+            	mc.effectRenderer.addEffect(new TireTracks(mc.getTextureManager(),
         				this.world, realPos.x, realPos.y+0.001, realPos.z, -rotationYaw+Math.toDegrees(getSolver().getSideSlipAngle())));
 
             }
@@ -2500,7 +2392,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 					id = 1;
 				if (getSolver().materialBelow == Material.SAND)
 					id = 4;
-				Minecraft.getMinecraft().effectRenderer.addEffect(new DriftCloudParticle(this.world, realPos.x + gaus,
+				mc.effectRenderer.addEffect(new DriftCloudParticle(this.world, realPos.x + gaus,
 						realPos.y + gaus+0.2, realPos.z + gaus, direction.x, direction.y, direction.z, id));
 
 			}
@@ -2520,7 +2412,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 			Random rand = new Random();
 			for (int x = 0; x < 4; ++x) {
 				double gaus = rand.nextGaussian() / 2;
-				Minecraft.getMinecraft().effectRenderer.addEffect(new DriftSmokeFX(this.world, posDir.x + gaus,
+				mc.effectRenderer.addEffect(new DriftSmokeFX(this.world, posDir.x + gaus,
 						posDir.y + gaus, posDir.z + gaus, partDir.x, partDir.y, partDir.z));
 
 			}
@@ -2693,7 +2585,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 
 				
 				
-				if (Minecraft.getMinecraft().player == player) {
+				if (mc.player == player) {
 					/*
 					 * DRIVER SIDE
 					 */
@@ -2843,7 +2735,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 		if (isInShift()) {
 			PositionedSound ps = new PositionedSoundRecord(getConfiguration().getShiftSound().getSound(),
 					SoundCategory.MASTER, 1.5f, 1.0f, (float) posX, (float) posY, (float) posZ);
-			Minecraft.getMinecraft().getSoundHandler().playSound(ps);
+			mc.getSoundHandler().playSound(ps);
 		}
 
 		
@@ -2861,7 +2753,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 				this.drivingSound = new EngineMovingSound(getConfiguration().getRunSound(), soundPositionProvider, donePlayingSoundProvider,
 					this, false);
 
-			Minecraft.getMinecraft().getSoundHandler().playSound(this.drivingSound);
+			mc.getSoundHandler().playSound(this.drivingSound);
 		}
 
 		
@@ -2886,7 +2778,7 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 			}
 
 			this.driftingSound = new DriftMovingSound(chosen, soundPositionProvider, isDorifto, this, false, sMat, this.currentMaterial);
-			Minecraft.getMinecraft().getSoundHandler().playSound(this.driftingSound);
+			mc.getSoundHandler().playSound(this.driftingSound);
 		*/
 		}
 

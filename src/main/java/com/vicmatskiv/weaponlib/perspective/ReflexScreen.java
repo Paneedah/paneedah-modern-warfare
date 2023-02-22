@@ -4,44 +4,21 @@
 package com.vicmatskiv.weaponlib.perspective;
 
 
-
-import java.nio.IntBuffer;
-import java.util.LinkedList;
-import java.util.function.BiConsumer;
-
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL14;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL30;
-import org.lwjgl.opengl.GL42;
-import org.lwjgl.opengl.GL44;
-
 import com.vicmatskiv.weaponlib.CustomRenderer;
 import com.vicmatskiv.weaponlib.RenderContext;
 import com.vicmatskiv.weaponlib.RenderableState;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleTransformType;
 import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
-import com.vicmatskiv.weaponlib.model.FlatModel;
 import com.vicmatskiv.weaponlib.model.ScreenModel;
-import com.vicmatskiv.weaponlib.render.Bloom;
-import com.vicmatskiv.weaponlib.render.Dloom;
 import com.vicmatskiv.weaponlib.render.Shaders;
 import com.vicmatskiv.weaponlib.render.scopes.CyclicList;
 import com.vicmatskiv.weaponlib.render.scopes.Reticle;
 import com.vicmatskiv.weaponlib.shader.jim.Shader;
-import com.vicmatskiv.weaponlib.shader.jim.ShaderManager;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
@@ -49,6 +26,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+import org.lwjgl.opengl.GL13;
+import org.lwjgl.opengl.GL20;
+
+import java.util.function.BiConsumer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class ReflexScreen extends ModelBase implements CustomRenderer<RenderableState>{
 	
@@ -100,7 +85,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
 		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/crosshairs/okp.png");
 	
-		Minecraft.getMinecraft().getTextureManager().bindTexture(loc);
+		mc.getTextureManager().bindTexture(loc);
 		
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
@@ -167,13 +152,13 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		Shaders.reflexReticle.use();
 		
 		
-		//Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
+		//mc.getFramebuffer().bindFramebuffer(true);
 
 		// upload uniforms
 		
 		// upload texture
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
-		Minecraft.getMinecraft().getTextureManager().bindTexture(currentReticle.getReticleTexture());		
+		mc.getTextureManager().bindTexture(currentReticle.getReticleTexture());		
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
 		GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
@@ -220,14 +205,14 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 		//renderReticle(renderContext, true);
 		
 		if(ModernConfigManager.enableAllShaders && ModernConfigManager.enableReticleShaders) {
-		//	Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(true);
+		//	mc.getFramebuffer().bindFramebuffer(true);
 			renderReticle(renderContext, false);
 		} else {
 			
 			
 			
 			//GlStateManager.disableTexture2D();
-			Minecraft.getMinecraft().getTextureManager().bindTexture(reticleList.current().getReticleTexture());
+			mc.getTextureManager().bindTexture(reticleList.current().getReticleTexture());
 			
 			GlStateManager.pushMatrix();
 			GlStateManager.enableCull();
@@ -272,7 +257,7 @@ public class ReflexScreen extends ModelBase implements CustomRenderer<Renderable
 			/*
 			GlStateManager.disableTexture2D();
 			GlStateManager.enableBlend();
-			Minecraft.getMinecraft().getTextureManager().bindTexture(reticleList.current().getReticleTexture());
+			mc.getTextureManager().bindTexture(reticleList.current().getReticleTexture());
 			positioning.accept(renderContext.getPlayer(), renderContext.getWeapon());
 			//bb_main.render(0.065f);
 			//GlStateManager.disableTexture2D();

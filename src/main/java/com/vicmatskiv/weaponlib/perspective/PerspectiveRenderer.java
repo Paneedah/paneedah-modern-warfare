@@ -1,29 +1,18 @@
 package com.vicmatskiv.weaponlib.perspective;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-import java.util.function.BiConsumer;
-
-import org.lwjgl.opengl.GL11;
-
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.CustomRenderer;
-import com.vicmatskiv.weaponlib.RenderContext;
-import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.ViewfinderModel;
+import com.vicmatskiv.weaponlib.*;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderTickEvent;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleTransformType;
-import com.vicmatskiv.weaponlib.render.scopes.Reticle;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.ITextureObject;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
+import java.util.function.BiConsumer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 
@@ -39,8 +28,8 @@ public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
         	
             if(textureId == null) {
                 ResourceLocation textureResource = new ResourceLocation(WirelessCameraPerspective.DARK_SCREEN_TEXTURE);
-                Minecraft.getMinecraft().getTextureManager().bindTexture(textureResource);
-                ITextureObject textureObject = Minecraft.getMinecraft().getTextureManager().getTexture(textureResource);
+                mc.getTextureManager().bindTexture(textureResource);
+                ITextureObject textureObject = mc.getTextureManager().getTexture(textureResource);
                 if(textureObject != null) {
                     textureId = textureObject.getGlTextureId();
                 }

@@ -1,22 +1,18 @@
 package com.vicmatskiv.weaponlib;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
+import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler.MuzzleFlash;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleVec3;
 import com.vicmatskiv.weaponlib.compatibility.Interceptors;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler.MuzzleFlash;
 import com.vicmatskiv.weaponlib.particle.BetterMuzzleSmoke;
 import com.vicmatskiv.weaponlib.particle.ExplosionParticleFX;
 import com.vicmatskiv.weaponlib.particle.ExplosionSmokeFX;
-import com.vicmatskiv.weaponlib.particle.FlashFX;
-import com.vicmatskiv.weaponlib.particle.SmokeFX;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 final class ClientEffectManager implements EffectManager {
 
@@ -86,7 +82,7 @@ final class ClientEffectManager implements EffectManager {
 		      (float)motionY,
 		      (int)motionZ);
 
-		Minecraft.getMinecraft().effectRenderer.addEffect(smokeParticle);
+		mc.effectRenderer.addEffect(smokeParticle);
 	}
 
 	@Override
@@ -162,7 +158,7 @@ final class ClientEffectManager implements EffectManager {
 				motionZ,
 				texture);
 		*/
-	//	Minecraft.getMinecraft().effectRenderer.addEffect(flashParticle);
+	//	mc.effectRenderer.addEffect(flashParticle);
 	}
 
 	/* (non-Javadoc)
@@ -187,7 +183,7 @@ final class ClientEffectManager implements EffectManager {
                 ExplosionSmokeFX.Behavior.SMOKE_GRENADE,
                 particleTexture);
 
-        Minecraft.getMinecraft().effectRenderer.addEffect(smokeParticle);
+        mc.effectRenderer.addEffect(smokeParticle);
 	}
 
 	@Override
@@ -204,6 +200,6 @@ final class ClientEffectManager implements EffectManager {
                 maxAge,
                 particleTexture);
 
-        Minecraft.getMinecraft().effectRenderer.addEffect(explosionParticle);
+        mc.effectRenderer.addEffect(explosionParticle);
 	}
 }

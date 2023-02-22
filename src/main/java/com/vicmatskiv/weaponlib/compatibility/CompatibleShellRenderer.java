@@ -1,51 +1,33 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.concurrent.SynchronousQueue;
-
-import javax.vecmath.Vector3d;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL20;
-
-import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
 import com.vicmatskiv.weaponlib.animation.MatrixHelper;
 import com.vicmatskiv.weaponlib.compatibility.shells.ShellRegistry;
 import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
 import com.vicmatskiv.weaponlib.render.InstancedShellObject;
-import com.vicmatskiv.weaponlib.render.Shaders;
 import com.vicmatskiv.weaponlib.render.WavefrontLoader;
 import com.vicmatskiv.weaponlib.render.WavefrontModel;
 import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
 import com.vicmatskiv.weaponlib.render.bgl.instancing.InstancedAttribute;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator;
 import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell;
 import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import com.vicmatskiv.weaponlib.shader.jim.Shader;
 import com.vicmatskiv.weaponlib.shader.jim.ShaderManager;
-
-import akka.japi.Pair;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.client.model.ModelBox;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GLAllocation;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import org.lwjgl.opengl.GL11;
+
+import javax.vecmath.Vector3d;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class CompatibleShellRenderer {
-	
 
-	private static final Minecraft mc = Minecraft.getMinecraft();
 	private static HashMap<Shell.Type, InstancedShellObject> shellObjMap = new HashMap<>();
 	private static Shader legacyShader = ShaderManager.loadVMWShader("shells");
 
@@ -118,7 +100,7 @@ public class CompatibleShellRenderer {
 	 * Sets the lightmap texture coordinates
 	 */
 	public static void setupLightmapCoords(Vec3d pos) {
-		int i = Minecraft.getMinecraft().world.getCombinedLight(new BlockPos(pos.x, pos.y, pos.z), 0);
+		int i = mc.world.getCombinedLight(new BlockPos(pos.x, pos.y, pos.z), 0);
 		float f = (float) (i & 65535);
 		float f1 = (float) (i >> 16);
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, f, f1);
@@ -128,7 +110,7 @@ public class CompatibleShellRenderer {
 	
 	public static double getDistanceFromPlayer(Vector3d vec) {
 		
-		Vec3d player = Minecraft.getMinecraft().player.getPositionVector();
+		Vec3d player = mc.player.getPositionVector();
 		double d0 = vec.x - player.x;
         double d1 = vec.y - player.y;
         double d2 = vec.z - player.z;
@@ -180,11 +162,11 @@ public class CompatibleShellRenderer {
 		EntityPlayerSP pla = mc.player;
 
 		float interpX = (float) MatrixHelper.solveLerp(pla.prevPosX, pla.posX,
-				Minecraft.getMinecraft().getRenderPartialTicks());
+				mc.getRenderPartialTicks());
 		float interpY = (float) MatrixHelper.solveLerp(pla.prevPosY, pla.posY,
-				Minecraft.getMinecraft().getRenderPartialTicks());
+				mc.getRenderPartialTicks());
 		float interpZ = (float) MatrixHelper.solveLerp(pla.prevPosZ, pla.posZ,
-				Minecraft.getMinecraft().getRenderPartialTicks());
+				mc.getRenderPartialTicks());
 		GlStateManager.translate(-interpX, -interpY, -interpZ);
 		
 		if(GLCompatible.doesSupportInstancing()) {
@@ -202,7 +184,7 @@ public class CompatibleShellRenderer {
 	
 	public static void renderInstanced(ArrayList<Shell> shells) {
 		for(Entry<Type, InstancedShellObject> i : shellObjMap.entrySet()) {
-			Minecraft.getMinecraft().getTextureManager().bindTexture(ShellRegistry.getShellTexture(i.getKey()));
+			mc.getTextureManager().bindTexture(ShellRegistry.getShellTexture(i.getKey()));
 			i.getValue().updateData(shells);
 			i.getValue().render(shells.size());
 		}
@@ -213,7 +195,7 @@ public class CompatibleShellRenderer {
 	public static void renderNonInstanced(ArrayList<Shell> shells) {
 		GlStateManager.enableCull();
 		GlStateManager.color(1, 1, 1, 1);
-		Minecraft.getMinecraft().entityRenderer.enableLightmap();
+		mc.entityRenderer.enableLightmap();
 		
 		
 		//System.out.println(shells.size());
@@ -226,8 +208,8 @@ public class CompatibleShellRenderer {
 			
 			
 			// interpolate pos & rot
-			Vec3d iP = MatrixHelper.lerpVectors(sh.prevPos, sh.pos, Minecraft.getMinecraft().getRenderPartialTicks());
-			Vec3d iR = MatrixHelper.lerpVectors(sh.prevRot, sh.rot, Minecraft.getMinecraft().getRenderPartialTicks());
+			Vec3d iP = MatrixHelper.lerpVectors(sh.prevPos, sh.pos, mc.getRenderPartialTicks());
+			Vec3d iR = MatrixHelper.lerpVectors(sh.prevRot, sh.rot, mc.getRenderPartialTicks());
 			
 			// translate last
 			GlStateManager.translate(iP.x, iP.y, iP.z);
@@ -259,11 +241,11 @@ public class CompatibleShellRenderer {
 				if(ModernConfigManager.enableAllShaders) {
 					legacyShader.use();
 					legacyShader.uniform1i("lightmap", 1);
-					Minecraft.getMinecraft().getTextureManager().bindTexture(ShellRegistry.getShellTexture(sh.getType()));
+					mc.getTextureManager().bindTexture(ShellRegistry.getShellTexture(sh.getType()));
 					ShellRegistry.getShellModel(sh.getType()).render();
 					legacyShader.release();
 				} else {
-					Minecraft.getMinecraft().getTextureManager().bindTexture(ShellRegistry.getShellTexture(sh.getType()));
+					mc.getTextureManager().bindTexture(ShellRegistry.getShellTexture(sh.getType()));
 					ShellRegistry.getShellModel(sh.getType()).render();
 				}
 				
@@ -287,7 +269,7 @@ public class CompatibleShellRenderer {
 		}
 	
 		GlStateManager.enableTexture2D();
-		Minecraft.getMinecraft().entityRenderer.disableLightmap();
+		mc.entityRenderer.disableLightmap();
 		//GlStateManager.popMatrix();
 	}
 }

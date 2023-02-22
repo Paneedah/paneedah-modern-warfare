@@ -1,22 +1,8 @@
 package com.vicmatskiv.weaponlib.render;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.FloatBuffer;
-
-import javax.imageio.ImageIO;
-
-import org.lwjgl.BufferUtils;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL13;
-
 import com.vicmatskiv.weaponlib.shader.jim.Shader;
 import com.vicmatskiv.weaponlib.shader.jim.ShaderManager;
-
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -25,6 +11,18 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.IResource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IRenderHandler;
+import org.lwjgl.BufferUtils;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+import org.lwjgl.opengl.GL13;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.FloatBuffer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class ModernSkyRenderer extends IRenderHandler {
 	
@@ -104,7 +102,7 @@ public class ModernSkyRenderer extends IRenderHandler {
 	public ByteBuffer readImageFromFile(ResourceLocation location) {
 		IResource resource = null;
 		try {
-			resource = (IResource) Minecraft.getMinecraft().getResourceManager().getResource(location);
+			resource = (IResource) mc.getResourceManager().getResource(location);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -196,7 +194,7 @@ GlStateManager.disableCull();
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+4);
 		ResourceLocation loc = new ResourceLocation("mw" + ":" + "textures/crosshairs/okp.png");
 	
-		Minecraft.getMinecraft().getTextureManager().bindTexture(loc);
+		mc.getTextureManager().bindTexture(loc);
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0);
 		
 		GlStateManager.setActiveTexture(GL13.GL_TEXTURE0+5);

@@ -1,38 +1,15 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-import java.util.Collections;
-import java.util.List;
-
-import javax.vecmath.Matrix4f;
-
-import org.apache.commons.lang3.tuple.Pair;
-import org.lwjgl.opengl.GL11;
-
-import com.vicmatskiv.weaponlib.CustomRenderer;
-import com.vicmatskiv.weaponlib.ItemStorage;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.ModelSource;
-import com.vicmatskiv.weaponlib.RenderContext;
-import com.vicmatskiv.weaponlib.RenderableState;
+import com.vicmatskiv.weaponlib.*;
 import com.vicmatskiv.weaponlib.StaticModelSourceRenderer.Builder;
-import com.vicmatskiv.weaponlib.Tuple;
-
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.block.model.BakedQuad;
-import net.minecraft.client.renderer.block.model.IBakedModel;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
+import net.minecraft.client.renderer.block.model.*;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
-import net.minecraft.client.renderer.block.model.ItemOverride;
-import net.minecraft.client.renderer.block.model.ItemOverrideList;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -45,6 +22,15 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.apache.commons.lang3.tuple.Pair;
+import org.lwjgl.opengl.GL11;
+
+import javax.vecmath.Matrix4f;
+import java.util.Collections;
+import java.util.List;
+
+import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRenderer implements IBakedModel {
 
@@ -160,7 +146,7 @@ public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRen
 
 	@Override
 	public TextureAtlasSprite getParticleTexture() {
-		return Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
+		return mc.getTextureMapBlocks().getMissingSprite();
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -221,9 +207,7 @@ public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRen
 	}
 
 
-	protected void renderModelSource(RenderContext<RenderableState> renderContext,
-			ItemStack itemStack, TransformType type, Entity entity,
-			float f, float f1, float f2, float f3, float f4, float f5) {
+	protected void renderModelSource(RenderContext<RenderableState> renderContext, ItemStack itemStack, TransformType type, Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 
 		
 		if(!(itemStack.getItem() instanceof ModelSource)) {
@@ -234,28 +218,28 @@ public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRen
 
 	
 		ModelSource modelSource = (ModelSource)itemStack.getItem();
+
         for(Tuple<ModelBase, String> texturedModel: modelSource.getTexturedModels()) {
-			Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(builder.getModId()
-					+ ":textures/models/" + texturedModel.getV()));
+			mc.renderEngine.bindTexture(new ResourceLocation(builder.getModId() + ":textures/models/" + texturedModel.getV()));
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
 			ModelBase model = texturedModel.getU();
+
 			if(type != null) {
-			    switch (type)
-	            {
-	            case GROUND:
-	                builder.getEntityModelPositioning().accept(model, itemStack);
-	                break;
-	            case GUI:
-	                builder.getInventoryModelPositioning().accept(model, itemStack);
-	                break;
-	            case THIRD_PERSON_RIGHT_HAND: case THIRD_PERSON_LEFT_HAND:
-	                builder.getThirdPersonModelPositioning().accept(model, itemStack);
-	                break;
-	            case FIRST_PERSON_RIGHT_HAND: case FIRST_PERSON_LEFT_HAND:
-	                builder.getFirstPersonModelPositioning().accept(model, itemStack);
-	                break;
-	            default:
+			    switch (type) {
+	            	case GROUND:
+	                	builder.getEntityModelPositioning().accept(model, itemStack);
+	                	break;
+	            	case GUI:
+	                	builder.getInventoryModelPositioning().accept(model, itemStack);
+	                	break;
+	            	case THIRD_PERSON_RIGHT_HAND: case THIRD_PERSON_LEFT_HAND:
+	                	builder.getThirdPersonModelPositioning().accept(model, itemStack);
+	                	break;
+	            	case FIRST_PERSON_RIGHT_HAND: case FIRST_PERSON_LEFT_HAND:
+	                	builder.getFirstPersonModelPositioning().accept(model, itemStack);
+	                	break;
+	            	default:
 	            }
 			}
 
@@ -272,8 +256,7 @@ public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRen
 	        renderContext.setScale(0.08f);
 	        renderContext.setCompatibleTransformType(CompatibleTransformType.fromItemRenderType(type));
 
-	        renderContext.setPlayerItemInstance(getModContext().getPlayerItemInstanceRegistry()
-	                .getItemInstance(renderContext.getPlayer(), itemStack));
+	        renderContext.setPlayerItemInstance(getModContext().getPlayerItemInstanceRegistry().getItemInstance(renderContext.getPlayer(), itemStack));
 
             GL11.glPushMatrix();
             GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_CURRENT_BIT);

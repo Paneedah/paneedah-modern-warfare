@@ -13,6 +13,7 @@ import com.vicmatskiv.weaponlib.config.BalancePackManager;
 import com.vicmatskiv.weaponlib.config.ConfigurationManager;
 import com.vicmatskiv.weaponlib.crafting.CraftingFileManager;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -31,6 +32,7 @@ public class ModernWarfareMod {
     private static final String MODERN_WARFARE_CONFIG_FILE_NAME = "ModernWarfare.cfg";
     public static final String MODID = "mw";
 	public static final String VERSION = "@VERSION@";
+    public static final Minecraft mc = Minecraft.getMinecraft();
 
     @SidedProxy(serverSide = "com.vicmatskiv.weaponlib.CommonModContext", clientSide = "com.vicmatskiv.weaponlib.ClientModContext")
     public static ModContext MOD_CONTEXT;

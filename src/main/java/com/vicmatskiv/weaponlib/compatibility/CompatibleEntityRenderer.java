@@ -1,13 +1,14 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public abstract class CompatibleEntityRenderer extends Render<Entity> {
 
 	public CompatibleEntityRenderer() {
-		super(Minecraft.getMinecraft().getRenderManager());
+		super(mc.getRenderManager());
 	}
 
 	@Override

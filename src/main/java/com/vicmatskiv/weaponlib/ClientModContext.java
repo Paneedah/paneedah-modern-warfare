@@ -1,16 +1,5 @@
 package com.vicmatskiv.weaponlib;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
-
 import com.vicmatskiv.weaponlib.animation.ScreenShakingAnimationManager;
 import com.vicmatskiv.weaponlib.command.DebugCommand;
 import com.vicmatskiv.weaponlib.command.MainCommand;
@@ -23,13 +12,7 @@ import com.vicmatskiv.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
 import com.vicmatskiv.weaponlib.crafting.workbench.GUIContainerWorkbench;
 import com.vicmatskiv.weaponlib.electronics.EntityWirelessCamera;
 import com.vicmatskiv.weaponlib.electronics.WirelessCameraRenderer;
-import com.vicmatskiv.weaponlib.grenade.EntityFlashGrenade;
-import com.vicmatskiv.weaponlib.grenade.EntityGasGrenade;
-import com.vicmatskiv.weaponlib.grenade.EntityGrenade;
-import com.vicmatskiv.weaponlib.grenade.EntityGrenadeRenderer;
-import com.vicmatskiv.weaponlib.grenade.EntitySmokeGrenade;
-import com.vicmatskiv.weaponlib.grenade.GrenadeRenderer;
-import com.vicmatskiv.weaponlib.grenade.ItemGrenade;
+import com.vicmatskiv.weaponlib.grenade.*;
 import com.vicmatskiv.weaponlib.inventory.InventoryTabs;
 import com.vicmatskiv.weaponlib.melee.ItemMelee;
 import com.vicmatskiv.weaponlib.melee.MeleeRenderer;
@@ -46,6 +29,17 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ClientCommandHandler;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ClientModContext extends CommonModContext {
 
@@ -82,7 +76,7 @@ public class ClientModContext extends CommonModContext {
             CompatibleFmlPreInitializationEvent event, CompatibleChannel channel) {
 		super.preInit(mod, modId, configurationManager, event, channel);
 
-		aspectRatio = (float)Minecraft.getMinecraft().displayWidth / Minecraft.getMinecraft().displayHeight;
+		aspectRatio = (float)mc.displayWidth / mc.displayHeight;
 
 		ClientCommandHandler.instance.registerCommand(new DebugCommand(modId));
 		
@@ -96,15 +90,15 @@ public class ClientModContext extends CommonModContext {
 		rendererRegistry.preInit();
 
 		List<IResourcePack> defaultResourcePacks = compatibility.getPrivateValue(
-				Minecraft.class, Minecraft.getMinecraft(), "defaultResourcePacks", "field_110449_ao") ;
+				Minecraft.class, mc, "defaultResourcePacks", "field_110449_ao") ;
         WeaponResourcePack weaponResourcePack = new WeaponResourcePack();
         defaultResourcePacks.add(weaponResourcePack);
-        IResourceManager resourceManager = Minecraft.getMinecraft().getResourceManager();
+        IResourceManager resourceManager = mc.getResourceManager();
         if(resourceManager instanceof IReloadableResourceManager) {
             ((SimpleReloadableResourceManager) resourceManager).reloadResourcePack(weaponResourcePack);
         }
 
-		compatibility.registerWithEventBus(new CustomGui(Minecraft.getMinecraft(), this, weaponAttachmentAspect));
+		compatibility.registerWithEventBus(new CustomGui(mc, this, weaponAttachmentAspect));
 		compatibility.registerWithEventBus(new WeaponEventHandler(this, safeGlobals));
 
 		KeyBindings.init();

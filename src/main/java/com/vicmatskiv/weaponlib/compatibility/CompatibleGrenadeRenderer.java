@@ -1,18 +1,6 @@
 package com.vicmatskiv.weaponlib.compatibility;
 
-import java.util.Collections;
-import java.util.List;
-
-import javax.vecmath.Matrix4f;
-
-import org.apache.commons.lang3.tuple.Pair;
-import org.lwjgl.opengl.GL11;
-
-import com.vicmatskiv.weaponlib.AttachmentContainer;
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.CompatibleAttachment;
-import com.vicmatskiv.weaponlib.Part;
-import com.vicmatskiv.weaponlib.RenderContext;
+import com.vicmatskiv.weaponlib.*;
 import com.vicmatskiv.weaponlib.animation.DebugPositioner;
 import com.vicmatskiv.weaponlib.animation.MultipartPositioning;
 import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
@@ -20,30 +8,29 @@ import com.vicmatskiv.weaponlib.animation.MultipartRenderStateManager;
 import com.vicmatskiv.weaponlib.grenade.GrenadeRenderer.Builder;
 import com.vicmatskiv.weaponlib.grenade.PlayerGrenadeInstance;
 import com.vicmatskiv.weaponlib.grenade.RenderableState;
-
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.block.model.BakedQuad;
-import net.minecraft.client.renderer.block.model.IBakedModel;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
+import net.minecraft.client.renderer.block.model.*;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
-import net.minecraft.client.renderer.block.model.ItemOverride;
-import net.minecraft.client.renderer.block.model.ItemOverrideList;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.client.renderer.vertex.VertexBuffer;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.apache.commons.lang3.tuple.Pair;
+import org.lwjgl.opengl.GL11;
+
+import javax.vecmath.Matrix4f;
+import java.util.Collections;
+import java.util.List;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public abstract class CompatibleGrenadeRenderer extends ModelSourceRenderer implements IBakedModel {
 
@@ -63,7 +50,7 @@ public abstract class CompatibleGrenadeRenderer extends ModelSourceRenderer impl
 
     protected CompatibleGrenadeRenderer(Builder builder){
         this.builder = builder;
-        this.textureManager = Minecraft.getMinecraft().getTextureManager();
+        this.textureManager = mc.getTextureManager();
         this.pair = Pair.of((IBakedModel) this, null);
 //        this.playerBiped = new ModelBiped();
 //        this.playerBiped.textureWidth = 64;
@@ -168,7 +155,7 @@ public abstract class CompatibleGrenadeRenderer extends ModelSourceRenderer impl
 
     @Override
     public TextureAtlasSprite getParticleTexture() {
-        return Minecraft.getMinecraft().getTextureMapBlocks().getMissingSprite();
+        return mc.getTextureMapBlocks().getMissingSprite();
     }
 
     @Override

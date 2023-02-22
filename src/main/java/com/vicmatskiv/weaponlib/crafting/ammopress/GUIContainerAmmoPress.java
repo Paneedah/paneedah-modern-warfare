@@ -264,7 +264,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			LinkedList<ItemStack> queue = tileEntity.getCraftingQueue();
 			GlStateManager.enableBlend();
 			for(int i = 0; i < queue.size(); ++i) {
-				Minecraft.getMinecraft().getTextureManager().bindTexture(AMMO_PRESS_TEX);
+				mc.getTextureManager().bindTexture(AMMO_PRESS_TEX);
 				if(GUIRenderHelper.checkInBox(mouseX, mouseY, this.guiLeft + 200 + i*20, this.guiTop, 20, 20)) {
 					GUIRenderHelper.drawTexturedRect(this.guiLeft + 200 + i*20, this.guiTop, 20, 40, 20, 20, 256, 256);
 				} else {
@@ -274,7 +274,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 			
 			for(int i = 0; i < queue.size(); ++i) {
 				ItemStack stack = queue.get(i);
-				Minecraft.getMinecraft().getRenderItem().renderItemIntoGUI(stack, this.guiLeft + 202 + i*20, this.guiTop + 2);
+				mc.getRenderItem().renderItemIntoGUI(stack, this.guiLeft + 202 + i*20, this.guiTop + 2);
 			}
 			
 			for(int i = 0; i < queue.size(); ++i) {
@@ -314,7 +314,7 @@ public class GUIContainerAmmoPress extends GUIContainerStation<TileEntityAmmoPre
 				int id = (mouseX - (this.guiLeft + 200))/20;
 				if(id >= 0 && tileEntity.getCraftingQueue().size() - 1 >= id) {
 					
-					modContext.getChannel().getChannel().sendToServer(new StationPacket(StationPacket.POP_FROM_QUEUE, tileEntity.getPos(), Minecraft.getMinecraft().player.getEntityId(), id));
+					modContext.getChannel().getChannel().sendToServer(new StationPacket(StationPacket.POP_FROM_QUEUE, tileEntity.getPos(), mc.player.getEntityId(), id));
 				}
 			}
 		}

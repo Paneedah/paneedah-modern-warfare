@@ -1,5 +1,6 @@
 package com.vicmatskiv.weaponlib.animation;
 
+import akka.japi.Pair;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.PlayerWeaponInstance;
 import com.vicmatskiv.weaponlib.compatibility.Interceptors;
@@ -7,10 +8,10 @@ import com.vicmatskiv.weaponlib.compatibility.RecoilParam;
 import com.vicmatskiv.weaponlib.numerical.LerpedValue;
 import com.vicmatskiv.weaponlib.numerical.RandomVector;
 import com.vicmatskiv.weaponlib.numerical.SpringValue;
-
-import akka.japi.Pair;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 /**
  * Stores a bunch of values that need to update on an interval, and typically
@@ -26,7 +27,7 @@ public class ClientValueRepo {
 	// 20 ticks/s -> 1/20 = 0.05
 	private static final double DELTA_T = 0.05;
 
-	private static final Minecraft MC = Minecraft.getMinecraft();
+	private static final Minecraft MC = mc;
 
 	// This value is added to the "TICKER" every tick.
 	// Don't touch this as it will mess with how things

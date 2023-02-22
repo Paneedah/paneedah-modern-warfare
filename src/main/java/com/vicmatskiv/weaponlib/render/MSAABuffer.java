@@ -1,15 +1,10 @@
 package com.vicmatskiv.weaponlib.render;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL14;
-import org.lwjgl.opengl.GL30;
-import org.lwjgl.opengl.GL32;
-
 import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.shader.Framebuffer;
+import org.lwjgl.opengl.GL11;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 public class MSAABuffer {
 	
@@ -47,7 +42,7 @@ public class MSAABuffer {
 			GLCompatible.glTexImage2DMultisample(GLCompatible.GL_TEXTURE_2D_MULTISAMPLE, 4, GL14.GL_DEPTH_COMPONENT24, width, height, false);
 		}
 		*/
-		GLCompatible.glBindFramebuffer(GLCompatible.GL_FRAMEBUFFER, Minecraft.getMinecraft().getFramebuffer().framebufferObject);
+		GLCompatible.glBindFramebuffer(GLCompatible.GL_FRAMEBUFFER, mc.getFramebuffer().framebufferObject);
 		
 	}
 	

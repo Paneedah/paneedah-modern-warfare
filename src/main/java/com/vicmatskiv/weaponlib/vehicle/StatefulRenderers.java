@@ -1,20 +1,13 @@
 package com.vicmatskiv.weaponlib.vehicle;
 
-import java.util.function.Function;
-
-import org.lwjgl.opengl.GL11;
-
 import com.vicmatskiv.weaponlib.compatibility.CompatibleWeaponRenderer;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
 import net.minecraft.client.renderer.GlStateManager.SourceFactor;
 import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,6 +16,11 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.GL11;
+
+import java.util.function.Function;
+
+import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 
 
 public class StatefulRenderers {
@@ -51,14 +49,14 @@ public class StatefulRenderers {
         public void render(PartRenderContext<State> context) {
             Entity entity = entitySupplier.apply(context);
             if(entity != null && entity instanceof EntityPlayer) {
-                Minecraft minecraft = Minecraft.getMinecraft();
+                Minecraft minecraft = mc;
                 if(minecraft.gameSettings.thirdPersonView == 0) {
                 	
                 
                 	
                     minecraft.getTextureManager().bindTexture(((AbstractClientPlayer) entity).getLocationSkin());
 
-                    Render<AbstractClientPlayer> entityRenderObject = Minecraft.getMinecraft().getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
+                    Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
                     RenderPlayer render = (RenderPlayer) entityRenderObject;
 
                     ModelBiped model = render.getMainModel();
@@ -107,11 +105,11 @@ public class StatefulRenderers {
         public void render(PartRenderContext<State> context) {
             Entity entity = entitySupplier.apply(context);
             if(entity != null && entity instanceof EntityPlayer) {
-                Minecraft minecraft = Minecraft.getMinecraft();
+                Minecraft minecraft = mc;
                 if(minecraft.gameSettings.thirdPersonView == 0) {
                     minecraft.getTextureManager().bindTexture(((AbstractClientPlayer) entity).getLocationSkin());
 
-                    Render<AbstractClientPlayer> entityRenderObject = Minecraft.getMinecraft().getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
+                    Render<AbstractClientPlayer> entityRenderObject = mc.getRenderManager().getEntityRenderObject((AbstractClientPlayer)entity);
                     RenderPlayer render = (RenderPlayer) entityRenderObject;
 
                     ModelBiped model = render.getMainModel();
