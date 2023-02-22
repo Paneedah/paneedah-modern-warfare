@@ -1,5 +1,7 @@
 package com.vicmatskiv.mw.items.guns;
+// Package
 
+// IMPORT LIST START
 import java.util.Arrays;
 
 import net.minecraft.item.Item;
@@ -72,39 +74,41 @@ import com.vicmatskiv.weaponlib.animation.Transition;
 import com.vicmatskiv.weaponlib.compatibility.RecoilParam;
 import com.vicmatskiv.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import com.vicmatskiv.weaponlib.crafting.CraftingComplexity;
+// IMPORT LIST END
+
 
 public class AACHoneyBadgerFactory implements GunFactory {
 
     public Item createGun(CommonProxy commonProxy) {
         return new Weapon.Builder()
-        .withModId(ModernWarfareMod.MODID)
-        .withName("aac_honey_badger")
-        .withFireRate(0.80f)
-        .withRecoil(3f)
-        .withZoom(0.9f)
-        .withConfigGroup(GunConfigurationGroup.RIFLES)
-        .withMaxShots(1, Integer.MAX_VALUE)
-        .withShootSound("aac_honeybadger")
-        .withSilencedShootSound("aac_honeybadger")
-        .withReloadSound("honeybadger_reload")
-        .withUnloadSound("honeybadger_unload")
-        .withEndOfShootSound("gun_click")
-        .withInspectSound("m4a1_inspection")
-        .withDrawSound("m4_draw")
-        .withReloadingTime(50)
-        .withCrosshair("gun")
-        .withCrosshairRunning("Running")
-        .withCrosshairZoomed("Sight")
-        .withFlashIntensity(0.5f)
-        .withFlashScale(() -> 0.6f)
-        .withFlashOffsetX(() -> 0.13f)
-        .withFlashOffsetY(() -> 0.17f)
+        .withModId(ModernWarfareMod.MODID) // MOD ID
+        .withName("aac_honey_badger") // Name of the item and model
+        .withFireRate(0.80f) // Fire rate in rounds per minute
+        .withRecoil(3f) // Recoil in degrees
+        .withZoom(0.9f) // Zoom factor
+        .withConfigGroup(GunConfigurationGroup.RIFLES) // Config group
+        .withMaxShots(1, Integer.MAX_VALUE) // Max shots per reload
+        .withShootSound("aac_honeybadger") // Shoot sound
+        .withSilencedShootSound("aac_honeybadger") // Silenced shoot sound
+        .withReloadSound("honeybadger_reload") // Reload sound
+        .withUnloadSound("honeybadger_unload") // Unload sound
+        .withEndOfShootSound("gun_click") // End of shoot sound
+        .withInspectSound("m4a1_inspection") // Inspection sound
+        .withDrawSound("m4_draw") // Draw sound
+        .withReloadingTime(50)  // Reloading time in ticks
+        .withCrosshair("gun") // Crosshair
+        .withCrosshairRunning("Running") // Crosshair when running
+        .withCrosshairZoomed("Sight") // Crosshair when zoomed
+        .withFlashIntensity(0.5f) // Flash intensity
+        .withFlashScale(() -> 0.6f) // Flash scale
+        .withFlashOffsetX(() -> 0.13f) // Flash offset X
+        .withFlashOffsetY(() -> 0.17f) // Flash offset Y
 //        .withShootSoundVolume(1f)
-        .withShellCasingForwardOffset(0.1f)
-        .withShellCasingVerticalOffset(-0.05f)
-        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
-        .useNewSystem()
-		.withRecoilParam(new RecoilParam(
+        .withShellCasingForwardOffset(0.1f) // Shell casing forward offset
+        .withShellCasingVerticalOffset(-0.05f) // Shell casing vertical offset
+        .withCreativeTab(ModernWarfareMod.AssaultRiflesTab) // Creative tab
+        .useNewSystem() // Use new system
+		.withRecoilParam(new RecoilParam( // Recoil param
 				// The weapon power
 				15.0,
 				// Muzzle climb divisor
@@ -122,37 +126,44 @@ public class AACHoneyBadgerFactory implements GunFactory {
 				// Ads similarity divisor
 				1.0
 		))
-        .withInformationProvider(stack -> Arrays.asList(
-        "Type: Personal Defense Weapon", 
-        "Damage: 5.4", 
-        "Cartridge: 7.62x35mm",
-        "Fire Rate: SEMI, AUTO",
-        "Rate of Fire: 70/100",
-        "Magazines:",
-        "30rnd 7.62x35mm Honeybadger Magazine"
+        .withInformationProvider(stack -> Arrays.asList( // Information provider
+        "Type: Personal Defense Weapon",  // Information
+        "Damage: 5.4", // Damage in Item Description
+        "Cartridge: 7.62x35mm", // Cartridge in Item Description
+        "Fire Rate: SEMI, AUTO", // Fire Rate in Item Description
+        "Rate of Fire: 70/100", // Rate of Fire in Item Description
+        "Magazines:", // Magazines in Item Description
+        "30rnd 7.62x35mm Honeybadger Magazine" // Magazines Tyoes in Item Description
         ))
         
-        .withScreenShaking(RenderableState.SHOOTING, 
+        .withScreenShaking(RenderableState.SHOOTING,  // Screen shaking
                 1.5f, // x 
                 1.5f, // y
                 4f) // z
         
+        // Unremovable attachment categories
         .withUnremovableAttachmentCategories(AttachmentCategory.GUARD)
-        .withUnremovableAttachmentCategories(AttachmentCategory.STOCK)
+        .withUnremovableAttachmentCategories(AttachmentCategory.STOCK) 
         .withUnremovableAttachmentCategories(AttachmentCategory.RECEIVER)
         .withUnremovableAttachmentCategories(AttachmentCategory.RAILING)
         .withUnremovableAttachmentCategories(AttachmentCategory.SILENCER)
         .withUnremovableAttachmentCategories(AttachmentCategory.BACKGRIP)
+        
+        // Compatible attachment placeholder
         .withCompatibleAttachment(Attachments.Placeholder, true, (model) -> {
-            GL11.glTranslatef(0.01f, -0.19f, -0.4f);
+            GL11.glTranslatef(0.01f, -0.19f, -0.4f); 
             GL11.glScaled(0F, 0F, 0F);
         })
+
+        // Compatible attachment honeybadger handguard
         .withCompatibleAttachment(Attachments.HoneyBadgerHandguard, true, (model) -> {
             if(model instanceof AKRail) {
             	GL11.glTranslatef(-0.2F, -1.32F, -3.4f);
                 GL11.glScaled(0.6F, 0.8F, 0.65F);
           } 
         })
+        
+        // Compatible attachment honeybadger Matrix Arms handguard
         .withCompatibleAttachment(Attachments.HoneyBadgerMatrixArmsHandguard, (model) -> {
             if(model instanceof AKRail) {
             	GL11.glTranslatef(-0.2F, -1.325F, -3.8f);
@@ -167,53 +178,77 @@ public class AACHoneyBadgerFactory implements GunFactory {
               GL11.glRotatef(180F, 0f, 0f, 1f);
           } 
         })
+
+        // Compatible attachment honeybadger Stock
         .withCompatibleAttachment(Attachments.HoneyBadgerStock, true, (model) -> {
 //          GL11.glTranslatef(0f, 0f, 1f);
 	    })
+
+        // Compatible attachment honeybadger Stock Black
         .withCompatibleAttachment(Attachments.HoneyBadgerStockBlack, (model) -> {
 //          GL11.glTranslatef(0f, 0f, 1f);
 	    })
+
+        // Compatible attachment honeybadger Reciever
         .withCompatibleAttachment(Attachments.HoneyBadgerReceiver, true, (model) -> {
         	if(model instanceof AKRail) {
             	GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                 GL11.glScaled(0.6F, 0.8F, 0.78F);
             } 
 	    })
+
+        // Compatible attachment honeybadger Reciever Black
         .withCompatibleAttachment(Attachments.HoneyBadgerReceiverBlack, (model) -> {
         	if(model instanceof AKRail) {
             	GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                 GL11.glScaled(0.6F, 0.8F, 0.78F);
             } 
 	    })
+
+        // Compatible attachment honeybadger Knights Reciever
         .withCompatibleAttachment(Attachments.HoneyBadgerKnightsReceiver, (model) -> {
         	if(model instanceof AKRail) {
             	GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                 GL11.glScaled(0.6F, 0.8F, 0.78F);
             } 
 	    })
+
+        // Compatible attachment honeybadger Knights Reciever Black
         .withCompatibleAttachment(Attachments.HoneyBadgerKnightsReceiverBlack, (model) -> {
         	if(model instanceof AKRail) {
             	GL11.glTranslatef(-0.2F, -1.32F, -1.82f);
                 GL11.glScaled(0.6F, 0.8F, 0.78F);
             } 
 	    })
+
+        // Compatible attachment honeybadger M4 Grip
         .withCompatibleAttachment(Attachments.M4Grip, true, (model) -> {
           GL11.glTranslatef(0.001f, 0f, 0f);
 	    })
+
+        // Compatible attachment honeybadger M4 Grip Tan
 	    .withCompatibleAttachment(Attachments.M4GripTan, (model) -> {
 	    	 GL11.glTranslatef(0.001f, 0f, 0f);
 	    })
+
+        // Compatible attachment honeybadger M4 Grip Gray
 	    .withCompatibleAttachment(Attachments.M4GripGray, (model) -> {
 	    	 GL11.glTranslatef(0.001f, 0f, 0f);
 	    })
+
+        // Compatible attachment honeybadger Mag
         .withCompatibleAttachment(Magazines.HoneyBadgerMag, (model) -> {
           GL11.glTranslatef(-0.35F, 0.5F, -1.25F);
           GL11.glScaled(1.05F, 1.2F, 1.15F);
         })
+        
+        // Compatible attachment honeybadger AR15
         .withCompatibleAttachment(AuxiliaryAttachments.AR15Action, true, (model) -> {
             GL11.glTranslatef(-0.175F, -1.28F, -0.67F);
             GL11.glScaled(0.7F, 0.4F, 0.7F);
         })
+
+        // Compatible attachment honeybadger FrontSights
         .withCompatibleAttachment(Attachments.HK416FrontSight, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
             if(instance != null) {
@@ -234,6 +269,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
               }
         }, false, false)
         
+        // Compatible attachment honeybadger MBUSFrontSight
         .withCompatibleAttachment(Attachments.MBUSFrontSight, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
             if(instance != null) {
@@ -253,24 +289,32 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
               }
         }, true, false)
+
+        // Compatible attachment honeybadger tritium RearSights
         .withCompatibleAttachment(Attachments.TritiumRearSights, (model) -> {
             if(model instanceof TritiumRearSights) {
             	 GL11.glTranslatef(-0.16F, -1.5F, -0.3F);
                  GL11.glScaled(0.35F, 0.35F, 0.35F);
             }
         })
+        
+        // Compatible attachment honeybadger HK416RearSights
  	   .withCompatibleAttachment(Attachments.HK416RearSights, (model) -> {
             if(model instanceof G95_upright_rearsights) {
          	   GL11.glTranslatef(-0.158F, -1.53F, -0.2F);
                 GL11.glScaled(0.32F, 0.32F, 0.32F);
             }
         })
+
+        // Compatible attachment honeybadger MBUSRearSights
  	   .withCompatibleAttachment(Attachments.MBUSRearSights, true, (model) -> {
             if(model instanceof MBUSRearSight) {
          	   GL11.glTranslatef(-0.16F, -1.5F, -0.3F);
                 GL11.glScaled(0.35F, 0.35F, 0.35F);
             }
         })
+
+        // Compatible attachment honeybadger AKM IronSights
  		 .withCompatibleAttachment(Attachments.AKMIron, (model) -> {
              if(model instanceof M4Iron1) {
                  GL11.glTranslatef(0.215F, -1.54F, 1.2F);
@@ -319,6 +363,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                  GL11.glScaled(0F, 0F, 0F); 
              }
          })
+
+         // Compatible attachment honeybadger AR15 IronSights
  		.withCompatibleAttachment(AuxiliaryAttachments.AR15Iron, (model) -> {
             if(model instanceof M4Iron1) {
                 GL11.glTranslatef(-0.145F, -1.55F, -0.35F);
@@ -337,6 +383,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                 GL11.glScaled(0F, 0F, 0F);
             }
         })
+
+        // Compatible attachment honeybadger NightRaider
          .withCompatibleAttachment(Attachments.NightRaider, (player, stack) -> {
                      GL11.glTranslatef(-0.21F, -1.4F, -1.8F);
                      GL11.glScaled(0.75F, 0.75F, 0.75F);
@@ -347,6 +395,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
              }
          })
          
+        // Compatible attachment honeybadger ACOG
  		.withCompatibleAttachment(Attachments.ACOG, (player, stack) -> {
                      GL11.glTranslatef(-0.28F, -1.41F, -0.5F);
                      GL11.glScaled(0.7F, 0.7F, 0.7F);
@@ -361,6 +410,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
              }
          })
  		
+         // Compatible attachment honeybadger Specter
  		.withCompatibleAttachment(Attachments.Specter, (player, stack) -> {
                      GL11.glTranslatef(-0.18F, -1.1F, -0.7F);
                      GL11.glScaled(0.4F, 0.4F, 0.4F);
@@ -371,6 +421,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
              }
          })
  		
+        // Compatible attachment honeybadger Leupold Rail Scope
  		.withCompatibleAttachment(Attachments.LeupoldRailScope, (player, stack) -> {
  		            GL11.glTranslatef(-0.151F, -1.25F, -1.2F);
  		            GL11.glScaled(0.4F, 0.4F, 0.4F);
@@ -381,6 +432,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
              }
          })
  		
+        // Compatible attachment honeybadger MicroReflex
  		.withCompatibleAttachment(Attachments.MicroReflex, (player, stack) -> {
              GL11.glTranslatef(-0.15F, -1.93F, -1F);
              GL11.glScaled(0.35F, 0.35F, 0.35F);
@@ -394,6 +446,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                  }
              })
  		
+        // Compatible attachment honeybadger Reflex
  		.withCompatibleAttachment(Attachments.Reflex, (player, stack) -> {
                      GL11.glTranslatef(-0.066F, -1.21F, -0.9F);
                      GL11.glScaled(0.45F, 0.45F, 0.45F);
@@ -403,6 +456,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
                  GL11.glScaled(0.15F, 0.15F, 0.15F);
  			}
  		})
+
+        // Compatible attachment honeybadger BijiaReflex
  		.withCompatibleAttachment(Attachments.BijiaReflex, (player, stack) -> {
                      GL11.glTranslatef(-0.062F, -1.2F, -1F);
                      GL11.glScaled(0.48F, 0.48F, 0.48F);
@@ -413,6 +468,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
          }
  		})
  		
+        // Compatible attachment honeybadger Holographic
  		.withCompatibleAttachment(Attachments.Holographic, (player, stack) -> {
                      GL11.glTranslatef(-0.041F, -1.25F, -0.7F);
                      GL11.glScaled(0.65F, 0.65F, 0.65F);
@@ -423,6 +479,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
  	            }
  	        })
  		
+
+        // Compatible attachment honeybadger HolographicAlt
  		.withCompatibleAttachment(Attachments.HolographicAlt, (player, stack) -> {
                      GL11.glTranslatef(-0.041F, -1.25F, -0.7F);
                      GL11.glScaled(0.65F, 0.65F, 0.65F);
@@ -433,6 +491,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
              }
          })
  		
+        // Compatible attachment honeybadger EotechHybrid
  		.withCompatibleAttachment(Attachments.EotechHybrid2, (player, stack) -> {
  			GL11.glTranslatef(-0.041F, -1.25F, -1.3F);
              GL11.glScaled(0.65F, 0.65F, 0.65F);
@@ -447,6 +506,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
              }
          })
  		
+        // Compatible attachment honeybadger VortexRedux
  	    .withCompatibleAttachment(Attachments.VortexRedux, (player, stack) -> {
                      GL11.glTranslatef(-0.3F, -1.45F, -1.1F);
                      GL11.glScaled(0.45F, 0.45F, 0.45F);
@@ -457,6 +517,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                  }
              })
  	    
+        // Compatible attachment honeybadger Kobra
  		.withCompatibleAttachment(Attachments.Kobra, (player, stack) -> {
                      GL11.glTranslatef(-0.041F, -1.26F, -0.7F);
                      GL11.glScaled(0.65F, 0.65F, 0.65F);
@@ -467,6 +528,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
              }
          })
  		
+        // Compatible attachment honeybadger KobraGen3
  		.withCompatibleAttachment(Attachments.KobraGen3, renderContext -> {
  		    PlayerWeaponInstance instance = renderContext.getWeaponInstance();
              if(instance != null) {
@@ -487,6 +549,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
              }
          }, false, false)
  		
+        // Compatible attachment honeybadger MicroT1
  		.withCompatibleAttachment(Attachments.MicroT1, (player, stack) -> {
                      GL11.glTranslatef(-0.18F, -1.45F, -1F);
                      GL11.glScaled(0.38F, 0.38F, 0.38F);
@@ -497,6 +560,7 @@ public class AACHoneyBadgerFactory implements GunFactory {
                  }
              })
  		
+        // Compatible attachment honeybadger AimpointCompM5
  		.withCompatibleAttachment(Attachments.AimpointCompM5, (player, stack) -> {
                      GL11.glTranslatef(-0.18F, -1.45F, -1F);
                      GL11.glScaled(0.38F, 0.38F, 0.38F);
@@ -506,38 +570,56 @@ public class AACHoneyBadgerFactory implements GunFactory {
                  GL11.glScaled(0.15F, 0.15F, 0.15F);
              }
          })
+
+        // Compatible attachment honeybadger Grip2
  		.withCompatibleAttachment(Attachments.Grip2, (model) -> {
 			GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
 			GL11.glScaled(1F, 1F, 1F);
 		})
+
+        // Compatible attachment honeybadger JunoGrip
 		.withCompatibleAttachment(Attachments.JunoGrip, (model) -> {
             GL11.glTranslatef(-0.23F, -0.7F, -2.81F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
         })
+
+        // Compatible attachment honeybadger StubbyGrip
 		.withCompatibleAttachment(Attachments.StubbyGrip, (model) -> {
 		    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
             GL11.glScaled(1F, 1F, 1F);
 		})
+
+        // Compatible attachment honeybadger AngledGrip
 		.withCompatibleAttachment(Attachments.AngledGrip, (model) -> {
 		    GL11.glTranslatef(-0.2F, -0.35F, -2.9F);
             GL11.glScaled(1F, 1F, 1F);
 		})
+
+        // Compatible attachment honeybadger VGrip
 		.withCompatibleAttachment(Attachments.VGrip, (model) -> {
 		    GL11.glTranslatef(-0.2F, -0.41F, -2.5F);
             GL11.glScaled(1F, 1F, 1F);
 		})
+
+        // Compatible attachment honeybadger Bipod
 		.withCompatibleAttachment(Attachments.Bipod, (model) -> {
 			GL11.glTranslatef(-0.18F, -0.33F, -3.5F);
             GL11.glScaled(0.8F, 0.8F, 0.8F);
 		})
+
+        // Compatible attachment honeybadger Laser2
 		.withCompatibleAttachment(Attachments.Laser2, (p, s) -> {
 			GL11.glTranslatef(0.05F, -1.18F, -3.6F);
 			GL11.glScaled(0.8F, 0.8F, 0.8F);
 		})
+
+        // Compatible attachment honeybadger Laser
 		.withCompatibleAttachment(Attachments.Laser, (p, s) -> {
 			GL11.glTranslatef(0.05F, -1.18F, -3.6F);
 			GL11.glScaled(0.8F, 0.8F, 0.8F);
 		})
+
+        // Compatible attachment honeybadger Silencer
         .withCompatibleAttachment(Attachments.HoneyBadgerSilencer, renderContext -> {
             PlayerWeaponInstance instance = renderContext.getWeaponInstance();
             if(instance != null) {
@@ -557,6 +639,8 @@ public class AACHoneyBadgerFactory implements GunFactory {
 //                GL11.glScaled(0.35F, 0.35F, 0.35F);
               }
         }, true, false)
+
+        // BUILDS THE GUN
         .withTextureNames("aachoneybadger")
         .withRenderer(new WeaponRenderer.Builder()
             .withModId(ModernWarfareMod.MODID)
