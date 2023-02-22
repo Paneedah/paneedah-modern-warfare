@@ -17,6 +17,11 @@ Massive shoutout to the original Author: Vic4Games and his team for creating the
 
 ---
 
+# Compiling Requirements 🧾
+- [Java 1.8 JDK](https://adoptium.net/en-GB/temurin/releases/?version=8)
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows) or Other code editors
+
+
 ### How do I contribute?
 _If you want to help me out with the mod, you can do so by creating a pull request. I will review it and if it's good, I will merge it!_
 _Ensure that your changes make sense, and that they are not breaking changes. If you want to add a new feature, please create an issue first, so we can discuss it._
