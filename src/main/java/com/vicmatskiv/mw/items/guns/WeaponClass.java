@@ -157,10 +157,9 @@ public class WeaponClass {
         VSSVintorez(),
         ZbroyarZ10();
 
-        // public void GunsClass(String Name, int FireRate, int Damage, int Recoil, int flashintensity, int ){}
-
-
-        // public static String Getname() { return name; }
+        Weapons() {
+              
+        }
 
     }
 }
