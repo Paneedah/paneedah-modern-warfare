@@ -9,9 +9,9 @@ Massive shoutout to the original Author: <a href="https://github.com/vic4games">
 ### How do I compile?
 1. Install [Java 1.8 JDK](https://adoptium.net/en-GB/temurin/releases/?version=8). Verify you're running it in console using `java -version`.
 2. Clone the repository.
-4. Run `./gradlew build` to compile the mod.
-5. The compiled jar file will be in the `build/libs` folder.
-6. Enjoy the mod!
+3. Run `./gradlew build` to compile the mod.
+4. The compiled jar file will be in the `build/libs` folder.
+5. Enjoy the mod!
 
 **Warning:** _Ensure that you build (step 3) it __before__ trying to open the project or it __WONT WORK__!_
 
