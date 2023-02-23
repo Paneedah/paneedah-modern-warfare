@@ -1,7 +1,7 @@
 package com.vicmatskiv.mw.entities;
 
-import com.vicmatskiv.mw.Guns;
-import com.vicmatskiv.mw.Magazines;
+import com.vicmatskiv.mw.weapons.Guns;
+import com.vicmatskiv.mw.weapons.Magazines;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.ai.BetterAINearestAttackableTarget;
 import com.vicmatskiv.weaponlib.ai.EntityAIAttackRangedWeapon;

@@ -2,6 +2,9 @@ package com.vicmatskiv.mw.items.guns;
 
 import com.vicmatskiv.mw.*;
 import com.vicmatskiv.mw.models.M41A;
+import com.vicmatskiv.mw.weapons.Attachments;
+import com.vicmatskiv.mw.weapons.AuxiliaryAttachments;
+import com.vicmatskiv.mw.wearables.Bullets;
 import com.vicmatskiv.weaponlib.RenderableState;
 import com.vicmatskiv.weaponlib.Weapon;
 import com.vicmatskiv.weaponlib.WeaponRenderer;

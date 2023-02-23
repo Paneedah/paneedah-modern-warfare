@@ -1,5 +1,6 @@
 package com.vicmatskiv.mw;
 
+import com.vicmatskiv.mw.ores.Ores;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleBlocks;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleWorldGenerator;
 import com.vicmatskiv.weaponlib.config.ConfigurationManager;

@@ -1,6 +1,8 @@
 package com.vicmatskiv.mw;
 
 import com.vicmatskiv.mw.models.Workbench;
+import com.vicmatskiv.mw.ores.Ores;
+import com.vicmatskiv.mw.wearables.Armors;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlInitializationEvent;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.vicmatskiv.weaponlib.config.ConfigurationManager;

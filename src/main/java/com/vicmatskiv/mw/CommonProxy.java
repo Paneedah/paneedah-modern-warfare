@@ -1,9 +1,23 @@
 package com.vicmatskiv.mw;
 
+import com.vicmatskiv.mw.entities.Entities;
 import com.vicmatskiv.mw.items.melee.BaseballBatFactory;
 import com.vicmatskiv.mw.items.melee.BaseballBatNailsFactory;
 import com.vicmatskiv.mw.items.melee.NightStickFactory;
 import com.vicmatskiv.mw.items.melee.TacticalTomahawkFactory;
+import com.vicmatskiv.mw.ores.Ores;
+import com.vicmatskiv.mw.skins.GunSkins;
+import com.vicmatskiv.mw.skins.MeleeSkins;
+import com.vicmatskiv.mw.tileentities.TileEntities;
+import com.vicmatskiv.mw.vehicle.Vehicles;
+import com.vicmatskiv.mw.weapons.Attachments;
+import com.vicmatskiv.mw.weapons.AuxiliaryAttachments;
+import com.vicmatskiv.mw.weapons.Guns;
+import com.vicmatskiv.mw.weapons.Magazines;
+import com.vicmatskiv.mw.wearables.Armors;
+import com.vicmatskiv.mw.wearables.Backpacks;
+import com.vicmatskiv.mw.wearables.Bullets;
+import com.vicmatskiv.mw.wearables.Vests;
 import com.vicmatskiv.weaponlib.UniversalSoundLookup;
 import com.vicmatskiv.weaponlib.animation.SpecialAttachments;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleChannel;

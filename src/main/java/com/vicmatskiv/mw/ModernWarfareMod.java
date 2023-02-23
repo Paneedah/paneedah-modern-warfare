@@ -4,6 +4,7 @@ import java.io.File;
 
 import javax.xml.transform.stream.StreamSource;
 
+import com.vicmatskiv.mw.creativetab.*;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.command.BalancePackCommand;
 import com.vicmatskiv.weaponlib.command.CraftingFileCommand;
@@ -32,6 +33,7 @@ public class ModernWarfareMod {
     private static final String MODERN_WARFARE_CONFIG_FILE_NAME = "ModernWarfare.cfg";
     public static final String MODID = "mw";
 	public static final String VERSION = "@VERSION@";
+
     public static final Minecraft mc = Minecraft.getMinecraft();
 
     @SidedProxy(serverSide = "com.vicmatskiv.weaponlib.CommonModContext", clientSide = "com.vicmatskiv.weaponlib.ClientModContext")

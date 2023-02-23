@@ -2,6 +2,10 @@ package com.vicmatskiv.mw.items.guns;
 
 import com.vicmatskiv.mw.*;
 import com.vicmatskiv.mw.models.*;
+import com.vicmatskiv.mw.ores.Ores;
+import com.vicmatskiv.mw.weapons.Attachments;
+import com.vicmatskiv.mw.weapons.AuxiliaryAttachments;
+import com.vicmatskiv.mw.weapons.Magazines;
 import com.vicmatskiv.weaponlib.*;
 import com.vicmatskiv.weaponlib.animation.Transform;
 import com.vicmatskiv.weaponlib.animation.Transition;
