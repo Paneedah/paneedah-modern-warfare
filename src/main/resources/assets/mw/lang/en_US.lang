@@ -1097,6 +1097,8 @@ itemGroup.BlocksTab=VMW Blocks & Ingots
 
 itemGroup.CombatServer_tab=VMW Arcade Weapons
 
+itemGroup.VehiclesTab=VMW Vehicles
+
 key.categories.weaponlib=Modern Warfare
 
 key.texture_change=Change Gun Skin

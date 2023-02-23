@@ -64,6 +64,8 @@ public class ModernWarfareMod {
 	
 	public static CreativeTabs PropsTab = new PropsTab(
             CreativeTabs.getNextID(), "props_tab");
+    public static CreativeTabs VehiclesTab = new ArmorTab(
+            CreativeTabs.getNextID(), "VehiclesTab");
 	
 	public static CreativeTabs BlocksTab = new BlocksTab(
 	        CreativeTabs.getNextID(), "BlocksTab");

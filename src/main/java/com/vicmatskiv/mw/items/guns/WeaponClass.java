@@ -158,7 +158,7 @@ public class WeaponClass {
         ZbroyarZ10();
 
         Weapons() {
-              
+
         }
 
     }
