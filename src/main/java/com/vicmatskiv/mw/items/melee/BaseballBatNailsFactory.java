@@ -168,5 +168,4 @@ public class BaseballBatNailsFactory implements MeleeFactory {
 
                 .build(ModernWarfareMod.MOD_CONTEXT);
     }
-
 }

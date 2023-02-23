@@ -189,5 +189,4 @@ public class NightStickFactory implements MeleeFactory {
 
                 .build(ModernWarfareMod.MOD_CONTEXT);
     }
-
 }

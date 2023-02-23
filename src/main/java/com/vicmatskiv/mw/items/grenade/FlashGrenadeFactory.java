@@ -343,5 +343,4 @@ public class FlashGrenadeFactory implements GrenadeFactory {
 
                 .build(ModernWarfareMod.MOD_CONTEXT);
     }
-
 }

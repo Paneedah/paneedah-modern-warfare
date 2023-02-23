@@ -340,5 +340,4 @@ public class SmokeGrenadeFactory implements GrenadeFactory {
 
                 .build(ModernWarfareMod.MOD_CONTEXT);
     }
-
 }

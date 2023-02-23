@@ -180,5 +180,4 @@ public class ImpactGrenadeFactory implements GrenadeFactory {
 
                 .build(ModernWarfareMod.MOD_CONTEXT);
     }
-
 }
