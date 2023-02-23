@@ -15,13 +15,13 @@ import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compa
 
 public class SpreadableExposure extends UniversalObject implements Exposure {
     
-    public static interface Listener {
-        public void onUpdate(SpreadableExposure exposure);
+    public interface Listener {
+        void onUpdate(SpreadableExposure exposure);
     }
     
     private static final float MIN_EFFECTIVE_TOTAL_DOSE = 0.01f;
 
-    public static enum BlackoutPhase {NONE, ENTER, DARK, EXIT};
+    public enum BlackoutPhase {NONE, ENTER, DARK, EXIT};
     
     public class Blackout {
         
@@ -137,28 +137,27 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
      * Spreadable can be applied to an entity only once per cycle
      */
     public void apply(Spreadable spreadable, Entity entity, float dose) {
-
         Float currentSourceDose = cycleDoseMap.get(spreadable.getId());
-        if(currentSourceDose == null) {
-            //Proceed with updates only if the source was not applied in the current cycle
-            cycleDoseMap.put(spreadable.getId(), dose);
-            lastDose = 0f;
-            cycleDoseMap.forEach((k, v) -> lastDose += v);
-            
-            Function<Float, Float> absorbFunction = null;
-            if(entity instanceof EntityLivingBase) {
-                ItemStack helmet = compatibility.getHelmet((EntityLivingBase) entity);
-                if(helmet != null && helmet.getItem() instanceof ExposureProtection) {
-                    absorbFunction = ((ExposureProtection)helmet.getItem()).getAbsorbFunction(spreadable);
-                }
-            }
-            if(absorbFunction == null) {
-                absorbFunction = this.absorbFunction;
-            }
-            
-            Float absorbedDose = absorbFunction.apply(dose);
-            this.totalDose += absorbedDose;
+        if(currentSourceDose != null)
+            return;
+
+        //Proceed with updates only if the source was not applied in the current cycle
+        cycleDoseMap.put(spreadable.getId(), dose);
+        lastDose = 0f;
+        cycleDoseMap.forEach((k, v) -> lastDose += v);
+
+        Function<Float, Float> absorbFunction = null;
+        if (entity instanceof EntityLivingBase) {
+            ItemStack helmet = compatibility.getHelmet((EntityLivingBase) entity);
+            if (helmet != null && helmet.getItem() instanceof ExposureProtection)
+                absorbFunction = ((ExposureProtection)helmet.getItem()).getAbsorbFunction(spreadable);
         }
+
+        if(absorbFunction == null)
+            absorbFunction = this.absorbFunction;
+
+        Float absorbedDose = absorbFunction.apply(dose);
+        this.totalDose += absorbedDose;
     }
     
     public void setLastSyncTimestamp(long lastSyncTimestamp) {
@@ -170,16 +169,17 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
     }
     
     public void updateFrom(Exposure otherExposure) {
-        if(otherExposure instanceof SpreadableExposure) {
-            SpreadableExposure other = (SpreadableExposure)otherExposure;
-            this.firstExposureImpactDelay = other.firstExposureImpactDelay;
-            this.firstExposureTimestamp = other.firstExposureTimestamp;
-            this.totalDose = other.totalDose;
-            this.lastDose = other.lastDose;
-            this.colorImpairmentR = other.colorImpairmentR;
-            this.colorImpairmentG = other.colorImpairmentG;
-            this.colorImpairmentB = other.colorImpairmentB;
-        }
+        if(!(otherExposure instanceof SpreadableExposure))
+            return;
+
+        SpreadableExposure other = (SpreadableExposure)otherExposure;
+        this.firstExposureImpactDelay = other.firstExposureImpactDelay;
+        this.firstExposureTimestamp = other.firstExposureTimestamp;
+        this.totalDose = other.totalDose;
+        this.lastDose = other.lastDose;
+        this.colorImpairmentR = other.colorImpairmentR;
+        this.colorImpairmentG = other.colorImpairmentG;
+        this.colorImpairmentB = other.colorImpairmentB;
     }
 
     @Override
@@ -218,12 +218,13 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
 //        }
         
         long worldTime = compatibility.world(entity).getTotalWorldTime();
-        if(firstExposureTimestamp > worldTime) {
+
+        if(firstExposureTimestamp > worldTime)
             firstExposureTimestamp = worldTime;
-        }
-        if(firstExposureImpactDelay >= 1000) {
+
+        if(firstExposureImpactDelay >= 1000)
             firstExposureImpactDelay = 20;
-        }
+
         if(worldTime - startCycleTimestamp > cycleLengthMillis) {
             startCycleTimestamp = compatibility.world(entity).getTotalWorldTime();
             cycleDoseMap.clear();
@@ -231,20 +232,18 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
         
 //        boolean result = true;
 
-        if(firstExposureTimestamp > 0) {
-            if(firstExposureTimestamp + firstExposureImpactDelay < worldTime) {
-                if(entity instanceof EntityLivingBase) {
-                    EntityLivingBase entityLiving = (EntityLivingBase)entity;
-                    applyToEntity(entityLiving);
-                }
+        if (firstExposureTimestamp > 0) {
+            if (firstExposureTimestamp + firstExposureImpactDelay < worldTime && entity instanceof EntityLivingBase) {
+                EntityLivingBase entityLiving = (EntityLivingBase)entity;
+                applyToEntity(entityLiving);
             }
             
             totalDose *= decayFactor;
-//            System.out.println("Total dose: " + totalDose);
-            
-//            if(totalDose < 0.01f) {
-//                result = false;
-//            }
+
+            //System.out.println("Total dose: " + totalDose);
+            //if(totalDose < 0.01f) {
+            //    result = false;
+            //}
         }
     }
     
@@ -260,23 +259,26 @@ public class SpreadableExposure extends UniversalObject implements Exposure {
                 EntityPlayer player = (EntityPlayer) entityLiving;
                 isCreative= player.capabilities.isCreativeMode;
             }
+
             if(!isCreative) {
                 if(entityLiving instanceof EntityPlayer) {
                     entityLiving.setHealth(entityLiving.getHealth() - totalDose);
-                } else {
-                    entityLiving.attackEntityFrom(compatibility.genericDamageSource(), totalDose);
+                    return;
                 }
-                
+
+                entityLiving.attackEntityFrom(compatibility.genericDamageSource(), totalDose);
             }
             
             lastApplyTimestamp = worldTime;
         }
     }
-    
-//    public void nextCycle() {
-//        startCycleTimestamp = System.currentTimeMillis();
-//        cycleDoseMap.clear();
-//    }
+
+    /**
+    public void nextCycle() {
+        startCycleTimestamp = System.currentTimeMillis();
+        cycleDoseMap.clear();
+    }
+     */
     
     public void incrementTickCount() {
         tickCount++;

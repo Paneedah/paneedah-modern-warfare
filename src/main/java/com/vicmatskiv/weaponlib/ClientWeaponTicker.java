@@ -40,8 +40,6 @@ class ClientWeaponTicker extends Thread {
 
 		while(running.get()) {
 			try {
-
-
 				if(!Mouse.isCreated()) {
 					continue;
 				}
@@ -193,7 +191,9 @@ class ClientWeaponTicker extends Thread {
 	}
 
 	private Item getHeldItemMainHand(EntityPlayer player) {
-		if(player == null) return null;
+		if(player == null)
+			return null;
+
 		ItemStack itemStack = compatibility.getHeldItemMainHand(player);
 		return itemStack != null ? itemStack.getItem() : null;
 	}

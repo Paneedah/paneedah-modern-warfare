@@ -132,28 +132,14 @@ public class WeaponSpawnEntity extends EntityProjectile {
 	 */
 	@Override
 	protected void onImpact(CompatibleRayTraceResult position) {
-
-		
-		
-	    if(compatibility.world(this).isRemote) {
-	    	
-	    	
+	    if (compatibility.world(this).isRemote) {
 	    //	compatibility.playSound(mc.player, UniversalSoundLookup.lookupSound("headshotsfx"), 10.0f, 1.0f);
-        	
 	    	  return;
 	    }
 
-	    
-	  
-	    
-	    
-	    
-	    if(weapon == null) {
+	    if (weapon == null)
 	        return;
-	    }
 
-	 
-	    
 	    if(explosionRadius > 0) {
 
 	    	//PostProcessPipeline.createDistortionPoint((float) position.getHitVec().getXCoord(),(float)  position.getHitVec().getYCoord(), (float) position.getHitVec().getZCoord(), 2f, 3000);
@@ -192,13 +178,12 @@ public class WeaponSpawnEntity extends EntityProjectile {
             CompatibleTargetPoint point = new CompatibleTargetPoint(position.getEntityHit().dimension,
                     this.posX, this.posY, this.posZ, 100);
 
-            double magnitude = Math.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ) + 1;
+            //double magnitude = Math.sqrt(motionX * motionX + motionY * motionY + motionZ * motionZ) + 1;
             
             float bleedingCoefficient = weapon.getBleedingCoefficient();
             
-            if(projectilesConfig.getBleedingOnHit() != null) {
+            if (projectilesConfig.getBleedingOnHit() != null)
                 bleedingCoefficient *= projectilesConfig.getBleedingOnHit();
-            }
             
             if(bleedingCoefficient > 0.0f) {
                 int count = (int)(getParticleCount (damage) * bleedingCoefficient);

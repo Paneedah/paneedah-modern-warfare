@@ -41,7 +41,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
     private static final Logger logger = LogManager.getLogger(Weapon.class);
 
-    public static enum ShellCasingEjectDirection { LEFT, RIGHT };
+    public enum ShellCasingEjectDirection { LEFT, RIGHT };
     
     public static class ScreenShaking {
         
@@ -1368,14 +1368,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     	if(world.isRemote) {
     		EnumFacing facing = EnumFacing.valueOf(position.getSideHit().toString());
         	CompatibleClientEventHandler.BULLET_HOLE_RENDERER.addBulletHole(new BulletHole(new Vec3d(position.getHitVec().getXCoord(), position.getHitVec().getYCoord(), position.getHitVec().getZCoord()), facing, 0.05));
-        	
-        	
-        	
-        	
     	}
     	
     	if(builder.blockImpactHandler != null) {
-       
             builder.blockImpactHandler.onImpact(world, player, entity, position);
         }
     }

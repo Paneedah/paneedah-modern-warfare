@@ -410,14 +410,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
     		Shell shell = new Shell(weaponInstance.getWeapon().getShellType(), new Vec3d(finalPosition.x, finalPosition.y, finalPosition.z), new Vec3d(90, 0, 90), velocity);
         	CompatibleClientEventHandler.shellManager.enqueueShell(shell);
         	*/
-        	
-        	
-        	
-        	
-        	
         }
-        
-       
         
         int seriesShotCount = weaponInstance.getSeriesShotCount();
         if(seriesShotCount == 0) {
@@ -430,8 +423,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         }
         weaponInstance.setLastFireTimestamp(System.currentTimeMillis());
         weaponInstance.setAmmo(currentAmmo - 1);
-        
-        
     }
 
     private void ejectSpentRound(PlayerWeaponInstance weaponInstance) {
@@ -524,8 +515,6 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         	Vec3d velocity = new Vec3d(-0.3, 0.1, 0.0);
     		velocity = velocity.rotateYaw((float) Math.toRadians(-player.rotationYaw));
         	modContext.getChannel().getChannel().sendToAllAround(new BulletShellClient(player.getEntityId(), playerWeaponInstance.getWeapon().getShellType(), pos.add(weaponDir), velocity), tp);
-           
-
         }
         
        

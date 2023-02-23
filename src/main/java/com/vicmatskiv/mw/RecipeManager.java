@@ -1,5 +1,6 @@
 package com.vicmatskiv.mw;
 
+import com.vicmatskiv.mw.ores.Ores;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleItems;
 import net.minecraft.init.Items;

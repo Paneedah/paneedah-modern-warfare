@@ -24,10 +24,6 @@ public class TryFireMessageHandler implements CompatibleMessageHandler<TryFireMe
 			if(itemStack != null && itemStack.getItem() instanceof Weapon) {
 				if(message.isOn()) {
 					ctx.runInMainThread(() -> {
-						
-						
-						
-						
 						fireManager.serverFire(player, itemStack, message.isBurst(), message.isAimed());
 					});
 				}

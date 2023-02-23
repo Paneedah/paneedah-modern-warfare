@@ -3,7 +3,6 @@ package com.vicmatskiv.weaponlib;
 import com.vicmatskiv.weaponlib.animation.Transition;
 import net.minecraft.client.renderer.GlStateManager;
 
-import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -107,7 +106,6 @@ public class TransitionContainer {
 		return rightHand;
 	}
 
-	@Nullable
 	public void setRightHand(List<Transition<RenderContext<RenderableState>>> rightHand) {
 		this.rightHand = rightHand;
 	}

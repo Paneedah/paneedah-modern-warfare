@@ -1,8 +1,8 @@
 package com.vicmatskiv.mw.items.guns;
 
-import com.vicmatskiv.mw.AuxiliaryAttachments;
+import com.vicmatskiv.mw.weapons.AuxiliaryAttachments;
 import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.mw.Magazines;
+import com.vicmatskiv.mw.weapons.Magazines;
 import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.mw.models.Glock18C;
 import com.vicmatskiv.weaponlib.AttachmentCategory;

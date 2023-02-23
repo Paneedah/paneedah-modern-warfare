@@ -129,8 +129,6 @@ public class HighIQSpawnEgg extends CompatibleItem implements IModernCrafting {
 		try {
 			
 			//System.out.println(worldIn.getBlockState(pos).getBlock());
-
-			System.out.println("Yo fool");
 			
 			if (!blockPredicate.test(worldIn.getBlockState(pos).getBlock()))
 				return EnumActionResult.FAIL;

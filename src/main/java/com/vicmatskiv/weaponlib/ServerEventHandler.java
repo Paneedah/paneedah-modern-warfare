@@ -14,7 +14,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
@@ -55,26 +54,17 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
     protected void onCompatibleServerTickEvent(CompatibleServerTickEvent e) {
         CommonModContext.currentContext.set(modContext);
     }
-    
+
     @Override
 	public void onEquipmentChange(LivingEquipmentChangeEvent e) {
-    	if(e.getSlot() == EntityEquipmentSlot.MAINHAND
-    			&& e.getFrom() != e.getTo()
-    			&& e.getFrom().getItem() instanceof Weapon) {
-    		
-    		//e.getEntityLiving().entityDropItem(e.getFrom(), 1);
-    	}
+
 	}
-    
-   
     
     @Override
     protected void onCompatibleLivingUpdateEvent(CompatibleLivingUpdateEvent e) {
-        
-    	
-    	if(!compatibility.world(e.getEntity()).isRemote && e.getEntityLiving() instanceof EntityPlayer) {
-    		//modContext.getChannel().getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) e.getEntityLiving());
-    	}
+    	//if(!compatibility.world(e.getEntity()).isRemote && e.getEntityLiving() instanceof EntityPlayer) {
+    	//	//modContext.getChannel().getChannel().sendTo(new HeadshotSFXPacket(), (EntityPlayerMP) e.getEntityLiving());
+    	//}
     	
         if(!compatibility.world(e.getEntity()).isRemote) {
 //            if(e.getEntity() instanceof EntityPlayer) {
@@ -259,9 +249,6 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
 
     @Override
     protected void onCompatibleLivingHurtEvent(CompatibleLivingHurtEvent e) {
-    	
-    	
-    	
         CustomPlayerInventory inventory = CompatibleCustomPlayerInventoryCapability
                 .getInventory(e.getEntityLiving());
         if (inventory != null && inventory.getStackInSlot(1) != null) {
@@ -286,13 +273,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
             		
             	}
         	}
-        	
-        	
-        	
         }
-        
-       
-        
     }
 
     @Override

@@ -4,7 +4,6 @@ import com.vicmatskiv.weaponlib.compatibility.CompatibleResourcePack;
 import net.minecraft.util.ResourceLocation;
 
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
 import java.util.HashSet;
@@ -48,7 +47,7 @@ public class WeaponResourcePack extends CompatibleResourcePack {
 	}
 
 	@Override
-	public BufferedImage getPackImage() throws IOException {
+	public BufferedImage getPackImage() {
 		return null;
 	}
 

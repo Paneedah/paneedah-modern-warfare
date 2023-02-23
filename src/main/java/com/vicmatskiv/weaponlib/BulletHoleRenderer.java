@@ -6,7 +6,6 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
@@ -42,12 +41,8 @@ public class BulletHoleRenderer {
 	}
 	
 	public void render() {
-		
-		
-		
-		while(holeQueue.size() > 0) {
+		while(holeQueue.size() > 0)
 			bulletHoles.add(holeQueue.poll());
-		}
 		
 		this.bulletHoles.removeIf((s) -> s.shouldDie);
 		
@@ -59,14 +54,12 @@ public class BulletHoleRenderer {
 		double iPosZ = pla.prevPosZ + (pla.posZ - pla.prevPosZ)*mc.getRenderPartialTicks();
 		GlStateManager.translate(-iPosX, -iPosY, -iPosZ);
 
-		
-		
 		Tessellator tes  = Tessellator.getInstance();
 		BufferBuilder bb = tes.getBuffer();
 		GlStateManager.enableTexture2D();
 		GlStateManager.disableCull();
 		
-		ResourceLocation rl = new ResourceLocation("mw:textures/entity/bullethole.png");
+		//ResourceLocation rl = new ResourceLocation("mw:textures/entity/bullethole.png");
 
 		// TODO: Actually add the texture
 		// mc.getTextureManager().bindTexture(rl);

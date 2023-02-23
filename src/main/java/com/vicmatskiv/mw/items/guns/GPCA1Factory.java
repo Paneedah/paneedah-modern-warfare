@@ -2,6 +2,9 @@ package com.vicmatskiv.mw.items.guns;
 
 import com.vicmatskiv.mw.*;
 import com.vicmatskiv.mw.models.GPCA1;
+import com.vicmatskiv.mw.weapons.Attachments;
+import com.vicmatskiv.mw.weapons.AuxiliaryAttachments;
+import com.vicmatskiv.mw.wearables.Bullets;
 import com.vicmatskiv.weaponlib.RenderableState;
 import com.vicmatskiv.weaponlib.Weapon;
 import com.vicmatskiv.weaponlib.WeaponRenderer;
@@ -51,7 +54,7 @@ public class GPCA1Factory {
                 1f, // y
                 8f) // z
         
-        .withCompatibleBullet(Bullets.PlasmaCapsule, (model) -> {}) 
+        .withCompatibleBullet(Bullets.PlasmaCapsule, (model) -> {})
         .withBleedingCoefficient(40F)
         .withCompatibleAttachment(AuxiliaryAttachments.LaserProjectile, true, (model) -> {
             GL11.glTranslatef(-1.159F, -1F, -1.1F);
