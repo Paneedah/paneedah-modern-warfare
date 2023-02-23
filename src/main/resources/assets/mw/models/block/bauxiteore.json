@@ -1,6 +1,1 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "mw:blocks/bauxiteore"
-    }
-}
+{"parent":"block/cube_all","textures":{"all":"mw:blocks/bauxiteore"}}

@@ -18,7 +18,6 @@ public class GunSkins {
     public static ItemSkin GoldCamo;
 
     public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
-        
         GunSkins.WoodlandCamo = new ItemSkin.Builder()
         		.withTextureVariant("woodlandcamo")
         		.withModId(ModernWarfareMod.MODID)

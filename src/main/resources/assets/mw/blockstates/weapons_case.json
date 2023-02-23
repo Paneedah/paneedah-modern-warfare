@@ -1,5 +1,1 @@
-{
-    "variants": {
-        "normal": { "model": "mw:weapons_case" }
-    }
-}
+{"variants":{"normal":{"model":"mw:weapons_case"}}}

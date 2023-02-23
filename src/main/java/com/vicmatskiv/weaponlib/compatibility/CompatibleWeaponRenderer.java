@@ -53,7 +53,7 @@
  import javax.annotation.Nullable;
  import javax.imageio.ImageIO;
  import javax.vecmath.Matrix4f;
- import java.awt.Color;
+ import java.awt.*;
  import java.awt.image.BufferedImage;
  import java.io.IOException;
  import java.io.InputStream;

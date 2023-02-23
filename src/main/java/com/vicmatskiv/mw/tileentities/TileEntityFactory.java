@@ -4,6 +4,6 @@ import com.vicmatskiv.weaponlib.ModContext;
 
 public interface TileEntityFactory {
 
-    public void createTileEntity(ModContext modContext);
+    void createTileEntity(ModContext modContext);
     
 }

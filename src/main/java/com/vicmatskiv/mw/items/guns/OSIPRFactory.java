@@ -1,6 +1,7 @@
 package com.vicmatskiv.mw.items.guns;
 
-import com.vicmatskiv.mw.*;
+import com.vicmatskiv.mw.CommonProxy;
+import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.mw.models.FALIron;
 import com.vicmatskiv.mw.models.OSIPR;
 import com.vicmatskiv.mw.models.OSIPRscopereticle;

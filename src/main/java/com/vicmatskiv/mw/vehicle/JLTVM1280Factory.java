@@ -4,14 +4,12 @@ import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.mw.models.JLTVM1280;
 import com.vicmatskiv.mw.models.JLTVM1280wheel;
 import com.vicmatskiv.mw.models.SampleVehicleControlArm;
-import com.vicmatskiv.weaponlib.EntityConfiguration;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.vehicle.*;
 
 public class JLTVM1280Factory implements VehicleFactory {
 
-    public EntityConfiguration createVehicle(ModContext modContext) {
-        
+    public void createVehicle(ModContext modContext) {
         StatefulRenderer<VehicleRenderableState> renderer = new VehicleRendererBuilder()
                 
                 .withPartTexturedModel(VehiclePart.MAIN, JLTVM1280::new, "jltvm1280")
@@ -192,8 +190,8 @@ public class JLTVM1280Factory implements VehicleFactory {
                 })
 
                 .build(modContext, VehiclePart.MAIN);
-        
-        return new EntityVehicleConfiguration.Builder()
+
+        new EntityVehicleConfiguration.Builder()
                 .withName("jltv_m1280")
                 .withEntityIdSupplier(() -> 10203)
                 .withEnterSound("vehicle-enter")

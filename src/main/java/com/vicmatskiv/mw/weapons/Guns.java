@@ -34,7 +34,7 @@ public class Guns {
     public static Item turretgunsilenced;
     
     public static Item MP443;
-    public static Item AK12_kal;
+    //public static Item AK12_kal;
     public static Item AK15;
     public static Item KBP9A91;
     public static Item Kedr;

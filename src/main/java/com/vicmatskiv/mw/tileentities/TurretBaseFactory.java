@@ -34,9 +34,9 @@ public class TurretBaseFactory implements TileEntityFactory {
     
     @SubscribeEvent
     public void lootLoad(LootTableLoadEvent evt) {
-        if (evt.getName().toString().equals("minecraft:chests/simple_dungeon")) {
-            // do stuff with evt.getTable()
-        }
+        //if (evt.getName().toString().equals("minecraft:chests/simple_dungeon")) {
+        //    // do stuff with evt.getTable()
+        //}
     }
 
 }

@@ -5,13 +5,12 @@ import com.vicmatskiv.mw.models.ATV;
 import com.vicmatskiv.mw.models.SampleVehicleControlArm;
 import com.vicmatskiv.mw.models.SampleVehicleSteeringWheel;
 import com.vicmatskiv.mw.models.Wheel;
-import com.vicmatskiv.weaponlib.EntityConfiguration;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.vehicle.*;
 
 public class SampleVehicleFactory implements VehicleFactory {
 
-    public EntityConfiguration createVehicle(ModContext modContext) {
+    public void createVehicle(ModContext modContext) {
         
         StatefulRenderer<VehicleRenderableState> renderer = new VehicleRendererBuilder()
                 
@@ -195,8 +194,8 @@ public class SampleVehicleFactory implements VehicleFactory {
                 })
 
                 .build(modContext, VehiclePart.MAIN);
-        
-        return new EntityVehicleConfiguration.Builder()
+
+        new EntityVehicleConfiguration.Builder()
                 .withName("vehicle")
                 .withEntityIdSupplier(() -> 10201)
                 .withEnterSound("vehicle-enter")

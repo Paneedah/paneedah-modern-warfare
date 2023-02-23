@@ -3,7 +3,6 @@ package com.vicmatskiv.mw.vehicle;
 import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.mw.models.*;
 import com.vicmatskiv.mw.vehicle.engines.AE86TruenoEngine;
-import com.vicmatskiv.weaponlib.EntityConfiguration;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.vehicle.*;
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.*;
@@ -19,7 +18,7 @@ public class AE86TruenoFactory implements VehicleFactory {
 	
 	
 	
-    public EntityConfiguration createVehicle(ModContext modContext) {
+    public void createVehicle(ModContext modContext) {
         
     	
         StatefulRenderer<VehicleRenderableState> renderer = null;
@@ -237,50 +236,50 @@ public class AE86TruenoFactory implements VehicleFactory {
             
     	}
     	// https://www.car.info/en-se/audi/a4/s4-6627162/specs
-        return new EntityVehicleConfiguration.Builder()
-        		
+        new EntityVehicleConfiguration.Builder()
+
                 .withName("ae86trueno")
                 .withEntityIdSupplier(() -> 10204)
-                
+
                 .withPhysicsConfig(new PhysicsConfiguration(
-                		/* WHEELBASE (m)*/ 2.4003,
-                		/* FRONT AREA (m^2) */ 1.8,
-                		/* DRAG COEFF. */ 0.34,
-                		/* MASS (kg) */ 995,
-                		/* COG HEIGHT */ 0.2,
-                		/* DriveT EFF. */ 1.0,
-                		/* Transmission */ PartInit.AE86TruenoTransmission,
-                		/* Engine */ new AE86TruenoEngine("1.6L 4A-C I4 SOHC", "Toyota", 7095, 5301, 1001),
-                		/* Real Dimensions (L*W*H)*/ new Dimensions(4.180, 1.626, 1.336),
-                		/* Dimensions */ new Vec3d(/*length*/ 6, /*width*/ 3, /*height*/ 2), 
-                		/* Chassis */ Chassis.COUPE,
-                		/* Shift pattern */ PartInit.STANDARD_SIX_SHIFT)
-                		
-                		.buildStructure()
-                		
-                		.withAxels(new WheelAxel(0.5, false)
-                					.withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
-                										.withRelativePosition(new Vec3d(-1.7, 0.0, 1.75)),
-                						        new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
-                						        		.withRelativePosition(new Vec3d(0.5, 0.0, 1.75))),
-                				
-            
-                				   new WheelAxel(-0.5, true)
-                				     .withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
-                				    		 			.withRelativePosition(new Vec3d(-1.7, 0.0, -1.75)),
-                				    		     new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
-                				    		     		.withRelativePosition(new Vec3d(0.5, 0.0, -1.75)))
-                             		)
-                		.compileStructure()
-                		
-                		
-                	)
-                
+                        /* WHEELBASE (m)*/ 2.4003,
+                        /* FRONT AREA (m^2) */ 1.8,
+                        /* DRAG COEFF. */ 0.34,
+                        /* MASS (kg) */ 995,
+                        /* COG HEIGHT */ 0.2,
+                        /* DriveT EFF. */ 1.0,
+                        /* Transmission */ PartInit.AE86TruenoTransmission,
+                        /* Engine */ new AE86TruenoEngine("1.6L 4A-C I4 SOHC", "Toyota", 7095, 5301, 1001),
+                        /* Real Dimensions (L*W*H)*/ new Dimensions(4.180, 1.626, 1.336),
+                        /* Dimensions */ new Vec3d(/*length*/ 6, /*width*/ 3, /*height*/ 2),
+                        /* Chassis */ Chassis.COUPE,
+                        /* Shift pattern */ PartInit.STANDARD_SIX_SHIFT)
+
+                        .buildStructure()
+
+                        .withAxels(new WheelAxel(0.5, false)
+                                        .withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(-1.7, 0.0, 1.75)),
+                                                new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(0.5, 0.0, 1.75))),
+
+
+                                new WheelAxel(-0.5, true)
+                                        .withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(-1.7, 0.0, -1.75)),
+                                                new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(0.5, 0.0, -1.75)))
+                        )
+                        .compileStructure()
+
+
+                )
+
                 .withBackfireSound("carbackfire1")
                 .withGearshiftSound("gearshift4")
                 .withEnterSound("vehicle-enter")
                 .withExitSound("vehicle-exit")
-				.withShiftSettings(true, true)
+                .withShiftSettings(true, true)
                 .withRunSound("audi_s4_engine")
                 .withIdleSound("audi_s4_rev")
                 .withRevSounds("audi_s4_rev$")

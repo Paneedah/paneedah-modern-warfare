@@ -19,24 +19,16 @@ public class Grenades {
     public static ItemAttachment<ItemGrenade> GrenadeSafetyPin;
 
 
-    public static void init(Object mod, ConfigurationManager configurationManager,
-            CompatibleFmlPreInitializationEvent event, CommonProxy commonProxy) {
-
+    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event, CommonProxy commonProxy) {
         GrenadeSafetyPin = new AttachmentBuilder<ItemGrenade>().withCategory(AttachmentCategory.EXTRA)
                 .withModel(new com.vicmatskiv.mw.models.Pin(), "gun.png").withName("GrenadeSafetyPin")
                 .withRenderablePart().withModId(ModernWarfareMod.MODID).withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT);
 
         FuseGrenade = new FuseGrenadeFactory().createGrenade(commonProxy);
-
         ImpactGrenade = new ImpactGrenadeFactory().createGrenade(commonProxy);
-
         SmokeGrenade = new SmokeGrenadeFactory().createGrenade(commonProxy);
-        
         GasGrenade = new GasGrenadeFactory().createGrenade(commonProxy);
-        
         FlashGrenade = new FlashGrenadeFactory().createGrenade(commonProxy);
-
     }
-
 }

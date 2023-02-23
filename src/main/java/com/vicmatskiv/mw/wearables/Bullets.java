@@ -57,8 +57,6 @@ public class Bullets {
 //    public static ItemBullet Bullet9x18mm;
 
     public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
-        
-        
         Grenade40mm = new ItemBullet.Builder().withModId(ModernWarfareMod.MODID)
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("Grenade40mm").withMaxStackSize(64)
                 .withModel(new com.vicmatskiv.mw.models.GL06Grenade(), "GL06.png")
@@ -150,7 +148,7 @@ public class Bullets {
         EnergyCase = new ItemBullet.Builder().withModId(ModernWarfareMod.MODID)
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("EnergyCase")
                 .withModel(new com.vicmatskiv.mw.models.EnergyCase(), "gun.png")
-//                .withMaxStackSize(500)
+                //.withMaxStackSize(500)
                 .withCrafting(8, CraftingComplexity.LOW, "ingotCopper", CompatibleItems.GUNPOWDER)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -1F, 0.4F);
@@ -172,8 +170,8 @@ public class Bullets {
         PlasmaCapsule = new ItemBullet.Builder().withModId(ModernWarfareMod.MODID)
                 .withCreativeTab(ModernWarfareMod.AmmoTab).withName("PlasmaCapsule")
                 .withModel(new com.vicmatskiv.mw.models.ChainsawFuel(), "PlasmaCapsule.png")
-//                .withMaxStackSize(500)
-//                .withCrafting(8, CraftingComplexity.LOW, "ingotCopper", CompatibleItems.GUNPOWDER)
+                //.withMaxStackSize(500)
+                //.withCrafting(8, CraftingComplexity.LOW, "ingotCopper", CompatibleItems.GUNPOWDER)
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glTranslatef(0.1F, -0.3F, 0.4F);
                     GL11.glRotatef(30F, 0f, 1f, 0f);

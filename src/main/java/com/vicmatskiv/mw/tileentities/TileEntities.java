@@ -2,7 +2,6 @@ package com.vicmatskiv.mw.tileentities;
 
 import com.vicmatskiv.mw.CommonProxy;
 import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.tileentities.TurretBaseFactory;
 import com.vicmatskiv.mw.weapons.Guns;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleMaterial;
 import com.vicmatskiv.weaponlib.tile.CustomTileEntityBlock;
@@ -15,7 +14,6 @@ import org.lwjgl.opengl.GL11;
 public class TileEntities {
 
     public static void init(CommonProxy commonProxy) {
-    	
     	new TurretBaseFactory().createTileEntity(ModernWarfareMod.MOD_CONTEXT);
     	
         new LootBoxConfiguration()
@@ -23,7 +21,7 @@ public class TileEntities {
         .withName("weapons_case")
         .withModelClassName("com.vicmatskiv.mw.models.GunCase")
         .withTextureName("textures/models/gun_case.png")
-//        .withEquipementDispenseSound(sound)
+        //.withEquipementDispenseSound(sound)
         .withCreativeTab(ModernWarfareMod.PropsTab)
         .withBoundingBox(
         		blockState -> {

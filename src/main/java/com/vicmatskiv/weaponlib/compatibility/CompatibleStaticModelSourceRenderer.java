@@ -29,8 +29,8 @@ import javax.vecmath.Matrix4f;
 import java.util.Collections;
 import java.util.List;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRenderer implements IBakedModel {
 

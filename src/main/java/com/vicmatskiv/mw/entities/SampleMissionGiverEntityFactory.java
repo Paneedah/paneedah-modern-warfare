@@ -1,9 +1,9 @@
 package com.vicmatskiv.mw.entities;
 
+import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.mw.weapons.Attachments;
 import com.vicmatskiv.mw.weapons.Guns;
 import com.vicmatskiv.mw.weapons.Magazines;
-import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.ai.EntityConfiguration;
 import com.vicmatskiv.weaponlib.ai.EntityCustomMob;

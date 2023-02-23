@@ -6,7 +6,6 @@ import com.vicmatskiv.mw.models.ATVSteering;
 import com.vicmatskiv.mw.models.ATVWheel;
 import com.vicmatskiv.mw.models.SampleVehicleControlArm;
 import com.vicmatskiv.mw.vehicle.engines.PolarisATVEngine;
-import com.vicmatskiv.weaponlib.EntityConfiguration;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.vehicle.*;
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.Chassis;
@@ -25,7 +24,7 @@ public class ATVFactory implements VehicleFactory {
 	
 	
 	
-    public EntityConfiguration createVehicle(ModContext modContext) {
+    public void createVehicle(ModContext modContext) {
         
     	
         StatefulRenderer<VehicleRenderableState> renderer = null;
@@ -218,44 +217,44 @@ public class ATVFactory implements VehicleFactory {
             
     	}
     	// https://www.car.info/en-se/audi/a4/s4-6627162/specs
-        return new EntityVehicleConfiguration.Builder()
-        		
+        new EntityVehicleConfiguration.Builder()
+
                 .withName("atv_polaris_sportsman_850_2019")
                 .withEntityIdSupplier(() -> 10205)
-                
+
                 .withPhysicsConfig(new PhysicsConfiguration(
-                		/* WHEELBASE (m)*/ 1.2827,
-                		/* FRONTAL AREA (m^2) */ 1.07,
-                		/* DRAG COEFF. */ 0.1,
-                		/* MASS (kg) */ 319,
-                		/* COG HEIGHT */ 0.07,
-                		/* DriveT EFF. */ 1.0,
-                		/* Transmission */ PartInit.ATVTransmission,
-                		/* Engine */ new PolarisATVEngine("ProStar 4-S DOHC Single Cylinder", "Polaris", 6015, 3754, 1031),
-                		/* Real Dimensions (L*W*H)*/ new Dimensions(2.1082, 1.2192, 1.1938),
-                		/* Dimensions */ new Vec3d(/*length*/ 2, /*width*/ 1.5, /*height*/ 1.5), 
-                		/* Chassis */ Chassis.SUV,
-                		/* Shift pattern */ PartInit.STANDARD_SIX_SHIFT)
-                		
-                		.buildStructure()
-                		
-                		.withAxels(new WheelAxel(0.5, false)
-                					.withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false, 0.8)
-                										.withRelativePosition(new Vec3d(-1.7, 0.0, 1.75)),
-                						        new WheelSolver(new TyreSize("235/40R18"), 75.0, false, 0.8)
-                						        		.withRelativePosition(new Vec3d(0.5, 0.0, 1.75))),
-            
-                				   new WheelAxel(-0.5, true)
-                				     .withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false, 0.8)
-                				    		 			.withRelativePosition(new Vec3d(-1.7, 0.0, -1.75)),
-                				    		     new WheelSolver(new TyreSize("235/40R18"), 75.0, false, 0.8)
-                				    		     		.withRelativePosition(new Vec3d(0.5, 0.0, -1.75)))
-                             		)
-                		.compileStructure()
-                		
-                		
-                	)
-                
+                        /* WHEELBASE (m)*/ 1.2827,
+                        /* FRONTAL AREA (m^2) */ 1.07,
+                        /* DRAG COEFF. */ 0.1,
+                        /* MASS (kg) */ 319,
+                        /* COG HEIGHT */ 0.07,
+                        /* DriveT EFF. */ 1.0,
+                        /* Transmission */ PartInit.ATVTransmission,
+                        /* Engine */ new PolarisATVEngine("ProStar 4-S DOHC Single Cylinder", "Polaris", 6015, 3754, 1031),
+                        /* Real Dimensions (L*W*H)*/ new Dimensions(2.1082, 1.2192, 1.1938),
+                        /* Dimensions */ new Vec3d(/*length*/ 2, /*width*/ 1.5, /*height*/ 1.5),
+                        /* Chassis */ Chassis.SUV,
+                        /* Shift pattern */ PartInit.STANDARD_SIX_SHIFT)
+
+                        .buildStructure()
+
+                        .withAxels(new WheelAxel(0.5, false)
+                                        .withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false, 0.8)
+                                                        .withRelativePosition(new Vec3d(-1.7, 0.0, 1.75)),
+                                                new WheelSolver(new TyreSize("235/40R18"), 75.0, false, 0.8)
+                                                        .withRelativePosition(new Vec3d(0.5, 0.0, 1.75))),
+
+                                new WheelAxel(-0.5, true)
+                                        .withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false, 0.8)
+                                                        .withRelativePosition(new Vec3d(-1.7, 0.0, -1.75)),
+                                                new WheelSolver(new TyreSize("235/40R18"), 75.0, false, 0.8)
+                                                        .withRelativePosition(new Vec3d(0.5, 0.0, -1.75)))
+                        )
+                        .compileStructure()
+
+
+                )
+
                 .withBackfireSound("carbackfire1")
                 .withGearshiftSound("gearshift4")
                 .withEnterSound("vehicle-enter")

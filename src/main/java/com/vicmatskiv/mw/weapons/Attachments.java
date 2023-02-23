@@ -1,8 +1,8 @@
 package com.vicmatskiv.mw.weapons;
 
 import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.ores.Ores;
 import com.vicmatskiv.mw.models.*;
+import com.vicmatskiv.mw.ores.Ores;
 import com.vicmatskiv.weaponlib.*;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
 import com.vicmatskiv.weaponlib.config.ConfigurationManager;
@@ -23,7 +23,7 @@ public class Attachments {
     public static ItemAttachment<Weapon> Holographic;
     public static ItemAttachment<Weapon> HolographicAlt;
     public static ItemAttachment<Weapon> EotechHybrid2;
-//    public static ItemAttachment<Weapon> Vortex;
+    //public static ItemAttachment<Weapon> Vortex;
     public static ItemAttachment<Weapon> VortexRedux;
     public static ItemAttachment<Weapon> Kobra;
     public static ItemAttachment<Weapon> KobraGen3;

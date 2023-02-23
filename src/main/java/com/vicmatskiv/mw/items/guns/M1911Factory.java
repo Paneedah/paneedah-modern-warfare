@@ -1,10 +1,10 @@
 package com.vicmatskiv.mw.items.guns;
 
-import com.vicmatskiv.mw.weapons.Attachments;
 import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.mw.weapons.Magazines;
 import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.mw.models.*;
+import com.vicmatskiv.mw.weapons.Attachments;
+import com.vicmatskiv.mw.weapons.Magazines;
 import com.vicmatskiv.weaponlib.AttachmentCategory;
 import com.vicmatskiv.weaponlib.RenderableState;
 import com.vicmatskiv.weaponlib.Weapon;

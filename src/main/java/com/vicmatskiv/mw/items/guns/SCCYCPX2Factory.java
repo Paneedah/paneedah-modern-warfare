@@ -1,6 +1,7 @@
 package com.vicmatskiv.mw.items.guns;
 
-import com.vicmatskiv.mw.*;
+import com.vicmatskiv.mw.CommonProxy;
+import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.mw.models.Glock18C;
 import com.vicmatskiv.mw.models.M9A1frontsight;
 import com.vicmatskiv.mw.models.M9A1rearsight;

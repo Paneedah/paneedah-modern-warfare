@@ -1,9 +1,9 @@
 package com.vicmatskiv.mw.weapons;
 
 import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.ores.Ores;
 import com.vicmatskiv.mw.models.UMP45mag;
 import com.vicmatskiv.mw.models.UMP9Mag;
+import com.vicmatskiv.mw.ores.Ores;
 import com.vicmatskiv.mw.wearables.Bullets;
 import com.vicmatskiv.weaponlib.ItemMagazine;
 import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;

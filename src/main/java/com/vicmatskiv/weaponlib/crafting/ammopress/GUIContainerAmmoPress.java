@@ -8,7 +8,6 @@ import com.vicmatskiv.weaponlib.crafting.workbench.CustomSearchTextField;
 import com.vicmatskiv.weaponlib.crafting.workbench.GUIButtonCustom;
 import com.vicmatskiv.weaponlib.network.packets.StationPacket;
 import com.vicmatskiv.weaponlib.render.gui.GUIRenderHelper;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;

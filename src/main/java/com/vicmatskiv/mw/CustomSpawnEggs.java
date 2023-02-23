@@ -11,8 +11,6 @@ public class CustomSpawnEggs {
 	public static HighIQSpawnEgg TURRETSILENCED_EGG;
 	
 	public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event, CommonProxy proxy) {
-	    
-		
 		TURRET_EGG = new HighIQSpawnEgg.Builder()
 				.withID(1)
 				.withItemName("turret")
@@ -36,7 +34,5 @@ public class CustomSpawnEggs {
 				.withBlockPredicate(b -> b.getRegistryName().toString().equals("mw:turret_base"))
 				.withCreativeTab(ModernWarfareMod.AssaultRiflesTab)
 				.build();
-		
 	}
-
 }

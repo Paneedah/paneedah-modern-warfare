@@ -2,8 +2,6 @@ package com.vicmatskiv.mw.entities;
 
 import com.vicmatskiv.mw.CommonProxy;
 import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.entities.BanditEntityFactory;
-import com.vicmatskiv.mw.entities.SampleMissionGiverEntityFactory;
 import com.vicmatskiv.mw.weapons.Guns;
 import com.vicmatskiv.mw.weapons.Magazines;
 import com.vicmatskiv.weaponlib.ai.*;

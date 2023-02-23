@@ -39,9 +39,7 @@ public class ClientProxy extends CommonProxy {
         InventoryTabs inventoryTabs = InventoryTabs.getInstance();
 
         inventoryTabs.registerTab(new StandardPlayerInventoryTab());
-
         inventoryTabs.registerTab(new CustomPlayerInventoryTab(ModernWarfareMod.MOD_CONTEXT, Ores.VestRender));
-
         inventoryTabs.registerTab(new BackpackInventoryTab(ModernWarfareMod.MOD_CONTEXT));
 		
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkbench.class, new TESRWorkbench(new Workbench(), new ResourceLocation("mw:textures/blocks/workbench.png")));
@@ -58,10 +56,6 @@ public class ClientProxy extends CommonProxy {
         .register(Item.getItemFromBlock(Ores.CopperOre), 0,
                 new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "copperore", "inventory"));
 
-//        mc.getRenderItem().getItemModelMesher()
-//        .register(Item.getItemFromBlock(Ores.LeadOre), 0,
-//                new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "leadore", "inventory"));
-
         mc.getRenderItem().getItemModelMesher()
         .register(Item.getItemFromBlock(Ores.SulfurOre), 0,
                 new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "sulfurore", "inventory"));
@@ -69,16 +63,21 @@ public class ClientProxy extends CommonProxy {
         mc.getRenderItem().getItemModelMesher()
         .register(Item.getItemFromBlock(Ores.TinOre), 0,
                 new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "tinore", "inventory"));
-        
-//        mc.getRenderItem().getItemModelMesher()
-//        .register(Item.getItemFromBlock(Ores.GraphiteOre), 0,
-//                new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "graphiteore", "inventory"));
+
+        /*
+        mc.getRenderItem().getItemModelMesher()
+        .register(Item.getItemFromBlock(Ores.LeadOre), 0,
+                new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "leadore", "inventory"));
+
+        mc.getRenderItem().getItemModelMesher()
+        .register(Item.getItemFromBlock(Ores.GraphiteOre), 0,
+                new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "graphiteore", "inventory"));
+         */
 
         RenderItem renderItem = mc.getRenderItem();
-                
+
         renderItem.getItemModelMesher().register(Ores.CopperIngot, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "copperingot", "inventory"));
-//        renderItem.getItemModelMesher().register(Ores.LeadIngot, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "leadingot", "inventory"));
-        
+        renderItem.getItemModelMesher().register(Ores.LeadIngot, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "leadingot", "inventory"));
         renderItem.getItemModelMesher().register(Ores.SteelDust, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "steeldust", "inventory"));
         renderItem.getItemModelMesher().register(Ores.SteelIngot, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "steelingot", "inventory"));
         renderItem.getItemModelMesher().register(Ores.SulfurDust, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "sulfurdust", "inventory"));
@@ -94,7 +93,7 @@ public class ClientProxy extends CommonProxy {
         
         renderItem.getItemModelMesher().register(Ores.VestRender, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "vestrender", "inventory"));
         
-        //      renderItem.getItemModelMesher().register(CommonProxy.AKMIron, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "akmiron", "inventory"));
+        //renderItem.getItemModelMesher().register(CommonProxy.AKMIron, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "akmiron", "inventory"));
         
         renderItem.getItemModelMesher().register(Armors.Dclassboots, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "dclass_boots", "inventory"));
         renderItem.getItemModelMesher().register(Armors.Dclasschest, 0, new ModelResourceLocation(ModernWarfareMod.MODID + ":" + "dclass_chest", "inventory"));

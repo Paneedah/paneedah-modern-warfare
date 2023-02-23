@@ -3,7 +3,6 @@ package com.vicmatskiv.mw.vehicle;
 import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.mw.models.*;
 import com.vicmatskiv.mw.vehicle.engines.AudiS4Engine;
-import com.vicmatskiv.weaponlib.EntityConfiguration;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.vehicle.*;
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.*;
@@ -15,17 +14,11 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class AudiS4Factory implements VehicleFactory {
 
-	
-	
-	
-    public EntityConfiguration createVehicle(ModContext modContext) {
-        
-    	
+    public void createVehicle(ModContext modContext) {
         StatefulRenderer<VehicleRenderableState> renderer = null;
     	
     	if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
     		renderer = new VehicleRendererBuilder()
-    				
     				.performShiftAnimation(true)
     				.shiftWithRight(true)
                     
@@ -43,7 +36,6 @@ public class AudiS4Factory implements VehicleFactory {
                     // part positions
                     
                     .withPartPosition(VehiclePart.MAIN, c -> {
-                    	
                     	EntityVehicle entityVehicle = (EntityVehicle) c.getEntity();
                     	float forwardLean = (float) entityVehicle.forwardLean;
                     	float sideLean = (float) entityVehicle.sideLean;
@@ -61,7 +53,6 @@ public class AudiS4Factory implements VehicleFactory {
                     })
                    
                     .withPartPosition(VehiclePart.STEERING_WHEEL, context -> {
-                    	
                     	float steer = (float) -Math.toDegrees(context.getSymmetricProgress()) - 57;
                     	Positioners.position(
                     		    0.000000f, 0.000000f, 0.000000f,
@@ -72,7 +63,6 @@ public class AudiS4Factory implements VehicleFactory {
                     })
 
                     .withPartPosition(VehiclePart.LEFT_HAND, VehicleRenderableState.IDLE, context -> {
-                    	
                     	Positioners.position(
                     		    -0.945000f, -0.575000f, 2.730000f,
                     		    0.000000f, 0.000000f, 0.000000f,
@@ -82,7 +72,6 @@ public class AudiS4Factory implements VehicleFactory {
                     })
 
                     .withPartPosition(VehiclePart.LEFT_HAND, VehicleRenderableState.DRIVING, context -> {
-                    	
                     	Positioners.position(
                     		    -0.920000f, -0.240000f, 2.809999f,
                     		    -90.000000f, 5.000000f, 10.000000f,
@@ -132,7 +121,6 @@ public class AudiS4Factory implements VehicleFactory {
                     })
                     
                     .withPartPosition(VehiclePart.FRONT_LEFT_CONTROL_ARM, context -> {
-                    	
                     	float steer = (float) Math.toDegrees(context.getSymmetricProgress()) + 60;
                     	
                     	Positioners.position(
@@ -168,7 +156,6 @@ public class AudiS4Factory implements VehicleFactory {
                     })
                     
                     .withPartPosition(VehiclePart.FRONT_RIGHT_WHEEL, context -> {
-                    	
                     	EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
                     	WheelSolver ws = entityVehicle.getSolver().frontAxel.rightWheel;
                     	float vertical = (float) entityVehicle.getSolver().frontAxel.rightWheel.getRenderRideHeight();
@@ -183,7 +170,6 @@ public class AudiS4Factory implements VehicleFactory {
                     })
 
                     .withPartPosition(VehiclePart.REAR_LEFT_WHEEL, context -> {
-                    	
                     	EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
                     	WheelSolver ws = entityVehicle.getSolver().rearAxel.leftWheel;
                     	float vertical = (float) entityVehicle.getSolver().rearAxel.leftWheel.getRenderRideHeight();
@@ -208,56 +194,44 @@ public class AudiS4Factory implements VehicleFactory {
                     		    0.000000f, 0.749999f, 0.000000f,
                     		    1.000000f, 1.000000f, 1.000000f
                     		);
-                    })
 
-                    
-                    
-                    
-                    
-                    .build(modContext, VehiclePart.MAIN);
-            
+                    }).build(modContext, VehiclePart.MAIN);
     	}
-    	// https://www.car.info/en-se/audi/a4/s4-6627162/specs
-        return new EntityVehicleConfiguration.Builder()
-        		
+
+        new EntityVehicleConfiguration.Builder()
                 .withName("audis4")
                 .withEntityIdSupplier(() -> 10202)
-                
                 .withPhysicsConfig(new PhysicsConfiguration(
-                		/* WHEELBASE (m)*/ 2.8194,
-                		/* FRONT AREA (m^2) */ 2.2,
-                		/* DRAG COEFF. */ 0.286,
-                		/* MASS (kg) */ 1595,
-                		/* COG HEIGHT */ 0.2,
-                		/* DriveT EFF. */ 1.0,
-                		/* Transmission */ PartInit.audiS4B7Transmission,
-                		/* Engine */ new AudiS4Engine("4.2L V8 BBK", "Audi", 5000, 4603, 1019),
-                		/* Real Dimensions (L*W*H)*/ new Dimensions(4.703, 1.826, 1.427),
-                		/* Dimensions */ new Vec3d(/*length*/ 6, /*width*/ 3, /*height*/ 2), 
-                		/* Chassis */ Chassis.SEDAN,
-                		/* Shift pattern */ PartInit.STANDARD_SIX_SHIFT)
-                		
-                		.buildStructure()
-                		
-                		.withAxels(new WheelAxel(0.5, false)
-                					.withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
-                										.withRelativePosition(new Vec3d(-1.7, 0.0, 1.75)),
-                						        new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
-                						        		.withRelativePosition(new Vec3d(0.5, 0.0, 1.75))),
-                				
-            
-                				   new WheelAxel(-0.5, true)
-                				     .withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
-                				    		 			.withRelativePosition(new Vec3d(-1.7, 0.0, -1.75)),
-                				    		     new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
-                				    		     		.withRelativePosition(new Vec3d(0.5, 0.0, -1.75)))
-                             		)
-                		.compileStructure()
-                		
-                		
-                	)
-                
-                .withBackfireSound("carbackfire1")
+                        /* WHEELBASE (m)*/ 2.8194,
+                        /* FRONT AREA (m^2) */ 2.2,
+                        /* DRAG COEFF. */ 0.286,
+                        /* MASS (kg) */ 1595,
+                        /* COG HEIGHT */ 0.2,
+                        /* DriveT EFF. */ 1.0,
+                        /* Transmission */ PartInit.audiS4B7Transmission,
+                        /* Engine */ new AudiS4Engine("4.2L V8 BBK", "Audi", 5000, 4603, 1019),
+                        /* Real Dimensions (L*W*H)*/ new Dimensions(4.703, 1.826, 1.427),
+                        /* Dimensions */ new Vec3d(/*length*/ 6, /*width*/ 3, /*height*/ 2),
+                        /* Chassis */ Chassis.SEDAN,
+                        /* Shift pattern */ PartInit.STANDARD_SIX_SHIFT)
+
+                        .buildStructure()
+
+                        .withAxels(new WheelAxel(0.5, false)
+                                        .withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(-1.7, 0.0, 1.75)),
+                                                new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(0.5, 0.0, 1.75))),
+
+                                new WheelAxel(-0.5, true)
+                                        .withWheels(new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(-1.7, 0.0, -1.75)),
+                                                new WheelSolver(new TyreSize("235/40R18"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(0.5, 0.0, -1.75)))
+
+                        ).compileStructure()
+                )
+				.withBackfireSound("carbackfire1")
                 .withGearshiftSound("gearshift4")
                 .withEnterSound("vehicle-enter")
                 .withShiftSettings(true, true)

@@ -1,7 +1,6 @@
 package com.vicmatskiv.mw.wearables;
 
 import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.weaponlib.ItemAttachment;
 import com.vicmatskiv.weaponlib.ItemStorage;
 import com.vicmatskiv.weaponlib.Weapon;
 import com.vicmatskiv.weaponlib.animation.Transform;
@@ -13,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 public class Backpacks {
 
-    public static ItemAttachment<Object> Tablet;
+    //public static ItemAttachment<Object> Tablet;
 
     public static Item TacticalPushPack;
     
@@ -43,8 +42,7 @@ public class Backpacks {
     
     public static Item G2Gunslinger2Backpack;
 
-    public static void preInit(Object mod, ConfigurationManager configurationManager,
-            CompatibleFmlPreInitializationEvent event) {
+    public static void preInit(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
         
         TacticalPushPack = new ItemStorage.Builder()
         .withName("tactical_push_backpack")

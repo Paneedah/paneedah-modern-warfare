@@ -1075,27 +1075,27 @@ tile.mw_swat_truck.name=SWAT Truck
 
 
 
-itemGroup.guns_tab=Vic's Modern Warfare Resources
+itemGroup.guns_tab=Modern Warfare Resources
 
-itemGroup.AssaultRifles_tab=VMW Guns
+itemGroup.AssaultRifles_tab=MW Guns
 
-itemGroup.props_tab=VMW Props (Contagion) (Creative Use Only)
+itemGroup.props_tab=MW Props (Contagion) (Creative Use Only)
 
-itemGroup.AmmoTab=VMW Ammunition
+itemGroup.AmmoTab=MW Ammunition
 
-itemGroup.AttachmentsTab=VMW Attachments
+itemGroup.AttachmentsTab=MW Attachments
 
-itemGroup.ArmorTab=VMW Armor
+itemGroup.ArmorTab=MW Armor
 
-itemGroup.GrenadesTab=VMW Grenades
+itemGroup.GrenadesTab=MW Grenades
 
-itemGroup.SpartanTab=VMW Spartan Armors Tab
+itemGroup.SpartanTab=MW Spartan Armors Tab
 
-itemGroup.GadgetsTab=VMW Gadgets
+itemGroup.GadgetsTab=MW Gadgets
 
-itemGroup.BlocksTab=VMW Blocks & Ingots
+itemGroup.BlocksTab=MW Blocks & Ingots
 
-itemGroup.CombatServer_tab=VMW Arcade Weapons
+itemGroup.CombatServer_tab=MW Arcade Weapons
 
 key.categories.weaponlib=Modern Warfare
 
@@ -1120,8 +1120,6 @@ key.laser=Switch Laser
 key.add=Zoom In
 
 key.subtract=Zoom Out
-
-key.proning=Proning
 
 gui.attachmentMode.changeScope=Press [%s] to change scope
 gui.attachmentMode.changeBarrelRig=Press [%s] to change barrel rig

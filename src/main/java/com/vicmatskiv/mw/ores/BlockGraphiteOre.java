@@ -1,7 +1,6 @@
 package com.vicmatskiv.mw.ores;
 
 import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.ores.Ores;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -14,8 +13,9 @@ public class BlockGraphiteOre extends Block {
     
     public BlockGraphiteOre() {
         super(Material.ROCK);
+
         setUnlocalizedName(ModernWarfareMod.MODID + "_" + "GraphiteOre");
-//        setBlockTextureName(ModernWarfareMod.MODID + ":" + "graphiteore");
+        //setBlockTextureName(ModernWarfareMod.MODID + ":" + "graphiteore");
         setHardness(6F);
         setResistance(15F);
         setSoundType(SoundType.STONE); 
@@ -27,5 +27,4 @@ public class BlockGraphiteOre extends Block {
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Ores.GraphiteChunk;
     }
-
 }

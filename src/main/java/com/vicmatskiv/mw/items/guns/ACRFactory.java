@@ -3,7 +3,8 @@ package com.vicmatskiv.mw.items.guns;
 
 // IMPORT LIST START
 
-import com.vicmatskiv.mw.*;
+import com.vicmatskiv.mw.CommonProxy;
+import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.mw.models.*;
 import com.vicmatskiv.mw.ores.Ores;
 import com.vicmatskiv.mw.weapons.Attachments;

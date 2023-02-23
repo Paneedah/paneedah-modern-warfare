@@ -178,7 +178,7 @@ public class CommonProxy {
         
         Backpacks.preInit(mod, configurationManager, event);
         Vests.preInit(mod, configurationManager, event);
-        Ores.init(mod, configurationManager, event);
+        Ores.init();
         Armors.init(mod, configurationManager, event, ModernWarfareMod.MOD_CONTEXT);
         Attachments.init(mod, configurationManager, event);
         AuxiliaryAttachments.init(mod, configurationManager, event);

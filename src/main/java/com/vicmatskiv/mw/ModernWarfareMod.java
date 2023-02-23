@@ -1,9 +1,5 @@
 package com.vicmatskiv.mw;
 
-import java.io.File;
-
-import javax.xml.transform.stream.StreamSource;
-
 import com.vicmatskiv.mw.creativetab.*;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.command.BalancePackCommand;
@@ -13,7 +9,6 @@ import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEven
 import com.vicmatskiv.weaponlib.config.BalancePackManager;
 import com.vicmatskiv.weaponlib.config.ConfigurationManager;
 import com.vicmatskiv.weaponlib.crafting.CraftingFileManager;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
@@ -25,6 +20,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+
+import javax.xml.transform.stream.StreamSource;
+import java.io.File;
 
 @Mod(modid = ModernWarfareMod.MODID, version = ModernWarfareMod.VERSION, guiFactory = "com.vicmatskiv.weaponlib.config.ConfigGUIFactory")
 public class ModernWarfareMod {
@@ -40,39 +38,20 @@ public class ModernWarfareMod {
     public static ModContext MOD_CONTEXT;
 
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
-	
-    public static CreativeTabs ArmorTab = new ArmorTab(
-            CreativeTabs.getNextID(), "ArmorTab");
 
-	public static CreativeTabs AssaultRiflesTab = new AssaultRiflesTab(
-            CreativeTabs.getNextID(), "AssaultRifles_tab");
-	
-	public static CreativeTabs CombatServerTab = new CombatServerTab(
-            CreativeTabs.getNextID(), "CombatServer_tab");
-
-	public static CreativeTabs AmmoTab = new AmmoTab(
-            CreativeTabs.getNextID(), "AmmoTab");
-
-	public static CreativeTabs AttachmentsTab = new AttachmentsTab(
-            CreativeTabs.getNextID(), "AttachmentsTab");
-
-	public static CreativeTabs GrenadesTab = new GrenadesTab(
-            CreativeTabs.getNextID(), "GrenadesTab");
-
-	public static CreativeTabs GadgetsTab = new GadgetsTab(
-            CreativeTabs.getNextID(), "GadgetsTab");
-	
-	public static CreativeTabs PropsTab = new PropsTab(
-            CreativeTabs.getNextID(), "props_tab");
-	
-	public static CreativeTabs BlocksTab = new BlocksTab(
-	        CreativeTabs.getNextID(), "BlocksTab");
+    public static CreativeTabs ArmorTab = new ArmorTab(CreativeTabs.getNextID(), "ArmorTab");
+	public static CreativeTabs AssaultRiflesTab = new AssaultRiflesTab(CreativeTabs.getNextID(), "AssaultRifles_tab");
+	public static CreativeTabs CombatServerTab = new CombatServerTab(CreativeTabs.getNextID(), "CombatServer_tab");
+	public static CreativeTabs AmmoTab = new AmmoTab(CreativeTabs.getNextID(), "AmmoTab");
+	public static CreativeTabs AttachmentsTab = new AttachmentsTab(CreativeTabs.getNextID(), "AttachmentsTab");
+	public static CreativeTabs GrenadesTab = new GrenadesTab(CreativeTabs.getNextID(), "GrenadesTab");
+	public static CreativeTabs GadgetsTab = new GadgetsTab(CreativeTabs.getNextID(), "GadgetsTab");
+	public static CreativeTabs PropsTab = new PropsTab(CreativeTabs.getNextID(), "props_tab");
+	public static CreativeTabs BlocksTab = new BlocksTab(CreativeTabs.getNextID(), "BlocksTab");
 	        
-    @SidedProxy(serverSide = "com.vicmatskiv.mw.CommonProxy",
-            clientSide = "com.vicmatskiv.mw.ClientProxy")
+    @SidedProxy(serverSide = "com.vicmatskiv.mw.CommonProxy", clientSide = "com.vicmatskiv.mw.ClientProxy")
     public static CommonProxy proxy;
 
-    public static boolean oreGenerationEnabled = true;
     private ConfigurationManager configurationManager;
 
     @EventHandler
@@ -89,9 +68,8 @@ public class ModernWarfareMod {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        if(configurationManager != null) {
+        if (configurationManager != null)
             configurationManager.save();
-        }
         
         proxy.postInit(this, configurationManager, event);
     }
@@ -106,12 +84,11 @@ public class ModernWarfareMod {
 
     private void initConfigurationManager(FMLPreInitializationEvent event) {
         File parentDirectory = event.getSuggestedConfigurationFile().getParentFile();
-	    File configFile;
-	    if(parentDirectory != null) {
+	    File configFile = new File(MODERN_WARFARE_CONFIG_FILE_NAME);
+
+	    if (parentDirectory != null)
 	        configFile = new File(parentDirectory, MODERN_WARFARE_CONFIG_FILE_NAME);
-	    } else {
-	        configFile = new File(MODERN_WARFARE_CONFIG_FILE_NAME);
-	    }
+
 		configurationManager = new ConfigurationManager.Builder()
 		        .withUserConfiguration(configFile)
 		        .withDefaultConfiguration(new StreamSource(getClass().getResourceAsStream(DEFAULT_CONFIG_RESOURCE)))

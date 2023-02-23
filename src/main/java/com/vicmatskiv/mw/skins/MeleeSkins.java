@@ -70,7 +70,6 @@ public class MeleeSkins {
                 'R', compatibility.createItemStack(CompatibleItems.DYE, 10, 10)
                 )
                 .build(ModernWarfareMod.MOD_CONTEXT, MeleeSkin.class);
-
     }
 
 }

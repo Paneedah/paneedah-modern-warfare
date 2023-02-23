@@ -11,8 +11,7 @@ import com.vicmatskiv.weaponlib.UniversalSoundLookup;
  *
  */
 public class UniversalSoundRegistry {
-	
-	
+
 	public static void init() {
 		// Example: UniversalSoundLookup.registerSoundToLookup("test_sound");
 		UniversalSoundLookup.registerSoundToLookup("bolt_press");
@@ -51,6 +50,4 @@ public class UniversalSoundRegistry {
 		UniversalSoundLookup.registerSoundToLookup("attachmenton");
 		UniversalSoundLookup.registerSoundToLookup("attachmentoff");
 	}
-	
-	
 }

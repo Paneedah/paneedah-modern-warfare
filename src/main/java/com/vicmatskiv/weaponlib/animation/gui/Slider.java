@@ -6,7 +6,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import org.lwjgl.input.Mouse;
 
-import java.awt.Color;
+import java.awt.*;
 
 import static com.vicmatskiv.mw.ModernWarfareMod.mc;
 

@@ -4,8 +4,6 @@ import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.mw.misc.*;
 import com.vicmatskiv.mw.resources.ItemSulfurDust;
 import com.vicmatskiv.mw.resources.ItemTinIngot;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
 import com.vicmatskiv.weaponlib.crafting.items.CraftingItem;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -21,13 +19,13 @@ public class Ores {
     public static final String INGOT_TIN = "ingotTin";
     public static final String INGOT_LEAD = "ingotLead";
 
-//    public static Block LeadOre;
-//    public static Item LeadIngot;
+    public static Block LeadOre;
+    public static Item LeadIngot;
     
     public static Block CopperOre;
     public static Item CopperIngot;
 
-//    public static Block GraphiteOre;
+    public static Block GraphiteOre;
     public static Item GraphiteChunk;
     
     public static Block TinOre;
@@ -50,16 +48,14 @@ public class Ores {
     
     public static Item VestRender;
 
-    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event) {
-
-
-//        LeadOre = new BlockLeadOre();
-//        LeadIngot = new ItemLeadIngot();
+    public static void init() {
+        LeadOre = new BlockLeadOre();
+        LeadIngot = new ItemLeadIngot();
 
         CopperOre = new BlockCopperOre();
         CopperIngot = new ItemCopperIngot();
         
-//        GraphiteOre = new BlockGraphiteOre();
+        GraphiteOre = new BlockGraphiteOre();
         GraphiteChunk = new ItemGraphiteChunk();
 
         TinOre = new BlockTinOre();
@@ -69,16 +65,15 @@ public class Ores {
         SulfurDust = new ItemSulfurDust();
 
         SteelDust = new ItemSteelDust();
-//        SteelIngot = new ItemSteelIngot();
         SteelIngot = new CraftingItem("SteelIngot", ModernWarfareMod.MODID, Ores.SteelIngot, 0.3, ModernWarfareMod.BlocksTab);
         
         GunmetalComposite = new ItemGunmetalComposite();
-//        GunmetalIngot = new ItemGunmetalIngot();
+        GunmetalIngot = new ItemGunmetalIngot();
         GunmetalIngot = new CraftingItem("GunmetalIngot", ModernWarfareMod.MODID, Ores.GunmetalIngot, 0.3, ModernWarfareMod.BlocksTab);
-//        GunmetalPlate = new ItemGunmetalPlate();
+        GunmetalPlate = new ItemGunmetalPlate();
         GunmetalPlate = new CraftingItem("GunmetalPlate", ModernWarfareMod.MODID, Ores.GunmetalPlate, 0.3, ModernWarfareMod.BlocksTab);
         
-//        CarbonComposite = new ItemCarbonComposite();
+        CarbonComposite = new ItemCarbonComposite();
         CarbonComposite = new CraftingItem("CarbonComposite", ModernWarfareMod.MODID, Ores.CarbonComposite, 0.3, ModernWarfareMod.BlocksTab);
         CarbonFiber = new ItemCarbonFiber();
         SyntheticPolymerComposite = new ItemSyntheticPolymerComposite();
@@ -86,13 +81,13 @@ public class Ores {
         
         VestRender = new ItemVestRender();
         
-//        compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, LeadOre, "LeadOre");
-//        compatibility.registerItem(ModernWarfareMod.MODID, LeadIngot, "leadingot");
+        compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, LeadOre, "LeadOre");
+        compatibility.registerItem(ModernWarfareMod.MODID, LeadIngot, "leadingot");
 
         compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, CopperOre, "CopperOre");
         compatibility.registerItem(ModernWarfareMod.MODID, CopperIngot, "CopperIngot");
         
-//        compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, GraphiteOre, "GraphiteOre");
+        compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, GraphiteOre, "GraphiteOre");
         compatibility.registerItem(ModernWarfareMod.MODID, GraphiteChunk, "GraphiteChunk");
 
         compatibility.registerBlock(ModernWarfareMod.MOD_CONTEXT, TinOre, "TinOre");
@@ -115,8 +110,7 @@ public class Ores {
         
         compatibility.registerItem(ModernWarfareMod.MODID, VestRender, "vestrender");
 
-
-//        OreDictionary.registerOre(INGOT_LEAD, LeadIngot);
+        OreDictionary.registerOre(INGOT_LEAD, LeadIngot);
         OreDictionary.registerOre(INGOT_COPPER, CopperIngot);
         OreDictionary.registerOre(INGOT_TIN, TinIngot);
         OreDictionary.registerOre(DUST_SULFUR, SulfurDust);

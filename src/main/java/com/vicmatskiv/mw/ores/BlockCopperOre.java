@@ -1,7 +1,6 @@
 package com.vicmatskiv.mw.ores;
 
 import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.ores.Ores;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -12,8 +11,9 @@ public class BlockCopperOre extends Block {
     
     public BlockCopperOre() {
         super(Material.ROCK);
+
         setUnlocalizedName(ModernWarfareMod.MODID + "_" + "CopperOre");
-//        setBlockTextureName(ModernWarfareMod.MODID + ":" + "copperore");
+        //setBlockTextureName(ModernWarfareMod.MODID + ":" + "copperore");
         setHardness(6F);
         setResistance(15F);
         setSoundType(SoundType.STONE); 
@@ -25,8 +25,7 @@ public class BlockCopperOre extends Block {
         return Ores.CopperOre;
     }
 
-    public int quantityDropped(Random random)
-    {
+    public int quantityDropped(Random random) {
         return 2;
     }
 }

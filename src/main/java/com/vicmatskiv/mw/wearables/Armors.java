@@ -67,9 +67,9 @@ public class Armors {
     public static Item Juggernautboots;
     public static Item Juggernauthelmet;
     
-    public static Item Umbrellachest;
-    public static Item Umbrellaboots;
-    public static Item Umbrellahelmet;
+    //public static Item Umbrellachest;
+    //public static Item Umbrellaboots;
+    //public static Item Umbrellahelmet;
     
     public static Item Astronautchest;
     public static Item Astronautboots;
@@ -97,9 +97,7 @@ public class Armors {
     static ArmorMaterial Astronaut = compatibility.addArmorMaterial(
     		"Astronaut", "Astronaut", 33, new int[] { 1, 2, 2, 1 }, 15, null, 0); // TODO:
 
-    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event, 
-            ModContext modContext) {
-    	
+    public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event, ModContext modContext) {
     	Builder marineArmorBuilder = new CustomArmor.Builder()
     			.withModId(ModernWarfareMod.MODID)
     			.withMaterial(Armors.Marine)
@@ -273,11 +271,9 @@ public class Armors {
                 .withModelClass("com.vicmatskiv.mw.models.JPNVG18").withHudTextureName("Marine")
                 .withNightVision(true)
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
-        
 
         Armors.JPNVG18helmet = jpnvg18ArmorBuilder.buildHelmet(modContext);
-        
-        
+
         Builder gasSuitArmorBuilder = new CustomArmor.Builder().withModId(ModernWarfareMod.MODID).withMaterial(Armors.Marine)
                 .withUnlocalizedName("m40gasmask").withTextureName("m40gasmask")
                 .withExposureReductionFactor(0.99f)

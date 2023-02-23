@@ -3,7 +3,6 @@ package com.vicmatskiv.mw.vehicle;
 import com.vicmatskiv.mw.ModernWarfareMod;
 import com.vicmatskiv.mw.models.*;
 import com.vicmatskiv.mw.vehicle.engines.McLarenSennaEngine;
-import com.vicmatskiv.weaponlib.EntityConfiguration;
 import com.vicmatskiv.weaponlib.ModContext;
 import com.vicmatskiv.weaponlib.vehicle.*;
 import com.vicmatskiv.weaponlib.vehicle.jimphysics.Chassis;
@@ -20,20 +19,13 @@ import org.lwjgl.opengl.GL11;
 
 public class McLarenSennaFactory implements VehicleFactory {
 
-	
-	
-	
-    public EntityConfiguration createVehicle(ModContext modContext) {
-        
-    	
+    public void createVehicle(ModContext modContext) {
         StatefulRenderer<VehicleRenderableState> renderer = null;
     	
     	if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
     		renderer = new VehicleRendererBuilder()
-    				
                     .performShiftAnimation(false)
                     .shiftWithRight(true)
-    				
                     .withPartTexturedModel(VehiclePart.MAIN, MclarenSenna::new, "mclarensenna")
                     .withPartTexturedModel(VehiclePart.WINDOWS, MclarenSennaWindows::new, "mclarensenna")
                     .withPartTexturedModel(VehiclePart.STEERING_WHEEL, MclarenSennaSteeringWheel::new, "mclarensenna")
@@ -121,7 +113,6 @@ public class McLarenSennaFactory implements VehicleFactory {
                     })
                     
                     .withPartPosition(VehiclePart.FRONT_LEFT_CONTROL_ARM, context -> {
-                    	
                     	float steer = (float) Math.toDegrees(context.getSymmetricProgress()) + 60;
                     	
                     	Positioners.position(
@@ -147,7 +138,7 @@ public class McLarenSennaFactory implements VehicleFactory {
                     	EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
                     	float vertical = (float) entityVehicle.getSolver().frontAxel.leftWheel.getRenderRideHeight();
                     	WheelSolver ws = entityVehicle.getSolver().frontAxel.leftWheel;
-                    	
+
                     	Positioners.position(
                     		    0.000000f, -0.000000f, 0.000000f,
                     		    (float) ws.getInterpolatedWheelRotation(), 0.000000f, 0.000000f,
@@ -157,7 +148,6 @@ public class McLarenSennaFactory implements VehicleFactory {
                     })
                     
                     .withPartPosition(VehiclePart.FRONT_RIGHT_WHEEL, context -> {
-                    	
                     	EntityVehicle entityVehicle = (EntityVehicle) context.getEntity();
                     	WheelSolver ws = entityVehicle.getSolver().frontAxel.rightWheel;
                     	float vertical = (float) entityVehicle.getSolver().frontAxel.rightWheel.getRenderRideHeight();
@@ -197,49 +187,42 @@ public class McLarenSennaFactory implements VehicleFactory {
                     		    1.000000f, 1.000000f, 1.000000f
                     		);
                     	
-                    })
-                    
-                    .build(modContext, VehiclePart.MAIN);
-            
+                    }).build(modContext, VehiclePart.MAIN);
     	}
-    	
-        return new EntityVehicleConfiguration.Builder()
-        		
+
+        new EntityVehicleConfiguration.Builder()
                 .withName("mclaren_senna")
                 .withEntityIdSupplier(() -> 10203)
-                
                 .withPhysicsConfig(new PhysicsConfiguration(
-                		/* WHEELBASE (m)*/ 2.67,
-                		/* FRONT AREA (m^2) */ 2,
-                		/* DRAG COEFF. */ 0.32,
-                		/* MASS (kg) */ 1374,
-                		/* COG HEIGHT */ 0.3,
-                		/* DriveT EFF. */ 1.0,
-                		/* Transmission */ PartInit.McLarenSennaTransmission,
-                		/* Engine */ new McLarenSennaEngine("4.0L V8 Turbocharged", "McLaren", 10000, 8500, 1009),
-                		/* Real Dimensions */ new Dimensions(4.740, 1.960, 1.230),
-                		/* Dimensions */ new Vec3d(/*length*/ 6, /*width*/ 3, /*height*/ 2), 
-                		/* Chassis */ Chassis.SPORT,
-                		/* Shift pattern */ PartInit.STANDARD_SIX_SHIFT)
-                		
-                		.buildStructure()
-                		.withAero(new AeroWing(3.0))
-                		.withAxels(new WheelAxel(0.5, false)
-                					.withWheels(new WheelSolver(new TyreSize("245/35ZR19"), 75.0, false)
-                										.withRelativePosition(new Vec3d(-1.7, 0.0, 1.75)),
-                						        new WheelSolver(new TyreSize("245/35ZR19"), 75.0, false)
-                						        		.withRelativePosition(new Vec3d(0.5, 0.0, 1.75))),
-                				
-            
-                				   new WheelAxel(-0.5, true)
-                				     .withWheels(new WheelSolver(new TyreSize("315/30ZR20"), 75.0, false)
-                				    		 			.withRelativePosition(new Vec3d(-1.7, 0.0, -1.75)),
-                				    		     new WheelSolver(new TyreSize("315/30ZR20"), 75.0, false)
-                				    		     		.withRelativePosition(new Vec3d(0.5, 0.0, -1.75)))
-                             		)
-                		.compileStructure()
-                	)
-                
+                        /* WHEELBASE (m)*/ 2.67,
+                        /* FRONT AREA (m^2) */ 2,
+                        /* DRAG COEFF. */ 0.32,
+                        /* MASS (kg) */ 1374,
+                        /* COG HEIGHT */ 0.3,
+                        /* DriveT EFF. */ 1.0,
+                        /* Transmission */ PartInit.McLarenSennaTransmission,
+                        /* Engine */ new McLarenSennaEngine("4.0L V8 Turbocharged", "McLaren", 10000, 8500, 1009),
+                        /* Real Dimensions */ new Dimensions(4.740, 1.960, 1.230),
+                        /* Dimensions */ new Vec3d(/*length*/ 6, /*width*/ 3, /*height*/ 2),
+                        /* Chassis */ Chassis.SPORT,
+                        /* Shift pattern */ PartInit.STANDARD_SIX_SHIFT)
+
+                        .buildStructure()
+                        .withAero(new AeroWing(3.0))
+                        .withAxels(new WheelAxel(0.5, false)
+                                        .withWheels(new WheelSolver(new TyreSize("245/35ZR19"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(-1.7, 0.0, 1.75)),
+                                                new WheelSolver(new TyreSize("245/35ZR19"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(0.5, 0.0, 1.75))),
+
+                                new WheelAxel(-0.5, true)
+                                        .withWheels(new WheelSolver(new TyreSize("315/30ZR20"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(-1.7, 0.0, -1.75)),
+                                                new WheelSolver(new TyreSize("315/30ZR20"), 75.0, false)
+                                                        .withRelativePosition(new Vec3d(0.5, 0.0, -1.75)))
+
+                        ).compileStructure()
+                )
                 .withBackfireSound("carbackfire1")
                 .withGearshiftSound("gearshift4")
                 .withEnterSound("vehicle-enter")
