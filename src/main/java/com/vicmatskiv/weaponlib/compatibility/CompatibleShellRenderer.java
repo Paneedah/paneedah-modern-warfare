@@ -1,17 +1,17 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.animation.MatrixHelper;
-import com.vicmatskiv.weaponlib.compatibility.shells.ShellRegistry;
-import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
-import com.vicmatskiv.weaponlib.render.InstancedShellObject;
-import com.vicmatskiv.weaponlib.render.WavefrontLoader;
-import com.vicmatskiv.weaponlib.render.WavefrontModel;
-import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
-import com.vicmatskiv.weaponlib.render.bgl.instancing.InstancedAttribute;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
-import com.vicmatskiv.weaponlib.shader.jim.Shader;
-import com.vicmatskiv.weaponlib.shader.jim.ShaderManager;
+import com.paneedah.weaponlib.animation.MatrixHelper;
+import com.paneedah.weaponlib.compatibility.shells.ShellRegistry;
+import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.render.InstancedShellObject;
+import com.paneedah.weaponlib.render.WavefrontLoader;
+import com.paneedah.weaponlib.render.WavefrontModel;
+import com.paneedah.weaponlib.render.bgl.GLCompatible;
+import com.paneedah.weaponlib.render.bgl.instancing.InstancedAttribute;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import com.paneedah.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.shader.jim.ShaderManager;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class CompatibleShellRenderer {
 

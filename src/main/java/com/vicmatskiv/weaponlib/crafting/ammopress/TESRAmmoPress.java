@@ -1,14 +1,14 @@
-package com.vicmatskiv.weaponlib.crafting.ammopress;
+package com.paneedah.weaponlib.crafting.ammopress;
 
-import com.vicmatskiv.weaponlib.crafting.base.TESRStation;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.weaponlib.crafting.base.TESRStation;
+import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class TESRAmmoPress extends TESRStation<TileEntityAmmoPress> {
 

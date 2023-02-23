@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.*;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -20,7 +20,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public abstract class EntityProjectile extends Entity implements IProjectile, CompatibleIEntityAdditionalSpawnData {
 

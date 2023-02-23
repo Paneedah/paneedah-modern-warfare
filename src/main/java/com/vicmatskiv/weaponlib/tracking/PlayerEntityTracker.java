@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.tracking;
+package com.paneedah.weaponlib.tracking;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
+import com.paneedah.weaponlib.compatibility.CompatiblePlayerEntityTrackerProvider;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.*;
 import java.util.function.Supplier;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PlayerEntityTracker {
 

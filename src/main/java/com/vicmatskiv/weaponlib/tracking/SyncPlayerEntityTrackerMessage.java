@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.tracking;
+package com.paneedah.weaponlib.tracking;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

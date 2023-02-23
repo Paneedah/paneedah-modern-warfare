@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.ai;
+package com.paneedah.weaponlib.ai;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderBiped;
+import com.paneedah.weaponlib.compatibility.CompatibleRenderBiped;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.util.ResourceLocation;
 

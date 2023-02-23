@@ -1,14 +1,14 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleCustomArmor;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
-import com.vicmatskiv.weaponlib.crafting.CraftingEntry;
-import com.vicmatskiv.weaponlib.crafting.CraftingGroup;
-import com.vicmatskiv.weaponlib.crafting.CraftingRegistry;
-import com.vicmatskiv.weaponlib.crafting.IModernCrafting;
-import com.vicmatskiv.weaponlib.model.ModelBaseRendererWrapper;
-import com.vicmatskiv.weaponlib.model.WrappableModel;
+import com.paneedah.weaponlib.compatibility.CompatibleCustomArmor;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.crafting.CraftingEntry;
+import com.paneedah.weaponlib.crafting.CraftingGroup;
+import com.paneedah.weaponlib.crafting.CraftingRegistry;
+import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.model.ModelBaseRendererWrapper;
+import com.paneedah.weaponlib.model.WrappableModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.creativetab.CreativeTabs;
@@ -26,7 +26,7 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class CustomArmor extends CompatibleCustomArmor implements ExposureProtection , ISpecialArmor, IModernCrafting {
 

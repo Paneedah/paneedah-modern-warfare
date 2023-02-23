@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.network.TypeRegistry;
+import com.paneedah.weaponlib.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.item.ItemStack;
@@ -8,7 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import java.util.UUID;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public final class Tags {
 

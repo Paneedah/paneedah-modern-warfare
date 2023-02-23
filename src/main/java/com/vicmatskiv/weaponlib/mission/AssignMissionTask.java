@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
-import com.vicmatskiv.weaponlib.ai.EntityCustomMob;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityAIBase;
+import com.paneedah.weaponlib.ai.EntityCustomMob;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityAIBase;
 
 public class AssignMissionTask extends CompatibleEntityAIBase {
     private final EntityCustomMob merchant;

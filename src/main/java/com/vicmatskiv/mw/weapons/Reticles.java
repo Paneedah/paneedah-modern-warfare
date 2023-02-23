@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.weapons;
+package com.paneedah.mw.weapons;
 
-import com.vicmatskiv.weaponlib.render.scopes.Reticle;
+import com.paneedah.weaponlib.render.scopes.Reticle;
 
 public class Reticles {
 	

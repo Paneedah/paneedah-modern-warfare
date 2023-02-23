@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.state;
+package com.paneedah.weaponlib.state;
 
-import com.vicmatskiv.weaponlib.network.TypeRegistry;
-import com.vicmatskiv.weaponlib.network.UniversalObject;
+import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.weaponlib.network.UniversalObject;
 import io.netty.buffer.ByteBuf;
 
 public class Permit<S extends ManagedState<S>> extends UniversalObject {

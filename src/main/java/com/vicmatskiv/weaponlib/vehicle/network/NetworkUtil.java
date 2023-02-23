@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle.network;
+package com.paneedah.weaponlib.vehicle.network;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.Vec3d;

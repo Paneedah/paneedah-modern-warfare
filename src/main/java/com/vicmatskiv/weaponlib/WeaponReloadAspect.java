@@ -1,12 +1,12 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.network.TypeRegistry;
-import com.vicmatskiv.weaponlib.state.Aspect;
-import com.vicmatskiv.weaponlib.state.Permit;
-import com.vicmatskiv.weaponlib.state.Permit.Status;
-import com.vicmatskiv.weaponlib.state.PermitManager;
-import com.vicmatskiv.weaponlib.state.StateManager;
+import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.weaponlib.state.Aspect;
+import com.paneedah.weaponlib.state.Permit;
+import com.paneedah.weaponlib.state.Permit.Status;
+import com.paneedah.weaponlib.state.PermitManager;
+import com.paneedah.weaponlib.state.StateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,7 +20,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
 

@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class BulletHoleRenderer {
 	

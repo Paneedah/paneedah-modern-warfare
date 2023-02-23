@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.electronics;
+package com.paneedah.weaponlib.electronics;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityRenderer;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityRenderer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;

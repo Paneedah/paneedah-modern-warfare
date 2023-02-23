@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.crafting.workbench;
+package com.paneedah.weaponlib.crafting.workbench;
 
-import com.vicmatskiv.weaponlib.render.gui.GUIRenderHelper;
+import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.util.ResourceLocation;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 /**
  * Simple class that replaces rendering of typical GUI text-boxes in

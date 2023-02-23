@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMovingSound;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleVec3;
+import com.paneedah.weaponlib.compatibility.CompatibleMovingSound;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.compatibility.CompatibleVec3;
 import net.minecraft.client.audio.MovingSound;
 
 import java.util.ArrayList;

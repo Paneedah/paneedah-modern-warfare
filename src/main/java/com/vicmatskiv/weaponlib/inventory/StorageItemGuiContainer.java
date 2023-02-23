@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleGuiContainer;
+import com.paneedah.weaponlib.compatibility.CompatibleGuiContainer;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class StorageItemGuiContainer extends CompatibleGuiContainer {
     /**

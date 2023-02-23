@@ -1,14 +1,14 @@
-package com.vicmatskiv.weaponlib.network;
+package com.paneedah.weaponlib.network;
 
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.PlayerContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageHandler;
-import com.vicmatskiv.weaponlib.state.ExtendedState;
-import com.vicmatskiv.weaponlib.state.ManagedState;
-import com.vicmatskiv.weaponlib.state.Permit;
-import com.vicmatskiv.weaponlib.state.PermitManager;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.PlayerContext;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
+import com.paneedah.weaponlib.state.ExtendedState;
+import com.paneedah.weaponlib.state.ManagedState;
+import com.paneedah.weaponlib.state.Permit;
+import com.paneedah.weaponlib.state.PermitManager;
 import net.minecraft.entity.player.EntityPlayerMP;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class NetworkPermitManager
 implements PermitManager, CompatibleMessageHandler<PermitMessage, CompatibleMessage>  {

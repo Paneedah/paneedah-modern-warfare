@@ -9,9 +9,9 @@
 
 
 
-package com.vicmatskiv.mw.models;
+package com.paneedah.mw.models;
 
-import com.vicmatskiv.weaponlib.ModelWithAttachments;
+import com.paneedah.weaponlib.ModelWithAttachments;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;

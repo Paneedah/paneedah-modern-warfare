@@ -1,16 +1,16 @@
-package com.vicmatskiv.mw.items.guns;
+package com.paneedah.mw.items.guns;
 
-import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.models.Python;
-import com.vicmatskiv.mw.weapons.Attachments;
-import com.vicmatskiv.mw.weapons.AuxiliaryAttachments;
-import com.vicmatskiv.mw.wearables.Bullets;
-import com.vicmatskiv.weaponlib.Weapon;
-import com.vicmatskiv.weaponlib.WeaponRenderer;
-import com.vicmatskiv.weaponlib.animation.Transform;
-import com.vicmatskiv.weaponlib.compatibility.RecoilParam;
-import com.vicmatskiv.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.mw.CommonProxy;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.mw.models.Python;
+import com.paneedah.mw.weapons.Attachments;
+import com.paneedah.mw.weapons.AuxiliaryAttachments;
+import com.paneedah.mw.wearables.Bullets;
+import com.paneedah.weaponlib.Weapon;
+import com.paneedah.weaponlib.WeaponRenderer;
+import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.weaponlib.compatibility.RecoilParam;
+import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 

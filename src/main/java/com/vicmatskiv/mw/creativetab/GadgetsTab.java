@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.creativetab;
+package com.paneedah.mw.creativetab;
 
-import com.vicmatskiv.mw.Electronics;
+import com.paneedah.mw.Electronics;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;

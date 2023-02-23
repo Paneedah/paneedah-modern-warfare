@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTransformType;
-import com.vicmatskiv.weaponlib.render.Bloom;
-import com.vicmatskiv.weaponlib.render.Shaders;
+import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
+import com.paneedah.weaponlib.render.Bloom;
+import com.paneedah.weaponlib.render.Shaders;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.function.BiConsumer;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class LaserBeamRenderer implements CustomRenderer {
 	

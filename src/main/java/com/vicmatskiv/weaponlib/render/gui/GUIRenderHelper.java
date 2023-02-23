@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render.gui;
+package com.paneedah.weaponlib.render.gui;
 
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,7 +11,7 @@ import scala.concurrent.duration.Duration;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class GUIRenderHelper {
 	

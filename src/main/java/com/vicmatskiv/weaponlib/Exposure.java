@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.network.UniversallySerializable;
+import com.paneedah.weaponlib.network.UniversallySerializable;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 

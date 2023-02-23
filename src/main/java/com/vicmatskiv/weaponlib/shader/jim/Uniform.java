@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.shader.jim;
+package com.paneedah.weaponlib.shader.jim;
 
 
 public interface Uniform {

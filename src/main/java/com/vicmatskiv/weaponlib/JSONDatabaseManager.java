@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

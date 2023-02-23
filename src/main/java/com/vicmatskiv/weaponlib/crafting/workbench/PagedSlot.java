@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.crafting.workbench;
+package com.paneedah.weaponlib.crafting.workbench;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
+import com.paneedah.mw.ModernWarfareMod;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;

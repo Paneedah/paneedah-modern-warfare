@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.numerical;
+package com.paneedah.weaponlib.numerical;
 
 import net.minecraft.util.math.Vec3d;
 

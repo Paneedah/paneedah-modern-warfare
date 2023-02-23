@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.client.renderer.GlStateManager;
 
 import java.util.Collections;

@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.render;
+package com.paneedah.weaponlib.render;
 
-import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
+import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import net.minecraft.client.renderer.OpenGlHelper;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class MSAABuffer {
 	

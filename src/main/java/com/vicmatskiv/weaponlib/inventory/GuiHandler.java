@@ -1,20 +1,20 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleGuiHandler;
-import com.vicmatskiv.weaponlib.crafting.ammopress.ContainerAmmoPress;
-import com.vicmatskiv.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
-import com.vicmatskiv.weaponlib.crafting.ammopress.TileEntityAmmoPress;
-import com.vicmatskiv.weaponlib.crafting.workbench.ContainerWorkbench;
-import com.vicmatskiv.weaponlib.crafting.workbench.GUIContainerWorkbench;
-import com.vicmatskiv.weaponlib.crafting.workbench.TileEntityWorkbench;
+import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
+import com.paneedah.weaponlib.compatibility.CompatibleGuiHandler;
+import com.paneedah.weaponlib.crafting.ammopress.ContainerAmmoPress;
+import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
+import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
+import com.paneedah.weaponlib.crafting.workbench.ContainerWorkbench;
+import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
+import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class GuiHandler extends CompatibleGuiHandler {
 

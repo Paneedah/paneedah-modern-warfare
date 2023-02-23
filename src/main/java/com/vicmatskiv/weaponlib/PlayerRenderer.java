@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.animation.*;
-import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEnumHandSide;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleExtraEntityFlags;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTransformType;
+import com.paneedah.weaponlib.animation.*;
+import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
+import com.paneedah.weaponlib.compatibility.CompatibleEnumHandSide;
+import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
+import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 import java.nio.FloatBuffer;
 import java.util.List;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PlayerRenderer {
     

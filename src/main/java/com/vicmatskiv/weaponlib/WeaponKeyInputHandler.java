@@ -1,14 +1,14 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.animation.DebugPositioner;
-import com.vicmatskiv.weaponlib.animation.OpenGLSelectionHelper;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleChannel;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleWeaponKeyInputHandler;
-import com.vicmatskiv.weaponlib.inventory.GuiHandler;
-import com.vicmatskiv.weaponlib.inventory.OpenCustomPlayerInventoryGuiMessage;
-import com.vicmatskiv.weaponlib.render.ModificationGUI;
+import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.DebugPositioner;
+import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
+import com.paneedah.weaponlib.compatibility.CompatibleChannel;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.CompatibleWeaponKeyInputHandler;
+import com.paneedah.weaponlib.inventory.GuiHandler;
+import com.paneedah.weaponlib.inventory.OpenCustomPlayerInventoryGuiMessage;
+import com.paneedah.weaponlib.render.ModificationGUI;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,8 +22,8 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.function.Function;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponKeyInputHandler extends CompatibleWeaponKeyInputHandler {
 

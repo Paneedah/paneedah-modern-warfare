@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
 public interface MultipartRenderStateDescriptor<State, Part, Context extends PartPositionProvider> {
 

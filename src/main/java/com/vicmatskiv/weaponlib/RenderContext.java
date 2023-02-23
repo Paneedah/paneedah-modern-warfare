@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.animation.MatrixHelper;
-import com.vicmatskiv.weaponlib.animation.PartPositionProvider;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTransformType;
+import com.paneedah.weaponlib.animation.MatrixHelper;
+import com.paneedah.weaponlib.animation.PartPositionProvider;
+import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

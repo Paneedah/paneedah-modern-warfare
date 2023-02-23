@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.CommonModContext;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.WeaponSpawnEntity;
-import com.vicmatskiv.weaponlib.mission.Missions;
-import com.vicmatskiv.weaponlib.mission.ObtainItemAction;
+import com.paneedah.weaponlib.CommonModContext;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.WeaponSpawnEntity;
+import com.paneedah.weaponlib.mission.Missions;
+import com.paneedah.weaponlib.mission.ObtainItemAction;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.DamageSource;

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.crafting.workbench;
+package com.paneedah.weaponlib.crafting.workbench;
 
-import com.vicmatskiv.weaponlib.crafting.base.TESRStation;
+import com.paneedah.weaponlib.crafting.base.TESRStation;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;

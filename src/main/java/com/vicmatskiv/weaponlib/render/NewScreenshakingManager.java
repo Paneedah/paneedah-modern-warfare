@@ -1,14 +1,14 @@
-package com.vicmatskiv.weaponlib.render;
+package com.paneedah.weaponlib.render;
 
 import akka.japi.Pair;
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.animation.MatrixHelper;
-import com.vicmatskiv.weaponlib.numerical.RandomVector;
-import com.vicmatskiv.weaponlib.numerical.SpringVector;
+import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.animation.MatrixHelper;
+import com.paneedah.weaponlib.numerical.RandomVector;
+import com.paneedah.weaponlib.numerical.SpringVector;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class NewScreenshakingManager {
 	

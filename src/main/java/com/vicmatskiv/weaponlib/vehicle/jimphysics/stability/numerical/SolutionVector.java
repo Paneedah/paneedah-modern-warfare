@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics.stability.numerical;
+package com.paneedah.weaponlib.vehicle.jimphysics.stability.numerical;
 
 public class SolutionVector<T extends SolutionVector<T>> {
 	

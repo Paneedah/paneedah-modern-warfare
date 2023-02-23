@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.ItemAttachment.ApplyHandler;
-import com.vicmatskiv.weaponlib.ItemAttachment.ApplyHandler2;
-import com.vicmatskiv.weaponlib.crafting.*;
+import com.paneedah.weaponlib.ItemAttachment.ApplyHandler;
+import com.paneedah.weaponlib.ItemAttachment.ApplyHandler2;
+import com.paneedah.weaponlib.crafting.*;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +14,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class AttachmentBuilder<T> {
 	

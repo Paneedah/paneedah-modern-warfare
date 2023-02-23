@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.creativetab;
+package com.paneedah.mw.creativetab;
 
-import com.vicmatskiv.mw.wearables.Armors;
+import com.paneedah.mw.wearables.Armors;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;

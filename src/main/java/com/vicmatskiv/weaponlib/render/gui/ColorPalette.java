@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render.gui;
+package com.paneedah.weaponlib.render.gui;
 
 public class ColorPalette {
 	

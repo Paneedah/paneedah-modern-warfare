@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
-import com.vicmatskiv.weaponlib.render.Shaders;
+import com.paneedah.weaponlib.render.Shaders;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.shader.Framebuffer;
@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL30;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 //https://www.lighthouse3d.com/tutorials/opengl-selection-tutorial/
 public class OpenGLSelectionHelper {

@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
-import com.vicmatskiv.weaponlib.state.Aspect;
-import com.vicmatskiv.weaponlib.state.PermitManager;
-import com.vicmatskiv.weaponlib.state.StateManager;
+import com.paneedah.weaponlib.state.Aspect;
+import com.paneedah.weaponlib.state.PermitManager;
+import com.paneedah.weaponlib.state.StateManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

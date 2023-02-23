@@ -1,7 +1,7 @@
-package com.vicmatskiv.mw.items.grenade;
+package com.paneedah.mw.items.grenade;
 
-import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.weaponlib.grenade.ItemGrenade;
+import com.paneedah.mw.CommonProxy;
+import com.paneedah.weaponlib.grenade.ItemGrenade;
 
 public interface GrenadeFactory {
 

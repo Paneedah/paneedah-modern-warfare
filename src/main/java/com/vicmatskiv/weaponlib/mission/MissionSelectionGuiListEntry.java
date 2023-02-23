@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 @SideOnly(Side.CLIENT)
 public class MissionSelectionGuiListEntry implements GuiListExtended.IGuiListEntry
@@ -19,7 +19,7 @@ public class MissionSelectionGuiListEntry implements GuiListExtended.IGuiListEnt
 
     private long lastClickTime;
     private ResourceLocation itemBackground = new ResourceLocation("weaponlib",
-            "/com/vicmatskiv/weaponlib/resources/mission-selection-items.png");
+            "/com/paneedah/weaponlib/resources/mission-selection-items.png");
     
     private int textureWidth = 200;
     private int textureHeight = 90;

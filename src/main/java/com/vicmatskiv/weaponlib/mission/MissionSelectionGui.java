@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
-import com.vicmatskiv.weaponlib.ModContext;
+import com.paneedah.weaponlib.ModContext;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;

@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.state;
+package com.paneedah.weaponlib.state;
 
 import java.util.function.BiConsumer;
 

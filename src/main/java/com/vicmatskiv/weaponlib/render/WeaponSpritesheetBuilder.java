@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.render;
+package com.paneedah.weaponlib.render;
 
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.WeaponRenderer;
-import com.vicmatskiv.weaponlib.render.SpriteSheetTools.Sprite;
+import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.WeaponRenderer;
+import com.paneedah.weaponlib.render.SpriteSheetTools.Sprite;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;

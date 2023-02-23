@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.perspective;
+package com.paneedah.weaponlib.perspective;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderTickEvent;
-import com.vicmatskiv.weaponlib.shader.jim.Shader;
-import com.vicmatskiv.weaponlib.shader.jim.ShaderManager;
-import com.vicmatskiv.weaponlib.shader.jim.Uniform;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
+import com.paneedah.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.shader.jim.ShaderManager;
+import com.paneedah.weaponlib.shader.jim.Uniform;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.render;
+package com.paneedah.weaponlib.render;
 
-import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
+import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;

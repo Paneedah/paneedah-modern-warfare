@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.render;
+package com.paneedah.weaponlib.render;
 
-import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
+import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.texture.TextureUtil;

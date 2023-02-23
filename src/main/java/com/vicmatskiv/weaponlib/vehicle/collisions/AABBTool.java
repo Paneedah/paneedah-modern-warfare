@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle.collisions;
+package com.paneedah.weaponlib.vehicle.collisions;
 
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;

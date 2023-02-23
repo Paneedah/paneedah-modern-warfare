@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.particle;
+package com.paneedah.weaponlib.particle;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;

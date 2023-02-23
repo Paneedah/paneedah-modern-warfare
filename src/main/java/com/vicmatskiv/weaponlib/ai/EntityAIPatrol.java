@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.ai;
+package com.paneedah.weaponlib.ai;
 
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIWander;

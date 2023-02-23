@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.ai;
+package com.paneedah.weaponlib.ai;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBiomeType;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
-import com.vicmatskiv.weaponlib.config.AIEntity;
-import com.vicmatskiv.weaponlib.mission.MissionOffering;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.config.AIEntity;
+import com.paneedah.weaponlib.mission.MissionOffering;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -24,7 +24,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityConfiguration {
     

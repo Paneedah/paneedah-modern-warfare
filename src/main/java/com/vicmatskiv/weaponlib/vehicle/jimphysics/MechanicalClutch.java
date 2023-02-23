@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics;
+package com.paneedah.weaponlib.vehicle.jimphysics;
 
 public class MechanicalClutch {
 	

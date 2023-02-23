@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib.crafting.ammopress;
+package com.paneedah.weaponlib.crafting.ammopress;
 
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.crafting.base.BlockStation;
-import com.vicmatskiv.weaponlib.inventory.GuiHandler;
-import com.vicmatskiv.weaponlib.network.packets.StationClientPacket;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.crafting.base.BlockStation;
+import com.paneedah.weaponlib.inventory.GuiHandler;
+import com.paneedah.weaponlib.network.packets.StationClientPacket;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;

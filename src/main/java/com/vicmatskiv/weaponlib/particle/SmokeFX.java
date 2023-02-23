@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.particle;
+package com.paneedah.weaponlib.particle;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleParticle;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTessellator;
+import com.paneedah.weaponlib.compatibility.CompatibleParticle;
+import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.util.ResourceLocation;
@@ -10,14 +10,14 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class SmokeFX extends CompatibleParticle {
 
 	private static final double SMOKE_SCALE_FACTOR = 1.0005988079071D;
 
-	private static final String SMOKE_TEXTURE = "weaponlib:/com/vicmatskiv/weaponlib/resources/smokes.png";
+	private static final String SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/smokes.png";
 
 	private int imageIndex;
 

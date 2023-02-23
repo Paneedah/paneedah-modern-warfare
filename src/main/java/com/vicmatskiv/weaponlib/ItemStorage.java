@@ -1,12 +1,12 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleItem;
-import com.vicmatskiv.weaponlib.crafting.CraftingEntry;
-import com.vicmatskiv.weaponlib.crafting.CraftingGroup;
-import com.vicmatskiv.weaponlib.crafting.CraftingRegistry;
-import com.vicmatskiv.weaponlib.crafting.IModernCrafting;
-import com.vicmatskiv.weaponlib.jim.util.VMWHooksHandler;
-import com.vicmatskiv.weaponlib.render.modelrepo.ServerGearModelHookRegistry;
+import com.paneedah.weaponlib.compatibility.CompatibleItem;
+import com.paneedah.weaponlib.crafting.CraftingEntry;
+import com.paneedah.weaponlib.crafting.CraftingGroup;
+import com.paneedah.weaponlib.crafting.CraftingRegistry;
+import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
+import com.paneedah.weaponlib.render.modelrepo.ServerGearModelHookRegistry;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -23,7 +23,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ItemStorage extends CompatibleItem implements ModelSource, IModernCrafting {
     

@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.config.novel;
+package com.paneedah.weaponlib.config.novel;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraftforge.fml.client.config.ConfigGuiType;

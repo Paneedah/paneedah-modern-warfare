@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.SpreadableExposure.Blackout;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleExposureCapability;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupSource;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupSourceProvider;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderPhase;
+import com.paneedah.weaponlib.SpreadableExposure.Blackout;
+import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
+import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
+import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
+import com.paneedah.weaponlib.shader.DynamicShaderPhase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
@@ -12,8 +12,8 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.UUID;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvider {
     
@@ -32,7 +32,7 @@ class PipelineShaderGroupSourceProvider implements DynamicShaderGroupSourceProvi
     private float colorImpairmentB;
     	    
     final DynamicShaderGroupSource source = new DynamicShaderGroupSource(UUID.randomUUID(),
-            new ResourceLocation("weaponlib:/com/vicmatskiv/weaponlib/resources/post-processing-pipeline.json"))
+            new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/post-processing-pipeline.json"))
                 .withUniform("NightVisionEnabled", context -> nightVisionEnabled ? 1.0f : 0.0f)
                 .withUniform("BlurEnabled", context -> blurEnabled ? 1.0f : 0.0f)
                 .withUniform("BlurVignetteRadius", context -> 0.0f)

@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 public final class DefaultPart implements Part {
     private String name;

@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import net.minecraft.client.resources.IResource;
 import net.minecraft.client.resources.IResourceManager;

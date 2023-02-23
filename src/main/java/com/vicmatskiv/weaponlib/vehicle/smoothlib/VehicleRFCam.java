@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle.smoothlib;
+package com.paneedah.weaponlib.vehicle.smoothlib;
 
 public class VehicleRFCam {
 

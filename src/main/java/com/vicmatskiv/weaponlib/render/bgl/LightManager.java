@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.render.bgl;
+package com.paneedah.weaponlib.render.bgl;
 
-import com.vicmatskiv.weaponlib.ClientEventHandler;
-import com.vicmatskiv.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.ClientEventHandler;
+import com.paneedah.weaponlib.shader.jim.Shader;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 import java.util.Stack;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class LightManager {
 	

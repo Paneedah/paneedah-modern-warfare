@@ -1,15 +1,15 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
-import com.vicmatskiv.weaponlib.AttachmentCategory;
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.Part;
-import com.vicmatskiv.weaponlib.PlayerWeaponInstance;
-import com.vicmatskiv.weaponlib.WeaponRenderer.Builder;
-import com.vicmatskiv.weaponlib.animation.gui.AnimationGUI;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.vicmatskiv.weaponlib.debug.DebugRenderer;
-import com.vicmatskiv.weaponlib.render.Bloom;
-import com.vicmatskiv.weaponlib.render.Shaders;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.Part;
+import com.paneedah.weaponlib.PlayerWeaponInstance;
+import com.paneedah.weaponlib.WeaponRenderer.Builder;
+import com.paneedah.weaponlib.animation.gui.AnimationGUI;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.debug.DebugRenderer;
+import com.paneedah.weaponlib.render.Bloom;
+import com.paneedah.weaponlib.render.Shaders;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -28,7 +28,7 @@ import java.nio.FloatBuffer;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class AnimationModeProcessor {
 

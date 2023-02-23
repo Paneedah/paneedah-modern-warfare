@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 @SideOnly(Side.CLIENT)
 public class CompatibleRenderBiped<T extends EntityLiving> extends RenderBiped<T> {

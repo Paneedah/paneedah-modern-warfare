@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.render.cam;
+package com.paneedah.weaponlib.render.cam;
 
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.WeaponState;
-import com.vicmatskiv.weaponlib.numerical.LissajousCurve;
+import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.WeaponState;
+import com.paneedah.weaponlib.numerical.LissajousCurve;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.util.vector.Matrix4f;

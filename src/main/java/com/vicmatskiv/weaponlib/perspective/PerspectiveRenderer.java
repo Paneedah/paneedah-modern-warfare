@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.perspective;
+package com.paneedah.weaponlib.perspective;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderTickEvent;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTransformType;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
 import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -11,8 +11,8 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.function.BiConsumer;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PerspectiveRenderer implements CustomRenderer<RenderableState> {
 

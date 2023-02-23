@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render.scopes;
+package com.paneedah.weaponlib.render.scopes;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;

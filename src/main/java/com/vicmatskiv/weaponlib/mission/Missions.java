@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMissionCapability;
-import com.vicmatskiv.weaponlib.mission.MissionReward.ItemReward;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.compatibility.CompatibleMissionCapability;
+import com.paneedah.weaponlib.mission.MissionReward.ItemReward;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -17,7 +17,7 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.function.Predicate;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Missions {
     

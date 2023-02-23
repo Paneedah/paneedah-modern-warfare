@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.vehicle.collisions;
+package com.paneedah.weaponlib.vehicle.collisions;
 
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Chassis;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Dimensions;
+import com.paneedah.weaponlib.vehicle.jimphysics.Chassis;
+import com.paneedah.weaponlib.vehicle.jimphysics.Dimensions;
 import net.minecraft.util.math.Vec3d;
 
 import javax.vecmath.Matrix3f;

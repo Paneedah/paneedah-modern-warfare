@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityControlHandler implements CompatibleMessageHandler<EntityControlMessage, CompatibleMessage>  {
 

@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.creativetab;
+package com.paneedah.mw.creativetab;
 
-import com.vicmatskiv.mw.weapons.Guns;
+import com.paneedah.mw.weapons.Guns;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;

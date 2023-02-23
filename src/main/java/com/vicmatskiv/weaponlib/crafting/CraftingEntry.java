@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.crafting;
+package com.paneedah.weaponlib.crafting;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

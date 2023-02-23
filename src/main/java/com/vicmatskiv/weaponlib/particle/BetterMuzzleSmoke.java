@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.particle;
+package com.paneedah.weaponlib.particle;
 
-import com.vicmatskiv.weaponlib.particle.vehicle.TurbulentSmokeParticle;
+import com.paneedah.weaponlib.particle.vehicle.TurbulentSmokeParticle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class BetterMuzzleSmoke extends TurbulentSmokeParticle {
 

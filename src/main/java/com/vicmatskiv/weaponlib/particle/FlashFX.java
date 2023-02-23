@@ -1,14 +1,14 @@
-package com.vicmatskiv.weaponlib.particle;
+package com.paneedah.weaponlib.particle;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleParticle;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTessellator;
+import com.paneedah.weaponlib.compatibility.CompatibleParticle;
+import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class FlashFX extends CompatibleParticle {
 
@@ -16,7 +16,7 @@ public class FlashFX extends CompatibleParticle {
 
 	private static final double FLASH_SCALE_FACTOR = 0.1f;
 
-	private static final String FLASH_TEXTURE = "weaponlib:/com/vicmatskiv/weaponlib/resources/flashes.png";
+	private static final String FLASH_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/flashes.png";
 
 	private int imageIndex;
 

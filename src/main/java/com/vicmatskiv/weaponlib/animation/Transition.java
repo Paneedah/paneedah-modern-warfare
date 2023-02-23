@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
-import com.vicmatskiv.weaponlib.Part;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.Part;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
 
 import java.util.function.Consumer;
 

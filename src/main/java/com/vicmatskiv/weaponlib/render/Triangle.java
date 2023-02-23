@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render;
+package com.paneedah.weaponlib.render;
 
 import net.minecraft.util.math.Vec3d;
 

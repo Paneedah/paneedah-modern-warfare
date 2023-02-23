@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.tile;
+package com.paneedah.weaponlib.tile;
 
 import net.minecraft.tileentity.TileEntity;
 import org.objectweb.asm.ClassWriter;

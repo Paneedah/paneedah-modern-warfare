@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.compatibility.graph;
+package com.paneedah.weaponlib.compatibility.graph;
 
 import akka.japi.Pair;
 import com.google.common.collect.ImmutableSet;

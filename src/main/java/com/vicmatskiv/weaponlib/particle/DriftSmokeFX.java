@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.particle;
+package com.paneedah.weaponlib.particle;
 
 import net.minecraft.client.particle.ParticleCloud;
 import net.minecraft.client.renderer.BufferBuilder;

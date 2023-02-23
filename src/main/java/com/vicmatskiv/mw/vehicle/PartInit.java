@@ -1,7 +1,7 @@
-package com.vicmatskiv.mw.vehicle;
+package com.paneedah.mw.vehicle;
 
-import com.vicmatskiv.weaponlib.vehicle.GearShiftPattern;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Transmission;
+import com.paneedah.weaponlib.vehicle.GearShiftPattern;
+import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 
 public class PartInit {
 

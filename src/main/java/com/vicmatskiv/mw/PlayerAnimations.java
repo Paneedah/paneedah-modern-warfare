@@ -1,12 +1,12 @@
-package com.vicmatskiv.mw;
+package com.paneedah.mw;
 
-import com.vicmatskiv.weaponlib.Part;
-import com.vicmatskiv.weaponlib.PlayerTransitionProvider;
-import com.vicmatskiv.weaponlib.RenderContext;
-import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.animation.MultipartTransition;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlInitializationEvent;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.Part;
+import com.paneedah.weaponlib.PlayerTransitionProvider;
+import com.paneedah.weaponlib.RenderContext;
+import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.animation.MultipartTransition;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
+import com.paneedah.weaponlib.config.ConfigurationManager;
 import org.lwjgl.opengl.GL11;
 
 public class PlayerAnimations {

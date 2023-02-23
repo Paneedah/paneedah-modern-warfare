@@ -1,18 +1,18 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler.MuzzleFlash;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleVec3;
-import com.vicmatskiv.weaponlib.compatibility.Interceptors;
-import com.vicmatskiv.weaponlib.particle.BetterMuzzleSmoke;
-import com.vicmatskiv.weaponlib.particle.ExplosionParticleFX;
-import com.vicmatskiv.weaponlib.particle.ExplosionSmokeFX;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler.MuzzleFlash;
+import com.paneedah.weaponlib.compatibility.CompatibleVec3;
+import com.paneedah.weaponlib.compatibility.Interceptors;
+import com.paneedah.weaponlib.particle.BetterMuzzleSmoke;
+import com.paneedah.weaponlib.particle.ExplosionParticleFX;
+import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 final class ClientEffectManager implements EffectManager {
 
@@ -153,7 +153,7 @@ final class ClientEffectManager implements EffectManager {
 	}
 
 	/* (non-Javadoc)
-     * @see com.vicmatskiv.weaponlib.IEffectManager#spawnExplosionSmoke(double, double, double, double, double, double)
+     * @see com.paneedah.weaponlib.IEffectManager#spawnExplosionSmoke(double, double, double, double, double, double)
      */
 	@Override
     public void spawnExplosionSmoke(double posX, double posY, double posZ,

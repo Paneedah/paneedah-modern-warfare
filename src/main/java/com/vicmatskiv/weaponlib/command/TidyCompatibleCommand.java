@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.command;
+package com.paneedah.weaponlib.command;
 
 import akka.japi.Pair;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleCommand;
+import com.paneedah.weaponlib.compatibility.CompatibleCommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;

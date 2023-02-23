@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.ores;
+package com.paneedah.mw.ores;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
+import com.paneedah.mw.ModernWarfareMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

@@ -1,14 +1,14 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.animation.Transform;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityRenderer;
-import com.vicmatskiv.weaponlib.particle.BetterMuzzleSmoke;
+import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityRenderer;
+import com.paneedah.weaponlib.particle.BetterMuzzleSmoke;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class SpawnEntityRenderer extends CompatibleEntityRenderer {
 

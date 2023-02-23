@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics.solver;
+package com.paneedah.weaponlib.vehicle.jimphysics.solver;
 
-import com.vicmatskiv.weaponlib.network.IEncodable;
+import com.paneedah.weaponlib.network.IEncodable;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.Vec3d;
 

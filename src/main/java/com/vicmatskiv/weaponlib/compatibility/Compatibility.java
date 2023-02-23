@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.Explosion;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.ai.EntityCustomMob;
-import com.vicmatskiv.weaponlib.inventory.GuiHandler;
-import com.vicmatskiv.weaponlib.tile.CustomTileEntityRenderer;
+import com.paneedah.weaponlib.Explosion;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.ai.EntityCustomMob;
+import com.paneedah.weaponlib.inventory.GuiHandler;
+import com.paneedah.weaponlib.tile.CustomTileEntityRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;

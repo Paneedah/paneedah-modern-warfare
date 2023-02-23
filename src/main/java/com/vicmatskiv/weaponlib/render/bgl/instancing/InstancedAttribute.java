@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render.bgl.instancing;
+package com.paneedah.weaponlib.render.bgl.instancing;
 
 public class InstancedAttribute {
 	

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.command;
+package com.paneedah.weaponlib.command;
 
-import com.vicmatskiv.weaponlib.*;
+import com.paneedah.weaponlib.*;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3d;

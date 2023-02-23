@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
-import com.vicmatskiv.weaponlib.config.BalancePackManager;
-import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
-import com.vicmatskiv.weaponlib.grenade.ItemGrenade;
-import com.vicmatskiv.weaponlib.melee.ItemMelee;
+import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.ClientValueRepo;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.grenade.ItemGrenade;
+import com.paneedah.weaponlib.melee.ItemMelee;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -14,8 +14,8 @@ import org.lwjgl.input.Mouse;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 class ClientWeaponTicker extends Thread {
 

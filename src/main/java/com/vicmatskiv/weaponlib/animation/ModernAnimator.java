@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
-import com.vicmatskiv.weaponlib.animation.jim.AnimationData;
+import com.paneedah.weaponlib.animation.jim.AnimationData;
 
 public class ModernAnimator {
 	

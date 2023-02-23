@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.grenade;
+package com.paneedah.weaponlib.grenade;
 
-import com.vicmatskiv.weaponlib.EntityBounceable;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBlockState;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRayTraceResult;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRayTraceResult.Type;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.EntityBounceable;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
+import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
+import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult.Type;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,7 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public abstract class AbstractEntityGrenade extends EntityBounceable {
 

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
-import com.vicmatskiv.weaponlib.state.ManagedState;
+import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
 
 public enum VehicleState implements ManagedState<VehicleState> {

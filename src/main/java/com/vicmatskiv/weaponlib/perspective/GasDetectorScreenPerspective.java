@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.perspective;
+package com.paneedah.weaponlib.perspective;
 
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class GasDetectorScreenPerspective extends ScreenPerspective {
 

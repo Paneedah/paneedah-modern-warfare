@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBlockState;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRayTraceResult;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTargetPoint;
-import com.vicmatskiv.weaponlib.config.Projectiles;
-import com.vicmatskiv.weaponlib.jim.util.HitUtil;
-import com.vicmatskiv.weaponlib.network.packets.BloodPacketClient;
+import com.paneedah.weaponlib.compatibility.CompatibleBlockState;
+import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
+import com.paneedah.weaponlib.compatibility.CompatibleTargetPoint;
+import com.paneedah.weaponlib.config.Projectiles;
+import com.paneedah.weaponlib.jim.util.HitUtil;
+import com.paneedah.weaponlib.network.packets.BloodPacketClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -23,7 +23,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponSpawnEntity extends EntityProjectile {
 

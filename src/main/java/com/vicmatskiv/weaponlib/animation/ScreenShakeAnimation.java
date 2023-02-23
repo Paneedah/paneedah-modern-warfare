@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
-import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.animation.ScreenShakingAnimationManager.State;
+import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager.State;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.MathHelper;
 import org.lwjgl.opengl.GL11;

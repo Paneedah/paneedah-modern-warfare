@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.tracking.PlayerEntityTracker;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagByteArray;

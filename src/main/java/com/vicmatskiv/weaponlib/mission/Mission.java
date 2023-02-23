@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
-import com.vicmatskiv.weaponlib.network.UniversalObject;
+import com.paneedah.weaponlib.network.UniversalObject;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Mission extends UniversalObject {
 

@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics.solver;
+package com.paneedah.weaponlib.vehicle.jimphysics.solver;
 
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class SuspensionBox {
 	

@@ -1,15 +1,15 @@
-package com.vicmatskiv.weaponlib.network.packets;
+package com.paneedah.weaponlib.network.packets;
 
-import com.vicmatskiv.weaponlib.HighIQSpawnEgg;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.SecondaryEntityRegistry;
-import com.vicmatskiv.weaponlib.ai.EntityCustomMob;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageHandler;
-import com.vicmatskiv.weaponlib.network.advanced.SimplePacket;
-import com.vicmatskiv.weaponlib.network.advanced.data.DataTypes;
-import com.vicmatskiv.weaponlib.network.advanced.data.PacketSerializer;
+import com.paneedah.weaponlib.HighIQSpawnEgg;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.SecondaryEntityRegistry;
+import com.paneedah.weaponlib.ai.EntityCustomMob;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
+import com.paneedah.weaponlib.network.advanced.SimplePacket;
+import com.paneedah.weaponlib.network.advanced.data.DataTypes;
+import com.paneedah.weaponlib.network.advanced.data.PacketSerializer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;

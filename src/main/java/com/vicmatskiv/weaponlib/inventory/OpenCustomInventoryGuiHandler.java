@@ -1,12 +1,12 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageHandler;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
 import net.minecraft.entity.player.EntityPlayer;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class OpenCustomInventoryGuiHandler implements CompatibleMessageHandler<OpenCustomPlayerInventoryGuiMessage, CompatibleMessage>  {
 

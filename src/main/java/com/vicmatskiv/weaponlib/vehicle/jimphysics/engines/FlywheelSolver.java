@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics.engines;
+package com.paneedah.weaponlib.vehicle.jimphysics.engines;
 
-import com.vicmatskiv.weaponlib.vehicle.collisions.InertiaKit;
+import com.paneedah.weaponlib.vehicle.collisions.InertiaKit;
 
 public class FlywheelSolver {
 	

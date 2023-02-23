@@ -1,15 +1,15 @@
-package com.vicmatskiv.weaponlib.render.bgl;
+package com.paneedah.weaponlib.render.bgl;
 
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleReflection;
-import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
-import com.vicmatskiv.weaponlib.render.Bloom;
-import com.vicmatskiv.weaponlib.render.DepthTexture;
-import com.vicmatskiv.weaponlib.render.HDRFramebuffer;
-import com.vicmatskiv.weaponlib.render.Shaders;
-import com.vicmatskiv.weaponlib.render.bgl.weather.ModernWeatherRenderer;
+import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.ClientValueRepo;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.compatibility.CompatibleReflection;
+import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.render.Bloom;
+import com.paneedah.weaponlib.render.DepthTexture;
+import com.paneedah.weaponlib.render.HDRFramebuffer;
+import com.paneedah.weaponlib.render.Shaders;
+import com.paneedah.weaponlib.render.bgl.weather.ModernWeatherRenderer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
@@ -34,7 +34,7 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 /**
  * Post-processing pipeline enabling modern post effects to be applied in

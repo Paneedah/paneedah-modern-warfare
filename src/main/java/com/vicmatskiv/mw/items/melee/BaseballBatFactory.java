@@ -1,12 +1,12 @@
-package com.vicmatskiv.mw.items.melee;
+package com.paneedah.mw.items.melee;
 
-import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.weaponlib.RenderContext;
-import com.vicmatskiv.weaponlib.animation.Transition;
-import com.vicmatskiv.weaponlib.melee.ItemMelee;
-import com.vicmatskiv.weaponlib.melee.MeleeRenderer;
-import com.vicmatskiv.weaponlib.melee.RenderableState;
+import com.paneedah.mw.CommonProxy;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.weaponlib.RenderContext;
+import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.melee.ItemMelee;
+import com.paneedah.weaponlib.melee.MeleeRenderer;
+import com.paneedah.weaponlib.melee.RenderableState;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 
@@ -30,7 +30,7 @@ public class BaseballBatFactory implements MeleeFactory {
                 .withRenderer(
                         new MeleeRenderer.Builder()
                                 .withModId(ModernWarfareMod.MODID)
-                                .withModel(new com.vicmatskiv.mw.models.Bat())
+                                .withModel(new com.paneedah.mw.models.Bat())
                                 .withAnimationDuration(300)
                                 .withInventoryPositioning(itemStack -> {
                                     GL11.glScaled(0.7F, 0.7F, 0.7F);

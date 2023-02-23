@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
 
 public class OpenMissionGuiMessage implements CompatibleMessage {

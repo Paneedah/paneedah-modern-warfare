@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.electronics;
+package com.paneedah.weaponlib.electronics;
 
-import com.vicmatskiv.weaponlib.PlayerItemInstance;
-import com.vicmatskiv.weaponlib.network.TypeRegistry;
-import com.vicmatskiv.weaponlib.perspective.Perspective;
+import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.weaponlib.perspective.Perspective;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;

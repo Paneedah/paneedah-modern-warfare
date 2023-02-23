@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.grenade;
+package com.paneedah.weaponlib.grenade;
 
-import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleItem;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
-import com.vicmatskiv.weaponlib.crafting.CraftingComplexity;
-import com.vicmatskiv.weaponlib.crafting.OptionsMetadata;
+import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.compatibility.CompatibleItem;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.crafting.CraftingComplexity;
+import com.paneedah.weaponlib.crafting.OptionsMetadata;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,7 +18,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ItemGrenade extends CompatibleItem implements
 PlayerItemInstanceFactory<PlayerGrenadeInstance, GrenadeState>, AttachmentContainer, Updatable {

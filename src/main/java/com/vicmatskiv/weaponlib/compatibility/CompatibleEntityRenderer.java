@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public abstract class CompatibleEntityRenderer extends Render<Entity> {
 

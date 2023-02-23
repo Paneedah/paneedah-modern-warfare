@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle.collisions;
+package com.paneedah.weaponlib.vehicle.collisions;
 
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
@@ -11,7 +11,7 @@ import javax.vecmath.Matrix3d;
 import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector3d;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class OreintedBB {
 	

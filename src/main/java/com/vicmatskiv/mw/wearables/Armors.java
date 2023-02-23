@@ -1,15 +1,15 @@
-package com.vicmatskiv.mw.wearables;
+package com.paneedah.mw.wearables;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.weaponlib.CustomArmor;
-import com.vicmatskiv.weaponlib.CustomArmor.Builder;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.weaponlib.CustomArmor;
+import com.paneedah.weaponlib.CustomArmor.Builder;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.config.ConfigurationManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Armors {
 	
@@ -103,7 +103,7 @@ public class Armors {
     			.withMaterial(Armors.Marine)
                 .withUnlocalizedName("Marine")
                 .withTextureName("USMC")
-                .withModelClass("com.vicmatskiv.mw.models.USMC")
+                .withModelClass("com.paneedah.mw.models.USMC")
                 .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -116,7 +116,7 @@ public class Armors {
         		.withMaterial(Armors.Marine)
                 .withUnlocalizedName("Spec_Ops")
                 .withTextureName("militaryuniformblack")
-                .withModelClass("com.vicmatskiv.mw.models.SpecOps")
+                .withModelClass("com.paneedah.mw.models.SpecOps")
                 .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -130,7 +130,7 @@ public class Armors {
                 .withCreativeTab(ModernWarfareMod.ArmorTab)
                 .withUnlocalizedName("Spetznaz")
                 .withTextureName("militaryuniformforest")
-                .withModelClass("com.vicmatskiv.mw.models.USMC")
+                .withModelClass("com.paneedah.mw.models.USMC")
                 .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -144,7 +144,7 @@ public class Armors {
                 .withCreativeTab(ModernWarfareMod.ArmorTab)
                 .withUnlocalizedName("Urban")
                 .withTextureName("militaryuniformurban")
-                .withModelClass("com.vicmatskiv.mw.models.USMC")
+                .withModelClass("com.paneedah.mw.models.USMC")
                 .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -158,7 +158,7 @@ public class Armors {
                 .withCreativeTab(ModernWarfareMod.ArmorTab)
                 .withUnlocalizedName("blackcamo")
                 .withTextureName("multicamoblackshirt")
-                .withModelClass("com.vicmatskiv.mw.models.MultiCamoBlackShirt")
+                .withModelClass("com.paneedah.mw.models.MultiCamoBlackShirt")
                 .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -170,7 +170,7 @@ public class Armors {
                 .withCreativeTab(ModernWarfareMod.ArmorTab)
                 .withUnlocalizedName("forest")
                 .withTextureName("militaryshirtforest")
-                .withModelClass("com.vicmatskiv.mw.models.MultiCamoBlackShirt")
+                .withModelClass("com.paneedah.mw.models.MultiCamoBlackShirt")
                 .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -182,7 +182,7 @@ public class Armors {
                 .withCreativeTab(ModernWarfareMod.ArmorTab)
                 .withUnlocalizedName("blackjeans")
                 .withTextureName("blackjeans")
-                .withModelClass("com.vicmatskiv.mw.models.Jeans")
+                .withModelClass("com.paneedah.mw.models.Jeans")
                 .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -194,7 +194,7 @@ public class Armors {
                 .withCreativeTab(ModernWarfareMod.ArmorTab)
                 .withUnlocalizedName("khakijeans")
                 .withTextureName("khakijeans")
-                .withModelClass("com.vicmatskiv.mw.models.Jeans")
+                .withModelClass("com.paneedah.mw.models.Jeans")
                 .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -205,7 +205,7 @@ public class Armors {
         		.withMaterial(Armors.Marine)
                 .withUnlocalizedName("Santa")
                 .withTextureName("santasuit_normal")
-                .withModelClass("com.vicmatskiv.mw.models.SantasuitNormal")
+                .withModelClass("com.paneedah.mw.models.SantasuitNormal")
                 .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -215,7 +215,7 @@ public class Armors {
         
         Builder nazisantaArmorBuilder = new CustomArmor.Builder().withModId(ModernWarfareMod.MODID).withMaterial(Armors.Marine)
                 .withUnlocalizedName("Nazisanta").withTextureName("santasuit_nazi")
-                .withModelClass("com.vicmatskiv.mw.models.SantaSuit").withHudTextureName("Marine")
+                .withModelClass("com.paneedah.mw.models.SantaSuit").withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.NaziSantahelmet = nazisantaArmorBuilder.buildHelmet(modContext);
@@ -224,7 +224,7 @@ public class Armors {
         
         Builder juggernautsuitArmorBuilder = new CustomArmor.Builder().withModId(ModernWarfareMod.MODID).withMaterial(Armors.Juggernaut)
                 .withUnlocalizedName("Juggernaut").withTextureName("JuggernautSuit")
-                .withModelClass("com.vicmatskiv.mw.models.JuggernautSuit").withHudTextureName("Marine")
+                .withModelClass("com.paneedah.mw.models.JuggernautSuit").withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Juggernauthelmet = juggernautsuitArmorBuilder.buildHelmet(modContext);
@@ -236,7 +236,7 @@ public class Armors {
         		.withMaterial(Armors.Marine)
                 .withUnlocalizedName("ghillie")
                 .withTextureName("ghillie")
-                .withModelClass("com.vicmatskiv.mw.models.Ghillie")
+                .withModelClass("com.paneedah.mw.models.Ghillie")
                 .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -246,7 +246,7 @@ public class Armors {
         
 
         Builder swatArmorBuilder = new CustomArmor.Builder().withModId(ModernWarfareMod.MODID).withMaterial(Armors.Marine)
-                .withUnlocalizedName("Swat").withTextureName("Swat").withModelClass("com.vicmatskiv.mw.models.Swat")
+                .withUnlocalizedName("Swat").withTextureName("Swat").withModelClass("com.paneedah.mw.models.Swat")
                 .withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -259,7 +259,7 @@ public class Armors {
         		.withMaterial(Armors.Marine)
                 .withUnlocalizedName("Tactical")
                 .withTextureName("Tactical")
-                .withModelClass("com.vicmatskiv.mw.models.Tactical")
+                .withModelClass("com.paneedah.mw.models.Tactical")
                 .withHudTextureName("Marine")
                 .withNightVision(true)
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
@@ -268,7 +268,7 @@ public class Armors {
         
         Builder jpnvg18ArmorBuilder = new CustomArmor.Builder().withModId(ModernWarfareMod.MODID).withMaterial(Armors.Marine)
                 .withUnlocalizedName("JPNVG18").withTextureName("jpnvg18")
-                .withModelClass("com.vicmatskiv.mw.models.JPNVG18").withHudTextureName("Marine")
+                .withModelClass("com.paneedah.mw.models.JPNVG18").withHudTextureName("Marine")
                 .withNightVision(true)
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
@@ -277,7 +277,7 @@ public class Armors {
         Builder gasSuitArmorBuilder = new CustomArmor.Builder().withModId(ModernWarfareMod.MODID).withMaterial(Armors.Marine)
                 .withUnlocalizedName("m40gasmask").withTextureName("m40gasmask")
                 .withExposureReductionFactor(0.99f)
-                .withModelClass("com.vicmatskiv.mw.models.M40GasMask").withHudTextureName("goggles_overlay")
+                .withModelClass("com.paneedah.mw.models.M40GasMask").withHudTextureName("goggles_overlay")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.GasMaskM40 = gasSuitArmorBuilder.buildHelmet(modContext);
@@ -285,7 +285,7 @@ public class Armors {
         Builder astronautArmorBuilder = new CustomArmor.Builder().withModId(ModernWarfareMod.MODID).withMaterial(Armors.Astronaut)
                 .withUnlocalizedName("Astronaut").withTextureName("Astronaut")
                 .withExposureReductionFactor(1f)
-                .withModelClass("com.vicmatskiv.mw.models.Astronaut").withHudTextureName("Marine")
+                .withModelClass("com.paneedah.mw.models.Astronaut").withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Astronauthelmet = astronautArmorBuilder.buildHelmet(modContext);
@@ -294,7 +294,7 @@ public class Armors {
         
         Builder dclassArmorBuilder = new CustomArmor.Builder().withModId(ModernWarfareMod.MODID).withMaterial(Armors.Clothing)
                 .withUnlocalizedName("Dclass").withTextureName("dclass")
-                .withModelClass("com.vicmatskiv.mw.models.Dclass").withHudTextureName("Marine")
+                .withModelClass("com.paneedah.mw.models.Dclass").withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.Dclasschest = dclassArmorBuilder.buildChest(modContext.isClient());
@@ -302,7 +302,7 @@ public class Armors {
         
         Builder SCPGuardArmorBuilder = new CustomArmor.Builder().withModId(ModernWarfareMod.MODID).withMaterial(Armors.Marine)
                 .withUnlocalizedName("SCPGuard").withTextureName("scpguard")
-                .withModelClass("com.vicmatskiv.mw.models.SCPGuard").withHudTextureName("Marine")
+                .withModelClass("com.paneedah.mw.models.SCPGuard").withHudTextureName("Marine")
                 .withCreativeTab(ModernWarfareMod.ArmorTab);
 
         Armors.SCPGuardhelmet = SCPGuardArmorBuilder.buildHelmet(modContext); 

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.shader.jim;
+package com.paneedah.weaponlib.shader.jim;
 
-import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.config.novel.ModernConfigManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import org.lwjgl.opengl.GL20;
 

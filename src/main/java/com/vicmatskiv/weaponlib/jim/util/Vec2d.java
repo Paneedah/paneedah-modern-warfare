@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.jim.util;
+package com.paneedah.weaponlib.jim.util;
 
 public class Vec2d {
 	public double x;

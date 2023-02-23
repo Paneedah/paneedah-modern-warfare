@@ -1,20 +1,20 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
-import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
-import com.vicmatskiv.weaponlib.inventory.CustomPlayerInventory;
-import com.vicmatskiv.weaponlib.numerical.LissajousCurve;
-import com.vicmatskiv.weaponlib.render.NewScreenshakingManager;
-import com.vicmatskiv.weaponlib.render.bgl.PostProcessPipeline;
-import com.vicmatskiv.weaponlib.render.cam.NaturalCamera;
-import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
-import com.vicmatskiv.weaponlib.vehicle.RenderVehicle2;
-import com.vicmatskiv.weaponlib.vehicle.VehicleSuspensionStrategy;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.stability.InertialStabilizer;
-import com.vicmatskiv.weaponlib.vehicle.smoothlib.QPTI;
-import com.vicmatskiv.weaponlib.vehicle.smoothlib.VehicleRFCam;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.ClientValueRepo;
+import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
+import com.paneedah.weaponlib.numerical.LissajousCurve;
+import com.paneedah.weaponlib.render.NewScreenshakingManager;
+import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
+import com.paneedah.weaponlib.render.cam.NaturalCamera;
+import com.paneedah.weaponlib.vehicle.EntityVehicle;
+import com.paneedah.weaponlib.vehicle.RenderVehicle2;
+import com.paneedah.weaponlib.vehicle.VehicleSuspensionStrategy;
+import com.paneedah.weaponlib.vehicle.jimphysics.stability.InertialStabilizer;
+import com.paneedah.weaponlib.vehicle.smoothlib.QPTI;
+import com.paneedah.weaponlib.vehicle.smoothlib.VehicleRFCam;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -46,8 +46,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
 public class Interceptors {

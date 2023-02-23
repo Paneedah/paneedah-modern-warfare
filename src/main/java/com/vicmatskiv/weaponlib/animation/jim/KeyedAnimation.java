@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.animation.jim;
+package com.paneedah.weaponlib.animation.jim;
 
-import com.vicmatskiv.weaponlib.animation.MatrixHelper;
-import com.vicmatskiv.weaponlib.animation.jim.AnimationData.BlockbenchTransition;
+import com.paneedah.weaponlib.animation.MatrixHelper;
+import com.paneedah.weaponlib.animation.jim.AnimationData.BlockbenchTransition;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class KeyedAnimation {
 

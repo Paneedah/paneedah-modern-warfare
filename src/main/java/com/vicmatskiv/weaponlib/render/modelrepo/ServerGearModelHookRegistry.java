@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render.modelrepo;
+package com.paneedah.weaponlib.render.modelrepo;
 
 import java.util.ArrayList;
 

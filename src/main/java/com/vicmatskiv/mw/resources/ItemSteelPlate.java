@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.resources;
+package com.paneedah.mw.resources;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
+import com.paneedah.mw.ModernWarfareMod;
 import net.minecraft.item.Item;
 
 public class ItemSteelPlate extends Item {

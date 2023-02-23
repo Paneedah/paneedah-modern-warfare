@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle.collisions;
+package com.paneedah.weaponlib.vehicle.collisions;
 
 public interface IDynamicCollision {
 	

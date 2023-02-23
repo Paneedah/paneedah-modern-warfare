@@ -1,15 +1,15 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.Part;
-import com.vicmatskiv.weaponlib.RenderContext;
-import com.vicmatskiv.weaponlib.animation.DebugPositioner;
-import com.vicmatskiv.weaponlib.animation.MultipartPositioning;
-import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
-import com.vicmatskiv.weaponlib.animation.MultipartRenderStateManager;
-import com.vicmatskiv.weaponlib.melee.MeleeRenderer.Builder;
-import com.vicmatskiv.weaponlib.melee.PlayerMeleeInstance;
-import com.vicmatskiv.weaponlib.melee.RenderableState;
+import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.Part;
+import com.paneedah.weaponlib.RenderContext;
+import com.paneedah.weaponlib.animation.DebugPositioner;
+import com.paneedah.weaponlib.animation.MultipartPositioning;
+import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
+import com.paneedah.weaponlib.animation.MultipartRenderStateManager;
+import com.paneedah.weaponlib.melee.MeleeRenderer.Builder;
+import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
+import com.paneedah.weaponlib.melee.RenderableState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -34,7 +34,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public abstract class CompatibleMeleeRenderer extends ModelSourceRenderer implements IBakedModel {
 	

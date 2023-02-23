@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
 import com.google.gson.*;
 import io.netty.buffer.ByteBuf;

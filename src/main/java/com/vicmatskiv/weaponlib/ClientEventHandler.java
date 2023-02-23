@@ -1,15 +1,15 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.*;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientTickEvent.Phase;
-import com.vicmatskiv.weaponlib.perspective.Perspective;
-import com.vicmatskiv.weaponlib.render.IHasModel;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderContext;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupManager;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupSource;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderPhase;
-import com.vicmatskiv.weaponlib.tracking.PlayerEntityTracker;
-import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
+import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.CompatibleClientTickEvent.Phase;
+import com.paneedah.weaponlib.perspective.Perspective;
+import com.paneedah.weaponlib.render.IHasModel;
+import com.paneedah.weaponlib.shader.DynamicShaderContext;
+import com.paneedah.weaponlib.shader.DynamicShaderGroupManager;
+import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
+import com.paneedah.weaponlib.shader.DynamicShaderPhase;
+import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
+import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -29,8 +29,8 @@ import java.util.UUID;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ClientEventHandler extends CompatibleClientEventHandler {
 

@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
-import com.vicmatskiv.weaponlib.model.Bullet556;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.model.Bullet556;
 
 public class SpecialAttachments {
 	public static ItemAttachment<Weapon> MagicMag;

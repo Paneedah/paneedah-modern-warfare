@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
-import com.vicmatskiv.weaponlib.PlayerWeaponInstance;
-import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.Weapon;
-import com.vicmatskiv.weaponlib.animation.ScreenShakeAnimation.Builder;
+import com.paneedah.weaponlib.PlayerWeaponInstance;
+import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.Weapon;
+import com.paneedah.weaponlib.animation.ScreenShakeAnimation.Builder;
 import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.HashMap;

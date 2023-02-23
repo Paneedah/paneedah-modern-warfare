@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.tileentities;
+package com.paneedah.mw.tileentities;
 
-import com.vicmatskiv.weaponlib.ModContext;
+import com.paneedah.weaponlib.ModContext;
 
 public interface TileEntityFactory {
 

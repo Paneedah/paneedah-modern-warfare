@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ItemMagazine extends ItemAttachment<Weapon> implements PlayerItemInstanceFactory<PlayerMagazineInstance, MagazineState>, 
 Reloadable, Updatable, Part {
@@ -93,8 +93,8 @@ Reloadable, Updatable, Part {
 	
 
 	ItemMagazine(String modId, ModelBase model, String textureName, int ammo,
-			com.vicmatskiv.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
-			com.vicmatskiv.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
+			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
+			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
 		super(modId, AttachmentCategory.MAGAZINE, model, textureName, null, apply, remove);
 		this.ammo = ammo;
 		setMaxStackSize(DEFAULT_MAX_STACK_SIZE);

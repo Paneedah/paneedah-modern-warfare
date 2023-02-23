@@ -1,13 +1,13 @@
-package com.vicmatskiv.weaponlib.network.packets;
+package com.paneedah.weaponlib.network.packets;
 
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageHandler;
-import com.vicmatskiv.weaponlib.crafting.CraftingFileManager;
-import com.vicmatskiv.weaponlib.network.advanced.SimplePacket;
-import com.vicmatskiv.weaponlib.network.advanced.data.DataTypes;
-import com.vicmatskiv.weaponlib.network.advanced.data.PacketSerializer;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
+import com.paneedah.weaponlib.crafting.CraftingFileManager;
+import com.paneedah.weaponlib.network.advanced.SimplePacket;
+import com.paneedah.weaponlib.network.advanced.data.DataTypes;
+import com.paneedah.weaponlib.network.advanced.data.PacketSerializer;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class CraftingServerPacket extends SimplePacket {

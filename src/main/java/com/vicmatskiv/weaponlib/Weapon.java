@@ -1,18 +1,18 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
-import com.vicmatskiv.weaponlib.BulletHoleRenderer.BulletHole;
-import com.vicmatskiv.weaponlib.animation.ScreenShakeAnimation;
-import com.vicmatskiv.weaponlib.animation.ScreenShakingAnimationManager;
-import com.vicmatskiv.weaponlib.animation.SpecialAttachments;
-import com.vicmatskiv.weaponlib.compatibility.*;
-import com.vicmatskiv.weaponlib.config.BalancePackManager;
-import com.vicmatskiv.weaponlib.config.BalancePackManager.GunConfigurationGroup;
-import com.vicmatskiv.weaponlib.config.Gun;
-import com.vicmatskiv.weaponlib.crafting.*;
-import com.vicmatskiv.weaponlib.model.Shell;
-import com.vicmatskiv.weaponlib.render.WeaponSpritesheetBuilder;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import com.paneedah.weaponlib.BulletHoleRenderer.BulletHole;
+import com.paneedah.weaponlib.animation.ScreenShakeAnimation;
+import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
+import com.paneedah.weaponlib.animation.SpecialAttachments;
+import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.weaponlib.config.Gun;
+import com.paneedah.weaponlib.crafting.*;
+import com.paneedah.weaponlib.model.Shell;
+import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
@@ -34,7 +34,7 @@ import java.util.Map.Entry;
 import java.util.function.*;
 import java.util.stream.Collectors;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Weapon extends CompatibleItem implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>, 
 AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCrafting {
@@ -62,7 +62,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
 
         private static final float DEFAULT_SPAWN_ENTITY_SPEED = 150f;
         private static final float DEFAULT_INACCURACY = 0f;
-        private static final String DEFAULT_SHELL_CASING_TEXTURE_NAME = "weaponlib:/com/vicmatskiv/weaponlib/resources/shell.png";
+        private static final String DEFAULT_SHELL_CASING_TEXTURE_NAME = "weaponlib:/com/paneedah/weaponlib/resources/shell.png";
         private static final float DEFAULT_SHELL_CASING_VELOCITY = 0.1f;
         private static final float DEFAULT_SHELL_CASING_GRAVITY_VELOCITY = 0.05f;
         private static final float DEFAULT_SHELL_CASING_INACCURACY = 20f;
@@ -200,7 +200,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         String flashTexture;
         
         
-        private com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell.Type shellType = Type.ASSAULT;
+        private com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type shellType = Type.ASSAULT;
         
         private Set<AttachmentCategory> unremovableAttachmentCategories = new HashSet<>();
 //        private Map<RenderableState, ScreenShaking> screenShakings = new HashMap<>();

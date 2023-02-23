@@ -1,26 +1,26 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.weaponlib.StatusMessageCenter.Message;
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.animation.gui.AnimationGUI;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleGui;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMathHelper;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTessellator;
-import com.vicmatskiv.weaponlib.config.BalancePackManager;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager.StatusBarPosition;
-import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
-import com.vicmatskiv.weaponlib.debug.DebugRenderer;
-import com.vicmatskiv.weaponlib.electronics.ItemWirelessCamera;
-import com.vicmatskiv.weaponlib.grenade.ItemGrenade;
-import com.vicmatskiv.weaponlib.jim.util.LangTools;
-import com.vicmatskiv.weaponlib.jim.util.VectorTools;
-import com.vicmatskiv.weaponlib.jim.util.color.FlatUIColors;
-import com.vicmatskiv.weaponlib.render.ModificationGUI;
-import com.vicmatskiv.weaponlib.render.gui.GUIRenderHelper;
-import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
-import com.vicmatskiv.weaponlib.vehicle.VehicleCustomGUI;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.weaponlib.StatusMessageCenter.Message;
+import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.gui.AnimationGUI;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
+import com.paneedah.weaponlib.compatibility.CompatibleGui;
+import com.paneedah.weaponlib.compatibility.CompatibleMathHelper;
+import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.ConfigurationManager.StatusBarPosition;
+import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.debug.DebugRenderer;
+import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
+import com.paneedah.weaponlib.grenade.ItemGrenade;
+import com.paneedah.weaponlib.jim.util.LangTools;
+import com.paneedah.weaponlib.jim.util.VectorTools;
+import com.paneedah.weaponlib.jim.util.color.FlatUIColors;
+import com.paneedah.weaponlib.render.ModificationGUI;
+import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
+import com.paneedah.weaponlib.vehicle.EntityVehicle;
+import com.paneedah.weaponlib.vehicle.VehicleCustomGUI;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -40,7 +40,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 import static net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType.*;
 
 public class CustomGui extends CompatibleGui {

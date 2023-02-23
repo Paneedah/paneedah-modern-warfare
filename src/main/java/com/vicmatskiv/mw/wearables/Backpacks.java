@@ -1,11 +1,11 @@
-package com.vicmatskiv.mw.wearables;
+package com.paneedah.mw.wearables;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.weaponlib.ItemStorage;
-import com.vicmatskiv.weaponlib.Weapon;
-import com.vicmatskiv.weaponlib.animation.Transform;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.weaponlib.ItemStorage;
+import com.paneedah.weaponlib.Weapon;
+import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.config.ConfigurationManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
@@ -50,7 +50,7 @@ public class Backpacks {
         .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(CreativeTabs.MISC)
-        .withModel(new com.vicmatskiv.mw.models.TacticalPushPack())
+        .withModel(new com.paneedah.mw.models.TacticalPushPack())
         .withModelTextureName("black_tru_spec_cordura_backpack.png")
         .withGuiTextureName("tactical_push_pack.png")
         .withCustomEquippedPositioning((player, stack) -> {
@@ -72,7 +72,7 @@ public class Backpacks {
         .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.CombatSustainmentBackpack", "combatsustainmentbackpack.png")
+        .withProperModel("com.paneedah.mw.models.CombatSustainmentBackpack", "combatsustainmentbackpack.png")
         .withGuiTextureName("combat_sustainment_backpack.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -94,7 +94,7 @@ public class Backpacks {
                 .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
-                .withProperModel("com.vicmatskiv.mw.models.CombatSustainmentBackpack", "combatsustainmentblack.png")
+                .withProperModel("com.paneedah.mw.models.CombatSustainmentBackpack", "combatsustainmentblack.png")
                 .withGuiTextureName("combat_sustainment_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
 //                    GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -116,7 +116,7 @@ public class Backpacks {
                 .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
-                .withProperModel("com.vicmatskiv.mw.models.CombatSustainmentBackpack", "combatsustainmentforest.png")
+                .withProperModel("com.paneedah.mw.models.CombatSustainmentBackpack", "combatsustainmentforest.png")
                 .withGuiTextureName("combat_sustainment_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
 //                    GL11.glScalef(0.6f, 0.6f, 0.6f);
@@ -138,8 +138,8 @@ public class Backpacks {
         .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.AssaultBackpack", "assaultbackpack.png")
-//        .withModel(new com.vicmatskiv.mw.models.AssaultBackpack())
+        .withProperModel("com.paneedah.mw.models.AssaultBackpack", "assaultbackpack.png")
+//        .withModel(new com.paneedah.mw.models.AssaultBackpack())
 //        .withModelTextureName("assaultbackpack.png")
         .withGuiTextureName("assault_backpack.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
@@ -162,8 +162,8 @@ public class Backpacks {
                 .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
-                .withProperModel("com.vicmatskiv.mw.models.AssaultBackpack", "assaultbackpackblack.png")
-//                .withModel(new com.vicmatskiv.mw.models.AssaultBackpack())
+                .withProperModel("com.paneedah.mw.models.AssaultBackpack", "assaultbackpackblack.png")
+//                .withModel(new com.paneedah.mw.models.AssaultBackpack())
 //                .withModelTextureName("assaultbackpack.png")
                 .withGuiTextureName("assault_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
@@ -186,8 +186,8 @@ public class Backpacks {
                 .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
-                .withProperModel("com.vicmatskiv.mw.models.AssaultBackpack", "assaultbackpackforest.png")
-//                .withModel(new com.vicmatskiv.mw.models.AssaultBackpack())
+                .withProperModel("com.paneedah.mw.models.AssaultBackpack", "assaultbackpackforest.png")
+//                .withModel(new com.paneedah.mw.models.AssaultBackpack())
 //                .withModelTextureName("assaultbackpack.png")
                 .withGuiTextureName("assault_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
@@ -210,8 +210,8 @@ public class Backpacks {
                 .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
-                .withProperModel("com.vicmatskiv.mw.models.F5SwitchbladeBackpack", "f5switchbladebackpack.png")
-//                .withModel(new com.vicmatskiv.mw.models.AssaultBackpack())
+                .withProperModel("com.paneedah.mw.models.F5SwitchbladeBackpack", "f5switchbladebackpack.png")
+//                .withModel(new com.paneedah.mw.models.AssaultBackpack())
 //                .withModelTextureName("assaultbackpack.png")
                 .withGuiTextureName("assault_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
@@ -234,7 +234,7 @@ public class Backpacks {
         .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.TruSpecCorduraBackpack", "truspeccordurabackpack.png")
+        .withProperModel("com.paneedah.mw.models.TruSpecCorduraBackpack", "truspeccordurabackpack.png")
         .withGuiTextureName("tru_spec_cordura_backpack.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -256,7 +256,7 @@ public class Backpacks {
                 .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
-                .withProperModel("com.vicmatskiv.mw.models.TruSpecCorduraBackpack", "truspeccordurablack.png")
+                .withProperModel("com.paneedah.mw.models.TruSpecCorduraBackpack", "truspeccordurablack.png")
                 .withGuiTextureName("tru_spec_cordura_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
 //                    GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -278,7 +278,7 @@ public class Backpacks {
                 .withGuiTextureWidth(256)
                 .withValidItemPredicate(item -> !(item instanceof Weapon))
                 .withTab(ModernWarfareMod.ArmorTab)
-                .withProperModel("com.vicmatskiv.mw.models.TruSpecCorduraBackpack", "truspeccorduraforest.png")
+                .withProperModel("com.paneedah.mw.models.TruSpecCorduraBackpack", "truspeccorduraforest.png")
                 .withGuiTextureName("tru_spec_cordura_backpack.png")
 //                .withCustomEquippedPositioning((player, stack) -> {
 //                    GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -300,7 +300,7 @@ public class Backpacks {
         .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.Dufflebag", "dufflebag.png")
+        .withProperModel("com.paneedah.mw.models.Dufflebag", "dufflebag.png")
         .withGuiTextureName("duffle_bag.png")
         .withCustomEquippedPositioning((player, stack) -> {
             GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -322,7 +322,7 @@ public class Backpacks {
         .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(CreativeTabs.MISC)
-        .withModel(new com.vicmatskiv.mw.models.PilgrimBackpack())
+        .withModel(new com.paneedah.mw.models.PilgrimBackpack())
         .withModelTextureName("pilgrim_backpack.png")
         .withGuiTextureName("pilgrim_backpack.png")
         .withCustomEquippedPositioning((player, stack) -> {
@@ -344,7 +344,7 @@ public class Backpacks {
         .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(CreativeTabs.MISC)
-        .withModel(new com.vicmatskiv.mw.models.F4MTerminatorBackpack())
+        .withModel(new com.paneedah.mw.models.F4MTerminatorBackpack())
         .withModelTextureName("f4m_terminator_backpack.png")
         .withGuiTextureName("f4m_terminator_backpack.png")
         .withCustomEquippedPositioning((player, stack) -> {
@@ -366,7 +366,7 @@ public class Backpacks {
         .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> !(item instanceof Weapon))
         .withTab(CreativeTabs.MISC)
-        .withModel(new com.vicmatskiv.mw.models.BergenBackpack())
+        .withModel(new com.paneedah.mw.models.BergenBackpack())
         .withModelTextureName("bergen_backpack.png")
         .withGuiTextureName("big_backpack.png")
         .withCustomEquippedPositioning((player, stack) -> {
@@ -388,7 +388,7 @@ public class Backpacks {
         .withGuiTextureWidth(256)
         .withValidItemPredicate(item -> (item instanceof Weapon))
         .withTab(CreativeTabs.MISC)
-        .withModel(new com.vicmatskiv.mw.models.G2Gunslinger2Backpack())
+        .withModel(new com.paneedah.mw.models.G2Gunslinger2Backpack())
         .withModelTextureName("f4m_terminator_backpack.png")
         .withGuiTextureName("combat_sustainment_backpack.png")
         .withCustomEquippedPositioning((player, stack) -> {

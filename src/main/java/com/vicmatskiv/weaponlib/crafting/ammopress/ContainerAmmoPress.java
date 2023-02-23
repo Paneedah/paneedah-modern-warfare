@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.crafting.ammopress;
+package com.paneedah.weaponlib.crafting.ammopress;
 
-import com.vicmatskiv.weaponlib.crafting.base.ContainerStation;
-import com.vicmatskiv.weaponlib.crafting.workbench.PagedSlot;
-import com.vicmatskiv.weaponlib.crafting.workbench.PagedSlotItemHandler;
+import com.paneedah.weaponlib.crafting.base.ContainerStation;
+import com.paneedah.weaponlib.crafting.workbench.PagedSlot;
+import com.paneedah.weaponlib.crafting.workbench.PagedSlotItemHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;

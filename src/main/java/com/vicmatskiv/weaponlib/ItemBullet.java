@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import net.minecraft.client.model.ModelBase;
 
@@ -32,8 +32,8 @@ public class ItemBullet extends ItemAttachment<Weapon> {
 	private List<ItemMagazine> compatibleMagazines = new ArrayList<>();
 	
 	public ItemBullet(String modId, AttachmentCategory category, ModelBase model, String textureName, String crosshair,
-			com.vicmatskiv.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
-			com.vicmatskiv.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
+			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
+			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
 		super(modId, category, model, textureName, crosshair, apply, remove);
 	}
 }

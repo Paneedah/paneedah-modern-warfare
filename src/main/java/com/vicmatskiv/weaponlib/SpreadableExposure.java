@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.network.UniversalObject;
+import com.paneedah.weaponlib.network.UniversalObject;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import java.util.*;
 import java.util.function.Function;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class SpreadableExposure extends UniversalObject implements Exposure {
     

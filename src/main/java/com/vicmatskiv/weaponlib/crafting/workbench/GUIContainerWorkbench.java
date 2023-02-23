@@ -1,12 +1,12 @@
-package com.vicmatskiv.weaponlib.crafting.workbench;
+package com.paneedah.weaponlib.crafting.workbench;
 
-import com.vicmatskiv.weaponlib.Weapon;
-import com.vicmatskiv.weaponlib.animation.gui.GuiRenderUtil;
-import com.vicmatskiv.weaponlib.crafting.CraftingGroup;
-import com.vicmatskiv.weaponlib.crafting.CraftingRegistry;
-import com.vicmatskiv.weaponlib.crafting.base.GUIContainerStation;
-import com.vicmatskiv.weaponlib.network.packets.StationPacket;
-import com.vicmatskiv.weaponlib.render.gui.GUIRenderHelper;
+import com.paneedah.weaponlib.Weapon;
+import com.paneedah.weaponlib.animation.gui.GuiRenderUtil;
+import com.paneedah.weaponlib.crafting.CraftingGroup;
+import com.paneedah.weaponlib.crafting.CraftingRegistry;
+import com.paneedah.weaponlib.crafting.base.GUIContainerStation;
+import com.paneedah.weaponlib.network.packets.StationPacket;
+import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;

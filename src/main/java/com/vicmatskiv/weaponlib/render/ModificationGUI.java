@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.render;
+package com.paneedah.weaponlib.render;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.WeaponAttachmentAspect.FlaggedAttachment;
-import com.vicmatskiv.weaponlib.command.DebugCommand;
-import com.vicmatskiv.weaponlib.render.gui.ColorPalette;
-import com.vicmatskiv.weaponlib.render.gui.GUIRenderHelper;
-import com.vicmatskiv.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.WeaponAttachmentAspect.FlaggedAttachment;
+import com.paneedah.weaponlib.command.DebugCommand;
+import com.paneedah.weaponlib.render.gui.ColorPalette;
+import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
+import com.paneedah.weaponlib.render.gui.GUIRenderHelper.StringAlignment;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,8 +17,8 @@ import org.lwjgl.input.Mouse;
 
 import java.util.ArrayList;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 /**
  * Singleton modification GUI render & logic class

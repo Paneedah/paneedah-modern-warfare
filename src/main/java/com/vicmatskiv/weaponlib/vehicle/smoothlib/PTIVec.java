@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib.vehicle.smoothlib;
+package com.paneedah.weaponlib.vehicle.smoothlib;
 
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import net.minecraft.util.math.Vec3d;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class PTIVec {
 	

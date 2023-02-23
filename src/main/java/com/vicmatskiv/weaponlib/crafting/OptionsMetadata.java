@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.crafting;
+package com.paneedah.weaponlib.crafting;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBlocks;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleItems;
+import com.paneedah.weaponlib.compatibility.CompatibleBlocks;
+import com.paneedah.weaponlib.compatibility.CompatibleItems;
 
 import java.util.LinkedHashMap;
 

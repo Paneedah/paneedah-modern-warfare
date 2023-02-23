@@ -1,15 +1,15 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleGuiButton;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleInventoryTabs;
+import com.paneedah.weaponlib.compatibility.CompatibleGuiButton;
+import com.paneedah.weaponlib.compatibility.CompatibleInventoryTabs;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiInventory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class InventoryTabs extends CompatibleInventoryTabs {
 

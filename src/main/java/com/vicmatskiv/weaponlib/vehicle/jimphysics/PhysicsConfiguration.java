@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics;
+package com.paneedah.weaponlib.vehicle.jimphysics;
 
-import com.vicmatskiv.weaponlib.vehicle.GearShiftPattern;
-import com.vicmatskiv.weaponlib.vehicle.collisions.VehicleInertiaBuilder;
-import com.vicmatskiv.weaponlib.vehicle.collisions.VehicleMassObject;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
+import com.paneedah.weaponlib.vehicle.GearShiftPattern;
+import com.paneedah.weaponlib.vehicle.collisions.VehicleInertiaBuilder;
+import com.paneedah.weaponlib.vehicle.collisions.VehicleMassObject;
+import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
 import net.minecraft.util.math.Vec3d;
 
 public class PhysicsConfiguration {

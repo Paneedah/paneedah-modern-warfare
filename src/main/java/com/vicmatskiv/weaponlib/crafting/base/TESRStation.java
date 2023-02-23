@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.crafting.base;
+package com.paneedah.weaponlib.crafting.base;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

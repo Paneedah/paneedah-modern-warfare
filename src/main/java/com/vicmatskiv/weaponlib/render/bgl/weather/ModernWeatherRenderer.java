@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.render.bgl.weather;
+package com.paneedah.weaponlib.render.bgl.weather;
 
-import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.animation.ClientValueRepo;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 @SideOnly(Side.CLIENT)
 public class ModernWeatherRenderer extends IRenderHandler {

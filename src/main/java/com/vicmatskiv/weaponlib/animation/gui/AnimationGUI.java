@@ -1,17 +1,17 @@
-package com.vicmatskiv.weaponlib.animation.gui;
+package com.paneedah.weaponlib.animation.gui;
 
-import com.vicmatskiv.weaponlib.AttachmentCategory;
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.PlayerWeaponInstance;
-import com.vicmatskiv.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
-import com.vicmatskiv.weaponlib.WeaponRenderer.Builder;
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.animation.DebugPositioner;
-import com.vicmatskiv.weaponlib.animation.DebugPositioner.Position;
-import com.vicmatskiv.weaponlib.animation.OpenGLSelectionHelper;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleWeaponRenderer;
-import com.vicmatskiv.weaponlib.compatibility.RecoilParam;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.PlayerWeaponInstance;
+import com.paneedah.weaponlib.WeaponAttachmentAspect.ChangeAttachmentPermit;
+import com.paneedah.weaponlib.WeaponRenderer.Builder;
+import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.DebugPositioner;
+import com.paneedah.weaponlib.animation.DebugPositioner.Position;
+import com.paneedah.weaponlib.animation.OpenGLSelectionHelper;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.compatibility.CompatibleWeaponRenderer;
+import com.paneedah.weaponlib.compatibility.RecoilParam;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.network.NetworkPlayerInfo;
@@ -34,7 +34,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class AnimationGUI {
 	

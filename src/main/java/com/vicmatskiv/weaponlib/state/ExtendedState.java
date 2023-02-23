@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.state;
+package com.paneedah.weaponlib.state;
 
 public interface ExtendedState<T extends ManagedState<T>> {
 

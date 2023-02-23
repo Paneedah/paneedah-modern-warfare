@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.particle;
+package com.paneedah.weaponlib.particle;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
 
 public class SpawnParticleMessage implements CompatibleMessage {

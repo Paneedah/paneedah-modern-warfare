@@ -1,19 +1,19 @@
-package com.vicmatskiv.mw.items.guns;
+package com.paneedah.mw.items.guns;
 
-import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.models.M9A1rearsight;
-import com.vicmatskiv.mw.models.P2022;
-import com.vicmatskiv.mw.models.P2022Slide;
-import com.vicmatskiv.mw.models.P226frontsight;
-import com.vicmatskiv.mw.weapons.Attachments;
-import com.vicmatskiv.mw.weapons.AuxiliaryAttachments;
-import com.vicmatskiv.mw.weapons.Magazines;
-import com.vicmatskiv.weaponlib.AttachmentCategory;
-import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.Weapon;
-import com.vicmatskiv.weaponlib.WeaponRenderer;
-import com.vicmatskiv.weaponlib.animation.Transition;
+import com.paneedah.mw.CommonProxy;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.mw.models.M9A1rearsight;
+import com.paneedah.mw.models.P2022;
+import com.paneedah.mw.models.P2022Slide;
+import com.paneedah.mw.models.P226frontsight;
+import com.paneedah.mw.weapons.Attachments;
+import com.paneedah.mw.weapons.AuxiliaryAttachments;
+import com.paneedah.mw.weapons.Magazines;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.Weapon;
+import com.paneedah.weaponlib.WeaponRenderer;
+import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 

@@ -9,9 +9,9 @@
 
 
 
-package com.vicmatskiv.mw.models;
+package com.paneedah.mw.models;
 
-import com.vicmatskiv.weaponlib.ai.EntityCustomMob;
+import com.paneedah.weaponlib.ai.EntityCustomMob;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

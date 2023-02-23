@@ -1,17 +1,17 @@
-package com.vicmatskiv.weaponlib.perspective;
+package com.paneedah.weaponlib.perspective;
 
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.RenderContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleParticleManager;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderTickEvent;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleWorldRenderer;
-import com.vicmatskiv.weaponlib.compatibility.Framebuffers;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderContext;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupManager;
+import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.RenderContext;
+import com.paneedah.weaponlib.compatibility.CompatibleParticleManager;
+import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
+import com.paneedah.weaponlib.compatibility.Framebuffers;
+import com.paneedah.weaponlib.shader.DynamicShaderContext;
+import com.paneedah.weaponlib.shader.DynamicShaderGroupManager;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.shader.Framebuffer;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public abstract class Perspective<S> {
 

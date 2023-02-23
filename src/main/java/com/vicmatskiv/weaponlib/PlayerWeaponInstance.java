@@ -1,17 +1,17 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.animation.gui.AnimationGUI;
-import com.vicmatskiv.weaponlib.command.DebugCommand;
-import com.vicmatskiv.weaponlib.compatibility.RecoilParam;
-import com.vicmatskiv.weaponlib.config.BalancePackManager;
-import com.vicmatskiv.weaponlib.network.TypeRegistry;
-import com.vicmatskiv.weaponlib.perspective.OpticalScopePerspective;
-import com.vicmatskiv.weaponlib.perspective.Perspective;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupSource;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderGroupSourceProvider;
-import com.vicmatskiv.weaponlib.shader.DynamicShaderPhase;
+import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.gui.AnimationGUI;
+import com.paneedah.weaponlib.command.DebugCommand;
+import com.paneedah.weaponlib.compatibility.RecoilParam;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.weaponlib.perspective.OpticalScopePerspective;
+import com.paneedah.weaponlib.perspective.Perspective;
+import com.paneedah.weaponlib.shader.DynamicShaderGroupSource;
+import com.paneedah.weaponlib.shader.DynamicShaderGroupSourceProvider;
+import com.paneedah.weaponlib.shader.DynamicShaderPhase;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
@@ -28,8 +28,8 @@ import java.util.Deque;
 import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
 public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implements DynamicShaderGroupSourceProvider {
@@ -49,17 +49,17 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
     private static final UUID BLUR_SOURCE_UUID = UUID.randomUUID();
 
     public final DynamicShaderGroupSource BLUR_SOURCE = new DynamicShaderGroupSource(BLUR_SOURCE_UUID,
-            new ResourceLocation("weaponlib:/com/vicmatskiv/weaponlib/resources/blur.json"))
+            new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/blur.json"))
             .withUniform("Radius", context -> hasOpticScope() ? 10f : 5f)
             .withUniform("Progress", context -> getAimChangeProgress());
 
     public final DynamicShaderGroupSource NIGHT_VISION_SOURCE = new DynamicShaderGroupSource(NIGHT_VISION_SOURCE_UUID,
-            new ResourceLocation("weaponlib:/com/vicmatskiv/weaponlib/resources/night-vision.json"))
+            new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/night-vision.json"))
             .withUniform("IntensityAdjust", context -> 40f - mc.gameSettings.gammaSetting * 38)
             .withUniform("NoiseAmplification", context ->  2f + 3f * mc.gameSettings.gammaSetting);
 
     public final DynamicShaderGroupSource VIGNETTE_SOURCE = new DynamicShaderGroupSource(VIGNETTE_SOURCE_UUID,
-            new ResourceLocation("weaponlib:/com/vicmatskiv/weaponlib/resources/vignette.json"))
+            new ResourceLocation("weaponlib:/com/paneedah/weaponlib/resources/vignette.json"))
             .withUniform("Radius", context -> getOpticScopeVignetteRadius(context.getPartialTicks()))
            // .withUniform("Velocity", context -> new float[]{CompatibleClientEventHandler.scopeVelX, CompatibleClientEventHandler.scopeVelY})
             .withUniform("Reticle", context -> {

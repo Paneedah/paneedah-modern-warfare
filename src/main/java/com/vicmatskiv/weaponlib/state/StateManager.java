@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.state;
+package com.paneedah.weaponlib.state;
 
-import com.vicmatskiv.weaponlib.state.Permit.Status;
+import com.paneedah.weaponlib.state.Permit.Status;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

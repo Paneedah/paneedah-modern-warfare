@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.network;
+package com.paneedah.weaponlib.network;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
-import com.vicmatskiv.weaponlib.state.Permit;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.state.Permit;
 import io.netty.buffer.ByteBuf;
 
 public class PermitMessage implements CompatibleMessage {

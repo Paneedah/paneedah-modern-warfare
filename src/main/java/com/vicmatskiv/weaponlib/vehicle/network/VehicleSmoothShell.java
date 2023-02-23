@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.vehicle.network;
+package com.paneedah.weaponlib.vehicle.network;
 
-import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.weaponlib.vehicle.EntityVehicle;
+import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import net.minecraft.entity.MoverType;
 import net.minecraft.util.math.Vec3d;
 

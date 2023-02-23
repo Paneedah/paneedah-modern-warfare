@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics.stability.numerical.vehicle;
+package com.paneedah.weaponlib.vehicle.jimphysics.stability.numerical.vehicle;
 
 public class WheelSolutionVector {
 

@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.mission.Mission;
-import com.vicmatskiv.weaponlib.network.TypeRegistry;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.mission.Mission;
+import com.paneedah.weaponlib.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.entity.Entity;

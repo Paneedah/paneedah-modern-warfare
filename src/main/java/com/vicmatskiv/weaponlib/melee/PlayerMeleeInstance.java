@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.melee;
+package com.paneedah.weaponlib.melee;
 
-import com.vicmatskiv.weaponlib.AttachmentCategory;
-import com.vicmatskiv.weaponlib.CompatibleAttachment;
-import com.vicmatskiv.weaponlib.ItemAttachment;
-import com.vicmatskiv.weaponlib.PlayerItemInstance;
-import com.vicmatskiv.weaponlib.network.TypeRegistry;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.CompatibleAttachment;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.weaponlib.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;

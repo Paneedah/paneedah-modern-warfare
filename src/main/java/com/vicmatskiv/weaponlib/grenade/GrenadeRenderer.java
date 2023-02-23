@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.grenade;
+package com.paneedah.weaponlib.grenade;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.animation.*;
-import com.vicmatskiv.weaponlib.animation.DebugPositioner.TransitionConfiguration;
-import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleGrenadeRenderer;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.animation.*;
+import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
+import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
+import com.paneedah.weaponlib.compatibility.CompatibleGrenadeRenderer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -19,8 +19,8 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 

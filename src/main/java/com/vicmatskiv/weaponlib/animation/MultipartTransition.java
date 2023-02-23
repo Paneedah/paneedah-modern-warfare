@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.HashMap;

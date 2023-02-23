@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.vehicle.collisions.GJKResult;
-import com.vicmatskiv.weaponlib.vehicle.collisions.OBBCollider;
-import com.vicmatskiv.weaponlib.vehicle.collisions.OreintedBB;
+import com.paneedah.weaponlib.vehicle.collisions.GJKResult;
+import com.paneedah.weaponlib.vehicle.collisions.OBBCollider;
+import com.paneedah.weaponlib.vehicle.collisions.OreintedBB;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
 
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class RopeSimulation {
 	

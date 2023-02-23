@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw;
+package com.paneedah.mw;
 
-import com.vicmatskiv.weaponlib.UniversalSoundLookup;
+import com.paneedah.weaponlib.UniversalSoundLookup;
 
 /**
  * 

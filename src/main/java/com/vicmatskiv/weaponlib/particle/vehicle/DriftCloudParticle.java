@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.particle.vehicle;
+package com.paneedah.weaponlib.particle.vehicle;
 
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;

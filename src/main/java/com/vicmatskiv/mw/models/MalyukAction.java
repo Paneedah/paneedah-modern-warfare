@@ -1,7 +1,7 @@
-package com.vicmatskiv.mw.models;
+package com.paneedah.mw.models;
 
-import com.vicmatskiv.weaponlib.ModelWithAttachments;
-import com.vicmatskiv.weaponlib.render.qrender.QRenderer;
+import com.paneedah.weaponlib.ModelWithAttachments;
+import com.paneedah.weaponlib.render.qrender.QRenderer;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

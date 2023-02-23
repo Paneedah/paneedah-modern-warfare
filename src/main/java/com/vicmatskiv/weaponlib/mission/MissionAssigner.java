@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
 import net.minecraft.entity.player.EntityPlayer;
 

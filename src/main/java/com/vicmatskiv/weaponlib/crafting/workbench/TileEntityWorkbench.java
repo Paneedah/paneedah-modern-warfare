@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib.crafting.workbench;
+package com.paneedah.weaponlib.crafting.workbench;
 
-import com.vicmatskiv.weaponlib.crafting.CraftingGroup;
-import com.vicmatskiv.weaponlib.crafting.CraftingRegistry;
-import com.vicmatskiv.weaponlib.crafting.IModernCrafting;
-import com.vicmatskiv.weaponlib.crafting.base.TileEntityStation;
+import com.paneedah.weaponlib.crafting.CraftingGroup;
+import com.paneedah.weaponlib.crafting.CraftingRegistry;
+import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

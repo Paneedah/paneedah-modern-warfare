@@ -1,13 +1,13 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.animation.DebugPositioner;
-import com.vicmatskiv.weaponlib.animation.MultipartPositioning;
-import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
-import com.vicmatskiv.weaponlib.animation.MultipartRenderStateManager;
-import com.vicmatskiv.weaponlib.grenade.GrenadeRenderer.Builder;
-import com.vicmatskiv.weaponlib.grenade.PlayerGrenadeInstance;
-import com.vicmatskiv.weaponlib.grenade.RenderableState;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.animation.DebugPositioner;
+import com.paneedah.weaponlib.animation.MultipartPositioning;
+import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
+import com.paneedah.weaponlib.animation.MultipartRenderStateManager;
+import com.paneedah.weaponlib.grenade.GrenadeRenderer.Builder;
+import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
+import com.paneedah.weaponlib.grenade.RenderableState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -30,7 +30,7 @@ import javax.vecmath.Matrix4f;
 import java.util.Collections;
 import java.util.List;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public abstract class CompatibleGrenadeRenderer extends ModelSourceRenderer implements IBakedModel {
 

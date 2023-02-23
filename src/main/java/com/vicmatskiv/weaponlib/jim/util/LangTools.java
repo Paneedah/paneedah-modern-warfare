@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.jim.util;
+package com.paneedah.weaponlib.jim.util;
 
 import net.minecraft.client.resources.I18n;
 

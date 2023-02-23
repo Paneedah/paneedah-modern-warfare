@@ -1,37 +1,37 @@
-package com.vicmatskiv.mw;
+package com.paneedah.mw;
 
-import com.vicmatskiv.mw.entities.Entities;
-import com.vicmatskiv.mw.items.melee.BaseballBatFactory;
-import com.vicmatskiv.mw.items.melee.BaseballBatNailsFactory;
-import com.vicmatskiv.mw.items.melee.NightStickFactory;
-import com.vicmatskiv.mw.items.melee.TacticalTomahawkFactory;
-import com.vicmatskiv.mw.ores.Ores;
-import com.vicmatskiv.mw.skins.GunSkins;
-import com.vicmatskiv.mw.skins.MeleeSkins;
-import com.vicmatskiv.mw.tileentities.TileEntities;
-import com.vicmatskiv.mw.vehicle.Vehicles;
-import com.vicmatskiv.mw.weapons.Attachments;
-import com.vicmatskiv.mw.weapons.AuxiliaryAttachments;
-import com.vicmatskiv.mw.weapons.Guns;
-import com.vicmatskiv.mw.weapons.Magazines;
-import com.vicmatskiv.mw.wearables.Armors;
-import com.vicmatskiv.mw.wearables.Backpacks;
-import com.vicmatskiv.mw.wearables.Bullets;
-import com.vicmatskiv.mw.wearables.Vests;
-import com.vicmatskiv.weaponlib.UniversalSoundLookup;
-import com.vicmatskiv.weaponlib.animation.SpecialAttachments;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleChannel;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlInitializationEvent;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMaterial;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
-import com.vicmatskiv.weaponlib.vehicle.network.VehicleDataSerializer;
-import com.vicmatskiv.weaponlib.vehicle.network.VehiclePhysSerializer;
+import com.paneedah.mw.entities.Entities;
+import com.paneedah.mw.items.melee.BaseballBatFactory;
+import com.paneedah.mw.items.melee.BaseballBatNailsFactory;
+import com.paneedah.mw.items.melee.NightStickFactory;
+import com.paneedah.mw.items.melee.TacticalTomahawkFactory;
+import com.paneedah.mw.ores.Ores;
+import com.paneedah.mw.skins.GunSkins;
+import com.paneedah.mw.skins.MeleeSkins;
+import com.paneedah.mw.tileentities.TileEntities;
+import com.paneedah.mw.vehicle.Vehicles;
+import com.paneedah.mw.weapons.Attachments;
+import com.paneedah.mw.weapons.AuxiliaryAttachments;
+import com.paneedah.mw.weapons.Guns;
+import com.paneedah.mw.weapons.Magazines;
+import com.paneedah.mw.wearables.Armors;
+import com.paneedah.mw.wearables.Backpacks;
+import com.paneedah.mw.wearables.Bullets;
+import com.paneedah.mw.wearables.Vests;
+import com.paneedah.weaponlib.UniversalSoundLookup;
+import com.paneedah.weaponlib.animation.SpecialAttachments;
+import com.paneedah.weaponlib.compatibility.CompatibleChannel;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleMaterial;
+import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
+import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class CommonProxy {
 
@@ -187,7 +187,7 @@ public class CommonProxy {
         Bullets.init(mod, configurationManager, event);
         Magazines.init(mod, configurationManager, event);
         Guns.init(mod, configurationManager, event, this);
-        com.vicmatskiv.mw.Electronics.init(mod, configurationManager, event);
+        com.paneedah.mw.Electronics.init(mod, configurationManager, event);
         Grenades.init(mod, configurationManager, event, this);
         CustomSpawnEggs.init(mod, configurationManager, event, this);
         

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle.network;
+package com.paneedah.weaponlib.vehicle.network;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
 
 public class VehicleInteractPacket implements CompatibleMessage {

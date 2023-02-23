@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.config.novel;
+package com.paneedah.weaponlib.config.novel;
 
-import com.vicmatskiv.weaponlib.jim.util.VMWHooksHandler;
+import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
 import net.minecraftforge.common.config.Config.RangeDouble;
 import net.minecraftforge.common.config.Config.RangeInt;
 import net.minecraftforge.common.config.Config.RequiresMcRestart;

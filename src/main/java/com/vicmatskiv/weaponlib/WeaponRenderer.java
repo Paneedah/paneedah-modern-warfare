@@ -1,24 +1,24 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import akka.japi.Pair;
-import com.vicmatskiv.weaponlib.animation.*;
-import com.vicmatskiv.weaponlib.animation.DebugPositioner.TransitionConfiguration;
-import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
-import com.vicmatskiv.weaponlib.animation.gui.AnimationGUI;
-import com.vicmatskiv.weaponlib.animation.jim.AnimationData;
-import com.vicmatskiv.weaponlib.animation.jim.AnimationSet;
-import com.vicmatskiv.weaponlib.animation.jim.BBLoader;
-import com.vicmatskiv.weaponlib.animation.jim.SingleAnimation;
-import com.vicmatskiv.weaponlib.command.DebugCommand;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleWeaponRenderer;
-import com.vicmatskiv.weaponlib.compatibility.Interceptors;
-import com.vicmatskiv.weaponlib.config.BalancePackManager;
-import com.vicmatskiv.weaponlib.config.Projectiles;
-import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
-import com.vicmatskiv.weaponlib.jim.util.VMWHooksHandler;
-import com.vicmatskiv.weaponlib.render.MuzzleFlashRenderer;
-import com.vicmatskiv.weaponlib.render.Shaders;
+import com.paneedah.weaponlib.animation.*;
+import com.paneedah.weaponlib.animation.DebugPositioner.TransitionConfiguration;
+import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
+import com.paneedah.weaponlib.animation.gui.AnimationGUI;
+import com.paneedah.weaponlib.animation.jim.AnimationData;
+import com.paneedah.weaponlib.animation.jim.AnimationSet;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
+import com.paneedah.weaponlib.animation.jim.SingleAnimation;
+import com.paneedah.weaponlib.command.DebugCommand;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.compatibility.CompatibleWeaponRenderer;
+import com.paneedah.weaponlib.compatibility.Interceptors;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.Projectiles;
+import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
+import com.paneedah.weaponlib.render.MuzzleFlashRenderer;
+import com.paneedah.weaponlib.render.Shaders;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -42,8 +42,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponRenderer extends CompatibleWeaponRenderer {
 

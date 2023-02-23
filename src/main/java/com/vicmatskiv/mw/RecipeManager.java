@@ -1,12 +1,12 @@
-package com.vicmatskiv.mw;
+package com.paneedah.mw;
 
-import com.vicmatskiv.mw.ores.Ores;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleItems;
+import com.paneedah.mw.ores.Ores;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.compatibility.CompatibleItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class RecipeManager {
 

@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.electronics;
+package com.paneedah.weaponlib.electronics;
 
 import java.util.Random;
 

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.state;
+package com.paneedah.weaponlib.state;
 
-import com.vicmatskiv.weaponlib.network.UniversallySerializable;
+import com.paneedah.weaponlib.network.UniversallySerializable;
 
 public interface ManagedState<T extends ManagedState<T>> extends UniversallySerializable {
 

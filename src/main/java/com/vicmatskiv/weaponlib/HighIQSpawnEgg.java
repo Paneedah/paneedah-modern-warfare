@@ -1,12 +1,12 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import akka.japi.Predicate;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleItem;
-import com.vicmatskiv.weaponlib.compatibility.ModelRegistryServerInterchange;
-import com.vicmatskiv.weaponlib.crafting.CraftingEntry;
-import com.vicmatskiv.weaponlib.crafting.CraftingGroup;
-import com.vicmatskiv.weaponlib.crafting.CraftingRegistry;
-import com.vicmatskiv.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.compatibility.CompatibleItem;
+import com.paneedah.weaponlib.compatibility.ModelRegistryServerInterchange;
+import com.paneedah.weaponlib.crafting.CraftingEntry;
+import com.paneedah.weaponlib.crafting.CraftingGroup;
+import com.paneedah.weaponlib.crafting.CraftingRegistry;
+import com.paneedah.weaponlib.crafting.IModernCrafting;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;

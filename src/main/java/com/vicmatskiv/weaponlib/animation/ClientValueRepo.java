@@ -1,17 +1,17 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
 import akka.japi.Pair;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.PlayerWeaponInstance;
-import com.vicmatskiv.weaponlib.compatibility.Interceptors;
-import com.vicmatskiv.weaponlib.compatibility.RecoilParam;
-import com.vicmatskiv.weaponlib.numerical.LerpedValue;
-import com.vicmatskiv.weaponlib.numerical.RandomVector;
-import com.vicmatskiv.weaponlib.numerical.SpringValue;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.PlayerWeaponInstance;
+import com.paneedah.weaponlib.compatibility.Interceptors;
+import com.paneedah.weaponlib.compatibility.RecoilParam;
+import com.paneedah.weaponlib.numerical.LerpedValue;
+import com.paneedah.weaponlib.numerical.RandomVector;
+import com.paneedah.weaponlib.numerical.SpringValue;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 /**
  * Stores a bunch of values that need to update on an interval, and typically

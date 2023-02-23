@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
 import com.google.gson.*;
-import com.vicmatskiv.weaponlib.network.UniversallySerializable;
+import com.paneedah.weaponlib.network.UniversallySerializable;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

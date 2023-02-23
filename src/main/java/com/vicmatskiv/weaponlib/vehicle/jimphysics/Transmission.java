@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics;
+package com.paneedah.weaponlib.vehicle.jimphysics;
 
-import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
+import com.paneedah.weaponlib.vehicle.EntityVehicle;
 
 import java.util.ArrayList;
 

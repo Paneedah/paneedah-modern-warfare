@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
 import com.google.gson.JsonSyntaxException;
 import net.minecraft.client.renderer.texture.TextureManager;

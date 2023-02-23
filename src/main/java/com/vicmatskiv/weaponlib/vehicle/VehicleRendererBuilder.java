@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
-import com.vicmatskiv.weaponlib.animation.MultipartRenderStateManager;
-import com.vicmatskiv.weaponlib.vehicle.HierarchicalPartRenderer.SinglePart;
+import com.paneedah.weaponlib.animation.MultipartRenderStateManager;
+import com.paneedah.weaponlib.vehicle.HierarchicalPartRenderer.SinglePart;
 
 import java.util.ArrayList;
 import java.util.Arrays;

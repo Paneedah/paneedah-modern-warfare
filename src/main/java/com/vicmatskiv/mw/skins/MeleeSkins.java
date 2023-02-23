@@ -1,12 +1,12 @@
-package com.vicmatskiv.mw.skins;
+package com.paneedah.mw.skins;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleItems;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
-import com.vicmatskiv.weaponlib.melee.MeleeSkin;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleItems;
+import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.melee.MeleeSkin;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class MeleeSkins {
 

@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.animation.MultipartRenderStateManager;
-import com.vicmatskiv.weaponlib.animation.MultipartTransition;
-import com.vicmatskiv.weaponlib.animation.MultipartTransitionProvider;
-import com.vicmatskiv.weaponlib.vehicle.HierarchicalPartRenderer.SinglePart;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.animation.MultipartRenderStateManager;
+import com.paneedah.weaponlib.animation.MultipartTransition;
+import com.paneedah.weaponlib.animation.MultipartTransitionProvider;
+import com.paneedah.weaponlib.vehicle.HierarchicalPartRenderer.SinglePart;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.util.ResourceLocation;
 

@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.animation.jim;
+package com.paneedah.weaponlib.animation.jim;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.vicmatskiv.weaponlib.Weapon;
-import com.vicmatskiv.weaponlib.animation.Transform;
+import com.paneedah.weaponlib.Weapon;
+import com.paneedah.weaponlib.animation.Transform;
 import net.minecraft.util.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class BBLoader {
 	

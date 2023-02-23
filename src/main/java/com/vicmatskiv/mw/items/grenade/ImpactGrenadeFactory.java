@@ -1,13 +1,13 @@
-package com.vicmatskiv.mw.items.grenade;
+package com.paneedah.mw.items.grenade;
 
-import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.models.ImpactGrenade;
-import com.vicmatskiv.weaponlib.RenderContext;
-import com.vicmatskiv.weaponlib.animation.Transition;
-import com.vicmatskiv.weaponlib.grenade.GrenadeRenderer;
-import com.vicmatskiv.weaponlib.grenade.ItemGrenade;
-import com.vicmatskiv.weaponlib.grenade.RenderableState;
+import com.paneedah.mw.CommonProxy;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.mw.models.ImpactGrenade;
+import com.paneedah.weaponlib.RenderContext;
+import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.grenade.GrenadeRenderer;
+import com.paneedah.weaponlib.grenade.ItemGrenade;
+import com.paneedah.weaponlib.grenade.RenderableState;
 import org.lwjgl.opengl.GL11;
 
 public class ImpactGrenadeFactory implements GrenadeFactory {

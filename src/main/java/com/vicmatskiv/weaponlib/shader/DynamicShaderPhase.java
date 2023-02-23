@@ -1,12 +1,12 @@
-package com.vicmatskiv.weaponlib.shader;
+package com.paneedah.weaponlib.shader;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleWorldRenderer;
+import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.shader.ShaderGroup;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public interface DynamicShaderPhase {
 

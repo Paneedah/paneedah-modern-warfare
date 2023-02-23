@@ -1,23 +1,23 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.animation.ScreenShakingAnimationManager;
-import com.vicmatskiv.weaponlib.command.DebugCommand;
-import com.vicmatskiv.weaponlib.command.MainCommand;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleChannel;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderingRegistry;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
-import com.vicmatskiv.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
-import com.vicmatskiv.weaponlib.crafting.workbench.GUIContainerWorkbench;
-import com.vicmatskiv.weaponlib.electronics.EntityWirelessCamera;
-import com.vicmatskiv.weaponlib.electronics.WirelessCameraRenderer;
-import com.vicmatskiv.weaponlib.grenade.*;
-import com.vicmatskiv.weaponlib.inventory.InventoryTabs;
-import com.vicmatskiv.weaponlib.melee.ItemMelee;
-import com.vicmatskiv.weaponlib.melee.MeleeRenderer;
-import com.vicmatskiv.weaponlib.melee.PlayerMeleeInstance;
-import com.vicmatskiv.weaponlib.perspective.PerspectiveManager;
+import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager;
+import com.paneedah.weaponlib.command.DebugCommand;
+import com.paneedah.weaponlib.command.MainCommand;
+import com.paneedah.weaponlib.compatibility.CompatibleChannel;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.CompatibleRenderingRegistry;
+import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.crafting.ammopress.GUIContainerAmmoPress;
+import com.paneedah.weaponlib.crafting.workbench.GUIContainerWorkbench;
+import com.paneedah.weaponlib.electronics.EntityWirelessCamera;
+import com.paneedah.weaponlib.electronics.WirelessCameraRenderer;
+import com.paneedah.weaponlib.grenade.*;
+import com.paneedah.weaponlib.inventory.InventoryTabs;
+import com.paneedah.weaponlib.melee.ItemMelee;
+import com.paneedah.weaponlib.melee.MeleeRenderer;
+import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
+import com.paneedah.weaponlib.perspective.PerspectiveManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
@@ -38,8 +38,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ClientModContext extends CommonModContext {
 

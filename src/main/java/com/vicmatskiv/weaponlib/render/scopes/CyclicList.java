@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render.scopes;
+package com.paneedah.weaponlib.render.scopes;
 
 import java.util.LinkedList;
 

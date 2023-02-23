@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class MissionGuiButton extends GuiButton {
 
     protected static ResourceLocation BUTTON_TEXTURES = new ResourceLocation("weaponlib",
-            "/com/vicmatskiv/weaponlib/resources/mission-buttons.png");
+            "/com/paneedah/weaponlib/resources/mission-buttons.png");
 
     private int textureWidth = 200;
     private int textureHeight = 90;

@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.StaticModelSourceRenderer.Builder;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.StaticModelSourceRenderer.Builder;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -29,8 +29,8 @@ import javax.vecmath.Matrix4f;
 import java.util.Collections;
 import java.util.List;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public abstract class CompatibleStaticModelSourceRenderer extends ModelSourceRenderer implements IBakedModel {
 

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.ItemStorage;
+import com.paneedah.weaponlib.ItemStorage;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

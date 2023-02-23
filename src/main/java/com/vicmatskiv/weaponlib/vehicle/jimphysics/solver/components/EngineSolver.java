@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.components;
+package com.paneedah.weaponlib.vehicle.jimphysics.solver.components;
 
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Engine;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.MechanicalClutch;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Transmission;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.VehiclePhysUtil;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.engines.FlywheelSolver;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
+import com.paneedah.weaponlib.vehicle.jimphysics.Engine;
+import com.paneedah.weaponlib.vehicle.jimphysics.MechanicalClutch;
+import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
+import com.paneedah.weaponlib.vehicle.jimphysics.VehiclePhysUtil;
+import com.paneedah.weaponlib.vehicle.jimphysics.engines.FlywheelSolver;
+import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
 
 public class EngineSolver {
 

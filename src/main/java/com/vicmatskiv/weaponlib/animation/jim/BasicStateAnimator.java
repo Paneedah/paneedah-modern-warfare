@@ -1,12 +1,12 @@
-package com.vicmatskiv.weaponlib.animation.jim;
+package com.paneedah.weaponlib.animation.jim;
 
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
 import java.util.LinkedList;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class BasicStateAnimator {
 	

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics.solver;
+package com.paneedah.weaponlib.vehicle.jimphysics.solver;
 
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.VehiclePhysUtil;
+import com.paneedah.weaponlib.vehicle.jimphysics.VehiclePhysUtil;
 
 public class SuspensionSolver {
 	

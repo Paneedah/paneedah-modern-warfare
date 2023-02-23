@@ -1,17 +1,17 @@
- package com.vicmatskiv.weaponlib.compatibility;
+ package com.paneedah.weaponlib.compatibility;
 
  import com.google.common.collect.Maps;
- import com.vicmatskiv.weaponlib.*;
- import com.vicmatskiv.weaponlib.WeaponRenderer.Builder;
- import com.vicmatskiv.weaponlib.animation.*;
- import com.vicmatskiv.weaponlib.animation.MultipartPositioning.Positioner;
- import com.vicmatskiv.weaponlib.animation.gui.AnimationGUI;
- import com.vicmatskiv.weaponlib.animation.movement.WeaponRotationHandler;
- import com.vicmatskiv.weaponlib.command.DebugCommand;
- import com.vicmatskiv.weaponlib.config.BalancePackManager;
- import com.vicmatskiv.weaponlib.render.*;
- import com.vicmatskiv.weaponlib.render.SpriteSheetTools.Sprite;
- import com.vicmatskiv.weaponlib.shader.jim.Shader;
+ import com.paneedah.weaponlib.*;
+ import com.paneedah.weaponlib.WeaponRenderer.Builder;
+ import com.paneedah.weaponlib.animation.*;
+ import com.paneedah.weaponlib.animation.MultipartPositioning.Positioner;
+ import com.paneedah.weaponlib.animation.gui.AnimationGUI;
+ import com.paneedah.weaponlib.animation.movement.WeaponRotationHandler;
+ import com.paneedah.weaponlib.command.DebugCommand;
+ import com.paneedah.weaponlib.config.BalancePackManager;
+ import com.paneedah.weaponlib.render.*;
+ import com.paneedah.weaponlib.render.SpriteSheetTools.Sprite;
+ import com.paneedah.weaponlib.shader.jim.Shader;
  import net.minecraft.block.state.IBlockState;
  import net.minecraft.client.entity.AbstractClientPlayer;
  import net.minecraft.client.gui.ScaledResolution;
@@ -63,7 +63,7 @@
  import java.util.List;
  import java.util.Map;
 
- import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+ import static com.paneedah.mw.ModernWarfareMod.mc;
 		
 
 public abstract class CompatibleWeaponRenderer extends ModelSourceRenderer implements IBakedModel {

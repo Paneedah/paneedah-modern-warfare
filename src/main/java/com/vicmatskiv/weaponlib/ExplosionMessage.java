@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import com.google.common.collect.Lists;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBlockPos;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleVec3;
+import com.paneedah.weaponlib.compatibility.CompatibleBlockPos;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.CompatibleVec3;
 import io.netty.buffer.ByteBuf;
 
 import java.util.ArrayList;

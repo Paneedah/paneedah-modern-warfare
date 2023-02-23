@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import net.minecraft.entity.Entity;
 import org.objectweb.asm.ClassWriter;
@@ -92,30 +92,30 @@ public class EntityClassFactory implements Opcodes {
             mv.visitEnd();
         }
 //        {
-//            mv = cw.visitMethod(ACC_PUBLIC, "getConfiguration", "()Lcom/vicmatskiv/weaponlib/vehicle/EntityVehicleConfiguration;", null, null);
+//            mv = cw.visitMethod(ACC_PUBLIC, "getConfiguration", "()Lcom/paneedah/weaponlib/vehicle/EntityVehicleConfiguration;", null, null);
 //            mv.visitCode();
 //            Label l0 = new Label();
 //            mv.visitLabel(l0);
 //            mv.visitLineNumber(689, l0);
 //            mv.visitVarInsn(ALOAD, 0);
-//            mv.visitFieldInsn(GETFIELD, classResourceName, "configuration", "Lcom/vicmatskiv/weaponlib/vehicle/EntityVehicleConfiguration;");
+//            mv.visitFieldInsn(GETFIELD, classResourceName, "configuration", "Lcom/paneedah/weaponlib/vehicle/EntityVehicleConfiguration;");
 //            Label l1 = new Label();
 //            mv.visitJumpInsn(IFNONNULL, l1);
 //            Label l2 = new Label();
 //            mv.visitLabel(l2);
 //            mv.visitLineNumber(690, l2);
 //            mv.visitVarInsn(ALOAD, 0);
-//            mv.visitMethodInsn(INVOKESTATIC, "com/vicmatskiv/weaponlib/EntityClassFactory", "getInstance", "()Lcom/vicmatskiv/weaponlib/EntityClassFactory;", false);
+//            mv.visitMethodInsn(INVOKESTATIC, "com/paneedah/weaponlib/EntityClassFactory", "getInstance", "()Lcom/paneedah/weaponlib/EntityClassFactory;", false);
 //            mv.visitVarInsn(ALOAD, 0);
 //            mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/Object", "getClass", "()Ljava/lang/Class;", false);
-//            mv.visitMethodInsn(INVOKEVIRTUAL, "com/vicmatskiv/weaponlib/EntityClassFactory", "getConfiguration", "(Ljava/lang/Class;)Lcom/vicmatskiv/weaponlib/EntityConfiguration;", false);
-//            mv.visitTypeInsn(CHECKCAST, "com/vicmatskiv/weaponlib/vehicle/EntityVehicleConfiguration");
-//            mv.visitFieldInsn(PUTFIELD, classResourceName, "configuration", "Lcom/vicmatskiv/weaponlib/vehicle/EntityVehicleConfiguration;");
+//            mv.visitMethodInsn(INVOKEVIRTUAL, "com/paneedah/weaponlib/EntityClassFactory", "getConfiguration", "(Ljava/lang/Class;)Lcom/paneedah/weaponlib/EntityConfiguration;", false);
+//            mv.visitTypeInsn(CHECKCAST, "com/paneedah/weaponlib/vehicle/EntityVehicleConfiguration");
+//            mv.visitFieldInsn(PUTFIELD, classResourceName, "configuration", "Lcom/paneedah/weaponlib/vehicle/EntityVehicleConfiguration;");
 //            mv.visitLabel(l1);
 //            mv.visitLineNumber(692, l1);
 //            mv.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
 //            mv.visitVarInsn(ALOAD, 0);
-//            mv.visitFieldInsn(GETFIELD, classResourceName, "configuration", "Lcom/vicmatskiv/weaponlib/vehicle/EntityVehicleConfiguration;");
+//            mv.visitFieldInsn(GETFIELD, classResourceName, "configuration", "Lcom/paneedah/weaponlib/vehicle/EntityVehicleConfiguration;");
 //            mv.visitInsn(ARETURN);
 //            Label l3 = new Label();
 //            mv.visitLabel(l3);

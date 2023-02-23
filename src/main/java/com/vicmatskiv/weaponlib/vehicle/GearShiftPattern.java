@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
 import akka.japi.Pair;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Transmission;
+import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -14,7 +14,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class GearShiftPattern {
 	

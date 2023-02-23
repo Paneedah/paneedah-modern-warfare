@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.config;
+package com.paneedah.weaponlib.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

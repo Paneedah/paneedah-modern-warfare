@@ -1,7 +1,7 @@
-package com.vicmatskiv.mw.models;
+package com.paneedah.mw.models;
 
-import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
-import com.vicmatskiv.weaponlib.vehicle.VehicleModel;
+import com.paneedah.weaponlib.vehicle.EntityVehicle;
+import com.paneedah.weaponlib.vehicle.VehicleModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

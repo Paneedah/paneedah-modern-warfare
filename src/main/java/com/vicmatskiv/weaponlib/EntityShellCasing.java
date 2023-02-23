@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.Weapon.ShellCasingEjectDirection;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleExtraEntityFlags;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMathHelper;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRayTraceResult;
+import com.paneedah.weaponlib.Weapon.ShellCasingEjectDirection;
+import com.paneedah.weaponlib.compatibility.CompatibleExtraEntityFlags;
+import com.paneedah.weaponlib.compatibility.CompatibleMathHelper;
+import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,7 +16,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityShellCasing extends EntityProjectile {
 

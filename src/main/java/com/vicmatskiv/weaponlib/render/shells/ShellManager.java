@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.render.shells;
+package com.paneedah.weaponlib.render.shells;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleShellRenderer;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell;
+import com.paneedah.weaponlib.compatibility.CompatibleShellRenderer;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
 
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;

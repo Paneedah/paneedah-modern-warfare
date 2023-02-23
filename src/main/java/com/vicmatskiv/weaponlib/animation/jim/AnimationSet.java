@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.animation.jim;
+package com.paneedah.weaponlib.animation.jim;
 
 import java.util.HashMap;
 

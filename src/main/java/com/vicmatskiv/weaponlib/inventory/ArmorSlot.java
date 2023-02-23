@@ -1,13 +1,13 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSlot;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
+import com.paneedah.weaponlib.compatibility.CompatibleSlot;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ArmorSlot extends CompatibleSlot {
 

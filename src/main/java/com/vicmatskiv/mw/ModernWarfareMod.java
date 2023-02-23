@@ -1,14 +1,14 @@
-package com.vicmatskiv.mw;
+package com.paneedah.mw;
 
-import com.vicmatskiv.mw.creativetab.*;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.command.BalancePackCommand;
-import com.vicmatskiv.weaponlib.command.CraftingFileCommand;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlInitializationEvent;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.config.BalancePackManager;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
-import com.vicmatskiv.weaponlib.crafting.CraftingFileManager;
+import com.paneedah.mw.creativetab.*;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.command.BalancePackCommand;
+import com.paneedah.weaponlib.command.CraftingFileCommand;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.crafting.CraftingFileManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
@@ -24,7 +24,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 
-@Mod(modid = ModernWarfareMod.MODID, version = ModernWarfareMod.VERSION, guiFactory = "com.vicmatskiv.weaponlib.config.ConfigGUIFactory")
+@Mod(modid = ModernWarfareMod.MODID, version = ModernWarfareMod.VERSION, guiFactory = "com.paneedah.weaponlib.config.ConfigGUIFactory")
 public class ModernWarfareMod {
 
 	private static final String DEFAULT_CONFIG_RESOURCE = "/mw.cfg";
@@ -34,7 +34,7 @@ public class ModernWarfareMod {
 
     public static final Minecraft mc = Minecraft.getMinecraft();
 
-    @SidedProxy(serverSide = "com.vicmatskiv.weaponlib.CommonModContext", clientSide = "com.vicmatskiv.weaponlib.ClientModContext")
+    @SidedProxy(serverSide = "com.paneedah.weaponlib.CommonModContext", clientSide = "com.paneedah.weaponlib.ClientModContext")
     public static ModContext MOD_CONTEXT;
 
     public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
@@ -49,7 +49,7 @@ public class ModernWarfareMod {
 	public static CreativeTabs PropsTab = new PropsTab(CreativeTabs.getNextID(), "props_tab");
 	public static CreativeTabs BlocksTab = new BlocksTab(CreativeTabs.getNextID(), "BlocksTab");
 	        
-    @SidedProxy(serverSide = "com.vicmatskiv.mw.CommonProxy", clientSide = "com.vicmatskiv.mw.ClientProxy")
+    @SidedProxy(serverSide = "com.paneedah.mw.CommonProxy", clientSide = "com.paneedah.mw.ClientProxy")
     public static CommonProxy proxy;
 
     private ConfigurationManager configurationManager;

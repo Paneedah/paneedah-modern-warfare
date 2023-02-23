@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import com.vicmatskiv.weaponlib.compatibility.*;
-import com.vicmatskiv.weaponlib.particle.ExplosionSmokeFX;
+import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.particle.ExplosionSmokeFX;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,12 +18,12 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Explosion {
     
     private static final ResourceLocation SMOKE_TEXTURE = new ResourceLocation(
-            "weaponlib:/com/vicmatskiv/weaponlib/resources/large-smoke.png");
+            "weaponlib:/com/paneedah/weaponlib/resources/large-smoke.png");
 
 
     private ModContext modContext;

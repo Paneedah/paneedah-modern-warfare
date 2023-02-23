@@ -1,12 +1,12 @@
-package com.vicmatskiv.weaponlib.crafting.ammopress;
+package com.paneedah.weaponlib.crafting.ammopress;
 
-import com.vicmatskiv.weaponlib.ItemBullet;
-import com.vicmatskiv.weaponlib.ItemMagazine;
-import com.vicmatskiv.weaponlib.Tags;
-import com.vicmatskiv.weaponlib.crafting.CraftingEntry;
-import com.vicmatskiv.weaponlib.crafting.CraftingGroup;
-import com.vicmatskiv.weaponlib.crafting.IModernCrafting;
-import com.vicmatskiv.weaponlib.crafting.base.TileEntityStation;
+import com.paneedah.weaponlib.ItemBullet;
+import com.paneedah.weaponlib.ItemMagazine;
+import com.paneedah.weaponlib.Tags;
+import com.paneedah.weaponlib.crafting.CraftingEntry;
+import com.paneedah.weaponlib.crafting.CraftingGroup;
+import com.paneedah.weaponlib.crafting.IModernCrafting;
+import com.paneedah.weaponlib.crafting.base.TileEntityStation;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

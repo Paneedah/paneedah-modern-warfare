@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleModelBiped;
+import com.paneedah.weaponlib.compatibility.CompatibleModelBiped;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.List;
 import java.util.Random;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class ModelBipedWithAttachments extends CompatibleModelBiped {
 	

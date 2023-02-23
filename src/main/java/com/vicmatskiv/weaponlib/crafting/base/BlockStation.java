@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.crafting.base;
+package com.paneedah.weaponlib.crafting.base;
 
-import com.vicmatskiv.weaponlib.ClientEventHandler;
-import com.vicmatskiv.weaponlib.ModContext;
+import com.paneedah.weaponlib.ClientEventHandler;
+import com.paneedah.weaponlib.ModContext;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.crafting.workbench;
+package com.paneedah.weaponlib.crafting.workbench;
 
-import com.vicmatskiv.weaponlib.render.gui.GUIRenderHelper;
+import com.paneedah.weaponlib.render.gui.GUIRenderHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;

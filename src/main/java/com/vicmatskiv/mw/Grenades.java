@@ -1,12 +1,12 @@
-package com.vicmatskiv.mw;
+package com.paneedah.mw;
 
-import com.vicmatskiv.mw.items.grenade.*;
-import com.vicmatskiv.weaponlib.AttachmentBuilder;
-import com.vicmatskiv.weaponlib.AttachmentCategory;
-import com.vicmatskiv.weaponlib.ItemAttachment;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
-import com.vicmatskiv.weaponlib.grenade.ItemGrenade;
+import com.paneedah.mw.items.grenade.*;
+import com.paneedah.weaponlib.AttachmentBuilder;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.grenade.ItemGrenade;
 
 public class Grenades {
 
@@ -21,7 +21,7 @@ public class Grenades {
 
     public static void init(Object mod, ConfigurationManager configurationManager, CompatibleFmlPreInitializationEvent event, CommonProxy commonProxy) {
         GrenadeSafetyPin = new AttachmentBuilder<ItemGrenade>().withCategory(AttachmentCategory.EXTRA)
-                .withModel(new com.vicmatskiv.mw.models.Pin(), "gun.png").withName("GrenadeSafetyPin")
+                .withModel(new com.paneedah.mw.models.Pin(), "gun.png").withName("GrenadeSafetyPin")
                 .withRenderablePart().withModId(ModernWarfareMod.MODID).withTextureName("Dummy.png")
                 .build(ModernWarfareMod.MOD_CONTEXT);
 

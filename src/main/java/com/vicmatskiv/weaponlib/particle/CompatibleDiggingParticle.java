@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.particle;
+package com.paneedah.weaponlib.particle;
 
-import com.vicmatskiv.weaponlib.jim.util.RandomUtil;
-import com.vicmatskiv.weaponlib.render.ModelRenderTool;
+import com.paneedah.weaponlib.jim.util.RandomUtil;
+import com.paneedah.weaponlib.render.ModelRenderTool;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.particle.IParticleFactory;
@@ -18,7 +18,7 @@ import org.lwjgl.util.vector.Vector3f;
 
 import javax.annotation.Nullable;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class CompatibleDiggingParticle extends Particle {
 	private final IBlockState sourceState;

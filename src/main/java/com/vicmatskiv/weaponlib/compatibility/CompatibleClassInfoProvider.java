@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.ClassInfo;
+import com.paneedah.weaponlib.ClassInfo;
 
 import java.util.HashMap;
 import java.util.Map;

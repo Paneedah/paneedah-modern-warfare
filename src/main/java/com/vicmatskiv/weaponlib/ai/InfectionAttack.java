@@ -1,14 +1,14 @@
-package com.vicmatskiv.weaponlib.ai;
+package com.paneedah.weaponlib.ai;
 
-import com.vicmatskiv.weaponlib.Spreadable;
-import com.vicmatskiv.weaponlib.SpreadableExposure;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleExposureCapability;
+import com.paneedah.weaponlib.Spreadable;
+import com.paneedah.weaponlib.SpreadableExposure;
+import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 
 import java.util.UUID;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class InfectionAttack implements CustomMobAttack, Spreadable {
     

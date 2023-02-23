@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.shader;
+package com.paneedah.weaponlib.shader;
 
 public interface DynamicShaderGroupSourceProvider {
 

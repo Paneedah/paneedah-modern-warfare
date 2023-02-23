@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.config;
+package com.paneedah.weaponlib.config;
 
 import com.google.gson.*;
-import com.vicmatskiv.weaponlib.Weapon;
+import com.paneedah.weaponlib.Weapon;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;

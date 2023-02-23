@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.state.ManagedState;
+import com.paneedah.weaponlib.state.ManagedState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 

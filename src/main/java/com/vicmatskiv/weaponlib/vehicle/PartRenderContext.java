@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
-import com.vicmatskiv.weaponlib.animation.PartPositionProvider;
+import com.paneedah.weaponlib.animation.PartPositionProvider;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.util.vector.Matrix4f;

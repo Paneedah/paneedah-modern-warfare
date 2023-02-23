@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.crafting.items;
+package com.paneedah.weaponlib.crafting.items;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

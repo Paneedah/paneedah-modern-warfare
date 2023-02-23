@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
 import com.google.common.collect.Lists;
-import com.vicmatskiv.weaponlib.ModContext;
+import com.paneedah.weaponlib.ModContext;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiListExtended;
@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 import java.util.Collection;
 import java.util.List;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 @SideOnly(Side.CLIENT)
 public class MissionSelectionGuiList extends GuiListExtended
@@ -179,7 +179,7 @@ public class MissionSelectionGuiList extends GuiListExtended
         GL11.glClear(GL11.GL_STENCIL_BUFFER_BIT); // Clear stencil buffer (0 by default)
         
         this.mc.renderEngine.bindTexture(new ResourceLocation("weaponlib", 
-                "/com/vicmatskiv/weaponlib/resources/rectangle-mask.png"));
+                "/com/paneedah/weaponlib/resources/rectangle-mask.png"));
         
         Gui.drawModalRectWithCustomSizedTexture(
                 this.left, 

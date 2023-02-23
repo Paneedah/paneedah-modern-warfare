@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render;
+package com.paneedah.weaponlib.render;
 
 public class SpriteSheetTools {
 	

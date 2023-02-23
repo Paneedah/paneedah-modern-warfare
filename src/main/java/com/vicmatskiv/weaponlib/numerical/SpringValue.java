@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.numerical;
+package com.paneedah.weaponlib.numerical;
 
-import com.vicmatskiv.weaponlib.animation.MatrixHelper;
+import com.paneedah.weaponlib.animation.MatrixHelper;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 /**
  * Simulates a spring. Used for lots of effects that intend

@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.crafting;
+package com.paneedah.weaponlib.crafting;
 
 @Deprecated
 public enum CraftingComplexity {

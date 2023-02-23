@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.render.shells;
+package com.paneedah.weaponlib.render.shells;
 
-import com.vicmatskiv.weaponlib.model.Bullet556;
+import com.paneedah.weaponlib.model.Bullet556;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
@@ -10,7 +10,7 @@ import javax.vecmath.Vector3d;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class ShellParticleSimulator {
 	

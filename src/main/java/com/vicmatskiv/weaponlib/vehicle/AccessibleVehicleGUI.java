@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.util.ResourceLocation;

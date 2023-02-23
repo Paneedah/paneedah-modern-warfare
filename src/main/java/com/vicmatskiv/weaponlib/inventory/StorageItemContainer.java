@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleContainer;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
+import com.paneedah.weaponlib.compatibility.CompatibleContainer;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityEquipmentSlot;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class StorageItemContainer extends CompatibleContainer {
     /**

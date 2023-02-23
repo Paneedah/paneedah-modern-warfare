@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.render.qrender;
+package com.paneedah.weaponlib.render.qrender;
 
-import com.vicmatskiv.weaponlib.ModelRenderer;
+import com.paneedah.weaponlib.ModelRenderer;
 import net.minecraft.client.model.ModelBase;
 
 public class TRenderer extends ModelRenderer {

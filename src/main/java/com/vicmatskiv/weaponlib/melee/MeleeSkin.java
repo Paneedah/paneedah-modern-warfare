@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.melee;
+package com.paneedah.weaponlib.melee;
 
-import com.vicmatskiv.weaponlib.AttachmentBuilder;
-import com.vicmatskiv.weaponlib.AttachmentCategory;
-import com.vicmatskiv.weaponlib.ItemAttachment;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.model.FlatModel;
+import com.paneedah.weaponlib.AttachmentBuilder;
+import com.paneedah.weaponlib.AttachmentCategory;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.model.FlatModel;
 import net.minecraft.client.model.ModelBase;
 import org.lwjgl.opengl.GL11;
 
@@ -54,8 +54,8 @@ public class MeleeSkin extends ItemAttachment<ItemMelee> {
 	private List<String> textureVariants;
 	
 	public MeleeSkin(String modId, AttachmentCategory category, ModelBase model, String textureName, String crosshair,
-			com.vicmatskiv.weaponlib.ItemAttachment.ApplyHandler<ItemMelee> apply,
-			com.vicmatskiv.weaponlib.ItemAttachment.ApplyHandler<ItemMelee> remove) {
+			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<ItemMelee> apply,
+			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<ItemMelee> remove) {
 		super(modId, category, model, textureName, crosshair, apply, remove);
 	}
 

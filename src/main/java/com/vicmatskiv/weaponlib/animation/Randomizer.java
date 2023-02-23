@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;

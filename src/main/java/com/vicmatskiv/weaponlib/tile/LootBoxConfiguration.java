@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib.tile;
+package com.paneedah.weaponlib.tile;
 
-import com.vicmatskiv.weaponlib.ItemAttachment;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.WeightedOptions;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.WeightedOptions;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.EnumDifficulty;

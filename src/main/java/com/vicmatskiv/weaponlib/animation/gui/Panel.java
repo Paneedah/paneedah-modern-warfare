@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.animation.gui;
+package com.paneedah.weaponlib.animation.gui;
 
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.jim.util.Vec2d;
-import com.vicmatskiv.weaponlib.jim.util.Vec2i;
+import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.jim.util.Vec2d;
+import com.paneedah.weaponlib.jim.util.Vec2i;
 import net.minecraft.client.renderer.GlStateManager;
 
 import java.awt.*;

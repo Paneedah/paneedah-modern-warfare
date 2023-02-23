@@ -1,19 +1,19 @@
-package com.vicmatskiv.weaponlib.grenade;
+package com.paneedah.weaponlib.grenade;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityRenderer;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityRenderer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class EntityGrenadeRenderer extends CompatibleEntityRenderer {
 
     //private ModelBase model = new CameraModel();
     //private ResourceLocation textureLocation;
-    //private static final String TEXTURE = "weaponlib:/com/vicmatskiv/weaponlib/resources/gunmetaltexture.png";
+    //private static final String TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/gunmetaltexture.png";
 
     public EntityGrenadeRenderer() {
         //textureLocation = new ResourceLocation(TEXTURE);

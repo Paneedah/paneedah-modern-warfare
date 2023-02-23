@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.perspective;
+package com.paneedah.weaponlib.perspective;
 
-import com.vicmatskiv.weaponlib.PlayerItemInstance;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTessellator;
-import com.vicmatskiv.weaponlib.electronics.PlayerTabletInstance;
-import com.vicmatskiv.weaponlib.electronics.SignalQuality;
-import com.vicmatskiv.weaponlib.tracking.PlayerEntityTracker;
-import com.vicmatskiv.weaponlib.tracking.TrackableEntity;
+import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
+import com.paneedah.weaponlib.electronics.PlayerTabletInstance;
+import com.paneedah.weaponlib.electronics.SignalQuality;
+import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
+import com.paneedah.weaponlib.tracking.TrackableEntity;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,15 +17,15 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 
     private static final Logger logger = LogManager.getLogger(WirelessCameraPerspective.class);
 
-    private static final String STATIC_TEXTURE = "weaponlib:/com/vicmatskiv/weaponlib/resources/static.png";
-    public static final String DARK_SCREEN_TEXTURE = "weaponlib:/com/vicmatskiv/weaponlib/resources/dark-screen.png";
+    private static final String STATIC_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/static.png";
+    public static final String DARK_SCREEN_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/dark-screen.png";
 
 
     private static final int STATIC_IMAGES_PER_ROW = 8;

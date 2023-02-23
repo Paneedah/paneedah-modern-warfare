@@ -1,9 +1,9 @@
-package com.vicmatskiv.mw;
+package com.paneedah.mw;
 
-import com.vicmatskiv.mw.ores.Ores;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBlocks;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleWorldGenerator;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
+import com.paneedah.mw.ores.Ores;
+import com.paneedah.weaponlib.compatibility.CompatibleBlocks;
+import com.paneedah.weaponlib.compatibility.CompatibleWorldGenerator;
+import com.paneedah.weaponlib.config.ConfigurationManager;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;

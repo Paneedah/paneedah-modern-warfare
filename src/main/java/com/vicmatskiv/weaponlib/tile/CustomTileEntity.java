@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.tile;
+package com.paneedah.weaponlib.tile;
 
-import com.vicmatskiv.weaponlib.Configurable;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBlockPos;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTileEntity;
+import com.paneedah.weaponlib.Configurable;
+import com.paneedah.weaponlib.compatibility.CompatibleBlockPos;
+import com.paneedah.weaponlib.compatibility.CompatibleTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;

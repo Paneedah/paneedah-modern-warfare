@@ -1,21 +1,21 @@
-package com.vicmatskiv.mw;
+package com.paneedah.mw;
 
-import com.vicmatskiv.mw.models.Workbench;
-import com.vicmatskiv.mw.ores.Ores;
-import com.vicmatskiv.mw.wearables.Armors;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlInitializationEvent;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
-import com.vicmatskiv.weaponlib.crafting.ammopress.TESRAmmoPress;
-import com.vicmatskiv.weaponlib.crafting.ammopress.TileEntityAmmoPress;
-import com.vicmatskiv.weaponlib.crafting.ammopress.model.AmmoPress;
-import com.vicmatskiv.weaponlib.crafting.workbench.TESRWorkbench;
-import com.vicmatskiv.weaponlib.crafting.workbench.TileEntityWorkbench;
-import com.vicmatskiv.weaponlib.inventory.BackpackInventoryTab;
-import com.vicmatskiv.weaponlib.inventory.CustomPlayerInventoryTab;
-import com.vicmatskiv.weaponlib.inventory.InventoryTabs;
-import com.vicmatskiv.weaponlib.inventory.StandardPlayerInventoryTab;
-import com.vicmatskiv.weaponlib.render.CustomArmorLayer;
+import com.paneedah.mw.models.Workbench;
+import com.paneedah.mw.ores.Ores;
+import com.paneedah.mw.wearables.Armors;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlInitializationEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.crafting.ammopress.TESRAmmoPress;
+import com.paneedah.weaponlib.crafting.ammopress.TileEntityAmmoPress;
+import com.paneedah.weaponlib.crafting.ammopress.model.AmmoPress;
+import com.paneedah.weaponlib.crafting.workbench.TESRWorkbench;
+import com.paneedah.weaponlib.crafting.workbench.TileEntityWorkbench;
+import com.paneedah.weaponlib.inventory.BackpackInventoryTab;
+import com.paneedah.weaponlib.inventory.CustomPlayerInventoryTab;
+import com.paneedah.weaponlib.inventory.InventoryTabs;
+import com.paneedah.weaponlib.inventory.StandardPlayerInventoryTab;
+import com.paneedah.weaponlib.render.CustomArmorLayer;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -23,7 +23,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class ClientProxy extends CommonProxy {
 

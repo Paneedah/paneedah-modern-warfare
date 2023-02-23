@@ -1,11 +1,11 @@
-package com.vicmatskiv.mw.vehicle;
+package com.paneedah.mw.vehicle;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.models.JLTVM1280;
-import com.vicmatskiv.mw.models.JLTVM1280wheel;
-import com.vicmatskiv.mw.models.SampleVehicleControlArm;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.vehicle.*;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.mw.models.JLTVM1280;
+import com.paneedah.mw.models.JLTVM1280wheel;
+import com.paneedah.mw.models.SampleVehicleControlArm;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.vehicle.*;
 
 public class JLTVM1280Factory implements VehicleFactory {
 

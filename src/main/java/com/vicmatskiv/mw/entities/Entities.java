@@ -1,12 +1,12 @@
-package com.vicmatskiv.mw.entities;
+package com.paneedah.mw.entities;
 
-import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.weapons.Guns;
-import com.vicmatskiv.mw.weapons.Magazines;
-import com.vicmatskiv.weaponlib.ai.*;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBiomeType;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityAIAttackOnCollide;
+import com.paneedah.mw.CommonProxy;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.mw.weapons.Guns;
+import com.paneedah.mw.weapons.Magazines;
+import com.paneedah.weaponlib.ai.*;
+import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityAIAttackOnCollide;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.boss.EntityDragon;
@@ -16,7 +16,7 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Entities {
 
@@ -40,7 +40,7 @@ public class Entities {
             .withPrimaryEquipmentDropChance(1f)
             .withSpawn(1, 1, 1, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
-            .withTexturedModelVariant("com.vicmatskiv.mw.models.ZombieBlistered", "zombieblistered.png")
+            .withTexturedModelVariant("com.paneedah.mw.models.ZombieBlistered", "zombieblistered.png")
             .withHurtSound("zombie_hurt")
             .withAmbientSound("zombie_ambient")
             .withStepSound("zombie_step")
@@ -75,7 +75,7 @@ public class Entities {
             .withPrimaryEquipmentDropChance(1f)
             .withSpawn(1, 1, 1, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
-            .withTexturedModelVariant("com.vicmatskiv.mw.models.RipperZombie", "ripperzombie.png")
+            .withTexturedModelVariant("com.paneedah.mw.models.RipperZombie", "ripperzombie.png")
             .withHurtSound("zombie_hurt")
             .withAmbientSound("zombie_ambient")
             .withStepSound("zombie_step")
@@ -110,7 +110,7 @@ public class Entities {
             .withPrimaryEquipmentDropChance(1f)
             .withSpawn(20, 1, 5, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
-            .withTexturedModelVariant("com.vicmatskiv.mw.models.TornZombie", "tornzombie.png")
+            .withTexturedModelVariant("com.paneedah.mw.models.TornZombie", "tornzombie.png")
             .withHurtSound("zombie_hurt")
             .withAmbientSound("zombie_ambient")
             .withStepSound("zombie_step")
@@ -144,7 +144,7 @@ public class Entities {
             .withPrimaryEquipmentDropChance(1f)
             .withSpawn(0, 0, 0, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
-            .withTexturedModelVariant("com.vicmatskiv.mw.models.Necromorph", "necromorph.png")
+            .withTexturedModelVariant("com.paneedah.mw.models.Necromorph", "necromorph.png")
             .withHurtSound("necromorph_hurt")
             .withAmbientSound("necromorph_ambient")
             .withStepSound("step")
@@ -179,7 +179,7 @@ public class Entities {
             .withPrimaryEquipmentDropChance(1f)
             .withSpawn(60, 30, 35, CompatibleBiomeType.SANDY)
             .withSpawnEgg(0xA0A000, 0xA0A010)
-            .withTexturedModelVariant("com.vicmatskiv.mw.models.Tyke", "tyke.png")
+            .withTexturedModelVariant("com.paneedah.mw.models.Tyke", "tyke.png")
             .withHurtSound("tyke_hurt")
             .withAmbientSound("tyke_ambient")
             .withStepSound("tyke_step")
@@ -214,9 +214,9 @@ public class Entities {
             .withPrimaryEquipmentDropChance(1f)
             .withSpawn(50, 80, 150, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
-            .withTexturedModelVariant("com.vicmatskiv.mw.models.Zombie", "zombie_1.png")
-            .withTexturedModelVariant("com.vicmatskiv.mw.models.Zombie", "zombie_2.png")
-            .withTexturedModelVariant("com.vicmatskiv.mw.models.Zombie", "zombie_3.png")
+            .withTexturedModelVariant("com.paneedah.mw.models.Zombie", "zombie_1.png")
+            .withTexturedModelVariant("com.paneedah.mw.models.Zombie", "zombie_2.png")
+            .withTexturedModelVariant("com.paneedah.mw.models.Zombie", "zombie_3.png")
             .withHurtSound("zombie_hurt")
             .withAmbientSound("zombie_ambient")
             .withStepSound("zombie_step")
@@ -252,7 +252,7 @@ public class Entities {
             .withPrimaryEquipmentDropChance(1f)
             .withSpawn(50, 80, 150, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
-            .withTexturedModelVariant("com.vicmatskiv.mw.models.HazmatZombie", "hazmatzombie.png")
+            .withTexturedModelVariant("com.paneedah.mw.models.HazmatZombie", "hazmatzombie.png")
             .withHurtSound("hazmatzombie_hurt")
             .withAmbientSound("hazmatzombie_ambient")
             .withStepSound("zombie_step")
@@ -288,7 +288,7 @@ public class Entities {
             .withPrimaryEquipmentDropChance(1f)
             .withSpawn(0, 0, 0, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
-            .withTexturedModelVariant("com.vicmatskiv.mw.models.DefiledZombie", "defiledzombie.png")
+            .withTexturedModelVariant("com.paneedah.mw.models.DefiledZombie", "defiledzombie.png")
             .withHurtSound("zombie_hurt")
             .withAmbientSound("zombie_ambient")
             .withStepSound("zombie_step")
@@ -322,7 +322,7 @@ public class Entities {
             .withPrimaryEquipmentDropChance(1f)
             .withSpawn(0, 0, 0, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
             .withSpawnEgg(0xA0A000, 0xA0A010)
-            .withTexturedModelVariant("com.vicmatskiv.mw.models.Deathclaw", "deathclaw.png")
+            .withTexturedModelVariant("com.paneedah.mw.models.Deathclaw", "deathclaw.png")
             .withHurtSound("deathclaw_hurt")
             .withAmbientSound("deathclaw_ambient")
           .withStepSound("deathclaw_step")
@@ -358,7 +358,7 @@ public class Entities {
         .withPrimaryEquipmentDropChance(1f)
 //        .withSpawn(1, 1, 1, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
         .withSpawnEgg(0xA0A000, 0xA0A010)
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.Molded", "molded.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.Molded", "molded.png")
         .withHurtSound("molded_hurt")
         .withAmbientSound("molded_ambient")
         .withDeathSound("molded_death")
@@ -390,9 +390,9 @@ public class Entities {
         .withSpawn(1, 5, 6, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
         .withMaxTolerableLightBrightness(1f)
         .withSpawnEgg(0x5A674F, 0x464039)
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.Soldier", "soldier.png")
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.Soldier2", "soldier2.png")
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.SoldierSniper", "soldiersniper.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.Soldier", "soldier.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.Soldier2", "soldier2.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.SoldierSniper", "soldiersniper.png")
         .withHurtSound("hurt")
         .withAmbientSound("drawweapon")
 //        .withStepSound("step")
@@ -440,7 +440,7 @@ public class Entities {
 //        .withSpawn(1, 5, 6, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
 //        .withMaxTolerableLightBrightness(1f)
         .withSpawnEgg(0x5A674F, 0x464039)
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.Turret", "turret.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.Turret", "turret.png")
         .withAmbientSound("turret_turn")
 //        .withStepSound("step")
         .withMaxSpeed(0.0F) // 0.1-0.3 is normal speed
@@ -490,7 +490,7 @@ public class Entities {
 //        .withSpawn(1, 5, 6, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
 //        .withMaxTolerableLightBrightness(1f)
         .withSpawnEgg(0x5A674F, 0x464039)
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.TurretBuff", "turretbuff.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.TurretBuff", "turretbuff.png")
         .withAmbientSound("turret_turn")
 //        .withStepSound("step")
         .withMaxSpeed(0.0F) // 0.1-0.3 is normal speed
@@ -540,7 +540,7 @@ public class Entities {
 //        .withSpawn(1, 5, 6, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
 //        .withMaxTolerableLightBrightness(1f)
         .withSpawnEgg(0x5A674F, 0x464039)
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.turretsilenced", "turretsilenced.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.turretsilenced", "turretsilenced.png")
         .withAmbientSound("turret_turn")
 //        .withStepSound("step")
         .withMaxSpeed(0.0F) // 0.1-0.3 is normal speed

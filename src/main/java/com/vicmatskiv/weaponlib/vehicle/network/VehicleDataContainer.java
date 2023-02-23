@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.vehicle.network;
+package com.paneedah.weaponlib.vehicle.network;
 
-import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
+import com.paneedah.weaponlib.vehicle.EntityVehicle;
+import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.Vec3d;
 

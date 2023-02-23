@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.crafting;
+package com.paneedah.weaponlib.crafting;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-import com.vicmatskiv.weaponlib.JSONDatabaseManager;
+import com.paneedah.weaponlib.JSONDatabaseManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Loader;
@@ -15,7 +15,7 @@ import org.apache.commons.io.IOUtils;
 import java.io.*;
 import java.util.Arrays;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class CraftingFileManager extends JSONDatabaseManager {
 
@@ -27,7 +27,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 	private static final File DIRECTORY = new File(Loader.instance().getConfigDir() + "/mw/crafting");
 	private static final File CACHE_DIR = new File(DIRECTORY, "cache/");
 	private static final File MAIN_FILE = new File(DIRECTORY, "craftingmappings.json");
-	private static final String DEFAULT_CRAFTING_MAPPINGS = "com/vicmatskiv/weaponlib/crafting/defaultRecipes/craftingmappings.json";
+	private static final String DEFAULT_CRAFTING_MAPPINGS = "com/paneedah/weaponlib/crafting/defaultRecipes/craftingmappings.json";
 	
 	
 	private static final String CACHE_EXTENSION = ".cache";

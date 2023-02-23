@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.compatibility.sound;
+package com.paneedah.weaponlib.compatibility.sound;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleVec3;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.compatibility.CompatibleVec3;
 import net.minecraft.client.audio.MovingSound;
 import net.minecraft.util.SoundCategory;
 import net.minecraftforge.fml.relauncher.Side;

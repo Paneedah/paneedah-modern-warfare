@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleGuiButton;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderItem;
+import com.paneedah.weaponlib.compatibility.CompatibleGuiButton;
+import com.paneedah.weaponlib.compatibility.CompatibleRenderItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.item.ItemStack;

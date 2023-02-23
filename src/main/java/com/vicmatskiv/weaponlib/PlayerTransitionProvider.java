@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.animation.MultipartTransition;
-import com.vicmatskiv.weaponlib.animation.MultipartTransitionProvider;
+import com.paneedah.weaponlib.animation.MultipartTransition;
+import com.paneedah.weaponlib.animation.MultipartTransitionProvider;
 
 import java.util.ArrayList;
 import java.util.Arrays;

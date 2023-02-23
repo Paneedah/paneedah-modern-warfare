@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.perspective;
+package com.paneedah.weaponlib.perspective;
 
-import com.vicmatskiv.weaponlib.RenderingPhase;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderTickEvent;
-import com.vicmatskiv.weaponlib.render.bgl.PostProcessPipeline;
+import com.paneedah.weaponlib.RenderingPhase;
+import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
+import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
 import net.minecraft.client.renderer.EntityRenderer;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class FirstPersonPerspective<S> extends Perspective<S> {
 

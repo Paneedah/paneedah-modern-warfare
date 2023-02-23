@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.particle.vehicle;
+package com.paneedah.weaponlib.particle.vehicle;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;
@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class VehicleExhaustFlameParticle extends Particle {
 	

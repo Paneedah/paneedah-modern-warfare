@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib.command;
+package com.paneedah.weaponlib.command;
 
-import com.vicmatskiv.weaponlib.CommonModContext;
-import com.vicmatskiv.weaponlib.config.BalancePackManager;
-import com.vicmatskiv.weaponlib.config.BalancePackManager.BalancePack;
-import com.vicmatskiv.weaponlib.network.packets.BalancePackClient;
+import com.paneedah.weaponlib.CommonModContext;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.BalancePackManager.BalancePack;
+import com.paneedah.weaponlib.network.packets.BalancePackClient;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;

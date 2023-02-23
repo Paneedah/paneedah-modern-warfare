@@ -1,18 +1,18 @@
-package com.vicmatskiv.mw.items.guns;
+package com.paneedah.mw.items.guns;
 
-import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.models.MP43E;
-import com.vicmatskiv.mw.models.Shotgun12Gauge;
-import com.vicmatskiv.mw.models.Shotgun12Gauge2;
-import com.vicmatskiv.mw.weapons.Attachments;
-import com.vicmatskiv.mw.weapons.AuxiliaryAttachments;
-import com.vicmatskiv.mw.wearables.Bullets;
-import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.Weapon;
-import com.vicmatskiv.weaponlib.WeaponRenderer;
-import com.vicmatskiv.weaponlib.animation.Transition;
-import com.vicmatskiv.weaponlib.config.BalancePackManager.GunConfigurationGroup;
+import com.paneedah.mw.CommonProxy;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.mw.models.MP43E;
+import com.paneedah.mw.models.Shotgun12Gauge;
+import com.paneedah.mw.models.Shotgun12Gauge2;
+import com.paneedah.mw.weapons.Attachments;
+import com.paneedah.mw.weapons.AuxiliaryAttachments;
+import com.paneedah.mw.wearables.Bullets;
+import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.Weapon;
+import com.paneedah.weaponlib.WeaponRenderer;
+import com.paneedah.weaponlib.animation.Transition;
+import com.paneedah.weaponlib.config.BalancePackManager.GunConfigurationGroup;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 

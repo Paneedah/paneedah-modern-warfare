@@ -1,15 +1,15 @@
-package com.vicmatskiv.mw.ores;
+package com.paneedah.mw.ores;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.misc.*;
-import com.vicmatskiv.mw.resources.ItemSulfurDust;
-import com.vicmatskiv.mw.resources.ItemTinIngot;
-import com.vicmatskiv.weaponlib.crafting.items.CraftingItem;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.mw.misc.*;
+import com.paneedah.mw.resources.ItemSulfurDust;
+import com.paneedah.mw.resources.ItemTinIngot;
+import com.paneedah.weaponlib.crafting.items.CraftingItem;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Ores {
 

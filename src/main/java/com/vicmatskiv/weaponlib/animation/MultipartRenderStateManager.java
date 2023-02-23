@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
-import com.vicmatskiv.weaponlib.DefaultPart;
-import com.vicmatskiv.weaponlib.RenderContext;
-import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.compatibility.Interceptors;
+import com.paneedah.weaponlib.DefaultPart;
+import com.paneedah.weaponlib.RenderContext;
+import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.compatibility.Interceptors;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.GlStateManager;
@@ -22,7 +22,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 
 public class MultipartRenderStateManager<State, Part, Context extends PartPositionProvider> {

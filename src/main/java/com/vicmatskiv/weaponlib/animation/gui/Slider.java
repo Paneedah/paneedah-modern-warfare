@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.animation.gui;
+package com.paneedah.weaponlib.animation.gui;
 
-import com.vicmatskiv.weaponlib.animation.MatrixHelper;
+import com.paneedah.weaponlib.animation.MatrixHelper;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
@@ -8,7 +8,7 @@ import org.lwjgl.input.Mouse;
 
 import java.awt.*;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class Slider implements IElement{
 

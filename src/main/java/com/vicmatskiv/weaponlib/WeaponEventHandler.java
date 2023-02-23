@@ -1,12 +1,12 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityJoinWorldEvent;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleExposureCapability;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleWeaponEventHandler;
-import com.vicmatskiv.weaponlib.compatibility.Interceptors;
-import com.vicmatskiv.weaponlib.grenade.PlayerGrenadeInstance;
-import com.vicmatskiv.weaponlib.melee.PlayerMeleeInstance;
-import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityJoinWorldEvent;
+import com.paneedah.weaponlib.compatibility.CompatibleExposureCapability;
+import com.paneedah.weaponlib.compatibility.CompatibleWeaponEventHandler;
+import com.paneedah.weaponlib.compatibility.Interceptors;
+import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
+import com.paneedah.weaponlib.melee.PlayerMeleeInstance;
+import com.paneedah.weaponlib.vehicle.EntityVehicle;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -15,8 +15,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponEventHandler extends CompatibleWeaponEventHandler {
 

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.shader.jim;
+package com.paneedah.weaponlib.shader.jim;
 
-import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
+import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.logging.log4j.LogManager;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class ShaderManager {
 	

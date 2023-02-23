@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.CommonModContext;
-import com.vicmatskiv.weaponlib.inventory.CustomPlayerInventory;
+import com.paneedah.weaponlib.CommonModContext;
+import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;

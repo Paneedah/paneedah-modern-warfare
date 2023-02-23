@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.render.bgl.instancing;
+package com.paneedah.weaponlib.render.bgl.instancing;
 
-import com.vicmatskiv.weaponlib.render.VAOData;
-import com.vicmatskiv.weaponlib.render.WavefrontModel;
-import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
-import com.vicmatskiv.weaponlib.shader.jim.Attribute;
-import com.vicmatskiv.weaponlib.shader.jim.Shader;
-import com.vicmatskiv.weaponlib.shader.jim.ShaderManager;
+import com.paneedah.weaponlib.render.VAOData;
+import com.paneedah.weaponlib.render.WavefrontModel;
+import com.paneedah.weaponlib.render.bgl.GLCompatible;
+import com.paneedah.weaponlib.shader.jim.Attribute;
+import com.paneedah.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.shader.jim.ShaderManager;
 import org.lwjgl.opengl.GL11;
 
 public class ModelInstancedObject<K> extends BasicInstancedObject<K> {

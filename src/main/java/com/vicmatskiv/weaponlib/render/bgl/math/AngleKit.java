@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render.bgl.math;
+package com.paneedah.weaponlib.render.bgl.math;
 
 import org.lwjgl.util.vector.Quaternion;
 /**

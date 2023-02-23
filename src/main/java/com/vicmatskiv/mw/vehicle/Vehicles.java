@@ -1,12 +1,12 @@
-package com.vicmatskiv.mw.vehicle;
+package com.paneedah.mw.vehicle;
 
-import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.models.VehicleKey;
-import com.vicmatskiv.mw.models.VehicleLock;
-import com.vicmatskiv.weaponlib.render.QRL;
-import com.vicmatskiv.weaponlib.vehicle.AccessibleVehicleGUI;
-import com.vicmatskiv.weaponlib.vehicle.GeneralVehicleSounds;
+import com.paneedah.mw.CommonProxy;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.mw.models.VehicleKey;
+import com.paneedah.mw.models.VehicleLock;
+import com.paneedah.weaponlib.render.QRL;
+import com.paneedah.weaponlib.vehicle.AccessibleVehicleGUI;
+import com.paneedah.weaponlib.vehicle.GeneralVehicleSounds;
 
 public class Vehicles {
 	

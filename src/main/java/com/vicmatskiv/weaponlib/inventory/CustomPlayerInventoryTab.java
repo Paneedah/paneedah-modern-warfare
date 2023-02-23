@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.ModContext;
+import com.paneedah.weaponlib.ModContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 

@@ -1,13 +1,13 @@
-package com.vicmatskiv.weaponlib.melee;
+package com.paneedah.weaponlib.melee;
 
-import com.vicmatskiv.weaponlib.CommonModContext;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRayTraceResult;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTargetPoint;
-import com.vicmatskiv.weaponlib.particle.SpawnParticleMessage;
-import com.vicmatskiv.weaponlib.state.Aspect;
-import com.vicmatskiv.weaponlib.state.PermitManager;
-import com.vicmatskiv.weaponlib.state.StateManager;
+import com.paneedah.weaponlib.CommonModContext;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.compatibility.CompatibleRayTraceResult;
+import com.paneedah.weaponlib.compatibility.CompatibleTargetPoint;
+import com.paneedah.weaponlib.particle.SpawnParticleMessage;
+import com.paneedah.weaponlib.state.Aspect;
+import com.paneedah.weaponlib.state.PermitManager;
+import com.paneedah.weaponlib.state.StateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
@@ -20,7 +20,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
 /*

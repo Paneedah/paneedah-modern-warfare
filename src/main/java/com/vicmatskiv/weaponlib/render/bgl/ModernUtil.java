@@ -1,13 +1,13 @@
-package com.vicmatskiv.weaponlib.render.bgl;
+package com.paneedah.weaponlib.render.bgl;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleShellRenderer;
+import com.paneedah.weaponlib.compatibility.CompatibleShellRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class ModernUtil {
 	

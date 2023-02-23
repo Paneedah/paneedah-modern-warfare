@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.entities;
+package com.paneedah.mw.entities;
 
-import com.vicmatskiv.weaponlib.ModContext;
+import com.paneedah.weaponlib.ModContext;
 
 public interface EntityFactory {
 

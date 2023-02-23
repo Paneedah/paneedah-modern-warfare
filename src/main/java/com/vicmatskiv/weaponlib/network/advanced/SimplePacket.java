@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.network.advanced;
+package com.paneedah.weaponlib.network.advanced;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
-import com.vicmatskiv.weaponlib.network.advanced.data.PacketSerializer;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.network.advanced.data.PacketSerializer;
 import io.netty.buffer.ByteBuf;
 
 import java.lang.reflect.Field;

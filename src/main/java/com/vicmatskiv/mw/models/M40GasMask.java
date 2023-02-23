@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.models;
+package com.paneedah.mw.models;
 
-import com.vicmatskiv.weaponlib.model.WrappableModel;
+import com.paneedah.weaponlib.model.WrappableModel;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;

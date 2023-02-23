@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.perspective;
+package com.paneedah.weaponlib.perspective;
 
-import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderTickEvent;
-import com.vicmatskiv.weaponlib.compatibility.Framebuffers;
+import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
+import com.paneedah.weaponlib.compatibility.Framebuffers;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public abstract class ScreenPerspective extends Perspective<RenderableState> {
 

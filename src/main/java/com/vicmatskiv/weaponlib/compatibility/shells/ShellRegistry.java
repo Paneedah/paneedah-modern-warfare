@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.compatibility.shells;
+package com.paneedah.weaponlib.compatibility.shells;
 
 import akka.japi.Pair;
-import com.vicmatskiv.weaponlib.render.WavefrontLoader;
-import com.vicmatskiv.weaponlib.render.WavefrontModel;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import com.paneedah.weaponlib.render.WavefrontLoader;
+import com.paneedah.weaponlib.render.WavefrontModel;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.HashMap;

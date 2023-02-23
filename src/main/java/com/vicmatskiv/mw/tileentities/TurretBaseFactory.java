@@ -1,9 +1,9 @@
-package com.vicmatskiv.mw.tileentities;
+package com.paneedah.mw.tileentities;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMaterial;
-import com.vicmatskiv.weaponlib.tile.LootBoxConfiguration;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.compatibility.CompatibleMaterial;
+import com.paneedah.weaponlib.tile.LootBoxConfiguration;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
@@ -15,7 +15,7 @@ public class TurretBaseFactory implements TileEntityFactory {
     	new LootBoxConfiguration()
         .withMaterial(CompatibleMaterial.ROCK)
         .withName("turret_base")
-        .withModelClassName("com.vicmatskiv.mw.models.TurretBase")
+        .withModelClassName("com.paneedah.mw.models.TurretBase")
         .withTextureName("textures/models/turretbase.png")
 //        .withEquipementDispenseSound(sound)
         .withCreativeTab(ModernWarfareMod.PropsTab)

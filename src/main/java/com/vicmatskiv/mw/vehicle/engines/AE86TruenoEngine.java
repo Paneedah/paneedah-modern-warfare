@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.vehicle.engines;
+package com.paneedah.mw.vehicle.engines;
 
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Engine;
+import com.paneedah.weaponlib.vehicle.jimphysics.Engine;
 
 public class AE86TruenoEngine extends Engine {
 

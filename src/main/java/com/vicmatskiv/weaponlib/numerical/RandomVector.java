@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib.numerical;
+package com.paneedah.weaponlib.numerical;
 
-import com.vicmatskiv.weaponlib.animation.MatrixHelper;
+import com.paneedah.weaponlib.animation.MatrixHelper;
 import net.minecraft.util.math.Vec3d;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 
 /**

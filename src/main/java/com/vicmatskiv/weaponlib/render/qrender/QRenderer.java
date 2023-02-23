@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.render.qrender;
+package com.paneedah.weaponlib.render.qrender;
 
 import akka.japi.Pair;
-import com.vicmatskiv.weaponlib.animation.MatrixHelper;
+import com.paneedah.weaponlib.animation.MatrixHelper;
 import net.minecraft.client.model.*;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GLAllocation;

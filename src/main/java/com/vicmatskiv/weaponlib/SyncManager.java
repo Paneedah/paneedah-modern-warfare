@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.state.ManagedState;
-import com.vicmatskiv.weaponlib.state.Permit;
-import com.vicmatskiv.weaponlib.state.PermitManager;
+import com.paneedah.weaponlib.state.ManagedState;
+import com.paneedah.weaponlib.state.Permit;
+import com.paneedah.weaponlib.state.PermitManager;
 import net.minecraft.item.ItemStack;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,18 +1,18 @@
-package com.vicmatskiv.mw;
+package com.paneedah.mw;
 
-import com.vicmatskiv.mw.models.GasDetector;
-import com.vicmatskiv.weaponlib.ItemAttachment;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
-import com.vicmatskiv.weaponlib.electronics.ItemHandheld;
-import com.vicmatskiv.weaponlib.electronics.ItemTablet;
-import com.vicmatskiv.weaponlib.electronics.ItemWirelessCamera;
-import com.vicmatskiv.weaponlib.model.CameraModel;
-import com.vicmatskiv.weaponlib.model.TabletModel;
-import com.vicmatskiv.weaponlib.perspective.GasDetectorScreenPerspective;
+import com.paneedah.mw.models.GasDetector;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.config.ConfigurationManager;
+import com.paneedah.weaponlib.electronics.ItemHandheld;
+import com.paneedah.weaponlib.electronics.ItemTablet;
+import com.paneedah.weaponlib.electronics.ItemWirelessCamera;
+import com.paneedah.weaponlib.model.CameraModel;
+import com.paneedah.weaponlib.model.TabletModel;
+import com.paneedah.weaponlib.perspective.GasDetectorScreenPerspective;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Electronics {
 
@@ -28,7 +28,7 @@ public class Electronics {
                 .withCreativeTab(ModernWarfareMod.GadgetsTab)
                 .withCrosshair("HP")
                 .withModel(new TabletModel(), "IPad.png")
-                //.withModel(new com.vicmatskiv.mw.models.LPscope(), "HP2.png")
+                //.withModel(new com.paneedah.mw.models.LPscope(), "HP2.png")
                 .withFirstPersonPositioning((player, itemStack) -> {
                     GL11.glRotatef(25.000000f, 1f, 0f, 0f);
                     GL11.glRotatef(50.000000f, 0f, 1f, 0f);
@@ -44,21 +44,21 @@ public class Electronics {
                         GL11.glScaled(1F, 1F, 1F);
                     }
                 }).withInventoryModelPositioning((model, itemStack) -> {
-                    if (model instanceof com.vicmatskiv.mw.models.HP) {
+                    if (model instanceof com.paneedah.mw.models.HP) {
                         GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
                         GL11.glRotatef(10F, 1f, 0f, 0f);
                         GL11.glRotatef(-190F, 0f, 1f, 0f);
                         GL11.glRotatef(0F, 0f, 0f, 1f);
                         GL11.glScaled(0.65F, 0.65F, 0.65f);
-                    } else if (model instanceof com.vicmatskiv.mw.models.LPscope) {
+                    } else if (model instanceof com.paneedah.mw.models.LPscope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 }).withEntityModelPositioning((model, itemStack) -> {
-                    if (model instanceof com.vicmatskiv.mw.models.HP) {
+                    if (model instanceof com.paneedah.mw.models.HP) {
                         GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                         GL11.glRotatef(90F, 0f, 0f, 1f);
                         GL11.glScaled(0.4F, 0.4F, 0.4F);
-                    } else if (model instanceof com.vicmatskiv.mw.models.LPscope) {
+                    } else if (model instanceof com.paneedah.mw.models.LPscope) {
                         GL11.glScaled(0F, 0F, 0F);
                     }
                 })
@@ -102,21 +102,21 @@ public class Electronics {
                 GL11.glScaled(0.5F, 0.5F, 0.5F);
             }
         }).withInventoryModelPositioning((model, itemStack) -> {
-            if (model instanceof com.vicmatskiv.mw.models.HP) {
+            if (model instanceof com.paneedah.mw.models.HP) {
                 GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
                 GL11.glRotatef(10F, 1f, 0f, 0f);
                 GL11.glRotatef(-190F, 0f, 1f, 0f);
                 GL11.glRotatef(0F, 0f, 0f, 1f);
                 GL11.glScaled(0.65F, 0.65F, 0.65f);
-            } else if (model instanceof com.vicmatskiv.mw.models.LPscope) {
+            } else if (model instanceof com.paneedah.mw.models.LPscope) {
                 GL11.glScaled(0F, 0F, 0F);
             }
         }).withEntityModelPositioning((model, itemStack) -> {
-            if (model instanceof com.vicmatskiv.mw.models.HP) {
+            if (model instanceof com.paneedah.mw.models.HP) {
                 GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                 GL11.glRotatef(90F, 0f, 0f, 1f);
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-            } else if (model instanceof com.vicmatskiv.mw.models.LPscope) {
+            } else if (model instanceof com.paneedah.mw.models.LPscope) {
                 GL11.glScaled(0F, 0F, 0F);
             }
         })
@@ -171,21 +171,21 @@ public class Electronics {
                 GL11.glScaled(0.6F, 0.6F, 0.6F);
             }
         }).withInventoryModelPositioning((model, itemStack) -> {
-            if (model instanceof com.vicmatskiv.mw.models.HP) {
+            if (model instanceof com.paneedah.mw.models.HP) {
                 GL11.glTranslatef(-0.6F, -0.6F, 0.6F);
                 GL11.glRotatef(10F, 1f, 0f, 0f);
                 GL11.glRotatef(-190F, 0f, 1f, 0f);
                 GL11.glRotatef(0F, 0f, 0f, 1f);
                 GL11.glScaled(0.65F, 0.65F, 0.65f);
-            } else if (model instanceof com.vicmatskiv.mw.models.LPscope) {
+            } else if (model instanceof com.paneedah.mw.models.LPscope) {
                 GL11.glScaled(0F, 0F, 0F);
             }
         }).withEntityModelPositioning((model, itemStack) -> {
-            if (model instanceof com.vicmatskiv.mw.models.HP) {
+            if (model instanceof com.paneedah.mw.models.HP) {
                 GL11.glTranslatef(0.1F, 0.2F, 0.4F);
                 GL11.glRotatef(90F, 0f, 0f, 1f);
                 GL11.glScaled(0.4F, 0.4F, 0.4F);
-            } else if (model instanceof com.vicmatskiv.mw.models.LPscope) {
+            } else if (model instanceof com.paneedah.mw.models.LPscope) {
                 GL11.glScaled(0F, 0F, 0F);
             }
         })

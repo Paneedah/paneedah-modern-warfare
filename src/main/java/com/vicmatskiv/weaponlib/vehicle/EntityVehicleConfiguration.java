@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
-import com.vicmatskiv.weaponlib.EntityClassFactory;
-import com.vicmatskiv.weaponlib.EntityConfiguration;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.PhysicsConfiguration;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Transmission;
+import com.paneedah.weaponlib.EntityClassFactory;
+import com.paneedah.weaponlib.EntityConfiguration;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.vehicle.jimphysics.PhysicsConfiguration;
+import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityVehicleConfiguration implements EntityConfiguration {
 

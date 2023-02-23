@@ -1,10 +1,10 @@
-package com.vicmatskiv.mw.skins;
+package com.paneedah.mw.skins;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.weaponlib.CommonRegistry;
-import com.vicmatskiv.weaponlib.ItemSkin;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.weaponlib.CommonRegistry;
+import com.paneedah.weaponlib.ItemSkin;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.config.ConfigurationManager;
 
 public class GunSkins {
 

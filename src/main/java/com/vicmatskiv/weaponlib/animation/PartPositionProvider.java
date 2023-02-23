@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
 import org.lwjgl.util.vector.Matrix4f;
 

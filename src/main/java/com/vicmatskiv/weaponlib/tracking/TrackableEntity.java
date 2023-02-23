@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.tracking;
+package com.paneedah.weaponlib.tracking;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference;
 import java.util.UUID;
 import java.util.function.Supplier;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class TrackableEntity {
 

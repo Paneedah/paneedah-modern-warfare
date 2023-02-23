@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.command;
+package com.paneedah.weaponlib.command;
 
-import com.vicmatskiv.weaponlib.crafting.CraftingFileManager;
-import com.vicmatskiv.weaponlib.crafting.CraftingRegistry;
+import com.paneedah.weaponlib.crafting.CraftingFileManager;
+import com.paneedah.weaponlib.crafting.CraftingRegistry;
 import net.minecraft.command.ICommandSender;
 
 public class CraftingFileCommand extends TidyCompatibleCommand {

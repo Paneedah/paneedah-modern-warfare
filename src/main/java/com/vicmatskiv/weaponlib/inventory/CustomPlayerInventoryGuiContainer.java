@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleGuiContainer;
+import com.paneedah.weaponlib.compatibility.CompatibleGuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.io.IOException;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 public class CustomPlayerInventoryGuiContainer extends CompatibleGuiContainer {
     /**
      * x size of the inventory window in pixels. Defined as float, passed as int

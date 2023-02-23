@@ -1,19 +1,19 @@
-package com.vicmatskiv.weaponlib.command;
+package com.paneedah.weaponlib.command;
 
 import akka.japi.Pair;
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.ItemAttachment;
-import com.vicmatskiv.weaponlib.Part;
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.animation.DebugPositioner;
-import com.vicmatskiv.weaponlib.animation.Transform;
-import com.vicmatskiv.weaponlib.animation.jim.BBLoader;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleCommand;
-import com.vicmatskiv.weaponlib.compatibility.graph.CompatibilityClassGenerator;
-import com.vicmatskiv.weaponlib.render.ModificationGUI;
-import com.vicmatskiv.weaponlib.render.WeaponSpritesheetBuilder;
-import com.vicmatskiv.weaponlib.vehicle.VehiclePart;
+import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.Part;
+import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.DebugPositioner;
+import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.weaponlib.animation.jim.BBLoader;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.compatibility.CompatibleCommand;
+import com.paneedah.weaponlib.compatibility.graph.CompatibilityClassGenerator;
+import com.paneedah.weaponlib.render.ModificationGUI;
+import com.paneedah.weaponlib.render.WeaponSpritesheetBuilder;
+import com.paneedah.weaponlib.vehicle.VehiclePart;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.TextFormatting;
@@ -22,7 +22,7 @@ import java.io.*;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class DebugCommand extends CompatibleCommand {
 

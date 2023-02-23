@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
-import com.vicmatskiv.weaponlib.animation.ScreenShakingAnimationManager.State;
+import com.paneedah.weaponlib.animation.ScreenShakingAnimationManager.State;
 import net.minecraft.entity.player.EntityPlayer;
 
 public interface PlayerAnimation {

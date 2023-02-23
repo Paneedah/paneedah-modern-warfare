@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.electronics.ScopePerspective;
-import com.vicmatskiv.weaponlib.perspective.ReflexScreen;
-import com.vicmatskiv.weaponlib.render.scopes.CyclicList;
-import com.vicmatskiv.weaponlib.render.scopes.Reticle;
+import com.paneedah.weaponlib.electronics.ScopePerspective;
+import com.paneedah.weaponlib.perspective.ReflexScreen;
+import com.paneedah.weaponlib.render.scopes.CyclicList;
+import com.paneedah.weaponlib.render.scopes.Reticle;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;

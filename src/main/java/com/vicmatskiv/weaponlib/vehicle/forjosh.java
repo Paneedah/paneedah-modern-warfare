@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +15,7 @@ public class forjosh {
     {
         Method m = null;
         try {
-            m = ReflectionHelper.findMethod(Class.forName("com.vicmatskiv.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability"), "getInventory", null, EntityLivingBase.class);
+            m = ReflectionHelper.findMethod(Class.forName("com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability"), "getInventory", null, EntityLivingBase.class);
         } catch (Exception e) { return null; }
         Object inventory = null;
         try {
@@ -24,7 +24,7 @@ public class forjosh {
         ItemStack[] backpack = null;
         if(inventory != null){
             try {
-                backpack = (ItemStack[]) ReflectionHelper.findField(Class.forName("com.vicmatskiv.weaponlib.inventory.CustomPlayerInventory"), "inventory").get(inventory);
+                backpack = (ItemStack[]) ReflectionHelper.findField(Class.forName("com.paneedah.weaponlib.inventory.CustomPlayerInventory"), "inventory").get(inventory);
             } catch (Exception e) { return null; }
         }
         ItemStackHandler handler = new ItemStackHandler(2);

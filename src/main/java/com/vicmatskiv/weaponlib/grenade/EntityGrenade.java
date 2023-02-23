@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.grenade;
+package com.paneedah.weaponlib.grenade;
 
-import com.vicmatskiv.weaponlib.Explosion;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.Explosion;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.compatibility.*;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.List;
 import java.util.function.BiPredicate;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityGrenade extends AbstractEntityGrenade {
 

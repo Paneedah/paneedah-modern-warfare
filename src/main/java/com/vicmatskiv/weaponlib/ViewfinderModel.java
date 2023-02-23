@@ -1,12 +1,12 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
-import com.vicmatskiv.weaponlib.compatibility.FlatSurfaceModelBox;
-import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
-import com.vicmatskiv.weaponlib.perspective.OpticalScopePerspective;
-import com.vicmatskiv.weaponlib.render.bgl.PostProcessPipeline;
-import com.vicmatskiv.weaponlib.render.scopes.Reticle;
-import com.vicmatskiv.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.animation.ClientValueRepo;
+import com.paneedah.weaponlib.compatibility.FlatSurfaceModelBox;
+import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.perspective.OpticalScopePerspective;
+import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
+import com.paneedah.weaponlib.render.scopes.Reticle;
+import com.paneedah.weaponlib.shader.jim.Shader;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -15,7 +15,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class ViewfinderModel extends ModelBase {
 	

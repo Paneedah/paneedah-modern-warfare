@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.tile;
+package com.paneedah.weaponlib.tile;
 
-import com.vicmatskiv.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.compatibility.*;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 import java.util.function.Function;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class CustomTileEntityBlock extends CompatibleBlockContainer {
 	

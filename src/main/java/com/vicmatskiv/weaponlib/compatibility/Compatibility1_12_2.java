@@ -1,13 +1,13 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.Explosion;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.ai.EntityCustomMob;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleParticle.CompatibleParticleBreaking;
-import com.vicmatskiv.weaponlib.inventory.GuiHandler;
-import com.vicmatskiv.weaponlib.particle.CompatibleBloodParticle;
-import com.vicmatskiv.weaponlib.particle.CompatibleDiggingParticle;
-import com.vicmatskiv.weaponlib.tile.CustomTileEntityRenderer;
+import com.paneedah.weaponlib.Explosion;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.ai.EntityCustomMob;
+import com.paneedah.weaponlib.compatibility.CompatibleParticle.CompatibleParticleBreaking;
+import com.paneedah.weaponlib.inventory.GuiHandler;
+import com.paneedah.weaponlib.particle.CompatibleBloodParticle;
+import com.paneedah.weaponlib.particle.CompatibleDiggingParticle;
+import com.paneedah.weaponlib.tile.CustomTileEntityRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -88,8 +88,8 @@ import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 @SuppressWarnings("deprecation")
 public class Compatibility1_12_2 implements Compatibility {

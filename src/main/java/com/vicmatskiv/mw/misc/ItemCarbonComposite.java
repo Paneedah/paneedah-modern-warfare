@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.misc;
+package com.paneedah.mw.misc;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
+import com.paneedah.mw.ModernWarfareMod;
 import net.minecraft.item.Item;
 
 public class ItemCarbonComposite extends Item {

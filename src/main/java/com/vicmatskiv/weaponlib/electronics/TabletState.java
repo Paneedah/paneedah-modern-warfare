@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.electronics;
+package com.paneedah.weaponlib.electronics;
 
-import com.vicmatskiv.weaponlib.network.TypeRegistry;
-import com.vicmatskiv.weaponlib.state.ManagedState;
+import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
 
 public enum TabletState implements ManagedState<TabletState> {

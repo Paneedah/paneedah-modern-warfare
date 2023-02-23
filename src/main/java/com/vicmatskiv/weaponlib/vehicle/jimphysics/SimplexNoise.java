@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics;
+package com.paneedah.weaponlib.vehicle.jimphysics;
 
 /*
  * A speed-improved simplex noise algorithm for 2D, 3D and 4D in Java.

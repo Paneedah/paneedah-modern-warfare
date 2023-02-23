@@ -1,16 +1,16 @@
-package com.vicmatskiv.weaponlib.network.packets;
+package com.paneedah.weaponlib.network.packets;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessage;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageContext;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleMessageHandler;
-import com.vicmatskiv.weaponlib.config.BalancePackManager;
-import com.vicmatskiv.weaponlib.config.BalancePackManager.BalancePack;
-import com.vicmatskiv.weaponlib.network.CompressionUtil;
+import com.paneedah.weaponlib.compatibility.CompatibleMessage;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageContext;
+import com.paneedah.weaponlib.compatibility.CompatibleMessageHandler;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.config.BalancePackManager.BalancePack;
+import com.paneedah.weaponlib.network.CompressionUtil;
 import io.netty.buffer.ByteBuf;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class BalancePackClient implements CompatibleMessage {
 

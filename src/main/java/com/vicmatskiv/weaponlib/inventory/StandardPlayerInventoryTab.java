@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBlocks;
+import com.paneedah.weaponlib.compatibility.CompatibleBlocks;
 import net.minecraft.item.ItemStack;
 
 public class StandardPlayerInventoryTab extends InventoryTab {

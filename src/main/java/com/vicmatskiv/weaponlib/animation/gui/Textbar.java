@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.animation.gui;
+package com.paneedah.weaponlib.animation.gui;
 
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class Textbar {
 	

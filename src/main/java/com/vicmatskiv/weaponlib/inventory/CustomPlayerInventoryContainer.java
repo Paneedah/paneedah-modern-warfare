@@ -1,8 +1,8 @@
-package com.vicmatskiv.weaponlib.inventory;
+package com.paneedah.weaponlib.inventory;
 
-import com.vicmatskiv.weaponlib.ItemStorage;
-import com.vicmatskiv.weaponlib.ItemVest;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleContainer;
+import com.paneedah.weaponlib.ItemStorage;
+import com.paneedah.weaponlib.ItemVest;
+import com.paneedah.weaponlib.compatibility.CompatibleContainer;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class CustomPlayerInventoryContainer extends CompatibleContainer {
     

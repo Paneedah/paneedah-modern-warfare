@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.render.bgl.instancing;
+package com.paneedah.weaponlib.render.bgl.instancing;
 
-import com.vicmatskiv.weaponlib.render.VAOData;
-import com.vicmatskiv.weaponlib.render.VAOLoader;
-import com.vicmatskiv.weaponlib.render.bgl.GLCompatible;
-import com.vicmatskiv.weaponlib.render.bgl.ModernUtil;
-import com.vicmatskiv.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.render.VAOData;
+import com.paneedah.weaponlib.render.VAOLoader;
+import com.paneedah.weaponlib.render.bgl.GLCompatible;
+import com.paneedah.weaponlib.render.bgl.ModernUtil;
+import com.paneedah.weaponlib.shader.jim.Shader;
 import org.lwjgl.BufferUtils;
 
 import java.nio.FloatBuffer;

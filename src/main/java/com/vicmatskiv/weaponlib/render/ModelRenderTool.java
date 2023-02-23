@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render;
+package com.paneedah.weaponlib.render;
 
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.TexturedQuad;

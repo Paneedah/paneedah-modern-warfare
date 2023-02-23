@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.core;
+package com.paneedah.weaponlib.core;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
@@ -19,7 +19,7 @@ public class SpecialPatcher {
 			// Inside SoundManager.SoundSystemStarterThread
 			InsnList toInject = new InsnList();
 			toInject.add(new VarInsnNode(Opcodes.ALOAD, 0));
-			toInject.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/vicmatskiv/weaponlib/compatibility/CoreSoundInterceptor", "init",
+			toInject.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/paneedah/weaponlib/compatibility/CoreSoundInterceptor", "init",
 					"(Lpaulscode/sound/SoundSystem;)V", false));
 
 			// Target method: Constructor
@@ -54,7 +54,7 @@ public class SpecialPatcher {
 					"Ljava/nio/IntBuffer;"));
 			toInject.add(new InsnNode(Opcodes.ICONST_0));
 			toInject.add(new MethodInsnNode(Opcodes.INVOKEVIRTUAL, "java/nio/IntBuffer", "get", "(I)I", false));
-			toInject.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/vicmatskiv/weaponlib/compatibility/CoreSoundInterceptor",
+			toInject.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/paneedah/weaponlib/compatibility/CoreSoundInterceptor",
 					"onPlaySound", "(FFFI)V", false));
 
 			// Target method: play

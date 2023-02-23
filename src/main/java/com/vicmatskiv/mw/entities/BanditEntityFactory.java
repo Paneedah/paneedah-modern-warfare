@@ -1,13 +1,13 @@
-package com.vicmatskiv.mw.entities;
+package com.paneedah.mw.entities;
 
-import com.vicmatskiv.mw.weapons.Guns;
-import com.vicmatskiv.mw.weapons.Magazines;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.ai.BetterAINearestAttackableTarget;
-import com.vicmatskiv.weaponlib.ai.EntityAIAttackRangedWeapon;
-import com.vicmatskiv.weaponlib.ai.EntityConfiguration;
-import com.vicmatskiv.weaponlib.ai.EntityCustomMob;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBiomeType;
+import com.paneedah.mw.weapons.Guns;
+import com.paneedah.mw.weapons.Magazines;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.ai.BetterAINearestAttackableTarget;
+import com.paneedah.weaponlib.ai.EntityAIAttackRangedWeapon;
+import com.paneedah.weaponlib.ai.EntityConfiguration;
+import com.paneedah.weaponlib.ai.EntityCustomMob;
+import com.paneedah.weaponlib.compatibility.CompatibleBiomeType;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.boss.EntityDragon;
@@ -17,7 +17,7 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class BanditEntityFactory implements EntityFactory {
 
@@ -35,11 +35,11 @@ public class BanditEntityFactory implements EntityFactory {
         .withSpawn(2, 20, 31, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
         .withMaxTolerableLightBrightness(1f)
         .withSpawnEgg(0xFF808000, 0xFF556B2F)
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.BanditNew", "banditnew.png")
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.BanditNew2", "banditnew2.png")
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.BanditNew3", "banditnew3.png")
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.BanditNew4", "banditnew4.png")
-        .withTexturedModelVariant("com.vicmatskiv.mw.models.BanditNew5", "banditnew5.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.BanditNew", "banditnew.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.BanditNew2", "banditnew2.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.BanditNew3", "banditnew3.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.BanditNew4", "banditnew4.png")
+        .withTexturedModelVariant("com.paneedah.mw.models.BanditNew5", "banditnew5.png")
         .withHurtSound("hurt")
         .withAmbientSound("drawweapon")
 //        .withStepSound("step")

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.tile;
+package com.paneedah.weaponlib.tile;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTileEntitySpecialRenderer;
+import com.paneedah.weaponlib.compatibility.CompatibleTileEntitySpecialRenderer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;

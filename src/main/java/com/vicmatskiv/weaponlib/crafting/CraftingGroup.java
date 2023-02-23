@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.crafting;
+package com.paneedah.weaponlib.crafting;
 
 /**
  * CraftingGroup enum class used to differentiate between types of items for crafting purposes

@@ -1,20 +1,20 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.animation.AnimationModeProcessor;
-import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
-import com.vicmatskiv.weaponlib.animation.gui.AnimationGUI;
-import com.vicmatskiv.weaponlib.command.DebugCommand;
-import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
-import com.vicmatskiv.weaponlib.render.Bloom;
-import com.vicmatskiv.weaponlib.render.HDRFramebuffer;
-import com.vicmatskiv.weaponlib.render.Shaders;
-import com.vicmatskiv.weaponlib.render.VMWFrameTimer;
-import com.vicmatskiv.weaponlib.render.bgl.PostProcessPipeline;
-import com.vicmatskiv.weaponlib.render.shells.ShellManager;
-import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
-import com.vicmatskiv.weaponlib.vehicle.collisions.OreintedBB;
-import com.vicmatskiv.weaponlib.vehicle.network.VehicleInteractPacket;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.animation.AnimationModeProcessor;
+import com.paneedah.weaponlib.animation.ClientValueRepo;
+import com.paneedah.weaponlib.animation.gui.AnimationGUI;
+import com.paneedah.weaponlib.command.DebugCommand;
+import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.render.Bloom;
+import com.paneedah.weaponlib.render.HDRFramebuffer;
+import com.paneedah.weaponlib.render.Shaders;
+import com.paneedah.weaponlib.render.VMWFrameTimer;
+import com.paneedah.weaponlib.render.bgl.PostProcessPipeline;
+import com.paneedah.weaponlib.render.shells.ShellManager;
+import com.paneedah.weaponlib.vehicle.EntityVehicle;
+import com.paneedah.weaponlib.vehicle.collisions.OreintedBB;
+import com.paneedah.weaponlib.vehicle.network.VehicleInteractPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -44,7 +44,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 
 /**

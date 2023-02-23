@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.network.TypeRegistry;
-import com.vicmatskiv.weaponlib.network.UniversalObject;
-import com.vicmatskiv.weaponlib.perspective.Perspective;
-import com.vicmatskiv.weaponlib.state.ExtendedState;
-import com.vicmatskiv.weaponlib.state.ManagedState;
+import com.paneedah.weaponlib.network.TypeRegistry;
+import com.paneedah.weaponlib.network.UniversalObject;
+import com.paneedah.weaponlib.perspective.Perspective;
+import com.paneedah.weaponlib.state.ExtendedState;
+import com.paneedah.weaponlib.state.ManagedState;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S>, PlayerContext {
 

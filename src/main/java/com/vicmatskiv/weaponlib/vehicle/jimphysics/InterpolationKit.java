@@ -1,9 +1,9 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics;
+package com.paneedah.weaponlib.vehicle.jimphysics;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class InterpolationKit {
 

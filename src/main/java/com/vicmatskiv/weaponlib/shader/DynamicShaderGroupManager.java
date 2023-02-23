@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.shader;
+package com.paneedah.weaponlib.shader;
 
 import com.google.gson.JsonSyntaxException;
-import com.vicmatskiv.weaponlib.PlayerItemInstance;
-import com.vicmatskiv.weaponlib.TransformingResourceManager;
-import com.vicmatskiv.weaponlib.TransformingTextureManager;
-import com.vicmatskiv.weaponlib.compatibility.Framebuffers;
+import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.weaponlib.TransformingResourceManager;
+import com.paneedah.weaponlib.TransformingTextureManager;
+import com.paneedah.weaponlib.compatibility.Framebuffers;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.shader.Framebuffer;
@@ -21,13 +21,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class DynamicShaderGroupManager {
     
     private static final Logger logger = LogManager.getLogger(DynamicShaderGroupManager.class);
 
-    private static final String PATH_RESOURCES = "/com/vicmatskiv/weaponlib/resources/";
+    private static final String PATH_RESOURCES = "/com/paneedah/weaponlib/resources/";
     private static final String PATH_SHADER_PROGRAMS = PATH_RESOURCES + "shaders/programs/";
 
     private static final String RESOURCE_DOMAIN_WEAPONLIB = "weaponlib";

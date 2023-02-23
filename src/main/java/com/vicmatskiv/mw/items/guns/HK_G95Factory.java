@@ -1,13 +1,13 @@
-package com.vicmatskiv.mw.items.guns;
+package com.paneedah.mw.items.guns;
 
-import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.models.*;
-import com.vicmatskiv.mw.weapons.Attachments;
-import com.vicmatskiv.mw.weapons.AuxiliaryAttachments;
-import com.vicmatskiv.mw.weapons.Magazines;
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.animation.Transition;
+import com.paneedah.mw.CommonProxy;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.mw.models.*;
+import com.paneedah.mw.weapons.Attachments;
+import com.paneedah.mw.weapons.AuxiliaryAttachments;
+import com.paneedah.mw.weapons.Magazines;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.animation.Transition;
 import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 

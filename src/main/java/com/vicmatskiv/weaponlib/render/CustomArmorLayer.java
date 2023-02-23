@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.render;
+package com.paneedah.weaponlib.render;
 
-import com.vicmatskiv.weaponlib.ItemStorage;
-import com.vicmatskiv.weaponlib.ItemVest;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
-import com.vicmatskiv.weaponlib.inventory.CustomPlayerInventory;
-import com.vicmatskiv.weaponlib.model.USMCVestTwo;
-import com.vicmatskiv.weaponlib.render.modelrepo.GearModelRepository;
+import com.paneedah.weaponlib.ItemStorage;
+import com.paneedah.weaponlib.ItemVest;
+import com.paneedah.weaponlib.compatibility.CompatibleCustomPlayerInventoryCapability;
+import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
+import com.paneedah.weaponlib.model.USMCVestTwo;
+import com.paneedah.weaponlib.render.modelrepo.GearModelRepository;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
@@ -17,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 
 import java.util.function.BiConsumer;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class CustomArmorLayer implements LayerRenderer<EntityPlayer> {
 

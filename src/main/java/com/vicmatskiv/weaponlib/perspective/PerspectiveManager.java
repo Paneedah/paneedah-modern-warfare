@@ -1,16 +1,16 @@
-package com.vicmatskiv.weaponlib.perspective;
+package com.paneedah.weaponlib.perspective;
 
-import com.vicmatskiv.weaponlib.ClientModContext;
-import com.vicmatskiv.weaponlib.PlayerItemInstance;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleParticleManager;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleWorldRenderer;
+import com.paneedah.weaponlib.ClientModContext;
+import com.paneedah.weaponlib.PlayerItemInstance;
+import com.paneedah.weaponlib.compatibility.CompatibleParticleManager;
+import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.RenderGlobal;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PerspectiveManager {
 

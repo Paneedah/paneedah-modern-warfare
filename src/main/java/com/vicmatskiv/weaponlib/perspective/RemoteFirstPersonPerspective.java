@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.perspective;
+package com.paneedah.weaponlib.perspective;
 
-import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.RenderingPhase;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleParticleManager;
-import com.vicmatskiv.weaponlib.compatibility.CompatiblePlayerCreatureWrapper;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleRenderTickEvent;
+import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.RenderingPhase;
+import com.paneedah.weaponlib.compatibility.CompatibleParticleManager;
+import com.paneedah.weaponlib.compatibility.CompatiblePlayerCreatureWrapper;
+import com.paneedah.weaponlib.compatibility.CompatibleRenderTickEvent;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
@@ -13,8 +13,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public abstract class RemoteFirstPersonPerspective extends Perspective<RenderableState> {
 

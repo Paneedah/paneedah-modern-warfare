@@ -1,10 +1,10 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
-import com.vicmatskiv.weaponlib.KeyBindings;
-import com.vicmatskiv.weaponlib.animation.jim.KeyStateAnimator;
-import com.vicmatskiv.weaponlib.render.ScreenRenderer;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Transmission;
+import com.paneedah.weaponlib.KeyBindings;
+import com.paneedah.weaponlib.animation.jim.KeyStateAnimator;
+import com.paneedah.weaponlib.render.ScreenRenderer;
+import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.model.ModelBase;
@@ -18,7 +18,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class VehicleCustomGUI extends Gui {
 	

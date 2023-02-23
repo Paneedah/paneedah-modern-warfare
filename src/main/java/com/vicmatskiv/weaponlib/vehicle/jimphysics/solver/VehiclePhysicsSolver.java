@@ -1,14 +1,14 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics.solver;
+package com.paneedah.weaponlib.vehicle.jimphysics.solver;
 
-import com.vicmatskiv.weaponlib.network.IEncodable;
-import com.vicmatskiv.weaponlib.vehicle.EntityVehicle;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Engine;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.PhysicsConfiguration;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.Transmission;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.VehiclePhysUtil;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.engines.FlywheelSolver;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.aero.IAeroComponent;
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.components.EngineSolver;
+import com.paneedah.weaponlib.network.IEncodable;
+import com.paneedah.weaponlib.vehicle.EntityVehicle;
+import com.paneedah.weaponlib.vehicle.jimphysics.Engine;
+import com.paneedah.weaponlib.vehicle.jimphysics.PhysicsConfiguration;
+import com.paneedah.weaponlib.vehicle.jimphysics.Transmission;
+import com.paneedah.weaponlib.vehicle.jimphysics.VehiclePhysUtil;
+import com.paneedah.weaponlib.vehicle.jimphysics.engines.FlywheelSolver;
+import com.paneedah.weaponlib.vehicle.jimphysics.solver.aero.IAeroComponent;
+import com.paneedah.weaponlib.vehicle.jimphysics.solver.components.EngineSolver;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.MoverType;

@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.model;
+package com.paneedah.weaponlib.model;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;

@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.grenade;
+package com.paneedah.weaponlib.grenade;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.network.TypeRegistry;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.network.TypeRegistry;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;

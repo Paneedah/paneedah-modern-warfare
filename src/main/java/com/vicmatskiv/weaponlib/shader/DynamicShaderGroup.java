@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.shader;
+package com.paneedah.weaponlib.shader;
 
 import com.google.gson.JsonSyntaxException;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleShaderGroup;
+import com.paneedah.weaponlib.compatibility.CompatibleShaderGroup;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.shader.Framebuffer;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class DynamicShaderGroup extends CompatibleShaderGroup {
 

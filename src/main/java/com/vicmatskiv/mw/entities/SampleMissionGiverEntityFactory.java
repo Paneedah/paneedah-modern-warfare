@@ -1,12 +1,12 @@
-package com.vicmatskiv.mw.entities;
+package com.paneedah.mw.entities;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.weapons.Attachments;
-import com.vicmatskiv.mw.weapons.Guns;
-import com.vicmatskiv.mw.weapons.Magazines;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.ai.EntityConfiguration;
-import com.vicmatskiv.weaponlib.ai.EntityCustomMob;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.mw.weapons.Attachments;
+import com.paneedah.mw.weapons.Guns;
+import com.paneedah.mw.weapons.Magazines;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.ai.EntityConfiguration;
+import com.paneedah.weaponlib.ai.EntityCustomMob;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,13 +31,13 @@ public class SampleMissionGiverEntityFactory implements EntityFactory {
                 .withPrimaryEquipmentDropChance(1f)
 //                .withSpawn(1, 1, 7, CompatibleBiomeType.PLAINS, CompatibleBiomeType.FOREST, CompatibleBiomeType.HILLS)
 //                .withSpawnEgg(0xA0A000, 0xA0A010) 
-                .withTexturedModelVariant("com.vicmatskiv.mw.models.Biped", "bandit1.png")
-                .withTexturedModelVariant("com.vicmatskiv.mw.models.Biped", "bandit3.png")
-                .withTexturedModelVariant("com.vicmatskiv.mw.models.Biped", "bandit4.png")
-                .withTexturedModelVariant("com.vicmatskiv.mw.models.Biped", "bandit5.png")
-                .withTexturedModelVariant("com.vicmatskiv.mw.models.Biped", "bandit6.png")
-                .withTexturedModelVariant("com.vicmatskiv.mw.models.Biped", "bandit7.png")
-                .withTexturedModelVariant("com.vicmatskiv.mw.models.Biped", "bandit8.png")
+                .withTexturedModelVariant("com.paneedah.mw.models.Biped", "bandit1.png")
+                .withTexturedModelVariant("com.paneedah.mw.models.Biped", "bandit3.png")
+                .withTexturedModelVariant("com.paneedah.mw.models.Biped", "bandit4.png")
+                .withTexturedModelVariant("com.paneedah.mw.models.Biped", "bandit5.png")
+                .withTexturedModelVariant("com.paneedah.mw.models.Biped", "bandit6.png")
+                .withTexturedModelVariant("com.paneedah.mw.models.Biped", "bandit7.png")
+                .withTexturedModelVariant("com.paneedah.mw.models.Biped", "bandit8.png")
                 .withHurtSound("hurt")
 //                .withPushability(false)
 //                .withCollidability(false)

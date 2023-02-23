@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.electronics;
+package com.paneedah.weaponlib.electronics;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.perspective.PerspectiveRenderer;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.perspective.PerspectiveRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

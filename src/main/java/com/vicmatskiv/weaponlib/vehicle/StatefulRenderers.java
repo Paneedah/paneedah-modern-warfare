@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleWeaponRenderer;
+import com.paneedah.weaponlib.compatibility.CompatibleWeaponRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
@@ -20,7 +20,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.function.Function;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 
 public class StatefulRenderers {

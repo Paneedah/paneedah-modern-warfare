@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
 import com.google.common.collect.Lists;
-import com.vicmatskiv.weaponlib.compatibility.Interceptors;
+import com.paneedah.weaponlib.compatibility.Interceptors;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.TextureOffset;

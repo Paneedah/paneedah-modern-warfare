@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.animation.jim;
+package com.paneedah.weaponlib.animation.jim;
 
-import com.vicmatskiv.weaponlib.vehicle.GearShiftPattern;
+import com.paneedah.weaponlib.vehicle.GearShiftPattern;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;

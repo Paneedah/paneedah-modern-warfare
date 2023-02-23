@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.crafting;
+package com.paneedah.weaponlib.crafting;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBlocks;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleItems;
+import com.paneedah.weaponlib.compatibility.CompatibleBlocks;
+import com.paneedah.weaponlib.compatibility.CompatibleItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import org.apache.logging.log4j.LogManager;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class RecipeManager {
 

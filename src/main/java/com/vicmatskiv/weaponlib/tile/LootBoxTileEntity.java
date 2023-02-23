@@ -1,11 +1,11 @@
-package com.vicmatskiv.weaponlib.tile;
+package com.paneedah.weaponlib.tile;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleBlockPos;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityItem;
-import com.vicmatskiv.weaponlib.grenade.ItemGrenade;
-import com.vicmatskiv.weaponlib.grenade.PlayerGrenadeInstance;
-import com.vicmatskiv.weaponlib.tile.LootBoxConfiguration.Equipment;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.compatibility.CompatibleBlockPos;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityItem;
+import com.paneedah.weaponlib.grenade.ItemGrenade;
+import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
+import com.paneedah.weaponlib.tile.LootBoxConfiguration.Equipment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 import java.util.Set;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class LootBoxTileEntity extends CustomTileEntity<LootBoxConfiguration> {
     

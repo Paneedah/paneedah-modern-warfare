@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
-import com.vicmatskiv.weaponlib.RenderContext;
-import com.vicmatskiv.weaponlib.RenderableState;
+import com.paneedah.weaponlib.RenderContext;
+import com.paneedah.weaponlib.RenderableState;
 import org.lwjgl.opengl.GL11;
 
 import java.util.function.Consumer;

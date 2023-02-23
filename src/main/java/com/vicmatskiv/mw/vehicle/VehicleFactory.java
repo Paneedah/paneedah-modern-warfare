@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.vehicle;
+package com.paneedah.mw.vehicle;
 
-import com.vicmatskiv.weaponlib.ModContext;
+import com.paneedah.weaponlib.ModContext;
 
 public interface VehicleFactory {
 

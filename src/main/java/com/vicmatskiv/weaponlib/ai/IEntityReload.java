@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.ai;
+package com.paneedah.weaponlib.ai;
 
 public interface IEntityReload {
 	

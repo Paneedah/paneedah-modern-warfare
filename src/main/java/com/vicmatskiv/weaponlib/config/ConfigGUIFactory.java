@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.config;
+package com.paneedah.weaponlib.config;
 
-import com.vicmatskiv.weaponlib.config.novel.VMWModConfigGUI;
+import com.paneedah.weaponlib.config.novel.VMWModConfigGUI;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.fml.client.IModGuiFactory;

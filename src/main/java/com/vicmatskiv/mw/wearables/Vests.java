@@ -1,10 +1,10 @@
-package com.vicmatskiv.mw.wearables;
+package com.paneedah.mw.wearables;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.weaponlib.ItemVest;
-import com.vicmatskiv.weaponlib.animation.Transform;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.weaponlib.ItemVest;
+import com.paneedah.weaponlib.animation.Transform;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.config.ConfigurationManager;
 import net.minecraft.creativetab.CreativeTabs;
 import org.lwjgl.opengl.GL11;
 
@@ -17,7 +17,7 @@ public class Vests {
         .withName("m43a_chest_harness")
         .withPercentDamageBlocked(0.4)
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.M43AChestHarness", "m43achestharness.png")
+        .withProperModel("com.paneedah.mw.models.M43AChestHarness", "m43achestharness.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
@@ -36,7 +36,7 @@ public class Vests {
         .withName("flyye_field_compact_plate_carrier")
         .withPercentDamageBlocked(0.5)
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.MollePlateCarrier", "molleplatecarrier.png")
+        .withProperModel("com.paneedah.mw.models.MollePlateCarrier", "molleplatecarrier.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
@@ -55,7 +55,7 @@ public class Vests {
         .withName("molle_black")
         .withPercentDamageBlocked(0.5)
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.MollePlateCarrier", "molleplatecarrier_black.png")
+        .withProperModel("com.paneedah.mw.models.MollePlateCarrier", "molleplatecarrier_black.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
@@ -74,7 +74,7 @@ public class Vests {
         .withName("molle_green")
         .withPercentDamageBlocked(0.5)
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.MollePlateCarrier", "molleplatecarrier_green.png")
+        .withProperModel("com.paneedah.mw.models.MollePlateCarrier", "molleplatecarrier_green.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
@@ -93,7 +93,7 @@ public class Vests {
         .withName("molle_urban")
         .withPercentDamageBlocked(0.5)
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.MollePlateCarrier", "molleplatecarrier_urban.png")
+        .withProperModel("com.paneedah.mw.models.MollePlateCarrier", "molleplatecarrier_urban.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
 //            GL11.glTranslatef(0f, 0f, 0f);
@@ -112,7 +112,7 @@ public class Vests {
         .withName("swat_vest")
         .withPercentDamageBlocked(0.6)
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.UTG547Vest", "utg547vest.png")
+        .withProperModel("com.paneedah.mw.models.UTG547Vest", "utg547vest.png")
         .withCustomEquippedPositioning((player, stack) -> {
             GL11.glScalef(0.8f, 0.8f, 0.8f);
             GL11.glTranslatef(0f, 0f, 0f);
@@ -131,7 +131,7 @@ public class Vests {
         .withName("usmc_vest")
         .withPercentDamageBlocked(0.7)
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.USMCVest", "usmc.png")
+        .withProperModel("com.paneedah.mw.models.USMCVest", "usmc.png")
 //        .withModelTextureName("usmc.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -153,7 +153,7 @@ public class Vests {
         .withPercentDamageBlocked(0.7)
 //        .withDurability(100) // works the same way as shield's max capacity
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.USMCVest", "usmcvestblack.png")
+        .withProperModel("com.paneedah.mw.models.USMCVest", "usmcvestblack.png")
 //        .withModelTextureName("usmc.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -175,7 +175,7 @@ public class Vests {
         .withPercentDamageBlocked(0.7)
 //        .withDurability(100) // works the same way as shield's max capacity
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.USMCVest", "militaryuniformforest.png")
+        .withProperModel("com.paneedah.mw.models.USMCVest", "militaryuniformforest.png")
 //        .withModelTextureName("usmc.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -197,7 +197,7 @@ public class Vests {
         .withPercentDamageBlocked(0.7)
 //        .withDurability(100) // works the same way as shield's max capacity
         .withTab(ModernWarfareMod.ArmorTab)
-        .withProperModel("com.vicmatskiv.mw.models.USMCVest", "militaryuniformurban.png")
+        .withProperModel("com.paneedah.mw.models.USMCVest", "militaryuniformurban.png")
 //        .withModelTextureName("usmc.png")
 //        .withCustomEquippedPositioning((player, stack) -> {
 //            GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -218,7 +218,7 @@ public class Vests {
         .withDamageReduceAmount(25) // use numbers from 1 to 8
         .withDurability(100) // works the same way as shield's max capacity
         .withTab(CreativeTabs.MISC)
-        .withModel(new com.vicmatskiv.mw.models.Juggernautbodyarmor())
+        .withModel(new com.paneedah.mw.models.Juggernautbodyarmor())
         .withModelTextureName("juggernautbodyarmor.png")
         .withCustomEquippedPositioning((player, stack) -> {
             GL11.glScalef(0.8f, 0.8f, 0.8f);
@@ -239,7 +239,7 @@ public class Vests {
         .withDamageReduceAmount(25) // use numbers from 1 to 8
         .withDurability(100) // works the same way as shield's max capacity
         .withTab(CreativeTabs.MISC)
-        .withModel(new com.vicmatskiv.mw.models.FortArmor())
+        .withModel(new com.paneedah.mw.models.FortArmor())
         .withModelTextureName("fortarmor.png")
         .withCustomEquippedPositioning((player, stack) -> {
             GL11.glScalef(0.8f, 0.8f, 0.8f);

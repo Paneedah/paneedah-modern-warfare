@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.aero;
+package com.paneedah.weaponlib.vehicle.jimphysics.solver.aero;
 
 public interface IAeroComponent {
 	

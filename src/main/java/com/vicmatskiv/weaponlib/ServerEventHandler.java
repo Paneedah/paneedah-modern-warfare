@@ -1,15 +1,15 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.*;
-import com.vicmatskiv.weaponlib.config.BalancePackManager;
-import com.vicmatskiv.weaponlib.electronics.ItemHandheld;
-import com.vicmatskiv.weaponlib.inventory.CustomPlayerInventory;
-import com.vicmatskiv.weaponlib.inventory.EntityInventorySyncMessage;
-import com.vicmatskiv.weaponlib.jim.util.HitUtil;
-import com.vicmatskiv.weaponlib.mission.*;
-import com.vicmatskiv.weaponlib.network.packets.HeadshotSFXPacket;
-import com.vicmatskiv.weaponlib.tracking.PlayerEntityTracker;
-import com.vicmatskiv.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
+import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.electronics.ItemHandheld;
+import com.paneedah.weaponlib.inventory.CustomPlayerInventory;
+import com.paneedah.weaponlib.inventory.EntityInventorySyncMessage;
+import com.paneedah.weaponlib.jim.util.HitUtil;
+import com.paneedah.weaponlib.mission.*;
+import com.paneedah.weaponlib.network.packets.HeadshotSFXPacket;
+import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
+import com.paneedah.weaponlib.tracking.SyncPlayerEntityTrackerMessage;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,7 +28,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.Collection;
 import java.util.Iterator;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 /**
  * TODO: rename to common event handler, since it's invoked on both sides

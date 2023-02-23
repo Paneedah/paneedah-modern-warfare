@@ -1,12 +1,12 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
 
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.config.BalancePackManager;
-import com.vicmatskiv.weaponlib.crafting.CraftingFileManager;
-import com.vicmatskiv.weaponlib.jim.util.ByteArrayUtils;
-import com.vicmatskiv.weaponlib.network.packets.BalancePackClient;
-import com.vicmatskiv.weaponlib.network.packets.CraftingClientPacket;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.crafting.CraftingFileManager;
+import com.paneedah.weaponlib.jim.util.ByteArrayUtils;
+import com.paneedah.weaponlib.network.packets.BalancePackClient;
+import com.paneedah.weaponlib.network.packets.CraftingClientPacket;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;

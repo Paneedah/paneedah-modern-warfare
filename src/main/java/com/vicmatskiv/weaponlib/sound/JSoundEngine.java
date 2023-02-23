@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.sound;
+package com.paneedah.weaponlib.sound;
 
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.BufferUtils;
@@ -15,7 +15,7 @@ import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 /**
  * $Id$

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.particle.ExplosionSmokeFX.Behavior;
+import com.paneedah.weaponlib.particle.ExplosionSmokeFX.Behavior;
 import net.minecraft.entity.EntityLivingBase;
 
 public interface EffectManager {

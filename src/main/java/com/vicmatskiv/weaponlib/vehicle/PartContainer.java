@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.vehicle;
+package com.paneedah.weaponlib.vehicle;
 
 import java.util.List;
 

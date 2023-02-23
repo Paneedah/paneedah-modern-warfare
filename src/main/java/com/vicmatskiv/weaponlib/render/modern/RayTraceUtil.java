@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render.modern;
+package com.paneedah.weaponlib.render.modern;
 
 public class RayTraceUtil {
 	

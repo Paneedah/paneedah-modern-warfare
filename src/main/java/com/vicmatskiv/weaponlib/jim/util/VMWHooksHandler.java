@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.jim.util;
+package com.paneedah.weaponlib.jim.util;
 
-import com.vicmatskiv.weaponlib.ItemAttachment;
-import com.vicmatskiv.weaponlib.Weapon;
+import com.paneedah.weaponlib.ItemAttachment;
+import com.paneedah.weaponlib.Weapon;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.compatibility;
+package com.paneedah.weaponlib.compatibility;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;

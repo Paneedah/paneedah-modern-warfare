@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.particle.vehicle;
+package com.paneedah.weaponlib.particle.vehicle;
 
 import net.minecraft.client.particle.ParticleFootStep;
 import net.minecraft.client.renderer.BufferBuilder;

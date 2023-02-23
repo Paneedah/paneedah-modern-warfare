@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.crafting;
+package com.paneedah.weaponlib.crafting;
 
-import com.vicmatskiv.weaponlib.crafting.OptionsMetadata.OptionMetadata;
+import com.paneedah.weaponlib.crafting.OptionsMetadata.OptionMetadata;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

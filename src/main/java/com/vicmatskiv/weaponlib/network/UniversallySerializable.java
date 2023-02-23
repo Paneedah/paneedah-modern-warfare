@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.network;
+package com.paneedah.weaponlib.network;
 
 import io.netty.buffer.ByteBuf;
 

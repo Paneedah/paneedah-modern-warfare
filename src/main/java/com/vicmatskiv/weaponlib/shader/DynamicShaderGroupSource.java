@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.shader;
+package com.paneedah.weaponlib.shader;
 
-import com.vicmatskiv.weaponlib.Tuple;
+import com.paneedah.weaponlib.Tuple;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.ArrayList;

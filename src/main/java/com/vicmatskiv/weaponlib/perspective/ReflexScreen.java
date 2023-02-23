@@ -1,19 +1,19 @@
 // Made with Blockbench 4.1.1
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
-package com.vicmatskiv.weaponlib.perspective;
+package com.paneedah.weaponlib.perspective;
 
 
-import com.vicmatskiv.weaponlib.CustomRenderer;
-import com.vicmatskiv.weaponlib.RenderContext;
-import com.vicmatskiv.weaponlib.RenderableState;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTransformType;
-import com.vicmatskiv.weaponlib.config.novel.ModernConfigManager;
-import com.vicmatskiv.weaponlib.model.ScreenModel;
-import com.vicmatskiv.weaponlib.render.Shaders;
-import com.vicmatskiv.weaponlib.render.scopes.CyclicList;
-import com.vicmatskiv.weaponlib.render.scopes.Reticle;
-import com.vicmatskiv.weaponlib.shader.jim.Shader;
+import com.paneedah.weaponlib.CustomRenderer;
+import com.paneedah.weaponlib.RenderContext;
+import com.paneedah.weaponlib.RenderableState;
+import com.paneedah.weaponlib.compatibility.CompatibleTransformType;
+import com.paneedah.weaponlib.config.novel.ModernConfigManager;
+import com.paneedah.weaponlib.model.ScreenModel;
+import com.paneedah.weaponlib.render.Shaders;
+import com.paneedah.weaponlib.render.scopes.CyclicList;
+import com.paneedah.weaponlib.render.scopes.Reticle;
+import com.paneedah.weaponlib.shader.jim.Shader;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -33,7 +33,7 @@ import org.lwjgl.opengl.GL20;
 
 import java.util.function.BiConsumer;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class ReflexScreen extends ModelBase implements CustomRenderer<RenderableState>{
 	

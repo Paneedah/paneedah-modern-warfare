@@ -1,15 +1,15 @@
-package com.vicmatskiv.weaponlib.ai;
+package com.paneedah.weaponlib.ai;
 
-import com.vicmatskiv.weaponlib.*;
-import com.vicmatskiv.weaponlib.ai.EntityConfiguration.Equipment;
-import com.vicmatskiv.weaponlib.ai.EntityConfiguration.TexturedModel;
-import com.vicmatskiv.weaponlib.compatibility.*;
-import com.vicmatskiv.weaponlib.grenade.GrenadeAttackAspect;
-import com.vicmatskiv.weaponlib.grenade.ItemGrenade;
-import com.vicmatskiv.weaponlib.grenade.PlayerGrenadeInstance;
-import com.vicmatskiv.weaponlib.mission.MissionManager;
-import com.vicmatskiv.weaponlib.mission.MissionOffering;
-import com.vicmatskiv.weaponlib.network.packets.HighIQPickupPacket;
+import com.paneedah.weaponlib.*;
+import com.paneedah.weaponlib.ai.EntityConfiguration.Equipment;
+import com.paneedah.weaponlib.ai.EntityConfiguration.TexturedModel;
+import com.paneedah.weaponlib.compatibility.*;
+import com.paneedah.weaponlib.grenade.GrenadeAttackAspect;
+import com.paneedah.weaponlib.grenade.ItemGrenade;
+import com.paneedah.weaponlib.grenade.PlayerGrenadeInstance;
+import com.paneedah.weaponlib.mission.MissionManager;
+import com.paneedah.weaponlib.mission.MissionOffering;
+import com.paneedah.weaponlib.network.packets.HighIQPickupPacket;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.*;
@@ -30,7 +30,7 @@ import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityCustomMob extends CompatibleEntityMob
         implements IRangedAttackMob, Contextual, Configurable<EntityConfiguration> {

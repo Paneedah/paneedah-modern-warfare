@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle.jimphysics.stability;
+package com.paneedah.weaponlib.vehicle.jimphysics.stability;
 
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.InterpolationKit;
+import com.paneedah.weaponlib.vehicle.jimphysics.InterpolationKit;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 

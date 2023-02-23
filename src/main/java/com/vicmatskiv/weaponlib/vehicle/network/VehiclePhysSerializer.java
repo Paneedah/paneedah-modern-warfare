@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle.network;
+package com.paneedah.weaponlib.vehicle.network;
 
-import com.vicmatskiv.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
+import com.paneedah.weaponlib.vehicle.jimphysics.solver.VehiclePhysicsSolver;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializer;

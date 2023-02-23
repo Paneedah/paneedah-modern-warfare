@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleItem;
+import com.paneedah.weaponlib.compatibility.CompatibleItem;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;

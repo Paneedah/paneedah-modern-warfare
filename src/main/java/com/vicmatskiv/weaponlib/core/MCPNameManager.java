@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.core;
+package com.paneedah.weaponlib.core;
 
 public class MCPNameManager {
 	

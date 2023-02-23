@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render.bgl.weather;
+package com.paneedah.weaponlib.render.bgl.weather;
 
 import java.util.ArrayList;
 

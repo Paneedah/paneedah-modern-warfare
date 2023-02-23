@@ -1,12 +1,12 @@
-package com.vicmatskiv.mw.vehicle;
+package com.paneedah.mw.vehicle;
 
-import com.vicmatskiv.mw.ModernWarfareMod;
-import com.vicmatskiv.mw.models.ATV;
-import com.vicmatskiv.mw.models.SampleVehicleControlArm;
-import com.vicmatskiv.mw.models.SampleVehicleSteeringWheel;
-import com.vicmatskiv.mw.models.Wheel;
-import com.vicmatskiv.weaponlib.ModContext;
-import com.vicmatskiv.weaponlib.vehicle.*;
+import com.paneedah.mw.ModernWarfareMod;
+import com.paneedah.mw.models.ATV;
+import com.paneedah.mw.models.SampleVehicleControlArm;
+import com.paneedah.mw.models.SampleVehicleSteeringWheel;
+import com.paneedah.mw.models.Wheel;
+import com.paneedah.weaponlib.ModContext;
+import com.paneedah.weaponlib.vehicle.*;
 
 public class SampleVehicleFactory implements VehicleFactory {
 

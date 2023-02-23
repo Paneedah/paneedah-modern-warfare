@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.debug;
+package com.paneedah.weaponlib.debug;
 
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;

@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.config.novel;
+package com.paneedah.weaponlib.config.novel;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

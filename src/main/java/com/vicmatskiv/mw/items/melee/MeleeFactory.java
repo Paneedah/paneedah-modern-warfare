@@ -1,6 +1,6 @@
-package com.vicmatskiv.mw.items.melee;
+package com.paneedah.mw.items.melee;
 
-import com.vicmatskiv.mw.CommonProxy;
+import com.paneedah.mw.CommonProxy;
 import net.minecraft.item.Item;
 
 public interface MeleeFactory {

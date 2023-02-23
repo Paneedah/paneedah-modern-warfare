@@ -1,16 +1,16 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.animation.ClientValueRepo;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleClientEventHandler;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleSound;
-import com.vicmatskiv.weaponlib.config.BalancePackManager;
-import com.vicmatskiv.weaponlib.jim.util.VMWHooksHandler;
-import com.vicmatskiv.weaponlib.network.packets.BulletShellClient;
-import com.vicmatskiv.weaponlib.network.packets.GunFXPacket;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell;
-import com.vicmatskiv.weaponlib.state.Aspect;
-import com.vicmatskiv.weaponlib.state.PermitManager;
-import com.vicmatskiv.weaponlib.state.StateManager;
+import com.paneedah.weaponlib.animation.ClientValueRepo;
+import com.paneedah.weaponlib.compatibility.CompatibleClientEventHandler;
+import com.paneedah.weaponlib.compatibility.CompatibleSound;
+import com.paneedah.weaponlib.config.BalancePackManager;
+import com.paneedah.weaponlib.jim.util.VMWHooksHandler;
+import com.paneedah.weaponlib.network.packets.BulletShellClient;
+import com.paneedah.weaponlib.network.packets.GunFXPacket;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
+import com.paneedah.weaponlib.state.Aspect;
+import com.paneedah.weaponlib.state.PermitManager;
+import com.paneedah.weaponlib.state.StateManager;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,8 +30,8 @@ import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
 /*

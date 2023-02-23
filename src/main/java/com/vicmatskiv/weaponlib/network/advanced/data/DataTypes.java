@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.network.advanced.data;
+package com.paneedah.weaponlib.network.advanced.data;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.ByteBufUtils;

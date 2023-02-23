@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.crafting.ammopress.model;
+package com.paneedah.weaponlib.crafting.ammopress.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;

@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
 import com.google.gson.*;
 import io.netty.buffer.ByteBuf;
@@ -9,7 +9,7 @@ import net.minecraft.util.JsonUtils;
 
 import java.lang.reflect.Type;
 
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ObtainItemAction extends Action {
     

@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.ai;
+package com.paneedah.weaponlib.ai;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleEntityAIBase;
+import com.paneedah.weaponlib.compatibility.CompatibleEntityAIBase;
 import net.minecraft.entity.EntityLivingBase;
 
 public class EntityAIDelayedAttack extends CompatibleEntityAIBase {

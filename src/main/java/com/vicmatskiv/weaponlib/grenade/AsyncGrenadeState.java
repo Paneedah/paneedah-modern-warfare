@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.grenade;
+package com.paneedah.weaponlib.grenade;
 
 public class AsyncGrenadeState {
 

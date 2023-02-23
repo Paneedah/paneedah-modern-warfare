@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.render.modelrepo;
+package com.paneedah.weaponlib.render.modelrepo;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraftforge.fml.relauncher.Side;

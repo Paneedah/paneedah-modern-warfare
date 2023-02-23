@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.animation.gui;
+package com.paneedah.weaponlib.animation.gui;
 
 public abstract class AnimGUIRenderable {
 	

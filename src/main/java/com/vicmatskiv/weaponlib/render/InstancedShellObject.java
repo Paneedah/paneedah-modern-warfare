@@ -1,19 +1,19 @@
-package com.vicmatskiv.weaponlib.render;
+package com.paneedah.weaponlib.render;
 
-import com.vicmatskiv.weaponlib.animation.MatrixHelper;
-import com.vicmatskiv.weaponlib.render.bgl.instancing.InstancedAttribute;
-import com.vicmatskiv.weaponlib.render.bgl.instancing.ModelInstancedObject;
-import com.vicmatskiv.weaponlib.render.shells.ShellManager;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell;
-import com.vicmatskiv.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
-import com.vicmatskiv.weaponlib.shader.jim.Uniform;
+import com.paneedah.weaponlib.animation.MatrixHelper;
+import com.paneedah.weaponlib.render.bgl.instancing.InstancedAttribute;
+import com.paneedah.weaponlib.render.bgl.instancing.ModelInstancedObject;
+import com.paneedah.weaponlib.render.shells.ShellManager;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell;
+import com.paneedah.weaponlib.render.shells.ShellParticleSimulator.Shell.Type;
+import com.paneedah.weaponlib.shader.jim.Uniform;
 import net.minecraft.util.math.BlockPos;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.util.vector.Quaternion;
 
 import java.util.ArrayList;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
+import static com.paneedah.mw.ModernWarfareMod.mc;
 
 public class InstancedShellObject extends ModelInstancedObject<ShellManager> {
 	private Type type;

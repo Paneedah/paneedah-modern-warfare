@@ -1,7 +1,7 @@
-package com.vicmatskiv.weaponlib.mission;
+package com.paneedah.weaponlib.mission;
 
 import com.google.gson.*;
-import com.vicmatskiv.weaponlib.mission.MissionReward.ItemReward;
+import com.paneedah.weaponlib.mission.MissionReward.ItemReward;
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.util.JsonUtils;

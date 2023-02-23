@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.jim.util.color;
+package com.paneedah.weaponlib.jim.util.color;
 
 // https://flatuicolors.com/palette/defo
 public class FlatUIColors {

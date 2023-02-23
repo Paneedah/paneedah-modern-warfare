@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.animation;
+package com.paneedah.weaponlib.animation;
 
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.BufferUtils;

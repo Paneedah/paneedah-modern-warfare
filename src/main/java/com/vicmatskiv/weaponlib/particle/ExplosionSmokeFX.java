@@ -1,19 +1,19 @@
-package com.vicmatskiv.weaponlib.particle;
+package com.paneedah.weaponlib.particle;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleParticle;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleTessellator;
+import com.paneedah.weaponlib.compatibility.CompatibleParticle;
+import com.paneedah.weaponlib.compatibility.CompatibleTessellator;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
-import static com.vicmatskiv.mw.ModernWarfareMod.mc;
-import static com.vicmatskiv.weaponlib.compatibility.CompatibilityProvider.compatibility;
+import static com.paneedah.mw.ModernWarfareMod.mc;
+import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ExplosionSmokeFX extends CompatibleParticle {
 
-	//private static final String SMOKE_TEXTURE = "weaponlib:/com/vicmatskiv/weaponlib/resources/large-yellow-smoke.png";
-    private static final String DEFAULT_SMOKE_TEXTURE = "weaponlib:/com/vicmatskiv/weaponlib/resources/large-smoke.png";
+	//private static final String SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/large-yellow-smoke.png";
+    private static final String DEFAULT_SMOKE_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/large-smoke.png";
 
     private String particleTexture;
     private float scale;

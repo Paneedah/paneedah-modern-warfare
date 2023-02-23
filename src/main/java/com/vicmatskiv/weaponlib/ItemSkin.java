@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.model.FlatModel;
+import com.paneedah.weaponlib.model.FlatModel;
 import net.minecraft.client.model.ModelBase;
 import org.lwjgl.opengl.GL11;
 
@@ -60,8 +60,8 @@ public class ItemSkin extends ItemAttachment<Weapon> {
 	private List<String> textureVariants;
 
 	public ItemSkin(String modId, AttachmentCategory category, ModelBase model, String textureName, String crosshair,
-			com.vicmatskiv.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
-			com.vicmatskiv.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
+			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> apply,
+			com.paneedah.weaponlib.ItemAttachment.ApplyHandler<Weapon> remove) {
 		super(modId, category, model, textureName, crosshair, apply, remove);
 	}
 

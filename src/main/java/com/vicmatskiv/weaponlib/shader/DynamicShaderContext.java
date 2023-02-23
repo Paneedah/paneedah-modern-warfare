@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.shader;
+package com.paneedah.weaponlib.shader;
 
 import net.minecraft.client.shader.Framebuffer;
 

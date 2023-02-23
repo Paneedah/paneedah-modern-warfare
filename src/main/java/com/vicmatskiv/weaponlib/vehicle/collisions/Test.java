@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle.collisions;
+package com.paneedah.weaponlib.vehicle.collisions;
 
-import com.vicmatskiv.weaponlib.vehicle.GearShiftPattern;
+import com.paneedah.weaponlib.vehicle.GearShiftPattern;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
 

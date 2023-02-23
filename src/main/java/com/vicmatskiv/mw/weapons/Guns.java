@@ -1,9 +1,9 @@
-package com.vicmatskiv.mw.weapons;
+package com.paneedah.mw.weapons;
 
-import com.vicmatskiv.mw.CommonProxy;
-import com.vicmatskiv.mw.items.guns.*;
-import com.vicmatskiv.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
-import com.vicmatskiv.weaponlib.config.ConfigurationManager;
+import com.paneedah.mw.CommonProxy;
+import com.paneedah.mw.items.guns.*;
+import com.paneedah.weaponlib.compatibility.CompatibleFmlPreInitializationEvent;
+import com.paneedah.weaponlib.config.ConfigurationManager;
 import net.minecraft.item.Item;
 
 public class Guns {

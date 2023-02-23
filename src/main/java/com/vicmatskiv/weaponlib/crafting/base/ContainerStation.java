@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.crafting.base;
+package com.paneedah.weaponlib.crafting.base;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleContainer;
+import com.paneedah.weaponlib.compatibility.CompatibleContainer;
 import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.function.Supplier;

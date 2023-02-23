@@ -1,4 +1,4 @@
-package com.vicmatskiv.weaponlib.debug;
+package com.paneedah.weaponlib.debug;
 
 import java.io.*;
 

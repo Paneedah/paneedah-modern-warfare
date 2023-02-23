@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib;
+package com.paneedah.weaponlib;
 
-import com.vicmatskiv.weaponlib.compatibility.CompatibleResourcePack;
+import com.paneedah.weaponlib.compatibility.CompatibleResourcePack;
 import net.minecraft.util.ResourceLocation;
 
 import java.awt.image.BufferedImage;

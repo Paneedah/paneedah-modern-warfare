@@ -1,6 +1,6 @@
-package com.vicmatskiv.weaponlib.vehicle.collisions;
+package com.paneedah.weaponlib.vehicle.collisions;
 
-import com.vicmatskiv.weaponlib.vehicle.collisions.OBBCollider.MKV;
+import com.paneedah.weaponlib.vehicle.collisions.OBBCollider.MKV;
 
 public class Simplex {
 	
