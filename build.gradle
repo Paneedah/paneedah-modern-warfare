@@ -1,43 +1,89 @@
 buildscript {
     repositories {
-        // mavenCentral is currently not needed but could be useful in the future if we decide for example to use Jafama
-        // mavenCentral()
-        maven {
-            name 'Forge'
-            url 'https://maven.minecraftforge.net'
-        }
+        maven { url = 'https://maven.minecraftforge.net/' }
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.anatawa12.forge:ForgeGradle:2.3-1.0.7'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+    }
+}
+        
+apply plugin: 'net.minecraftforge.gradle'
+// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+
+version = project.mod_version
+group = 'com.vicmatskiv.mw' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'mw'
+
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
+minecraft {
+    // The mappings can be changed at any time, and must be in the following format.
+    // snapshot_YYYYMMDD   Snapshot are built nightly.
+    // stable_#            Stables are built at the discretion of the MCP team.
+    // Use non-default mappings at your own risk. they may not always work.
+    // Simply re-run your setup task after changing the mappings to update your workspace.
+    //mappings channel: 'snapshot', version: '20171003-1.12'
+    mappings channel: 'snapshot', version: '20171003-1.12'
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    
+    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
+    // Default run configurations.
+    // These can be tweaked, removed, or duplicated as needed.
+    runs {
+        client {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+        }
+
+        server {
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+        }
     }
 }
 
-apply plugin: 'net.minecraftforge.gradle.forge'
-
-// Add version to the Jar name
-version project.mod_version
-
-minecraft {
-    version = "1.12.2-14.23.5.2847"
-    mappings = "snapshot_20170624"
-
-    runDir = "run"
-
-    def args = '-Dfml.coreMods.load=com.vicmatskiv.weaponlib.core.WeaponlibCorePlugin'
-    clientJvmArgs.add(args)
-    serverJvmArgs.add(args)
-
-    replace('@VERSION@', project.mod_version)
-    replaceIn('ModernWarfareMod.java')
+dependencies  {
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
 }
 
+// Example for how to get properties into the manifest for reading by the runtime..
+jar {
+    manifest {
+        attributes([
+            "Specification-Title": "mw",
+            "Specification-Vendor": "mw",
+            "Specification-Version": "1", // We are version 1 of ourselves
+            "Implementation-Title": project.name,
+            "Implementation-Version": "${version}",
+            "Implementation-Vendor" :"mw",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            'ModSide': 'BOTH',
+            'FMLCorePlugin': 'com.vicmatskiv.weaponlib.core.WeaponlibCorePlugin',
+            'FMLCorePluginContainsFMLMod': 'true',
+            'ForceLoadAsMod': 'true'
+        ])
+    }
+}
 
 processResources {
     duplicatesStrategy = 'include'
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        expand 'version': project.mod_version
+        expand 'version': project.version
     }
 
     from ('src/main/java') {
@@ -50,21 +96,21 @@ processResources {
         include '**/*.fsh'
     }
 }
+// Example configuration to allow publishing using the maven-publish task
+// This is the preferred method to reobfuscate your jar file
+jar.finalizedBy('reobfJar') 
+// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
+//publish.dependsOn('reobfJar')
 
-sourceJar {
-    // Weird should not be needed at all, but something in Weapon Lib seems to be duplicated or something.
-    // Doing this works just fine so it will be good enough for now.
-    // For future reference or if anyone want to take a guess:
-    // Execution failed for task ':sourceJar'.
-    // > Entry com/vicmatskiv/weaponlib/model/CameraModel.java is a duplicate but no duplicate handling strategy has been set. Please refer to https://docs.gradle.org/7.6/dsl/org.gradle.api.tasks.Copy.html#org.gradle.api.tasks.Copy:duplicatesStrategy for details.
-    duplicatesStrategy = 'include'
-}
-
-jar {
-    manifest.attributes([
-            'ModSide': 'BOTH',
-            'FMLCorePlugin': 'com.vicmatskiv.weaponlib.core.WeaponlibCorePlugin',
-            'FMLCorePluginContainsFMLMod': 'true',
-            'ForceLoadAsMod': 'true'
-    ])
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${project.projectDir}/mcmodsrepo"
+        }
+    }
 }

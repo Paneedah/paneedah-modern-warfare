@@ -125,7 +125,7 @@ public class EntityAIAttackRangedWeapon extends CompatibleEntityAIBase
             }
 
             if (d0 <= (double)this.maxAttackDistanceSquared && this.seeTime >= 20) {
-                this.entity.getNavigator().clearPathEntity();
+                this.entity.getNavigator().clearPath();
                 ++this.strafingTime;
             } else {
                 this.entity.getNavigator().tryMoveToEntityLiving(attackTarget, this.moveSpeedAmp);

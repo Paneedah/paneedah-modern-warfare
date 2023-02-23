@@ -48,7 +48,7 @@ public class EntityWirelessCamera extends CompatibleThrowableEntity {
         this.motionZ = (double)(compatibility.getMathHelper().cos(this.rotationYaw / 180.0F * (float)Math.PI) * compatibility.getMathHelper().cos(this.rotationPitch / 180.0F * (float)Math.PI) * f);
         float pitchOffset = 0f;
         this.motionY = (double)(-compatibility.getMathHelper().sin((this.rotationPitch + pitchOffset) / 180.0F * (float)Math.PI) * f);
-        this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.5f, 0);
+        this.setCompatibleThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.5f, 0);
 
     }
 

@@ -43,7 +43,7 @@ public class AssignMissionTask extends CompatibleEntityAIBase {
      * Execute a one shot task or start executing a continuous task
      */
     public void startExecuting() {
-        this.merchant.getNavigator().clearPathEntity();
+        this.merchant.getNavigator().clearPath();
     }
 
     /**

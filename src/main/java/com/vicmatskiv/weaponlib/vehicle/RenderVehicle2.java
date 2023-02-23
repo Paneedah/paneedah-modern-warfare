@@ -381,7 +381,7 @@ public class RenderVehicle2 extends CompatibleEntityRenderer
 				GL11.glTranslated(-seatOffset.x, seatOffset.y, -seatOffset.z);
 				
 				if(!(pass instanceof EntityPlayer)) {
-					mc.getRenderManager().doRenderEntity(pass, 0, 0, 0, -pass.rotationYaw, mc.getRenderPartialTicks(), true);		
+					mc.getRenderManager().renderEntity(pass, 0, 0, 0, -pass.rotationYaw, mc.getRenderPartialTicks(), true);
 				} else {
 					EntityPlayer player = (EntityPlayer) pass;
 					RenderManager rManager = mc.getRenderManager();

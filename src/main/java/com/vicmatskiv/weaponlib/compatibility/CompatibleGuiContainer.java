@@ -19,7 +19,7 @@ public abstract class CompatibleGuiContainer extends GuiContainer {
     
     public static void renderEntityWithPosYaw(EntityLivingBase entity, double x, double y, double z, float yaw,
             float partialTicks) {
-        ModernWarfareMod.mc.getRenderManager().doRenderEntity(entity, x, y, z, yaw, partialTicks, true);
+        ModernWarfareMod.mc.getRenderManager().renderEntity(entity, x, y, z, yaw, partialTicks, true);
     }
     
     /**
@@ -84,7 +84,7 @@ public abstract class CompatibleGuiContainer extends GuiContainer {
          RenderManager rendermanager = ModernWarfareMod.mc.getRenderManager();
          rendermanager.setPlayerViewY(180.0F);
          rendermanager.setRenderShadow(false);
-         rendermanager.doRenderEntity(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, false);
+         rendermanager.renderEntity(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, false);
          rendermanager.setRenderShadow(true);
          entity.renderYawOffset = f;
          entity.rotationYaw = f1;

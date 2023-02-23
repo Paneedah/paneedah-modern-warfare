@@ -20,4 +20,6 @@ build
 # other
 eclipse
 run
-.vscode/settings.json
+
+# Files from Forge MDK
+forge*changelog.txt

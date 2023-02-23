@@ -53,7 +53,7 @@ public class ModernWeatherRenderer extends IRenderHandler {
 	 * @return True if raining, false if snowing
 	 */
 	public static boolean isRainingOrSnowing(BlockPos pos) {
-		float f2 = mc.world.getBiome(pos).getFloatTemperature(pos);
+		float f2 = mc.world.getBiome(pos).getTemperature(pos);
 		int j2 = mc.world.getPrecipitationHeight(pos).getY();
 		if (mc.world.getBiomeProvider().getTemperatureAtHeight(f2, j2) >= 0.15F) {
         	return true;

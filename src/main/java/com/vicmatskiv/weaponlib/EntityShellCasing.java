@@ -233,4 +233,8 @@ public class EntityShellCasing extends EntityProjectile {
         // logger.debug("{} despawned", this);
     }
 
+    @Override
+    public void shoot(double x, double y, double z, float velocity, float inaccuracy) {
+
+    }
 }

@@ -37,10 +37,12 @@ public abstract class CompatibleThrowableEntity extends EntityThrowable implemen
 
 	protected abstract void onImpact(CompatibleRayTraceResult rayTraceResult);
 
+    /*
 	@Override
 	public final void setThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float inaccuracy) {
 		setCompatibleThrowableHeading(motionX, motionY, motionZ, velocity, inaccuracy);
 	}
+     */
 
 	protected abstract void setCompatibleThrowableHeading(double motionX, double motionY, double motionZ, float velocity, float ignoredInaccuracy);
 

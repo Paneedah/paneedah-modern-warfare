@@ -16,11 +16,11 @@ public class EntityAIDelayedAttack extends CompatibleEntityAIBase {
     public boolean shouldExecute() {
         EntityLivingBase entitylivingbase = this.entityCustomMob.getAttackTarget();
         return entityCustomMob.getDelayedAttackTimerIncrement() > 0 || entitylivingbase != null 
-                && this.entityCustomMob.getDistanceSqToEntity(entitylivingbase) < 9.0D;
+                && this.entityCustomMob.getDistanceSq(entitylivingbase) < 9.0D;
     }
 
     public void startExecuting() {
-        this.entityCustomMob.getNavigator().clearPathEntity();
+        this.entityCustomMob.getNavigator().clearPath();
         this.targetEntity = this.entityCustomMob.getAttackTarget();
     }
 
@@ -31,7 +31,7 @@ public class EntityAIDelayedAttack extends CompatibleEntityAIBase {
     public void updateTask() {
         if (targetEntity == null) {
             entityCustomMob.setDelayedAttackTimerIncrement(-1);
-        } else if (entityCustomMob.getDistanceSqToEntity(targetEntity) > 49.0D) {
+        } else if (entityCustomMob.getDistanceSq(targetEntity) > 49.0D) {
             entityCustomMob.setDelayedAttackTimerIncrement(-1);
         } else if (!entityCustomMob.getEntitySenses().canSee(targetEntity)) {
             entityCustomMob.setDelayedAttackTimerIncrement(-1);

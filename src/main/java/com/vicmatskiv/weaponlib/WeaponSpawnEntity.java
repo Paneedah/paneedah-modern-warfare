@@ -320,4 +320,9 @@ public class WeaponSpawnEntity extends EntityProjectile {
         // TODO Auto-generated method stub
         return null;
     }
+
+	@Override
+	public void shoot(double x, double y, double z, float velocity, float inaccuracy) {
+
+	}
 }

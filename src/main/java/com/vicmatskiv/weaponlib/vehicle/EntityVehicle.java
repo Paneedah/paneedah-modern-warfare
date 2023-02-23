@@ -1352,10 +1352,10 @@ public class EntityVehicle extends Entity implements Configurable<EntityVehicleC
 			this.world.profiler.endSection();
 			this.world.profiler.startSection("rest");
 			this.resetPositionToBB();
-			this.isCollidedHorizontally = d2 != x || d4 != z;
-			this.isCollidedVertically = d3 != y;
-			this.onGround = this.isCollidedVertically && d3 < 0.0D;
-			this.isCollided = this.isCollidedHorizontally || this.isCollidedVertically;
+			this.collidedHorizontally = d2 != x || d4 != z;
+			this.collidedVertically = d3 != y;
+			this.onGround = this.collidedVertically && d3 < 0.0D;
+			this.collided = this.collidedHorizontally || this.collidedVertically;
 			int j6 = MathHelper.floor(this.posX);
 			int i1 = MathHelper.floor(this.posY - 0.20000000298023224D);
 			int k6 = MathHelper.floor(this.posZ);
