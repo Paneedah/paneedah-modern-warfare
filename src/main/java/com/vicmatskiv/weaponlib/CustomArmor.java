@@ -83,14 +83,14 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
                     
                     if(ModelBiped.class.isAssignableFrom(modelClass)) {
                         bootsModel = (ModelBiped) modelClass.newInstance();
-                    } else if(ModelBase.class.isAssignableFrom(modelClass)) {
+                    } //else if(ModelBase.class.isAssignableFrom(modelClass)) {
 //                            bootsModel = new ModelBiped() {
 //                                {
 //                                    this.bipedHead = new ModelBaseRendererWrapper((WrappableModel) modelClass.newInstance());
 //                                    this.bipedHeadwear.isHidden = true;
 //                                }
 //                            };
-                    }
+                    //}
                 } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
                     throw new IllegalStateException("Missing boots model", e);
                 }
@@ -226,7 +226,7 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
         public void build(boolean isClient) {
 
-            if(isClient) {
+//            if(isClient) {
 //              try {
 //                  chestModel = (ModelBiped) Class.forName(modelClassName).newInstance();
 //              } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
@@ -238,18 +238,17 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 //              } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 //                  throw new IllegalStateException("Missing boots model", e);
 //              }
-            }
+//            }
 
-            if(modId == null) {
+            if (modId == null)
                 throw new IllegalStateException("ModId is not set");
-            }
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
             CustomArmor armorHelmet = new CustomArmor(modId, unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
                     unlocalizedHelmetName, textureName, chestModel, hudTextureName);
-            if(creativeTab != null) {
+
+            if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
-            }
 
             armorHelmet.setUnlocalizedName(unlocalizedHelmetName);
             compatibility.registerItem(armorHelmet, unlocalizedHelmetName.toLowerCase());
@@ -266,9 +265,10 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             String unlocalizedBootsName = unlocalizedName + "_boots";
             CustomArmor armorBoots = new CustomArmor(modId, unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
                     unlocalizedBootsName, textureName, bootsModel, hudTextureName);
-            if(armorBoots != null) {
+
+            if(armorBoots != null)
                 armorBoots.setCreativeTab(creativeTab);
-            }
+
             armorBoots.setUnlocalizedName(unlocalizedBootsName);
             compatibility.registerItem(armorBoots, unlocalizedBootsName.toLowerCase());
             
@@ -308,16 +308,11 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
 
         public CustomArmor buildHelmet(ModContext context) {
-            
-            if(context.isClient()) {
-                if(helmetModel == null) {
-                    helmetModel = HelmetModelFactory.create(modelClassName);
-                }
-            }
+            if(context.isClient() && helmetModel == null)
+                helmetModel = HelmetModelFactory.create(modelClassName);
 
-            if(modId == null) {
+            if (modId == null)
                 throw new IllegalStateException("ModId is not set");
-            }
 
             String unlocalizedHelmetName = unlocalizedName + "_helmet";
             CustomArmor armorHelmet = new CustomArmor(modId, unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.HEAD,
@@ -331,9 +326,9 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             armorHelmet.setUnlocalizedName(unlocalizedHelmetName);
             armorHelmet.breathingSound = context.registerSound(breathingSound);
             compatibility.registerItem(armorHelmet, unlocalizedHelmetName.toLowerCase());
-            if(creativeTab != null) {
+
+            if (creativeTab != null)
                 armorHelmet.setCreativeTab(creativeTab);
-            }
             
 //            armorHelmet.maxShieldCapacity = maxShieldCapacity;
 //            armorHelmet.shieldRegenerationRate = shieldRegenerationRate;
@@ -344,10 +339,8 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
 
         public CustomArmor buildChest(boolean isClient) {
 
-            if(isClient) {
-                if(chestModel == null) {
-                    chestModel = ChestModelFactory.createModel(modelClassName);
-                }
+            if(isClient && chestModel == null) {
+                chestModel = ChestModelFactory.createModel(modelClassName);
             }
 
             if(modId == null) {
@@ -361,9 +354,9 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             CraftingRegistry.registerHook(armorChest);
             
             
-            if(creativeTab != null) {
+            if(creativeTab != null)
                 armorChest.setCreativeTab(creativeTab);
-            }
+
             armorChest.setUnlocalizedName(unlocalizedChestName);
             compatibility.registerItem(armorChest, unlocalizedChestName.toLowerCase());
             
@@ -382,18 +375,11 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
         }
 
         public CustomArmor buildBoots(boolean isClient) {
+            if (isClient && bootsModel == null)
+                bootsModel = BootsModelFactory.createModel(modelClassName);
 
-            if(isClient) {
-
-                if(bootsModel == null) {
-                    bootsModel = BootsModelFactory.createModel(modelClassName);
-                }
-            }
-
-            if(modId == null) {
+            if (modId == null)
                 throw new IllegalStateException("ModId is not set");
-            }
-
 
             String unlocalizedBootsName = unlocalizedName + "_boots";
             CustomArmor armorBoots = new CustomArmor(modId, unlocalizedName, material, 4, CompatibleEntityEquipmentSlot.FEET,
@@ -401,9 +387,9 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
             
             CraftingRegistry.registerHook(armorBoots);
             
-            if(creativeTab != null) {
+            if (creativeTab != null)
                 armorBoots.setCreativeTab(creativeTab);
-            }
+
             armorBoots.setUnlocalizedName(unlocalizedBootsName);
             compatibility.registerItem(armorBoots, unlocalizedBootsName.toLowerCase());
             
@@ -479,16 +465,15 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
         ItemAttachment<CustomArmor> item = null;
         if(activeAttachmentIdForThisCategory > 0) {
             item = (ItemAttachment<CustomArmor>) Item.getItemById(activeAttachmentIdForThisCategory);
-            if(item != null && item.getRemove() != null) {
+
+            if(item != null && item.getRemove() != null)
                 item.getRemove().apply(item, this, player);
-            }
         }
 
         ItemAttachment<CustomArmor> nextAttachment = nextCompatibleAttachment(attachmentCategory, item, player);
 
-        if(nextAttachment != null && nextAttachment.getApply() != null) {
+        if(nextAttachment != null && nextAttachment.getApply() != null)
             nextAttachment.getApply().apply(nextAttachment, this, player);
-        }
 
         activeAttachmentsIds[attachmentCategory.ordinal()] = Item.getIdFromItem(nextAttachment);;
 
@@ -501,20 +486,17 @@ public class CustomArmor extends CompatibleCustomArmor implements ExposureProtec
         boolean foundCurrent = false;
         for (int i = 0; i < 36; i++) {
             ItemStack itemStack = player.inventory.getStackInSlot(i);
-            if(itemStack != null) {
-                if(itemStack.getItem() instanceof ItemAttachment) {
-                    @SuppressWarnings("unchecked")
-                    ItemAttachment<CustomArmor> compatibleAttachment = (ItemAttachment<CustomArmor>) itemStack.getItem();
-                    //System.out.println("Found compatible attachment " + compatibleAttachment);
-                    if(compatibleAttachment.getCategory() == category) {
-                        if(foundCurrent || currentAttachment == null) {
-                            nextAttachment = compatibleAttachment;
-                            break;
-                        } else if(currentAttachment == compatibleAttachment) {
-                            foundCurrent = true;
-                        }
-                        //System.out.println("Compatible attachment category match for " + compatibleAttachment);
+            if(itemStack != null && itemStack.getItem() instanceof ItemAttachment) {
+                ItemAttachment<CustomArmor> compatibleAttachment = (ItemAttachment<CustomArmor>) itemStack.getItem();
+                //System.out.println("Found compatible attachment " + compatibleAttachment);
+                if(compatibleAttachment.getCategory() == category) {
+                    if(foundCurrent || currentAttachment == null) {
+                        nextAttachment = compatibleAttachment;
+                        break;
+                    } else if(currentAttachment == compatibleAttachment) {
+                        foundCurrent = true;
                     }
+                    //System.out.println("Compatible attachment category match for " + compatibleAttachment);
                 }
                 //System.out.println("Item in slot " + i + ": " + itemStack);
             }

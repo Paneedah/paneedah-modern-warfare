@@ -254,9 +254,7 @@ public class StaticModelSourceRenderer extends CompatibleStaticModelSourceRender
                 }
             }
         }
-        
-        
-        
+
         BiConsumer<EntityPlayer, ItemStack> positioning = builder.getCustomEquippedPositioning();
         
         if(positioning != null) {

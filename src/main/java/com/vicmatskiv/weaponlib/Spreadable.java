@@ -4,5 +4,6 @@ import java.util.UUID;
 
 public interface Spreadable {
 
-    public UUID getId();
+    UUID getId();
+
 }

@@ -244,11 +244,8 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 
 		CompatibleAttachment<? extends AttachmentContainer> compatibleAttachment = weapon.getCompatibleAttachments()
 				.get(attachment);
-		if (compatibleAttachment != null) {
-			return true;
-		}
 
-		return false;
+		return compatibleAttachment != null;
 	}
 
 	public static class FlaggedAttachment {
@@ -366,9 +363,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 
 	@SuppressWarnings("unchecked")
 	private void changeAttachment(ChangeAttachmentPermit permit, PlayerWeaponInstance weaponInstance) {
-
-		
-		
 		if (!(weaponInstance.getPlayer() instanceof EntityPlayer)) {
 			return;
 		}
@@ -399,10 +393,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 				return;
 			}
 		}
-		
-	
-		
-		
+
 		AttachmentLookupResult lookupResult;
 		if(permit.attachment != null) {
 			// Forced
@@ -411,8 +402,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 			// Next
 			lookupResult = next(attachmentCategory, currentAttachment, weaponInstance);
 		}
-		
-		
 		
 		if (currentAttachment != null) {
 			// Need to apply removal functions first before applying addition functions
@@ -423,9 +412,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 				currentAttachment.getRemove2().apply(currentAttachment, weaponInstance);
 			}
 		}
-		
-		
-	
 	
 		if (lookupResult.index >= 0) {
 			ItemStack slotItemStack = player.inventory.getStackInSlot(lookupResult.index);
@@ -467,7 +453,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 			activeAttachmentIds[attachmentCategory.ordinal()] = Item.getIdFromItem(nextAttachment);
 			
 		} else if (weaponInstance.getWeapon().isCategoryRemovable(attachmentCategory)) {
-			
 			activeAttachmentIds[attachmentCategory.ordinal()] = -1;
 			ApplyHandler2<Weapon> handler = weaponInstance.getWeapon().getEquivalentHandler(attachmentCategory);
 			if (handler != null) {
@@ -475,13 +460,9 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 			}
 			
 		} else {
-			
 			return;
 		}
 
-		
-		
-		
 		if (currentAttachment != null && !player.isCreative()) {
 			// Item must be added to the same spot the next attachment comes from or to any
 			// spot if there is no next attachment
@@ -495,17 +476,13 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 	private AttachmentLookupResult findForcedAttach(ItemStack stack, Item currentAttachment,
 			AttachmentCategory category, PlayerWeaponInstance weaponInstance, boolean isCreative) {
 
-		
-		
 		AttachmentLookupResult result = new AttachmentLookupResult();
 
 		if(stack.isEmpty()) {
 			result.index = -1;
 			return result;
 		}
-		
-		
-	
+
 		if(isCreative) {
 			CompatibleAttachment<Weapon> compatibleAttachment = weaponInstance.getWeapon().getCompatibleAttachments().get(stack.getItem());
 			if(compatibleAttachment != null) {
@@ -514,9 +491,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 				result.isCreative = true;
 			}
 			return result;
-			
-			
-			
 		}
 		
 		//System.out.println("Search..");
@@ -524,8 +498,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 		for(int i = 0; i < player.inventory.getSizeInventory(); ++i) {
 			ItemStack inventory = player.inventory.getStackInSlot(i);
 			if(ItemStack.areItemStacksEqual(inventory, stack)) {
-				
-				
 				/*
 				//attachmentItemFromInventory.getCategory() == category
 				&& (compatibleAttachment = weaponInstance.getWeapon().getCompatibleAttachments()
@@ -538,8 +510,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 				   || category != compatibleAttachment.getAttachment().getCategory()
 				   || !hasRequiredAttachments(compatibleAttachment.getAttachment(), weaponInstance)
 				   ||	inventory.getItem() == currentAttachment) continue;
-				
-				
+
 				result.index = i;
 				result.compatibleAttachment = compatibleAttachment;
 				break;
@@ -709,7 +680,6 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 				}
 			}
 			activeAttachmentsIds[attachment.getCategory().ordinal()] = Item.getIdFromItem(attachment);
-			;
 		} else {
 			System.err.println("Attachment of category " + attachment.getCategory() + " installed, remove it first");
 		}

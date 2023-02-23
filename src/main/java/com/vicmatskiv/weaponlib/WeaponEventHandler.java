@@ -111,29 +111,25 @@ public class WeaponEventHandler extends CompatibleWeaponEventHandler {
 
 	@Override
 	public void onCompatibleHandleRenderLivingEvent(@SuppressWarnings("rawtypes") RenderLivingEvent.Pre event) {
-
-		
-		
 		if ((event.isCanceled()) || (!(compatibility.getEntity(event) instanceof EntityPlayer)))
 			return;
 
 		ItemStack itemStack = compatibility.getHeldItemMainHand(compatibility.getEntity(event));
-
 		if (itemStack != null && itemStack.getItem() instanceof Weapon) {
 			RenderPlayer rp = compatibility.getRenderer(event);
 
-			if (itemStack != null ) {
+			if (itemStack != null) {
 			    EntityPlayer player = (EntityPlayer)compatibility.getEntity(event);
 			    PlayerItemInstance<?> instance = modContext.getPlayerItemInstanceRegistry()
 			            .getItemInstance(player, itemStack);
 			    if(instance instanceof PlayerWeaponInstance) {
 			        PlayerWeaponInstance weaponInstance = (PlayerWeaponInstance) instance;
-			        compatibility.setAimed(rp, !Interceptors.isProning(player) && 
+			        compatibility.setAimed(rp, !Interceptors.isProning(player) &&
 			                (weaponInstance.isAimed()
 			                || weaponInstance.getState() == WeaponState.FIRING
 			                || weaponInstance.getState() == WeaponState.RECOILED
 			                || weaponInstance.getState() == WeaponState.PAUSED
-			                ));
+							));
 			    }
 			}
 		}
@@ -142,15 +138,8 @@ public class WeaponEventHandler extends CompatibleWeaponEventHandler {
     @SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public final void onRenderItemEvent(RenderHandEvent event) {
-    	
-	    if(compatibility.clientPlayer().getRidingEntity() instanceof EntityVehicle) {
-	       
+	    if (compatibility.clientPlayer().getRidingEntity() instanceof EntityVehicle)
 	    	event.setCanceled(true);
-	    }
-	    
-	  
-	    
-	    //System.out.println("Render player");
 	}
 
 	@Override

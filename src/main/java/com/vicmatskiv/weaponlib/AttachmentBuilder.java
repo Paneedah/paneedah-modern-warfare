@@ -225,15 +225,15 @@ public class AttachmentBuilder<T> {
     }
 
 	public AttachmentBuilder<T> withCrafting(int craftingCount, CraftingComplexity craftingComplexity, Object...craftingMaterials) {
-		if(craftingComplexity == null) {
+		if(craftingComplexity == null)
 			throw new IllegalArgumentException("Crafting complexity not set");
-		}
-		if(craftingMaterials.length < 2) {
+
+		if(craftingMaterials.length < 2)
 			throw new IllegalArgumentException("2 or more materials required for crafting");
-		}
-		if(craftingCount == 0) {
+
+		if(craftingCount == 0)
 		    throw new IllegalArgumentException("Invalid item count");
-		}
+
 		this.craftingComplexity = craftingComplexity;
 		this.craftingMaterials = craftingMaterials;
 		this.craftingCount = craftingCount;

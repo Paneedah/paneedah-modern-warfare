@@ -22,7 +22,7 @@ final class ClientEffectManager implements EffectManager {
     public void spawnSmokeParticle(EntityLivingBase player, float xOffset, float yOffset) {
 	       
 		
-		Weapon w = (Weapon) player.getHeldItemMainhand().getItem();
+		//Weapon w = (Weapon) player.getHeldItemMainhand().getItem();
 		//System.out.println(w.getMuzzlePosition());
 		
 	    if(compatibility.isShadersModEnabled()) {
@@ -88,32 +88,28 @@ final class ClientEffectManager implements EffectManager {
 	@Override
     public void spawnFlashParticle(EntityLivingBase player, float flashIntensity, float flashScale,
 			float xOffset, float yOffset, String texture) {
-	    
-		
-		
-	    if(compatibility.isShadersModEnabled()) {
-	        return;
-	    }
 
-	    
+	    if (compatibility.isShadersModEnabled())
+	        return;
+
 	    Weapon w = (Weapon) player.getHeldItemMainhand().getItem();
 	   
 		//float distance = 0.6f;
 
 	    float distance = 1.0f;
 	    
-		float scale = 0.8f * compatibility.getEffectScaleFactor() * flashScale;
+		//float scale = 0.8f * compatibility.getEffectScaleFactor() * flashScale;
 		float positionRandomizationFactor = 0.0f;
 
 		CompatibleVec3 look = compatibility.getLookVec(player);
 
-		float motionX = (float)compatibility.world(player).rand.nextGaussian() * 0.003f;
-		float motionY = (float)compatibility.world(player).rand.nextGaussian() * 0.003f;
-		float motionZ = (float)compatibility.world(player).rand.nextGaussian() * 0.003f;
+		//float motionX = (float)compatibility.world(player).rand.nextGaussian() * 0.003f;
+		//float motionY = (float)compatibility.world(player).rand.nextGaussian() * 0.003f;
+		//float motionZ = (float)compatibility.world(player).rand.nextGaussian() * 0.003f;
 
-		motionX = 0.0f;
-		motionY = 0f;
-		motionZ = 0f;
+		//motionX = 0.0f;
+		//motionY = 0f;
+		//motionZ = 0f;
 		
 		//xOffset = -.05f;
 		//System.out.println(xOffset);
@@ -125,26 +121,21 @@ final class ClientEffectManager implements EffectManager {
 		Vec3d bruh = new Vec3d(-0.13, 0, 2.0).rotatePitch((float) Math.toRadians(-player.rotationPitch)).rotateYaw((float) Math.toRadians(-player.rotationYaw)).add(player.getPositionVector()).addVector(0, 1.5, 0);
 		
 		//MuzzleFlash flash = new MuzzleFlash(bruh, player.rotationYaw, player.rotationPitch, 1.0);
-		
-		
-	
-		
+
 		MuzzleFlash flash = new MuzzleFlash(new Vec3d(posX, posY, posZ), bruh, player.rotationYaw, player.rotationPitch, 1.0);
 		ClientEventHandler.muzzleFlashStack.push(flash);
 		
 		
-		if(Math.random() < 0.6/w.builder.fireRate) {
+		if (Math.random() < 0.6/w.builder.fireRate)
 			ClientEventHandler.uploadFlash(player.getEntityId());
-		}
-		
-		
-		if(player instanceof EntityPlayer) {
-            if(player.isSneaking()) {
-                posY -= 0.1f;
-            } else if(Interceptors.isProning((EntityPlayer) player)) {
-                posY -= 1.2f;
-            }
-        }
+
+		//if(player instanceof EntityPlayer) {
+        //    if(player.isSneaking()) {
+        //        posY -= 0.1f;
+        //    } else if(Interceptors.isProning((EntityPlayer) player)) {
+        //        posY -= 1.2f;
+        //    }
+        //}
 		/*
 		FlashFX flashParticle = new FlashFX(
 				compatibility.world(player),

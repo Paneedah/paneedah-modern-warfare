@@ -107,19 +107,19 @@ public class CommonModContext implements ModContext {
         public boolean equals(Object obj) {
             if (this == obj)
                 return true;
-            if (obj == null)
+
+            if (obj == null || getClass() != obj.getClass())
                 return false;
-            if (getClass() != obj.getClass())
-                return false;
+
             BulletImpactSoundKey other = (BulletImpactSoundKey) obj;
-            if (bulletItem != other.bulletItem) {
+
+            if (bulletItem != other.bulletItem)
                 return false;
-            } if (material == null) {
-                if (other.material != null)
-                    return false;
-            } else if (!material.equals(other.material))
-                return false;
-            return true;
+
+            if (material == null)
+                return other.material == null;
+
+            return material.equals(other.material);
         }
     }
     
