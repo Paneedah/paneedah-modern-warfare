@@ -1,6 +1,1 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "mw:blocks/leadore"
-    }
-}
+{"parent":"block/cube_all","textures":{"all":"mw:blocks/leadore"}}
