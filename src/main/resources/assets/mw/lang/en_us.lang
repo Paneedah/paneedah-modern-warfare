@@ -1,0 +1,14 @@
+#Items
+item.steel_ingot.name=Steel Ingot
+item.copper_ingot.name=Copper Ingot
+item.gun_plate.name=Gun Plate
+
+
+#CreativeTabs
+itemGroup.armortab=Armor
+itemGroup.decorationstab=Decorations
+itemGroup.explosivestab=Explosives
+itemGroup.othertab=Ammunition & Attachments
+itemGroup.resourcestab=Resources
+itemGroup.vehiclestab=Vehicles
+itemGroup.weaponstab=Weapons
