@@ -966,7 +966,6 @@ item.mw_GunmetalIngot.name=Gunmetal Ingot
 item.mw_CopperIngot.name=Copper Ingot
 item.mw_GunmetalComposite.name=Gunmetal Composite
 
-
 tile.mw_weapons_case.name=Weapons Case
 tile.mw_weapons_case_small.name=Small Weapons Case
 tile.mw_russian_weapons_case.name=Russian Weapons Case
@@ -1073,52 +1072,29 @@ tile.mw_spookyghost2.name=Spooky Ghost 2
 tile.mw_spookyghost3.name=Spooky Ghost 3
 tile.mw_swat_truck.name=SWAT Truck
 
-
-
 itemGroup.guns_tab=Modern Warfare Resources
-
 itemGroup.AssaultRifles_tab=MW Guns
-
 itemGroup.props_tab=MW Props (Contagion) (Creative Use Only)
-
 itemGroup.AmmoTab=MW Ammunition
-
 itemGroup.AttachmentsTab=MW Attachments
-
 itemGroup.ArmorTab=MW Armor
-
 itemGroup.GrenadesTab=MW Grenades
-
 itemGroup.SpartanTab=MW Spartan Armors Tab
-
 itemGroup.GadgetsTab=MW Gadgets
-
 itemGroup.BlocksTab=MW Blocks & Ingots
-
 itemGroup.CombatServer_tab=MW Arcade Weapons
 
 key.categories.weaponlib=Modern Warfare
-
 key.texture_change=Change Gun Skin
-
 key.fire_mode=Selective Fire
-
 key.reload=Reload Gun
-
 key.attachment=Attachment Mode
-
 key.recoil_fitter=Grip Catagory
-
 key.scope=Scope Catagory
-
 key.silencer=Barrel Catagory
-
 key.categories.futuristicarsenal=Modern Warfare
-
 key.laser=Switch Laser
-
 key.add=Zoom In
-
 key.subtract=Zoom Out
 
 gui.attachmentMode.changeScope=Press [%s] to change scope
