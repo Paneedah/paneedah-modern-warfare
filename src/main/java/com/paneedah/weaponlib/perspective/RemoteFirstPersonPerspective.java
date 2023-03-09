@@ -10,16 +10,11 @@ import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public abstract class RemoteFirstPersonPerspective extends Perspective<RenderableState> {
-
-    @SuppressWarnings("unused")
-    private static final Logger logger = LogManager.getLogger(RemoteFirstPersonPerspective.class);
 
     private long renderEndNanoTime;
 

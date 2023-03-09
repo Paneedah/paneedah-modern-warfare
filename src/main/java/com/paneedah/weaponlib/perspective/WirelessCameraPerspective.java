@@ -11,18 +11,15 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
-
-    private static final Logger logger = LogManager.getLogger(WirelessCameraPerspective.class);
 
     private static final String STATIC_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/static.png";
     public static final String DARK_SCREEN_TEXTURE = "weaponlib:/com/paneedah/weaponlib/resources/dark-screen.png";
@@ -98,9 +95,9 @@ public class WirelessCameraPerspective extends RemoteFirstPersonPerspective {
 //        }
 
         if(tickCounter++ %50 == 0) {
-            logger.trace("Using entity tracker {}", playerEntityTracker);
+            log.trace("Using entity tracker {}", playerEntityTracker);
             if(watchableEntity != null) {
-                logger.debug("Watching {} with uuid {}, distance: {}  ",
+                log.debug("Watching {} with uuid {}, distance: {}  ",
                         watchableEntity,
                         watchableEntity.getUniqueID(),
                         Math.sqrt(Math.pow(watchableEntity.posX - compatibility.getClientPlayer().posX, 2)

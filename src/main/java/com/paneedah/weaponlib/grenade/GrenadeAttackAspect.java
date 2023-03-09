@@ -10,14 +10,13 @@ import com.paneedah.weaponlib.state.StateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
@@ -25,8 +24,6 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
  * On a client side this class is used from within a separate client "ticker" thread
  */
 public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeInstance> {
-
-    private static final Logger logger = LogManager.getLogger(GrenadeAttackAspect.class);
 
     @SuppressWarnings("unused")
     private static final long ALERT_TIMEOUT = 300;
@@ -122,12 +119,12 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     private void explode(PlayerGrenadeInstance instance) {
-        logger.debug("Exploding!");
+        log.debug("Exploding!");
         modContext.getChannel().getChannel().sendToServer(new GrenadeMessage(instance, 0));
     }
 
     private void throwIt(PlayerGrenadeInstance instance) {
-        logger.debug("Throwing with state " + instance.getState());
+        log.debug("Throwing with state " + instance.getState());
         long activationTimestamp;
         if(instance.getWeapon().getType() != Type.REGULAR) {
             activationTimestamp = System.currentTimeMillis();
@@ -141,16 +138,16 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     private void reequip(PlayerGrenadeInstance instance) {
-        logger.debug("Reequipping");
+        log.debug("Reequipping");
     }
 
     private void takeSafetyPinOff(PlayerGrenadeInstance instance) {
         compatibility.playSound(instance.getPlayer(), instance.getWeapon().getSafetyPinOffSound(), 1.0F, 1.0F);
-        logger.debug("Taking safety pin off");
+        log.debug("Taking safety pin off");
     }
 
     private void releaseStrikerLever(PlayerGrenadeInstance instance) {
-        logger.debug("Safety pin is off");
+        log.debug("Safety pin is off");
         instance.setActivationTimestamp(System.currentTimeMillis());
     }
 
@@ -195,7 +192,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
     }
 
     public void serverThrowGrenade(EntityPlayer player, PlayerGrenadeInstance instance, long activationTimestamp) {
-        logger.debug("Throwing grenade");
+        log.debug("Throwing grenade");
        
         //boolean isSmokeGrenade = instance.getWeapon().isSmokeOnly();
         
@@ -228,7 +225,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withGravityVelocity(instance.getWeapon().getGravityVelocity())
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
-            logger.debug("Throwing velocity {} ", velocity);
+            log.debug("Throwing velocity {} ", velocity);
             compatibility.spawnEntity(player, entityGrenade);
         } else if(instance.getWeapon().getType() == Type.GAS) {
             float velocity = instance.isThrowingFar() ? instance.getWeapon().getFarVelocity() : instance.getWeapon().getVelocity();
@@ -243,7 +240,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withGravityVelocity(instance.getWeapon().getGravityVelocity())
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .build(modContext);
-            logger.debug("Throwing velocity {} ", velocity);
+            log.debug("Throwing velocity {} ", velocity);
             compatibility.spawnEntity(player, entityGrenade);
         } else if (instance.getWeapon().getType() == Type.FLASH) {
             float velocity = instance.isThrowingFar() ? instance.getWeapon().getFarVelocity() : instance.getWeapon().getVelocity();
@@ -258,7 +255,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .withDestroyingBlocks(false)
                     .build(modContext);
-            logger.debug("Throwing velocity {} ", velocity);
+            log.debug("Throwing velocity {} ", velocity);
             compatibility.spawnEntity(player, entityGrenade);
         } else {
             float velocity = instance.isThrowingFar() ? instance.getWeapon().getFarVelocity() : instance.getWeapon().getVelocity();
@@ -273,7 +270,7 @@ public class GrenadeAttackAspect implements Aspect<GrenadeState, PlayerGrenadeIn
                     .withRotationSlowdownFactor(instance.getWeapon().getRotationSlowdownFactor())
                     .withDestroyingBlocks(instance.getWeapon().isDestroyingBlocks())
                     .build(modContext);
-            logger.debug("Throwing velocity {} ", velocity);
+            log.debug("Throwing velocity {} ", velocity);
             compatibility.spawnEntity(player, entityGrenade);
         }
     }

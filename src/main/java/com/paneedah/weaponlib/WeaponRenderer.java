@@ -29,8 +29,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
@@ -44,11 +42,10 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponRenderer extends CompatibleWeaponRenderer {
-
-	private static final Logger logger = LogManager.getLogger(WeaponRenderer.class);
 
 	private static final float DEFAULT_RANDOMIZING_RATE = 0.33f;
 	private static final float DEFAULT_RANDOMIZING_FIRING_RATE = 20;
@@ -2387,7 +2384,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		PlayerWeaponInstance playerWeaponInstance = null;
 		if(playerItemInstance == null || !(playerItemInstance instanceof PlayerWeaponInstance)
 		        || playerItemInstance.getItem() != itemStack.getItem()) {
-		    logger.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
+		    log.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
 		} else {
 		    playerWeaponInstance = (PlayerWeaponInstance) playerItemInstance;
 		}
@@ -2568,7 +2565,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 			}
 
 
-			//logger.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
+			//log.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
 		}
 
 		if(currentState == null) {
@@ -2623,7 +2620,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
         PlayerWeaponInstance playerWeaponInstance = null;
         if(playerItemInstance == null || !(playerItemInstance instanceof PlayerWeaponInstance)
                 || playerItemInstance.getItem() != itemStack.getItem()) {
-            logger.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
+            log.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
         } else {
             playerWeaponInstance = (PlayerWeaponInstance) playerItemInstance;
         }
@@ -2735,7 +2732,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
             }
 
 
-            //logger.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
+            //log.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
         }
 
         if(currentState == null) {
@@ -2854,7 +2851,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 				if(partTransitions != null && partTransitions.size() > i) {
 					partTransition = partTransitions.get(i);
 				} else {
-					logger.warn("Transition not defined for part {}", custom);
+					log.warn("Transition not defined for part {}", custom);
 				}
 				t.withPartPositionFunction(e.getKey(), createWeaponPartPositionFunction(partTransition));
 			}
@@ -3475,7 +3472,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		} else if(isCompoundReloadEmptyTactical() && nextState == WeaponState.COMPOUND_RELOAD_EMPTY) {
 			
 			// Log
-			logger.debug("Creating a compound empty animation using the magic magazine system");
+			log.debug("Creating a compound empty animation using the magic magazine system");
 			
 			getWeaponRendererBuilder().compoundReloadEmptyContainer.getCustom().put(SpecialAttachments.MagicMag.getRenderablePart(),
 					BBLoader.getAnimation(getBuilder().getAnimationFileName(), BBLoader.KEY_COMPOUND_RELOAD_EMPTY, BBLoader.KEY_MAGIC_MAGAZINE)
@@ -3486,7 +3483,7 @@ public class WeaponRenderer extends CompatibleWeaponRenderer {
 		} else if(isCompoundReloadTactical() && nextState == WeaponState.COMPOUND_RELOAD) {
 			
 			// Log
-			logger.debug("Creating a standard compound animation using the magic magazine system");
+			log.debug("Creating a standard compound animation using the magic magazine system");
 			
 			getWeaponRendererBuilder().compoundReloadContainer.getCustom().put(SpecialAttachments.MagicMag.getRenderablePart(),
 					BBLoader.getAnimation(getBuilder().getAnimationFileName(), BBLoader.KEY_COMPOUND_RELOAD, BBLoader.KEY_MAGIC_MAGAZINE)

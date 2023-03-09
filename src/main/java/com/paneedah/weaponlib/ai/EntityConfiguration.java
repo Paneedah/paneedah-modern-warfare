@@ -15,8 +15,6 @@ import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.function.Function;
@@ -24,11 +22,10 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityConfiguration {
-    
-    private static final Logger logger = LogManager.getLogger(EntityConfiguration.class);
 
     private static final int DEFAULT_TRACKING_RANGE = 64;
     private static final int DEFAULT_UPDATE_FREQUENCY = 3;
@@ -259,7 +256,7 @@ public class EntityConfiguration {
         private Builder withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, 
                 EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
             if(item == null) {
-                logger.warn("Attempted to configure entity equipment with null item");
+                log.warn("Attempted to configure entity equipment with null item");
                 return this;
             }
             Equipment equipment = new Equipment();
@@ -504,7 +501,7 @@ public class EntityConfiguration {
                                     new EquipmentValue(equipment, ee.getWeight()));
                         }
                     } else {
-                        logger.warn("Attempted to configure entity equipment with invalid item {}", ee.getId());
+                        log.warn("Attempted to configure entity equipment with invalid item {}", ee.getId());
                     }
                     
                 });

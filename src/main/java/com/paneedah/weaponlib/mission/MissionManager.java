@@ -8,8 +8,6 @@ import net.minecraft.util.JsonUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.net.URI;
@@ -21,9 +19,9 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+import static com.paneedah.mw.utils.ModReference.log;
+
 public class MissionManager {
-    
-    private static final Logger logger = LogManager.getLogger(MissionManager.class);
     
     private Gson gson;
     private String modId;
@@ -104,7 +102,7 @@ public class MissionManager {
             offeringsByName.put(m.getMissionName(), m);
             offeringsById.put(m.getId(), m);
         });
-        logger.info("Updated " + missionOfferings.size() + " mission offerings");
+        log.info("Updated " + missionOfferings.size() + " mission offerings");
     }
     
     public void updateEntityOfferings(Map<String, List<UUID>> entityOfferings) {
@@ -146,7 +144,7 @@ public class MissionManager {
                     path = Paths.get(resource.toURI());
                 } else {
                     if (!"jar".equals(uri.getScheme())) {
-                        logger.error("Unsupported scheme " + uri + " trying to list all built-in missions");
+                        log.error("Unsupported scheme " + uri + " trying to list all built-in missions");
                         // this.hasErrored = true;
                         return;
                     }
@@ -168,11 +166,11 @@ public class MissionManager {
                             offeringsByName.putIfAbsent(missionOffering.getMissionName(), missionOffering);
                             offeringsById.putIfAbsent(missionOffering.getId(), missionOffering);
                         } catch (JsonParseException jsonparseexception) {
-                            logger.error("Parsing error loading built-in mission " + path1,
+                            log.error("Parsing error loading built-in mission " + path1,
                                     (Throwable) jsonparseexception);
                             // this.hasErrored = true;
                         } catch (IOException ioexception) {
-                            logger.error("Couldn't read mission from " + path1,
+                            log.error("Couldn't read mission from " + path1,
                                     (Throwable) ioexception);
                             // this.hasErrored = true;
                         }
@@ -182,10 +180,10 @@ public class MissionManager {
                 return;
             }
 
-            logger.error("Couldn't find mod resource root");
+            log.error("Couldn't find mod resource root");
             // this.hasErrored = true;
         } catch (IOException | URISyntaxException urisyntaxexception) {
-            logger.error("Couldn't get a list of all built-in mission files", (Throwable) urisyntaxexception);
+            log.error("Couldn't get a list of all built-in mission files", (Throwable) urisyntaxexception);
             // this.hasErrored = true;
             return;
         } finally {
@@ -201,17 +199,17 @@ public class MissionManager {
                 MissionOffering missionOffering = JsonUtils.fromJson(gson, new FileReader(file1), MissionOffering.class);
 
                 if (missionOffering == null) {
-                    logger.error("Couldn't load custom mission from " + file1 + " as it's empty or null");
+                    log.error("Couldn't load custom mission from " + file1 + " as it's empty or null");
                 } else {
                     offeringsByName.put(missionOffering.getMissionName(), missionOffering);
                     offeringsById.put(missionOffering.getId(), missionOffering);
                 }
             } catch (IllegalArgumentException | JsonParseException jsonparseexception) {
-                logger.error("Parsing error loading custom mission from " + file1,
+                log.error("Parsing error loading custom mission from " + file1,
                         (Throwable) jsonparseexception);
                 // this.hasErrored = true;
             } catch (IOException ioexception) {
-                logger.error("Couldn't read custom mission from " + file1,
+                log.error("Couldn't read custom mission from " + file1,
                         (Throwable) ioexception);
                 // this.hasErrored = true;
             }

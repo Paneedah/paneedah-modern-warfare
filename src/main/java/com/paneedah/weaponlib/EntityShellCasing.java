@@ -11,17 +11,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityShellCasing extends EntityProjectile {
-
-    @SuppressWarnings("unused")
-    private static final Logger logger = LogManager.getLogger(EntityShellCasing.class);
 
     private static final String TAG_ENTITY_ITEM = "entity_item";
 
@@ -137,7 +132,7 @@ public class EntityShellCasing extends EntityProjectile {
 //        }
         super.onUpdate();
         // /*
-        // logger.trace("Before {} {} {}, velocity: {}, {}, {}, gravity: {}",
+        // log.trace("Before {} {} {}, velocity: {}, {}, {}, gravity: {}",
         // this.posX, this.posY, this.posZ,
         // this.motionX, this.motionY, this.motionZ, this.gravityVelocity);
         // */
@@ -152,7 +147,7 @@ public class EntityShellCasing extends EntityProjectile {
 
         // /*
         //
-        // logger.debug("After {} {} {}, velocity: {}, {}, {}, gravity: {}",
+        // log.debug("After {} {} {}, velocity: {}, {}, {}, gravity: {}",
         // this.posX, this.posY, this.posZ,
         // this.motionX, this.motionY, this.motionZ, this.gravityVelocity);
         // */
@@ -230,7 +225,7 @@ public class EntityShellCasing extends EntityProjectile {
     @Override
     public void setDead() {
         super.setDead();
-        // logger.debug("{} despawned", this);
+        // log.debug("{} despawned", this);
     }
 
     // Todo: Remove this method and make this class abstract, making it abstract will break stuff but is probably better

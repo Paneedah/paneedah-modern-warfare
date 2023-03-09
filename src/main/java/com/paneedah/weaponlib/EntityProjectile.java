@@ -15,17 +15,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public abstract class EntityProjectile extends Entity implements IProjectile, CompatibleIEntityAdditionalSpawnData {
-
-    @SuppressWarnings("unused")
-    private static final Logger logger = LogManager.getLogger(EntityProjectile.class);
 
     private static final String TAG_GRAVITY_VELOCITY = "gravityVelocity";
 

@@ -11,8 +11,6 @@ import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -22,10 +20,9 @@ import java.util.Map.Entry;
 import java.util.UUID;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 
 public class DynamicShaderGroupManager {
-    
-    private static final Logger logger = LogManager.getLogger(DynamicShaderGroupManager.class);
 
     private static final String PATH_RESOURCES = "/com/paneedah/weaponlib/resources/";
     private static final String PATH_SHADER_PROGRAMS = PATH_RESOURCES + "shaders/programs/";
@@ -135,7 +132,7 @@ public class DynamicShaderGroupManager {
             group.createBindFramebuffers(mc.displayWidth, mc.displayHeight);
             return group;
         } catch (JsonSyntaxException | IOException e) {
-            logger.error("Failed to create shader due to " + e, e);
+            log.error("Failed to create shader due to " + e, e);
             return null;
         }
     }

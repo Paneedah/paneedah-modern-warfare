@@ -4,11 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.paneedah.weaponlib.Weapon;
 import com.paneedah.weaponlib.animation.Transform;
 import net.minecraft.util.ResourceLocation;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,15 +14,15 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 
 public class BBLoader {
 	
 	public static String directory  = "mw" + ":" + "animations/";
 	public static Gson gson = (new GsonBuilder()).create();
 	public static String version = "1.8.0";
-	private static final Logger logger = LogManager.getLogger(Weapon.class);
 
-	
+
 	
 	public static double HANDDIVISOR = 12.6;
 	public static double GENDIVISOR = 5;
@@ -89,7 +86,7 @@ public class BBLoader {
 		if(!actualAnimations.containsKey(animation)) {
 			AnimationSet set = loadAnimationFile(animation + animationSuffix);
 			if(set == null) {
-				logger.error("Could not load animation set for animation name {}", animation);
+				log.error("Could not load animation set for animation name {}", animation);
 				return null;
 			} else {
 				actualAnimations.put(animation, set);
@@ -131,7 +128,7 @@ public class BBLoader {
 			AnimationSet set = loadAnimationFile(animation + animationSuffix);
 			
 			if(set == null) {
-				logger.error("Could not load animation set for animation name {}", animation);
+				log.error("Could not load animation set for animation name {}", animation);
 				return null;
 			} else {
 				actualAnimations.put(animation, set);
@@ -157,7 +154,7 @@ public class BBLoader {
 			ResourceLocation loc = new ResourceLocation(directory + fileName);
 			br = new BufferedReader(new InputStreamReader(mc.getResourceManager().getResource(loc).getInputStream()));
 		} catch(Exception e) {
-			logger.error("Failed to create reader for file: {}", fileName);
+			log.error("Failed to create reader for file: {}", fileName);
 			return null;
 		}
 		
@@ -168,10 +165,10 @@ public class BBLoader {
 		// lines up. Alert the user if it's a different version so the developer can make adjustments.
 		if(!masterJSON.has("format_version")) {
 			
-			logger.error("Could not locate \"format_version\" key, cannot read file {} ", fileName); 
+			log.error("Could not locate \"format_version\" key, cannot read file {} ", fileName); 
 			return null;
 		} else if(!masterJSON.get("format_version").getAsString().equals(version)){
-			logger.error("Warning, this file is running version {}, and this version of VMW is looking for {}", masterJSON.get("format_version").getAsString(), version);
+			log.error("Warning, this file is running version {}, and this version of VMW is looking for {}", masterJSON.get("format_version").getAsString(), version);
 			//System.err.printf("Warning, this file is running version {}, and this version of VMW is looking for {}", masterJSON.get("format_version").getAsString(), version);	
 		}
 		

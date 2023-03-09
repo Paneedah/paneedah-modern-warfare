@@ -6,15 +6,10 @@ import com.paneedah.weaponlib.perspective.Perspective;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class PlayerHandheldInstance extends PlayerItemInstance<HandheldState> {
 	
 	private static final int SERIAL_VERSION = 1;
-	
-	@SuppressWarnings("unused")
-    private static final Logger logger = LogManager.getLogger(PlayerHandheldInstance.class);
 
 	static {
 		TypeRegistry.getInstance().register(PlayerHandheldInstance.class);

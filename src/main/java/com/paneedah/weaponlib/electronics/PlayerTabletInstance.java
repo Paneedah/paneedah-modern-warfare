@@ -8,15 +8,12 @@ import com.paneedah.weaponlib.tracking.PlayerEntityTracker;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import static com.paneedah.mw.utils.ModReference.log;
 
 public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 	
 	private static final int SERIAL_VERSION = 1;
-	
-	private static final Logger logger = LogManager.getLogger(PlayerTabletInstance.class);
-
 	static {
 		TypeRegistry.getInstance().register(PlayerTabletInstance.class);
 	}
@@ -48,7 +45,7 @@ public class PlayerTabletInstance extends PlayerItemInstance<TabletState> {
 	
 	public void setActiveWatchIndex(int activeWatchIndex) {
 	    if(this.activeWatchIndex != activeWatchIndex) {
-	        logger.debug("Changing active watch index to {}", activeWatchIndex);
+	        log.debug("Changing active watch index to {}", activeWatchIndex);
 	        this.activeWatchIndex = activeWatchIndex;
 	        markDirty();
 	    }

@@ -8,7 +8,7 @@ public class ItemGraphiteChunk extends Item {
 
     public ItemGraphiteChunk() {
         setMaxStackSize(64);
-        setTranslationKey(ModReference.MWC_ID + "_" + "GraphiteChunk");
+        setTranslationKey(ModReference.id + "_" + "GraphiteChunk");
 //        setTextureName(ModReference.MWC_ID + ":" + "graphitechunk");
         setCreativeTab(ModernWarfareMod.BlocksTab);
     }

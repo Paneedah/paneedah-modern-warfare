@@ -19,8 +19,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.GL13;
 
 import java.util.Arrays;
@@ -29,6 +27,7 @@ import java.util.UUID;
 import java.util.concurrent.LinkedBlockingDeque;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
@@ -36,9 +35,6 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 
 
     private static final int SERIAL_VERSION = 9;
-
-    @SuppressWarnings("unused")
-    private static final Logger logger = LogManager.getLogger(PlayerWeaponInstance.class);
 
     static {
         TypeRegistry.getInstance().register(PlayerWeaponInstance.class);
@@ -175,7 +171,7 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
 		
 		// Give the old animations
 		if(!getWeapon().builder.isUsingNewSystem()) {
-			logger.debug("Weapon is using the old system, returning standard value");
+			log.debug("Weapon is using the old system, returning standard value");
 			return getWeapon().getTotalReloadingDuration();
 		}
 		
@@ -634,13 +630,13 @@ public class PlayerWeaponInstance extends PlayerItemInstance<WeaponState> implem
         if(itemStack != null) {
             int expectedStackAmmo = Tags.getAmmo(itemStack);
             if(this.ammo > expectedStackAmmo) {
-                logger.debug("Reconciling. Expected ammo: {}, actual: {}", expectedStackAmmo, this.ammo);
+                log.debug("Reconciling. Expected ammo: {}, actual: {}", expectedStackAmmo, this.ammo);
                 this.ammo = expectedStackAmmo;
             }
             
 //            int[] expectedAttachmentIds = Tags.getAttachmentIds(itemStack);
 //            if(!Arrays.equals(expectedAttachmentIds, this.activeAttachmentIds)) {
-//                logger.debug("Reconciling. Expected attachments: {}, actual: {}", 
+//                log.debug("Reconciling. Expected attachments: {}, actual: {}", 
 //                        Arrays.toString(expectedAttachmentIds), Arrays.toString(this.activeAttachmentIds));
 //                this.activeAttachmentIds = expectedAttachmentIds;
 //            }

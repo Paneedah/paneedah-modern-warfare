@@ -9,8 +9,6 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.Deque;
@@ -20,9 +18,6 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class PlayerMeleeInstance extends PlayerItemInstance<MeleeState> {
 
 	private static final int SERIAL_VERSION = 7;
-
-	@SuppressWarnings("unused")
-	private static final Logger logger = LogManager.getLogger(PlayerMeleeInstance.class);
 
 	static {
 		TypeRegistry.getInstance().register(PlayerMeleeInstance.class);

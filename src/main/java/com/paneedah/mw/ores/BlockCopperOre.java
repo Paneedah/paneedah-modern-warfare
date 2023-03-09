@@ -13,7 +13,7 @@ public class BlockCopperOre extends Block {
     public BlockCopperOre() {
         super(Material.ROCK);
 
-        setTranslationKey(ModReference.MWC_ID + "_" + "CopperOre");
+        setTranslationKey(ModReference.id + "_" + "CopperOre");
         //setBlockTextureName(ModReference.MWC_ID + ":" + "copperore");
         setHardness(6F);
         setResistance(15F);

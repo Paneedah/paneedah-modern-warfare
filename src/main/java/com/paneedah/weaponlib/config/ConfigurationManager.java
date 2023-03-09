@@ -1,8 +1,5 @@
 package com.paneedah.weaponlib.config;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import javax.xml.bind.*;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
@@ -14,9 +11,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class ConfigurationManager {
+import static com.paneedah.mw.utils.ModReference.log;
 
-    private static final Logger logger = LogManager.getLogger(ConfigurationManager.class);
+public class ConfigurationManager {
 
     public static enum StatusBarPosition{TOP_RIGHT, BOTTOM_RIGHT, TOP_LEFT, BOTTOM_LEFT};
 
@@ -306,7 +303,7 @@ public class ConfigurationManager {
             try {
                 Files.move(userConfigFile.toPath(), invalidFileCopy.toPath());
             } catch (IOException e) {
-                logger.error("Failed to rename {} to {}", userConfigFile, invalidFileCopy);
+                log.error("Failed to rename {} to {}", userConfigFile, invalidFileCopy);
             }
         }
 
@@ -320,7 +317,7 @@ public class ConfigurationManager {
                 marshaller.marshal(new ObjectFactory().createConfiguration(config), System.out);
             }
         } catch (JAXBException e) {
-            logger.error("Failed to save configuration to {}", userConfigFile);
+            log.error("Failed to save configuration to {}", userConfigFile);
         }
     }
 

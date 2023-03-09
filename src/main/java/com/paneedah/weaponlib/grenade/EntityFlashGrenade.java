@@ -13,17 +13,15 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 import java.util.function.BiPredicate;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityFlashGrenade extends AbstractEntityGrenade {
 
-    private static final Logger logger = LogManager.getLogger(EntityFlashGrenade.class);
 
     public static int MAX_EFFECTIVE_DISTANCE = 15;
     private long explosionTimeout;
@@ -158,7 +156,7 @@ public class EntityFlashGrenade extends AbstractEntityGrenade {
 
     private void explode() {
 
-        logger.debug("Exploding {}", this);
+        log.debug("Exploding {}", this);
         
         explosionStrength = 0.1f;
         Explosion.createServerSideExplosion(modContext, compatibility.world(this), this,

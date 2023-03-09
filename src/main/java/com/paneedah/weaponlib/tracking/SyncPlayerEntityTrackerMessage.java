@@ -2,12 +2,10 @@ package com.paneedah.weaponlib.tracking;
 
 import com.paneedah.weaponlib.compatibility.CompatibleMessage;
 import io.netty.buffer.ByteBuf;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import static com.paneedah.mw.utils.ModReference.log;
 
 public class SyncPlayerEntityTrackerMessage implements CompatibleMessage {
-
-    private static final Logger logger = LogManager.getLogger(SyncPlayerEntityTrackerMessage.class);
 
     private PlayerEntityTracker playerEntityTracker;
 	private String statusMessage;
@@ -34,7 +32,7 @@ public class SyncPlayerEntityTrackerMessage implements CompatibleMessage {
 	        }
 	        playerEntityTracker = PlayerEntityTracker.fromBuf(buf);
 	    } catch(Exception e) {
-	        logger.error("Failed to deserialize tracker {}", e);
+	        log.error("Failed to deserialize tracker {}", e);
 	    }
 	}
 

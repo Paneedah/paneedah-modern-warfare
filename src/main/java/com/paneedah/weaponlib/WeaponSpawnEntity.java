@@ -18,16 +18,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.RayTraceResult.Type;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponSpawnEntity extends EntityProjectile {
-
-    private static final Logger logger = LogManager.getLogger(WeaponSpawnEntity.class);
 
     private static final String TAG_ENTITY_ITEM = "entityItem";
     private static final String TAG_DAMAGE = "damage";
@@ -173,7 +170,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
             position.getEntityHit().hurtResistantTime = 0;
             position.getEntityHit().prevRotationYaw -= 0.3D;
 
-            logger.debug("Hit entity {}", position.getEntityHit());
+            log.debug("Hit entity {}", position.getEntityHit());
 
             CompatibleTargetPoint point = new CompatibleTargetPoint(position.getEntityHit().dimension,
                     this.posX, this.posY, this.posZ, 100);
@@ -187,7 +184,7 @@ public class WeaponSpawnEntity extends EntityProjectile {
             
             if(bleedingCoefficient > 0.0f) {
                 int count = (int)(getParticleCount (damage) * bleedingCoefficient);
-                logger.debug("Generating {} particle(s) per damage {}", count, damage);
+                log.debug("Generating {} particle(s) per damage {}", count, damage);
                 /*
                 weapon.getModContext().getChannel().sendToAllAround(new SpawnParticleMessage(
                         SpawnParticleMessage.ParticleType.BLOOD,

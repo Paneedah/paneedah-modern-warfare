@@ -20,8 +20,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -31,6 +29,7 @@ import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
@@ -38,9 +37,6 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
  * On a client side this class is used from within a separate client "ticker" thread
  */
 public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
-    
-    @SuppressWarnings("unused")
-    private static final Logger logger = LogManager.getLogger(WeaponFireAspect.class);
 
     private static final float FLASH_X_OFFSET_ZOOMED = -0.03f;
 
@@ -49,7 +45,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
 //    private static <T> Predicate<T> logging(Predicate<T> predicate, String message) {
 //        return t -> {
 //            boolean result = predicate.test(t);
-//            logger.debug(message, result);
+//            log.debug(message, result);
 //            return result;
 //        };
 //    }
@@ -449,7 +445,7 @@ public class WeaponFireAspect implements Aspect<WeaponState, PlayerWeaponInstanc
         int currentServerAmmo = Tags.getAmmo(itemStack);
         
         if(currentServerAmmo <= 0) {
-            logger.error("No server ammo");
+            log.error("No server ammo");
             return;
         }
         

@@ -3,8 +3,6 @@ package com.paneedah.weaponlib.vehicle;
 import com.paneedah.weaponlib.state.Aspect;
 import com.paneedah.weaponlib.state.PermitManager;
 import com.paneedah.weaponlib.state.StateManager;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -12,9 +10,6 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 public class VehicleDrivingAspect implements Aspect<VehicleState, EntityVehicle> {
-    
-    @SuppressWarnings("unused")
-    private static final Logger logger = LogManager.getLogger(VehicleDrivingAspect.class);
     
     private static final Set<VehicleState> allowedAutoUpdateFromStates = new HashSet<>(
             Arrays.asList(

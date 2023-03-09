@@ -9,8 +9,6 @@ import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.Vec3d;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Matrix4f;
@@ -23,11 +21,10 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 
 
 public class MultipartRenderStateManager<State, Part, Context extends PartPositionProvider> {
-
-	private static final Logger logger = LogManager.getLogger(MultipartRenderStateManager.class);
 
 	Randomizer randomizer;
 	
@@ -145,7 +142,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 	                            fromMatrix.setIdentity();
 	                        }
 	                    } else {
-	                        logger.trace("Getting part data for {}", part);
+	                        log.trace("Getting part data for {}", part);
 	                        fromMatrix = getMatrixForPositioning(fromMultipart, p, context);
 	                    }
 
@@ -207,7 +204,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 
 		
 			if(currentIndex == 0 && startTime == null) {
-				logger.debug("Starting transition {}, duration {}ms, pause {}ms", currentIndex, currentDuration, currentPause);
+				log.debug("Starting transition {}, duration {}ms, pause {}ms", currentIndex, currentDuration, currentPause);
 				startTime = currentTime;
 				
 				
@@ -222,11 +219,11 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 				
 				currentStartTime = currentTime;
 			} else if(currentTime > currentStartTime + currentDuration + currentPause) {
-				logger.debug("Completed transition {}, duration {}ms, pause {}ms", currentIndex, currentDuration, currentPause);
+				log.debug("Completed transition {}, duration {}ms, pause {}ms", currentIndex, currentDuration, currentPause);
 				currentIndex++;
-				if(logger.isDebugEnabled() && currentIndex < toPositioning.size()) {
+				if(log.isDebugEnabled() && currentIndex < toPositioning.size()) {
 					MultipartTransition<Part, Context> multipartTransition = toPositioning.get(currentIndex);
-					logger.debug("Starting transition {}, duration {}ms, pause {}ms", currentIndex,
+					log.debug("Starting transition {}, duration {}ms, pause {}ms", currentIndex,
 							multipartTransition.getDuration(), multipartTransition.getPause());
 				}
 				currentStartTime = currentTime;
@@ -380,7 +377,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 		private void applyOnce(Part part, Context context, Matrix4f beforeMatrix, Matrix4f afterMatrix,
 		        Part attachedTo, float progress, Interpolation interp) {
 
-		    logger.trace("Applying position for part {}", part);
+		    log.trace("Applying position for part {}", part);
 
 
 		   
@@ -426,7 +423,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 		private void applyOnceCom(Part part, Context context, Matrix4f beforeMatrix, Matrix4f afterMatrix,
 		        Part attachedTo, float progress, Vec3d beizer, boolean accel, Interpolation interp) {
 
-		    logger.trace("Applying position for part {}", part);
+		    log.trace("Applying position for part {}", part);
 
 		    //progress = 0.0f;
 		    
@@ -570,7 +567,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 		        Part attachedTo, float progress, Vec3d beizer, boolean accel, Interpolation interp) {
 
 			
-		    logger.trace("Applying position for part {}", part);
+		    log.trace("Applying position for part {}", part);
 		    
 		    
 		    progress = (float) interp.interpolate(progress);
@@ -658,7 +655,7 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 		private void applyOnce2(Part part, Context context, Matrix4f beforeMatrix, Matrix4f afterMatrix,
 		        Part attachedTo, float progress, Interpolation interp) {
 
-		    logger.trace("Applying position for part {}", part);
+		    log.trace("Applying position for part {}", part);
 		    
 		    
 		   // progress = (float) Interpolation.SMOOTHSTEP.interpolate(progress);
@@ -946,12 +943,12 @@ public class MultipartRenderStateManager<State, Part, Context extends PartPositi
 		while(!positioningQueue.isEmpty()) {
 			MultipartPositioning<Part, Context> p = positioningQueue.poll();
 			if(!p.isExpired(positioningQueue)) { // TODO: this is rather a hack
-		        //logger.trace("Fetched next positioning from {} to {}", p.getFromState(Object.class), p.getToState(Object.class));
+		        //log.trace("Fetched next positioning from {} to {}", p.getFromState(Object.class), p.getToState(Object.class));
 				positioningQueue.addFirst(p); // add it back to the head of the queue
 				result = p;
 				break;
 			} else {
-			    //logger.trace("Fetched next expired positioning from {} to {}", p.getFromState(Object.class), p.getToState(Object.class));
+			    //log.trace("Fetched next expired positioning from {} to {}", p.getFromState(Object.class), p.getToState(Object.class));
 			}
 		}
 		if(result == null) {

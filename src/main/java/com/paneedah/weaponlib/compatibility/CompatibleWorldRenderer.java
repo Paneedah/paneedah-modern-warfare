@@ -47,8 +47,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GLContext;
@@ -60,10 +58,11 @@ import java.nio.FloatBuffer;
 import java.util.List;
 import java.util.Random;
 
+import static com.paneedah.mw.utils.ModReference.log;
+
 @SideOnly(Side.CLIENT)
 public class CompatibleWorldRenderer extends EntityRenderer
 {
-    private static final Logger LOGGER = LogManager.getLogger();
     private static final ResourceLocation RAIN_TEXTURES = new ResourceLocation("textures/environment/rain.png");
     private static final ResourceLocation SNOW_TEXTURES = new ResourceLocation("textures/environment/snow.png");
     public static boolean anaglyphEnable;
@@ -239,13 +238,13 @@ public class CompatibleWorldRenderer extends EntityRenderer
         }
         catch (IOException ioexception)
         {
-            LOGGER.warn("Failed to load shader: {}", resourceLocationIn, ioexception);
+            log.warn("Failed to load shader: {}", resourceLocationIn, ioexception);
             this.shaderIndex = SHADER_COUNT;
             this.useShader = false;
         }
         catch (JsonSyntaxException jsonsyntaxexception)
         {
-            LOGGER.warn("Failed to load shader: {}", resourceLocationIn, jsonsyntaxexception);
+            log.warn("Failed to load shader: {}", resourceLocationIn, jsonsyntaxexception);
             this.shaderIndex = SHADER_COUNT;
             this.useShader = false;
         }
@@ -1228,7 +1227,7 @@ public class CompatibleWorldRenderer extends EntityRenderer
 //            }
 //            catch (IOException ioexception)
 //            {
-//                LOGGER.warn("Couldn't save auto screenshot", (Throwable)ioexception);
+//                log.warn("Couldn't save auto screenshot", (Throwable)ioexception);
 //            }
 //        }
 //    }

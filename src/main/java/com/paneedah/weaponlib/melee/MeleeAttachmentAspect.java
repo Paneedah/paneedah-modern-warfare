@@ -12,8 +12,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,12 +19,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMeleeInstance> {
-	
-	private static final Logger logger = LogManager.getLogger(MeleeAttachmentAspect.class);
-
 	
 	static {
 		TypeRegistry.getInstance().register(EnterAttachmentModePermit.class);
@@ -163,7 +159,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 	
 	
 	private void enterAttachmentSelectionMode(EnterAttachmentModePermit permit, PlayerMeleeInstance weaponInstance) {
-		logger.debug("Entering attachment mode");
+		log.debug("Entering attachment mode");
 		byte selectedAttachmentIndexes[] = new byte[AttachmentCategory.values.length];
 		Arrays.fill(selectedAttachmentIndexes, (byte)-1);
 		weaponInstance.setSelectedAttachmentIndexes(selectedAttachmentIndexes);
@@ -172,7 +168,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 	}
 	
 	private void exitAttachmentSelectionMode(ExitAttachmentModePermit permit, PlayerMeleeInstance weaponInstance) {
-		logger.debug("Exiting attachment mode");
+		log.debug("Exiting attachment mode");
 		weaponInstance.setSelectedAttachmentIndexes(new byte[0]);
 		
 		permit.setStatus(Status.GRANTED);
@@ -332,7 +328,7 @@ public final class MeleeAttachmentAspect implements Aspect<MeleeState, PlayerMel
 				currentIndex -= 37;
 			}
 			
-			logger.debug("Searching for an attachment in slot {}", currentIndex);
+			log.debug("Searching for an attachment in slot {}", currentIndex);
 			
 			if(currentIndex == -1) {
 				result.index = -1;

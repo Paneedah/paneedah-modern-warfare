@@ -20,8 +20,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.IRenderHandler;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
@@ -43,8 +41,6 @@ import static com.paneedah.mw.proxies.ClientProxy.mc;
  * @author Jim Holden, 2022
  */
 public class PostProcessPipeline {
-
-	private static Logger logger = LogManager.getLogger("POST PROCESS PIPELINE");
 
 	private static int width = -1;
 	private static int height = -1;
@@ -314,7 +310,7 @@ public class PostProcessPipeline {
 		// GL11.GL_UNSIGNED_BYTE, (IntBuffer) null);
 		
 
-		// (new org.apache.logging.log4j.core.Logger()).setl
+		// (new org.apache.logging.log4j.core.log()).setl
 
 		// GL30.GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER
 		// System.out.println("Flag 3: " + GL11.glGetError());
@@ -326,18 +322,18 @@ public class PostProcessPipeline {
 
 		if (status != OpenGlHelper.GL_FRAMEBUFFER_COMPLETE) {
 			if (status == OpenGlHelper.GL_FB_INCOMPLETE_ATTACHMENT) {
-				logger.error("Depth framebuffer creation returned an incomplete attachment error.");
+				log.error("Depth framebuffer creation returned an incomplete attachment error.");
 			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_MISS_ATTACH) {
-				logger.error("Depth framebuffer creation returned a missing attachment error.");
+				log.error("Depth framebuffer creation returned a missing attachment error.");
 			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_DRAW_BUFFER) {
-				logger.error("Depth framebuffer creation returned an incomplete draw buffer error.");
+				log.error("Depth framebuffer creation returned an incomplete draw buffer error.");
 			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_READ_BUFFER) {
-				logger.error("Depth framebuffer creation returned an incomplete read buffer error.");
+				log.error("Depth framebuffer creation returned an incomplete read buffer error.");
 			} else {
-				logger.error("Depth framebuffer creation returned an unknown status");
+				log.error("Depth framebuffer creation returned an unknown status");
 			}
 		} else {
-			logger.debug("Succesfully created depth buffer.");
+			log.debug("Succesfully created depth buffer.");
 		}
 		*/
 

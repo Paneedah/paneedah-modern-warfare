@@ -7,17 +7,12 @@ import com.paneedah.weaponlib.compatibility.CompatibleSound;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.EnumDifficulty;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
 public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxConfiguration> {
 
     private static final int DEFAULT_EQUIPMENT_DISPENSE_TIMEOUT_TICKS = 100;
-
-    @SuppressWarnings("unused")
-    private static final Logger logger = LogManager.getLogger(LootBoxConfiguration.class);
 
     static class Equipment {
         Item item;
@@ -129,7 +124,7 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
     private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, 
             EnumDifficulty difficultyLevel, float weight, ItemAttachment<?>... attachments) {
 //        if(item == null) {
-//            logger.warn("Attempted to configure entity equipment with null item");
+//            log.warn("Attempted to configure entity equipment with null item");
 //            return this;
 //        }
         Equipment equipment = new Equipment();
@@ -146,7 +141,7 @@ public class LootBoxConfiguration extends CustomTileEntityConfiguration<LootBoxC
     private LootBoxConfiguration withEquipmentOption(Map<EquipmentKey, EquipmentValue> equipmentOptions, Item item, 
             EnumDifficulty difficultyLevel, float weight, int stackSize) {
 //        if(item == null) {
-//            logger.warn("Attempted to configure entity equipment with null item");
+//            log.warn("Attempted to configure entity equipment with null item");
 //            return this;
 //        }
         Equipment equipment = new Equipment();

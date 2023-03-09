@@ -6,17 +6,14 @@ import io.netty.buffer.Unpooled;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.function.Supplier;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PlayerEntityTracker {
-
-    private static final Logger logger = LogManager.getLogger(PlayerEntityTracker.class);
 
     public static final PlayerEntityTracker getTracker(EntityLivingBase player) {
         return CompatiblePlayerEntityTrackerProvider.getTracker(player);
@@ -93,7 +90,7 @@ public class PlayerEntityTracker {
                 TrackableEntity te = TrackableEntity.fromBuf(buf, world);
                 trackableEntities.put(te.getUuid(), te);
             } catch(RuntimeException e) {
-                logger.error("Failed to deserialize trackable entity {}", e.toString(), e);
+                log.error("Failed to deserialize trackable entity {}", e.toString(), e);
             }
         }
     }
@@ -110,7 +107,7 @@ public class PlayerEntityTracker {
         if(bytes != null && bytes.length > 0) {
             tracker.init(buf);
         } else {
-            logger.warn("Cannot deserialize tracker from empty byte array");
+            log.warn("Cannot deserialize tracker from empty byte array");
         }
         return tracker;
     }

@@ -10,20 +10,17 @@ import com.paneedah.weaponlib.state.ManagedState;
 import com.paneedah.weaponlib.state.Permit;
 import com.paneedah.weaponlib.state.PermitManager;
 import net.minecraft.entity.player.EntityPlayerMP;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class NetworkPermitManager
 implements PermitManager, CompatibleMessageHandler<PermitMessage, CompatibleMessage>  {
-	
-	private static final Logger logger = LogManager.getLogger(NetworkPermitManager.class);
 
 	private ModContext modContext;
 	private Map<UUID, Object /*BiConsumer<Permit<?>, ?>*/> permitCallbacks = new HashMap<>();
@@ -47,7 +44,7 @@ implements PermitManager, CompatibleMessageHandler<PermitMessage, CompatibleMess
 			Class<? extends E> esClass,
 			BiConsumer<P, E> evaluator) {
 		evaluators.put(permitClass,  (p, c) -> { 
-			logger.debug("Processing permit {} for instance {}", p, c);
+			log.debug("Processing permit {} for instance {}", p, c);
 			evaluator.accept(permitClass.cast(p), esClass.cast(c)); 
 		});
 	}

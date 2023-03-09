@@ -6,8 +6,6 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,9 +17,6 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class PlayerGrenadeInstance extends PlayerItemInstance<GrenadeState> {
 
 	private static final int SERIAL_VERSION = 11;
-
-	@SuppressWarnings("unused")
-	private static final Logger logger = LogManager.getLogger(PlayerGrenadeInstance.class);
 
 	static {
 		TypeRegistry.getInstance().register(PlayerGrenadeInstance.class);

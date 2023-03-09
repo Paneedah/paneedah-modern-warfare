@@ -20,8 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Queue;
@@ -46,9 +44,6 @@ public class ClientEventHandler extends CompatibleClientEventHandler {
 
 	private static final UUID SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER_UUID = UUID.fromString("9d2eac95-9b9c-4942-8287-7952c6de353e");
     private static final AttributeModifier SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER = (new AttributeModifier(SLOW_DOWN_WHILE_POISONED_ATTRIBUTE_MODIFIER_UUID, "Slow Down While Poisoned", -0.7, 2)).setSaved(false);
-
-	@SuppressWarnings("unused")
-    private static final Logger logger = LogManager.getLogger(ClientEventHandler.class);
 
 	private Lock mainLoopLock = new ReentrantLock();
 	private SafeGlobals safeGlobals;

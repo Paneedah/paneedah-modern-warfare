@@ -13,8 +13,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -23,12 +21,11 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class ItemMelee extends CompatibleItem implements
 PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer, Modifiable, Updatable {
-
-    private static final Logger logger = LogManager.getLogger(ItemMelee.class);
 
     public static class Builder {
 
@@ -420,7 +417,7 @@ PlayerItemInstanceFactory<PlayerMeleeInstance, MeleeState>, AttachmentContainer,
         //target.attackEntityFrom(DamageSource.fall, builder.damage);
         PlayerItemInstance<?> instance = Tags.getInstance(stack);
         if(instance instanceof PlayerMeleeInstance) {
-            logger.debug("Player {} hits {} with {} in state {}", player, target, instance, instance.getState());
+            log.debug("Player {} hits {} with {} in state {}", player, target, instance, instance.getState());
         }
         return true;
     }

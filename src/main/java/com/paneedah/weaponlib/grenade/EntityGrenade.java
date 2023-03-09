@@ -9,17 +9,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 import java.util.function.BiPredicate;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityGrenade extends AbstractEntityGrenade {
-
-    private static final Logger logger = LogManager.getLogger(EntityGrenade.class);
 
     private long explosionTimeout;
     private float explosionStrength;
@@ -148,7 +145,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
     private void explode() {
 
     		
-        logger.debug("Exploding {}", this);
+        log.debug("Exploding {}", this);
         
        
        
@@ -176,7 +173,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
             
             double d2 = x * x + y * y + z * z;
             if(d2 == 0) {
-                logger.debug("Ignoring zero distance index {}", i);
+                log.debug("Ignoring zero distance index {}", i);
                 continue;
             }
             double k = Math.sqrt(effectiveRadius * effectiveRadius  / d2);
@@ -209,7 +206,7 @@ public class EntityGrenade extends AbstractEntityGrenade {
                         double distanceToEntity = cvec10.distanceTo(movingobjectposition1.getHitVec());
                         float damageDistanceReductionFactor = (float)Math.abs(1 - distanceToEntity / effectiveRadius);
 
-                        logger.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,
+                        log.trace("Hit entity {} at distance {}, damage reduction {}", nearbyEntity, distanceToEntity,
                                 damageDistanceReductionFactor);
 
                         nearbyEntity.attackEntityFrom(

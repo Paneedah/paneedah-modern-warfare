@@ -4,16 +4,15 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import org.apache.commons.codec.binary.Hex;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import static com.paneedah.mw.utils.ModReference.log;
+
 public abstract class JSONDatabaseManager {
-	
-	protected static final Logger LOGGER = LogManager.getLogger(JSONDatabaseManager.class);
+
 	protected static final Gson GSON_MANAGER = new GsonBuilder().setPrettyPrinting().create();
 	protected static MessageDigest SHA_256_DIGEST;
 	
@@ -21,8 +20,8 @@ public abstract class JSONDatabaseManager {
 		try {
 			SHA_256_DIGEST = MessageDigest.getInstance("SHA-256");
 		} catch (NoSuchAlgorithmException e) {
-			LOGGER.error("Failed to create SHA-256 digester!");
-			LOGGER.catching(e);
+			log.error("Failed to create SHA-256 digester!");
+			log.catching(e);
 		}
 	}
 	
@@ -46,11 +45,11 @@ public abstract class JSONDatabaseManager {
 		try(InputStream is = new FileInputStream(f)) {
 			return getDigest(is);
 		} catch (FileNotFoundException e) {
-			LOGGER.error("Could not find file {}", f);
-			LOGGER.catching(e);
+			log.error("Could not find file {}", f);
+			log.catching(e);
 		} catch (IOException e) {
-			LOGGER.error("Could not read file {}", f);
-			LOGGER.catching(e);
+			log.error("Could not read file {}", f);
+			log.catching(e);
 		}
 		
 		return null;
@@ -63,18 +62,15 @@ public abstract class JSONDatabaseManager {
 			is.read(byteArray);
 			return byteArray;
 		} catch(IOException e) {
-			LOGGER.error("Could not create SHA-256 digest for {}", is.toString());
-			LOGGER.catching(e);
+			log.error("Could not create SHA-256 digest for {}", is.toString());
+			log.catching(e);
 		}
 		return null;
 	}
-	
-	
-	
-	
-	protected static Logger getLogger() {
-		return LOGGER;
-	}
+
+
+
+
 	
 	protected static Gson getGSON() {
 		return GSON_MANAGER;

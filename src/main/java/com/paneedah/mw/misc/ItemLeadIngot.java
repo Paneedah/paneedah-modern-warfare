@@ -8,7 +8,7 @@ public class ItemLeadIngot extends Item {
 
     public ItemLeadIngot() {
         setMaxStackSize(64);
-        setTranslationKey(ModReference.MWC_ID + "_" + "LeadIngot");
+        setTranslationKey(ModReference.id + "_" + "LeadIngot");
 //        setTextureName(ModReference.MWC_ID + ":" + "leadingot");
         setCreativeTab(ModernWarfareMod.BlocksTab);
     }

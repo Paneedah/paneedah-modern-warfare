@@ -53,14 +53,14 @@ import net.minecraft.world.border.WorldBorder;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.util.vector.Vector3f;
 import org.lwjgl.util.vector.Vector4f;
 
 import javax.annotation.Nullable;
 import java.io.IOException;
 import java.util.*;
+
+import static com.paneedah.mw.utils.ModReference.log;
 
 @SideOnly(Side.CLIENT)
 @SuppressWarnings("unused")
@@ -79,8 +79,6 @@ public class CompatibleRenderGlobal extends RenderGlobal
         }
     }
 
-    
-    private static final Logger LOGGER = LogManager.getLogger();
     private static final ResourceLocation MOON_PHASES_TEXTURES = new ResourceLocation("textures/environment/moon_phases.png");
     private static final ResourceLocation SUN_TEXTURES = new ResourceLocation("textures/environment/sun.png");
     private static final ResourceLocation CLOUDS_TEXTURES = new ResourceLocation("textures/environment/clouds.png");
@@ -224,13 +222,13 @@ public class CompatibleRenderGlobal extends RenderGlobal
             }
             catch (IOException ioexception)
             {
-                LOGGER.warn("Failed to load shader: {}", resourcelocation, ioexception);
+                log.warn("Failed to load shader: {}", resourcelocation, ioexception);
                 this.entityOutlineShader = null;
                 this.entityOutlineFramebuffer = null;
             }
             catch (JsonSyntaxException jsonsyntaxexception)
             {
-                LOGGER.warn("Failed to load shader: {}", resourcelocation, jsonsyntaxexception);
+                log.warn("Failed to load shader: {}", resourcelocation, jsonsyntaxexception);
                 this.entityOutlineShader = null;
                 this.entityOutlineFramebuffer = null;
             }

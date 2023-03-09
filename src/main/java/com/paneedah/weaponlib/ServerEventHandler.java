@@ -22,20 +22,17 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Collection;
 import java.util.Iterator;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 /**
  * TODO: rename to common event handler, since it's invoked on both sides
  */
 public class ServerEventHandler extends CompatibleServerEventHandler {
-
-    private static final Logger logger = LogManager.getLogger(ServerEventHandler.class);
 
     private ModContext modContext;
     private String modId;
@@ -144,7 +141,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
             ((Contextual)e.getEntity()).setContext(modContext);
         }
         if(e.getEntity() instanceof EntityPlayerMP && !e.getWorld().isRemote) {
-            logger.debug("Player {} joined the world", e.getEntity());
+            log.debug("Player {} joined the world", e.getEntity());
             PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) e.getEntity());
             if(tracker != null) {
                 modContext.getChannel().getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker),
@@ -180,7 +177,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         }
         PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) e.getEntity());
         if (tracker != null && tracker.updateTrackableEntity(e.getTarget())) {
-            logger.debug("Player {} started tracking {} with uuid {}", e.getPlayer(), e.getTarget(), e.getTarget().getUniqueID());
+            log.debug("Player {} started tracking {} with uuid {}", e.getPlayer(), e.getTarget(), e.getTarget().getUniqueID());
             modContext.getChannel().getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker),
                     (EntityPlayerMP)e.getPlayer());
             
@@ -202,7 +199,7 @@ public class ServerEventHandler extends CompatibleServerEventHandler {
         }
         PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) e.getEntity());
         if (tracker != null && tracker.updateTrackableEntity(e.getTarget())) {
-            logger.debug("Player {} stopped tracking {}", e.getPlayer(), e.getTarget());
+            log.debug("Player {} stopped tracking {}", e.getPlayer(), e.getTarget());
             modContext.getChannel().getChannel().sendTo(new SyncPlayerEntityTrackerMessage(tracker),
                     (EntityPlayerMP)e.getPlayer());
             

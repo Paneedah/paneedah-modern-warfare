@@ -4,12 +4,12 @@ import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.shader.Framebuffer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import java.nio.FloatBuffer;
+
+import static com.paneedah.mw.utils.ModReference.log;
 
 /**
  * Depth texture class that holds a depth buffer with a depth texture attachment that allows
@@ -19,8 +19,6 @@ import java.nio.FloatBuffer;
  * @version October 2nd, 2022
  */
 public class DepthTexture {
-	
-	private static final Logger LOGGER = LogManager.getLogger();
 	
 	private int buffer = -1;
 	private int texture = -1;
@@ -103,18 +101,18 @@ public class DepthTexture {
 
 		if (status != OpenGlHelper.GL_FRAMEBUFFER_COMPLETE) {
 			if (status == OpenGlHelper.GL_FB_INCOMPLETE_ATTACHMENT) {
-				LOGGER.error("Depth framebuffer creation returned an incomplete attachment error.");
+				log.error("Depth framebuffer creation returned an incomplete attachment error.");
 			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_MISS_ATTACH) {
-				LOGGER.error("Depth framebuffer creation returned a missing attachment error.");
+				log.error("Depth framebuffer creation returned a missing attachment error.");
 			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_DRAW_BUFFER) {
-				LOGGER.error("Depth framebuffer creation returned an incomplete draw buffer error.");
+				log.error("Depth framebuffer creation returned an incomplete draw buffer error.");
 			} else if (status == OpenGlHelper.GL_FB_INCOMPLETE_READ_BUFFER) {
-				LOGGER.error("Depth framebuffer creation returned an incomplete read buffer error.");
+				log.error("Depth framebuffer creation returned an incomplete read buffer error.");
 			} else {
-				LOGGER.error("Depth framebuffer creation returned an unknown status");
+				log.error("Depth framebuffer creation returned an unknown status");
 			}
 		} else {
-			LOGGER.debug("Succesfully created depth buffer.");
+			log.debug("Succesfully created depth buffer.");
 		}
 	}
 	

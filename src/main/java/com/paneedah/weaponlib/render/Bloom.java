@@ -11,13 +11,12 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.shader.Framebuffer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.*;
 
 import java.nio.IntBuffer;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 
 /**
  * Bloom implementation based on
@@ -31,7 +30,6 @@ import static com.paneedah.mw.proxies.ClientProxy.mc;
  */
 public class Bloom {
 
-	private static final Logger LOGGER = LogManager.getLogger(Bloom.class);
 	public static final Minecraft MC = mc;
 
 	public static int width = MC.displayWidth;
@@ -55,14 +53,14 @@ public class Bloom {
 
 	public static void setupBloom() {
 
-		// logger.info("Creating bloom buffer, MC's Framebuffer is {}, the world is {}",
+		// log.info("Creating bloom buffer, MC's Framebuffer is {}, the world is {}",
 		// mc.getFramebuffer(), mc.world);
-		// logger.log(Level.INFO, null, message, p0, p1, p2, p3, p4, p5, p6);
+		// log.log(Level.INFO, null, message, p0, p1, p2, p3, p4, p5, p6);
 		width = MC.displayWidth;
 		height = MC.displayHeight;
 		hasLoaded = true;
 
-		LOGGER.debug("Recreating Bloom FBOs at ({} x {})", width, height);
+		log.debug("Recreating Bloom FBOs at ({} x {})", width, height);
 
 		// System.out.println("Creating a Bloom FX w/ " + width + "x" + height);
 		recreateFramebuffers();
@@ -151,7 +149,7 @@ public class Bloom {
 
 		}
 
-		LOGGER.debug("Refreshed Bloom buffer succesfully!");
+		log.debug("Refreshed Bloom buffer succesfully!");
 
 	}
 

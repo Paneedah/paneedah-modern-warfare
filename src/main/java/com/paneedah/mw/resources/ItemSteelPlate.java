@@ -8,7 +8,7 @@ public class ItemSteelPlate extends Item {
 
 	public ItemSteelPlate() {
 		setMaxStackSize(64);
-		setTranslationKey(ModReference.MWC_ID + "_" + "SteelPlate");
+		setTranslationKey(ModReference.id + "_" + "SteelPlate");
 		//setTextureName(ModReference.MWC_ID + ":" + "SteelPlate");
 		setCreativeTab(ModernWarfareMod.BlocksTab);
 	}

@@ -9,8 +9,6 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.GL11;
 
 import java.util.*;
@@ -20,11 +18,10 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class GrenadeRenderer extends CompatibleGrenadeRenderer {
-
-	private static final Logger logger = LogManager.getLogger(GrenadeRenderer.class);
 
 	private static final float DEFAULT_RANDOMIZING_RATE = 0.33f;
 
@@ -620,7 +617,7 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 		PlayerGrenadeInstance playerGrenadeInstance = null;
 		if(playerItemInstance == null || !(playerItemInstance instanceof PlayerGrenadeInstance)
 		        || playerItemInstance.getItem() != itemStack.getItem()) {
-		    logger.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
+		    log.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
 		} else {
 		    playerGrenadeInstance = (PlayerGrenadeInstance) playerItemInstance;
 		}
@@ -652,7 +649,7 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 				}
 			}
 
-			logger.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
+			log.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
 		}
 
 		if(currentState == null) {
@@ -745,7 +742,7 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 				if(partTransitions != null && partTransitions.size() > i) {
 					partTransition = partTransitions.get(i);
 				} else {
-					logger.warn("Transition not defined for part {}", custom);
+					log.warn("Transition not defined for part {}", custom);
 				}
 				t.withPartPositionFunction(e.getKey(), partTransition.getAttachedTo(), createWeaponPartPositionFunction(partTransition));
 			}
@@ -856,7 +853,7 @@ public class GrenadeRenderer extends CompatibleGrenadeRenderer {
 
 		PlayerItemInstance<?> itemInstance = renderContext.getPlayerItemInstance();
         if(!(itemInstance instanceof PlayerGrenadeInstance)) {
-            //logger.error("Instance is not a grenade!");
+            //log.error("Instance is not a grenade!");
             return;
         }
 

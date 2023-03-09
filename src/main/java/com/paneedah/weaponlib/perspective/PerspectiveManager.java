@@ -6,15 +6,12 @@ import com.paneedah.weaponlib.compatibility.CompatibleParticleManager;
 import com.paneedah.weaponlib.compatibility.CompatibleWorldRenderer;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.RenderGlobal;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PerspectiveManager {
-
-    private static final Logger logger = LogManager.getLogger(PerspectiveManager.class);
 
     private Perspective<?> currentPerspective;
     private ClientModContext clientModContext;
@@ -61,7 +58,7 @@ public class PerspectiveManager {
             result = perspectiveClass.newInstance();
             result.activate(clientModContext, this);
         } catch (InstantiationException | IllegalAccessException e) {
-            logger.error("Failed to create view of {} - {}", perspectiveClass, e, e);
+            log.error("Failed to create view of {} - {}", perspectiveClass, e, e);
         }
         return result;
     }

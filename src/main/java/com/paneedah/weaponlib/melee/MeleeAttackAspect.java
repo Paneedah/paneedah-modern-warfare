@@ -12,14 +12,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 
@@ -27,8 +26,6 @@ import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compati
  * On a client side this class is used from within a separate client "ticker" thread
  */
 public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance> {
-
-    private static final Logger logger = LogManager.getLogger(MeleeAttackAspect.class);
 
     private static final long STUB_DURATION = 250;
 
@@ -185,7 +182,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
     }
 
     public void serverAttack(EntityPlayer player, PlayerMeleeInstance instance, Entity entity, boolean isHeavyAttack) {
-        logger.debug("Player {} hits {} with {} in state {} with damage {}", player, entity, instance, instance.getState(),
+        log.debug("Player {} hits {} with {} in state {} with damage {}", player, entity, instance, instance.getState(),
                 instance.getWeapon().getDamage(isHeavyAttack));
         float damage = instance.getWeapon().getDamage(isHeavyAttack);
         entity.attackEntityFrom(DamageSource.causePlayerDamage(player), damage);
@@ -198,7 +195,7 @@ public class MeleeAttackAspect implements Aspect<MeleeState, PlayerMeleeInstance
         double motionZ = entity.posZ - player.posZ;
 
         int count = getParticleCount (damage);
-        logger.debug("Generating {} particle(s) per damage {}", count, damage);
+        log.debug("Generating {} particle(s) per damage {}", count, damage);
 
         modContext.getChannel().sendToAllAround(new SpawnParticleMessage(
                 SpawnParticleMessage.ParticleType.BLOOD,

@@ -7,8 +7,6 @@ import net.minecraftforge.common.config.Config.RequiresMcRestart;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.Loader;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -16,9 +14,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ModernConfigManager {
+import static com.paneedah.mw.utils.ModReference.log;
 
-	public static final Logger LOGGER = LogManager.getLogger();
+public class ModernConfigManager {
 	
 	private static HashMap<Field, Property> elementMappings = new HashMap<>();
 	
@@ -115,7 +113,7 @@ public class ModernConfigManager {
 			// fields are static.
 			f.set(null, value);
 		} catch (IllegalArgumentException | IllegalAccessException e) {
-			LOGGER.error("Could not set field for field name: {}, please report this to developers.", f.getName());
+			log.error("Could not set field for field name: {}, please report this to developers.", f.getName());
 			e.printStackTrace();
 		}
 

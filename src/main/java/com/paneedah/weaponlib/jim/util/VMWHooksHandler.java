@@ -3,14 +3,11 @@ package com.paneedah.weaponlib.jim.util;
 import com.paneedah.weaponlib.ItemAttachment;
 import com.paneedah.weaponlib.Weapon;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Field;
 
 public class VMWHooksHandler {
-	
-	private static Logger logger = LogManager.getLogger("VMW Hooks Handler");
+
 	private static ItemAttachment<Weapon> magicMagazine;
 	
 	private static boolean checkedServer;

@@ -10,8 +10,6 @@ import com.paneedah.weaponlib.state.StateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -20,11 +18,10 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
-
-	private static final Logger logger = LogManager.getLogger(WeaponReloadAspect.class);
 
 	private static final long ALERT_TIMEOUT = 500;
 	private static final long INSPECT_TIMEOUT = 500;
@@ -756,7 +753,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 			ItemStack attachmentItemStack = ((ItemMagazine) attachment).createItemStack();
  			Tags.setAmmo(attachmentItemStack, originalAmmo);
  			if(!player.inventory.addItemStackToInventory(attachmentItemStack)) {
- 				logger.error("Cannot add attachment " + attachment + " for " + instance + "back to the inventory");
+ 				log.error("Cannot add attachment " + attachment + " for " + instance + "back to the inventory");
  			}
  			
 
@@ -770,7 +767,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 	@SuppressWarnings("unchecked")
 	private void processLoadPermit(LoadPermit p, PlayerWeaponInstance weaponInstance) {
 	//	System.out.println("Processing load permit " + weaponInstance.getPlayer().world.isRemote);
-		logger.debug("Processing load permit on server for {}", weaponInstance);
+		log.debug("Processing load permit on server for {}", weaponInstance);
 
 		ItemStack weaponItemStack = weaponInstance.getItemStack();
 
@@ -805,7 +802,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		        if(magazineItemStack != null) {
 		            ammo = Tags.getAmmo(magazineItemStack);
 		            Tags.setAmmo(weaponItemStack, ammo);
-		            logger.debug("Setting server side ammo for {} to {}", weaponInstance, ammo);
+		            log.debug("Setting server side ammo for {} to {}", weaponInstance, ammo);
 		            WeaponAttachmentAspect.addAttachment((ItemAttachment<Weapon>) magazineItemStack.getItem(), weaponInstance);
 		            compatibility.playSoundToNearExcept(player, weapon.getReloadSound(), 1.0F, 1.0F);
 		        } else {
@@ -830,7 +827,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 		    weaponInstance.setAmmo(weapon.builder.ammoCapacity);
 		    compatibility.playSoundToNearExcept(player, weapon.getReloadSound(), 1.0F, 1.0F);
 		} else {
-		    logger.debug("No suitable ammo found for {}. Permit denied.", weaponInstance);
+		    log.debug("No suitable ammo found for {}. Permit denied.", weaponInstance);
 		    //				Tags.setAmmo(weaponItemStack, 0);
 		    //				weaponInstance.setAmmo(0);
 		    status = Status.DENIED;
@@ -854,9 +851,9 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 	private void processUnloadPermit(UnloadPermit p, PlayerWeaponInstance weaponInstance) {
 		
 		
-		logger.debug("Processing unload permit on server for {}", weaponInstance);
+		log.debug("Processing unload permit on server for {}", weaponInstance);
 		if(!(weaponInstance.getPlayer() instanceof EntityPlayer)) {
-		    logger.warn("Not a player");
+		    log.warn("Not a player");
             return;
         }
 		ItemStack weaponItemStack = weaponInstance.getItemStack();
@@ -883,7 +880,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 				Tags.setAmmo(attachmentItemStack, weaponInstance.getAmmo());
 
 				if(!player.inventory.addItemStackToInventory(attachmentItemStack)) {
-					logger.error("Cannot add attachment " + attachment + " for " + weaponInstance + "back to the inventory");
+					log.error("Cannot add attachment " + attachment + " for " + weaponInstance + "back to the inventory");
 				}
 			} else {
 				//throw new IllegalStateException();
@@ -905,7 +902,7 @@ public class WeaponReloadAspect implements Aspect<WeaponState, PlayerWeaponInsta
 	private void completeClientLoad(PlayerWeaponInstance weaponInstance, LoadPermit permit) {
 	    weaponInstance.setLoadAfterUnloadEnabled(false);
 		if(permit == null) {
-			logger.error("Permit is null, something went wrong");
+			log.error("Permit is null, something went wrong");
 			return;
 		}
 

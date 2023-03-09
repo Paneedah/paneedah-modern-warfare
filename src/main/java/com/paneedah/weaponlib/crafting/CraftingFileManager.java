@@ -16,6 +16,7 @@ import java.io.*;
 import java.util.Arrays;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 
 public class CraftingFileManager extends JSONDatabaseManager {
 
@@ -153,7 +154,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 			// First we should validate the JSON and see if the entry
 			// can actually be loaded.
 			if (!recipe.has(NAME_KEY) || !recipe.has(CRAFTING_GROUP_KEY) || !recipe.has(RECIPE_ARRAY_KEY)) {
-				LOGGER.debug("Invalid recipe for recipe {}!", i);
+				log.debug("Invalid recipe for recipe {}!", i);
 				continue;
 			}
 			
@@ -167,7 +168,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 
 			// Make sure we actually have a hook for this recipe.
 			if (!CraftingRegistry.hasHook(recipeName)) {
-				LOGGER.debug("Recipe named {} does not link up to any items in the registry! Skipping it.", recipeName);
+				log.debug("Recipe named {} does not link up to any items in the registry! Skipping it.", recipeName);
 				continue;
 			}
 
@@ -182,7 +183,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 				// Validate subrecipe
 				// First let's check to see if it has the ESSENTIAL keys
 				if (!subRecipe.has(ENTRY_ITEM_NAME_KEY) || !subRecipe.has(COUNT_KEY)) {
-					LOGGER.debug("Sub-recipe no. {} for recipe {} missing essential keys.", r, recipeName);
+					log.debug("Sub-recipe no. {} for recipe {} missing essential keys.", r, recipeName);
 					cancelationFlag = true;
 					break;
 				}
@@ -191,7 +192,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 				if (subRecipe.has(ORE_DICTIONARY_BOOLEAN_KEY)) {
 					isOreDictionary = subRecipe.get(ORE_DICTIONARY_BOOLEAN_KEY).getAsBoolean();
 					if (isOreDictionary && !subRecipe.has(ORE_DICTIONARY_DEFAULT_ITEM)) {
-						LOGGER.debug(
+						log.debug(
 								"Sub-recipe no. {} for recipe {} states it is OreDictionary, but does not provide a default item.",
 								r, recipeName);
 						cancelationFlag = true;
@@ -260,8 +261,8 @@ public class CraftingFileManager extends JSONDatabaseManager {
 			readStream.close();
 			reader.close();
 		} catch (IOException e) {
-			LOGGER.catching(e);
-			LOGGER.error("Failed to close reader/reading stream for file!");
+			log.catching(e);
+			log.error("Failed to close reader/reading stream for file!");
 		}
 		
 		currentFileHash = getDigest(hashStream);
@@ -288,22 +289,22 @@ public class CraftingFileManager extends JSONDatabaseManager {
 		InputStream is = null;
 		if (!MAIN_FILE.exists()) {
 			// Use default crafting mappings
-			LOGGER.debug("No custom mappings found, switching to default mode.");
+			log.debug("No custom mappings found, switching to default mode.");
 
 			// Set our input stream reader to the default stream
 			is = getClass().getClassLoader().getResourceAsStream(DEFAULT_CRAFTING_MAPPINGS);
 			
 		} else {
 			// Use custom mappings
-			LOGGER.debug("Detected custom mappings, using those!");
+			log.debug("Detected custom mappings, using those!");
 
 			// Make the custom input stream
 			try {
 				is = new FileInputStream(MAIN_FILE);
 				inCustomMode = true;
 			} catch (FileNotFoundException e) {
-				LOGGER.catching(e);
-				LOGGER.error("Could not find the custom mappings file! Switching to default mappings!");
+				log.catching(e);
+				log.error("Could not find the custom mappings file! Switching to default mappings!");
 
 				// Set our input stream reader to the default stream
 				is = getClass().getClassLoader().getResourceAsStream(DEFAULT_CRAFTING_MAPPINGS);
@@ -326,14 +327,14 @@ public class CraftingFileManager extends JSONDatabaseManager {
 				is = getClass().getClassLoader().getResourceAsStream(DEFAULT_CRAFTING_MAPPINGS);
 				try {
 					initializeJSON(is);
-					LOGGER.debug("Could not initialize custom JSON, succesfully loaded default mappings though!");
+					log.debug("Could not initialize custom JSON, succesfully loaded default mappings though!");
 					loadingStatus = 1;
 				} catch(Exception e1) {
-					LOGGER.error("Could not initialize custom JSON, so attempted to load default, but it failed!");
+					log.error("Could not initialize custom JSON, so attempted to load default, but it failed!");
 				}
 				
 			} else {
-				LOGGER.error("Attempted to load default mappings, but it failed!");
+				log.error("Attempted to load default mappings, but it failed!");
 			}
 		}
 
@@ -348,13 +349,13 @@ public class CraftingFileManager extends JSONDatabaseManager {
 		try {
 			initializeJSON(io);
 		} catch(JsonIOException e1) {
-			LOGGER.error("GSON had troubles reading from the Input Stream ({})", io.toString());
-			LOGGER.error("Check your directory permissions and ensure the system can read the file.");
-			LOGGER.catching(e1);
+			log.error("GSON had troubles reading from the Input Stream ({})", io.toString());
+			log.error("Check your directory permissions and ensure the system can read the file.");
+			log.catching(e1);
 			return -1;
 		} catch(JsonSyntaxException e2) {
-			LOGGER.error("GSON had troubles parsing the file syntax for InputStream ({}).", io.toString());
-			LOGGER.catching(e2);
+			log.error("GSON had troubles parsing the file syntax for InputStream ({}).", io.toString());
+			log.catching(e2);
 			return -2;
 		}
 		return 1;
@@ -372,7 +373,7 @@ public class CraftingFileManager extends JSONDatabaseManager {
 			if(loadJSONStore(getDefaultFileStream()) == 1) {
 				return true;
 			} else {
-				LOGGER.error("Could not load default file stream. This means we could not access a file within your jar, check if your version was sourced from CurseForge!");
+				log.error("Could not load default file stream. This means we could not access a file within your jar, check if your version was sourced from CurseForge!");
 				return false;
 			}
 		}
@@ -398,12 +399,12 @@ public class CraftingFileManager extends JSONDatabaseManager {
 					}
 				}
 			} catch (FileNotFoundException e) {
-				LOGGER.error("Was testing hashes against cache directory, could not find {}!", f.toString());
-				LOGGER.error("Does your system have permissions set to read that directory?");
+				log.error("Was testing hashes against cache directory, could not find {}!", f.toString());
+				log.error("Does your system have permissions set to read that directory?");
 				continue;
 			} catch (IOException e) {
-				LOGGER.error("Was unable to reset InputStream for {}", f.toString());
-				LOGGER.catching(e);
+				log.error("Was unable to reset InputStream for {}", f.toString());
+				log.catching(e);
 				continue;
 			}
 		}
@@ -434,9 +435,9 @@ public class CraftingFileManager extends JSONDatabaseManager {
 			try {
 				cache.createNewFile();
 			} catch (IOException e) {
-				LOGGER.error("Failed to create a new cache file {}!", cache.getName());
-				LOGGER.error("Check system writing priveleges for {} path.", cache.getPath());
-				LOGGER.catching(e);
+				log.error("Failed to create a new cache file {}!", cache.getName());
+				log.error("Check system writing priveleges for {} path.", cache.getPath());
+				log.catching(e);
 				return;
 			}
 		}
@@ -447,13 +448,13 @@ public class CraftingFileManager extends JSONDatabaseManager {
 			fos.write(baos.toByteArray());
 			baos.close();
 		} catch (FileNotFoundException e) {
-			LOGGER.error("Failed to find file {}, could not create file output stream to write to cache.", cache);
-			LOGGER.error("Check permissions for directory path {}", cache.getPath());
-			LOGGER.catching(e);
+			log.error("Failed to find file {}, could not create file output stream to write to cache.", cache);
+			log.error("Check permissions for directory path {}", cache.getPath());
+			log.catching(e);
 			return;
 		} catch (IOException e) {
-			LOGGER.error("Failed to write to the file output stream for file {}", cache);
-			LOGGER.catching(e);
+			log.error("Failed to write to the file output stream for file {}", cache);
+			log.catching(e);
 			return;
 		}
 	}

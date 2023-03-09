@@ -3,8 +3,6 @@ package com.paneedah.weaponlib.shader.jim;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.compress.utils.IOUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
@@ -14,11 +12,9 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 
 public class ShaderManager {
-	
-	public static final Logger logger = LogManager.getLogger(ShaderManager.class);
-
 	
 	public static boolean enableShaders = true;
 
@@ -39,7 +35,7 @@ public class ShaderManager {
 					GL20.glShaderSource(vertexShader, readFileToBuf(new ResourceLocation(file.getNamespace(), file.getPath() + ".vert")));
 				GL20.glCompileShader(vertexShader);
 				if(GL20.glGetShaderi(vertexShader, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE) {
-					logger.error(GL20.glGetShaderInfoLog(vertexShader, GL20.GL_INFO_LOG_LENGTH));
+					log.error(GL20.glGetShaderInfoLog(vertexShader, GL20.GL_INFO_LOG_LENGTH));
 					throw new RuntimeException("Error creating vertex shader: " + file);
 				}
 				
@@ -47,7 +43,7 @@ public class ShaderManager {
 				GL20.glShaderSource(fragmentShader, readFileToBuf(new ResourceLocation(file.getNamespace(), file.getPath() + ".frag")));
 				GL20.glCompileShader(fragmentShader);
 				if(GL20.glGetShaderi(fragmentShader, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE) {
-					logger.error(GL20.glGetShaderInfoLog(fragmentShader, GL20.GL_INFO_LOG_LENGTH));
+					log.error(GL20.glGetShaderInfoLog(fragmentShader, GL20.GL_INFO_LOG_LENGTH));
 					throw new RuntimeException("Error creating fragment shader: " + file);
 				}
 				
@@ -67,7 +63,7 @@ public class ShaderManager {
 				
 				GL20.glLinkProgram(program);
 				if(GL20.glGetProgrami(program, GL20.GL_LINK_STATUS) == GL11.GL_FALSE) {
-					logger.error(GL20.glGetProgramInfoLog(program, GL20.GL_INFO_LOG_LENGTH));
+					log.error(GL20.glGetProgramInfoLog(program, GL20.GL_INFO_LOG_LENGTH));
 					throw new RuntimeException("Error creating fragment shader: " + file);
 				}
 				

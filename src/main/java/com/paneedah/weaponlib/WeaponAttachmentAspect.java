@@ -13,8 +13,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,11 +20,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerWeaponInstance> {
-
-	private static final Logger logger = LogManager.getLogger(WeaponAttachmentAspect.class);
 
 	static {
 		TypeRegistry.getInstance().register(EnterAttachmentModePermit.class);
@@ -181,7 +178,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 	}
 
 	private void enterAttachmentSelectionMode(EnterAttachmentModePermit permit, PlayerWeaponInstance weaponInstance) {
-		logger.debug("Entering attachment mode");
+		log.debug("Entering attachment mode");
 		byte selectedAttachmentIndexes[] = new byte[AttachmentCategory.values.length];
 		Arrays.fill(selectedAttachmentIndexes, (byte) -1);
 		weaponInstance.setSelectedAttachmentIndexes(selectedAttachmentIndexes);
@@ -190,7 +187,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 	}
 
 	private void exitAttachmentSelectionMode(ExitAttachmentModePermit permit, PlayerWeaponInstance weaponInstance) {
-		logger.debug("Exiting attachment mode");
+		log.debug("Exiting attachment mode");
 		weaponInstance.setSelectedAttachmentIndexes(new byte[0]);
 
 		permit.setStatus(Status.GRANTED);
@@ -567,7 +564,7 @@ public final class WeaponAttachmentAspect implements Aspect<WeaponState, PlayerW
 				currentIndex -= INVENTORY_SIZE + (isCategoryRemovable ? 1 : 0);
 			}
 
-			logger.debug("Searching for an attachment in slot {}", currentIndex);
+			log.debug("Searching for an attachment in slot {}", currentIndex);
 
 			if (currentIndex == -1) {
 				result.index = -1;

@@ -30,9 +30,7 @@ import com.paneedah.weaponlib.config.ConfigurationManager;
 import com.paneedah.weaponlib.vehicle.network.VehicleDataSerializer;
 import com.paneedah.weaponlib.vehicle.network.VehiclePhysSerializer;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.settings.GameSettings;
 import net.minecraft.network.datasync.DataSerializers;
-import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
@@ -71,7 +69,7 @@ public class CommonProxy {
     }
 
     public void preInit(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final CompatibleFmlPreInitializationEvent initializationEvent) {
-        ModernWarfareMod.MOD_CONTEXT.preInit(mod, ModReference.MWC_ID, configurationManager, initializationEvent, new CompatibleChannel(ModernWarfareMod.CHANNEL));
+        ModernWarfareMod.MOD_CONTEXT.preInit(mod, ModReference.id, configurationManager, initializationEvent, new CompatibleChannel(ModernWarfareMod.CHANNEL));
 
         ModernWarfareMod.MOD_CONTEXT.setChangeZoomSound("OpticZoom");
         ModernWarfareMod.MOD_CONTEXT.setNightVisionOnSound("nightvision_on");
@@ -158,11 +156,11 @@ public class CommonProxy {
         new BaseballBatNailsFactory().createMelee(this);
         new NightStickFactory().createMelee(this);
         
-        ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, ModReference.MWC_ID, configurationManager, initializationEvent, ModernWarfareMod.MOD_CONTEXT.getChannel());
+        ModernWarfareMod.MOD_CONTEXT.preInitEnd(mod, ModReference.id, configurationManager, initializationEvent, ModernWarfareMod.MOD_CONTEXT.getChannel());
     }
 
     public void init(final ModernWarfareMod mod, final ConfigurationManager configurationManager, final CompatibleFmlInitializationEvent initializationEvent) {
-        ModernWarfareMod.MOD_CONTEXT.init(mod, ModReference.MWC_ID);
+        ModernWarfareMod.MOD_CONTEXT.init(mod, ModReference.id);
 
         Entities.init(this);
         Vehicles.init(this);

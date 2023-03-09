@@ -6,18 +6,15 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.lang.ref.WeakReference;
 import java.util.UUID;
 import java.util.function.Supplier;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class TrackableEntity {
-
-    private static final Logger logger = LogManager.getLogger(TrackableEntity.class);
 
     private Supplier<Entity> entitySupplier;
     private long startTimestamp;
@@ -80,7 +77,7 @@ public class TrackableEntity {
         this.worldSupplier = worldSupplier;
         uuid = new UUID(buf.readLong(), buf.readLong());
         entityId = buf.readInt();
-        logger.debug("Deserializing entity uuid {}, id {}", uuid, entityId);
+        log.debug("Deserializing entity uuid {}, id {}", uuid, entityId);
 
         startTimestamp = buf.readLong();
         trackingDuration = buf.readLong();
@@ -111,7 +108,7 @@ public class TrackableEntity {
         if(entity != null) {
             entityId = entity.getEntityId();
         }
-        logger.debug("Serializing server entity uuid {}, id {}", uuid, entityId);
+        log.debug("Serializing server entity uuid {}, id {}", uuid, entityId);
 
         buf.writeInt(entityId);
         buf.writeLong(startTimestamp);

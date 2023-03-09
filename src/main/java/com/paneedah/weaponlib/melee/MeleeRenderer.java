@@ -9,8 +9,6 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.GL11;
 
 import java.util.*;
@@ -20,11 +18,10 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class MeleeRenderer extends CompatibleMeleeRenderer {
-
-	private static final Logger logger = LogManager.getLogger(MeleeRenderer.class);
 
 	private static final float DEFAULT_RANDOMIZING_RATE = 0.33f;
 
@@ -494,7 +491,7 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 		PlayerMeleeInstance playerMeleeInstance = null;
 		if(playerItemInstance == null || !(playerItemInstance instanceof PlayerMeleeInstance)
 		        || playerItemInstance.getItem() != itemStack.getItem()) {
-		    logger.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
+		    log.error("Invalid or mismatching item. Player item instance: {}. Item stack: {}", playerItemInstance, itemStack);
 		} else {
 		    playerMeleeInstance = (PlayerMeleeInstance) playerItemInstance;
 		}
@@ -522,7 +519,7 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 				}
 			}
 
-			logger.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
+			log.trace("Rendering state {} created from {}", currentState, asyncWeaponState.getState());
 		}
 
 		if(currentState == null) {
@@ -606,7 +603,7 @@ public class MeleeRenderer extends CompatibleMeleeRenderer {
 				if(partTransitions != null && partTransitions.size() > i) {
 					partTransition = partTransitions.get(i);
 				} else {
-					logger.warn("Transition not defined for part {}", custom);
+					log.warn("Transition not defined for part {}", custom);
 				}
 				t.withPartPositionFunction(e.getKey(), createWeaponPartPositionFunction(partTransition));
 			}

@@ -9,8 +9,6 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.GL11;
 
 import java.nio.FloatBuffer;
@@ -19,9 +17,6 @@ import java.util.List;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PlayerRenderer {
-    
-    @SuppressWarnings("unused")
-    private static final Logger logger = LogManager.getLogger(PlayerRenderer.class);
 
     protected static class StateDescriptor implements MultipartRenderStateDescriptor<RenderableState, Part, RenderContext<RenderableState>>{
         protected MultipartRenderStateManager<RenderableState, Part, RenderContext<RenderableState>> stateManager;
@@ -106,15 +101,15 @@ public class PlayerRenderer {
                 
         
         if(generalPlayerStateManager == null) {
-            //logger.trace("Creating state manager");
+            //log.trace("Creating state manager");
             generalPlayerStateManager = new MultipartRenderStateManager<>(RenderableState.NORMAL, transitionProvider,
                   () -> currentTime(player));
         } else if(isProning && player.distanceWalkedModified == player.prevDistanceWalkedModified
                 /*|| player.motionX == 0 || player.motionZ == 0*/) {
-            //logger.trace("Setting aiming state");
+            //log.trace("Setting aiming state");
             generalPlayerStateManager.setState(RenderableState.PRONING_AIMING, true, true, true);
         } else if(isProning) {
-            //logger.trace("Setting proning state");
+            //log.trace("Setting proning state");
             generalPlayerStateManager.setCycleState(RenderableState.PRONING, false);
         } else {
             ItemStack heldStack = compatibility.getHeldItemMainHand(player);
@@ -141,7 +136,7 @@ public class PlayerRenderer {
         }
         long afterStopMovingTimeout = 0;
         if(player.distanceWalkedModified == player.prevDistanceWalkedModified) {
-            //logger.trace("Player stopped moving");
+            //log.trace("Player stopped moving");
             if(playerStopMovingTimestamp == 0) {
                 playerStopMovingTimestamp = System.currentTimeMillis();
             } else if(afterStopMovingTimeout < 1000){

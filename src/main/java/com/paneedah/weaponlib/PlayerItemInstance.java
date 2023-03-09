@@ -10,14 +10,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObject implements ExtendedState<S>, PlayerContext {
-
-	private static final Logger logger = LogManager.getLogger(PlayerItemInstance.class);
 
 	static {
 		TypeRegistry.getInstance().register(PlayerItemInstance.class);
@@ -131,7 +128,7 @@ public class PlayerItemInstance<S extends ManagedState<S>> extends UniversalObje
 		markDirty();
 		if(preparedState != null) { // TODO: use comparator or equals?
 			if(preparedState.getState().commitPhase() == state) {
-				logger.debug("Committing state {} to {}", preparedState.getState(),
+				log.debug("Committing state {} to {}", preparedState.getState(),
 						preparedState.getState().commitPhase());
 				updateWith(preparedState, false);
 			} else {

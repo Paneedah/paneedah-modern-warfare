@@ -15,14 +15,11 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityWirelessCamera extends CompatibleThrowableEntity {
-
-    private static final Logger logger = LogManager.getLogger(EntityWirelessCamera.class);
 
     private ModContext modContext;
     private ItemWirelessCamera itemWirelessCamera;
@@ -62,7 +59,7 @@ public class EntityWirelessCamera extends CompatibleThrowableEntity {
 
     protected void onImpact(CompatibleRayTraceResult rayTraceResult) {
         Entity entityHit = rayTraceResult.getEntityHit();
-        logger.debug("Player {} hit entity {}", getThrower(), rayTraceResult.getEntityHit());
+        log.debug("Player {} hit entity {}", getThrower(), rayTraceResult.getEntityHit());
 
         boolean hit = false;
         if (entityHit != null && getThrower() instanceof EntityPlayer) {
@@ -74,7 +71,7 @@ public class EntityWirelessCamera extends CompatibleThrowableEntity {
             }
 
             if (!compatibility.world(this).isRemote) {
-                logger.debug("Server hit entity uuid {}", rayTraceResult.getEntityHit().getPersistentID());
+                log.debug("Server hit entity uuid {}", rayTraceResult.getEntityHit().getPersistentID());
                 PlayerEntityTracker tracker = PlayerEntityTracker.getTracker((EntityPlayer) getThrower());
                 if(tracker != null) {
                     hit = true;

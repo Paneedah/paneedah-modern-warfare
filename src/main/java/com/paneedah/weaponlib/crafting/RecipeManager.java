@@ -4,19 +4,16 @@ import com.paneedah.weaponlib.compatibility.CompatibleBlocks;
 import com.paneedah.weaponlib.compatibility.CompatibleItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class RecipeManager {
-
-    private static final Logger logger = LogManager.getLogger(RecipeManager.class);
 
     private RecipeGenerator recipeGenerator = new RecipeGenerator();
 
@@ -25,7 +22,7 @@ public class RecipeManager {
     public List<Object> createShapedRecipe(Item item, String name, OptionsMetadata optionsMetadata) {
         List<Object> recipe = recipeGenerator.createShapedRecipe(name, optionsMetadata);
         if(recipes.put(item, recipe) != null) {
-            logger.warn("Duplicate recipe registered for item {}", item);
+            log.warn("Duplicate recipe registered for item {}", item);
         }
         return recipe;
     }
@@ -55,7 +52,7 @@ public class RecipeManager {
         }
 
         if(recipes.put(itemStack.getItem(), recipeAslist) != null) {
-            logger.warn("Duplicate recipe registered for item {}", itemStack.getItem());
+            log.warn("Duplicate recipe registered for item {}", itemStack.getItem());
         }
         return recipeAslist;
     }

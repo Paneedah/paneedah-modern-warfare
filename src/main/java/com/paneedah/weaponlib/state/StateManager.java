@@ -1,17 +1,15 @@
 package com.paneedah.weaponlib.state;
 
 import com.paneedah.weaponlib.state.Permit.Status;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
+import static com.paneedah.mw.utils.ModReference.log;
+
 public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>> {
-	
-	private static final Logger logger = LogManager.getLogger(StateManager.class);
 
 	public class RuleBuilder<EE extends E> {
 		
@@ -202,7 +200,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 			
 			
 			S updateToState = processedPermit.getStatus() == Status.GRANTED ? toState : fromState;
-			logger.debug("Applying permit with status {} to {}, changing state to {}", 
+			log.debug("Applying permit with status {} to {}, changing state to {}", 
 			        processedPermit.getStatus(), updatedState, toState);
 			
 			if(stateUpdater.apply(updateToState, safeCast(updatedState))) {
@@ -360,7 +358,7 @@ public class StateManager<S extends ManagedState<S>, E extends ExtendedState<S>>
 		S ts[] = targetStates;
 		while((newStateRule = findNextStateRule(aspect, extendedState, s, ts)) != null) {
 			extendedState.setState(newStateRule.toState);
-			logger.debug("Changed state of {} to {}", extendedState, newStateRule.toState);
+			log.debug("Changed state of {} to {}", extendedState, newStateRule.toState);
 			result = new Result(true, newStateRule.toState);
 			if(newStateRule.action != null) {
 				result.actionResult = newStateRule.action.execute(extendedState, s, newStateRule.toState, permit);

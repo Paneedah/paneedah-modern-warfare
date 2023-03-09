@@ -9,18 +9,15 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayDeque;
 import java.util.List;
 import java.util.Queue;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class EntityBounceable extends Entity implements Contextual, CompatibleIEntityAdditionalSpawnData, CompatibleIThrowableEntity {
-
-    private static final Logger logger = LogManager.getLogger(EntityBounceable.class);
 
     private static final int VELOCITY_HISTORY_SIZE = 10;
 
@@ -77,7 +74,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         this.initialPitch = this.rotationPitch;
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, velocity /*1.3f*/, 10.0F); // TODO: make inaccuracy configurable parameter
 
-        logger.debug("Throwing with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
+        log.debug("Throwing with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
                 posX, posY, posZ,
                 this.rotationPitch,
                 this.motionX, this.motionY, this.motionZ);
@@ -200,19 +197,19 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
             }
         }
 
-        logger.trace("Ori position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
+        log.trace("Ori position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
                 motionX, motionY, motionZ);
 
         if(movingobjectposition != null && (movingobjectposition.getTypeOfHit() == Type.BLOCK
                     || (movingobjectposition.getTypeOfHit() == Type.ENTITY))) {
 
             //TODO: remove logging since it's creating wrapper objects
-            logger.trace("Hit {}, vec set to {}, {}, {}", movingobjectposition.getTypeOfHit(),
+            log.trace("Hit {}, vec set to {}, {}, {}", movingobjectposition.getTypeOfHit(),
                     movingobjectposition.getHitVec().getXCoord(),
                     movingobjectposition.getHitVec().getYCoord(),
                     movingobjectposition.getHitVec().getZCoord());
 
-            logger.trace("Before bouncing {}, side {}, motion set to {}, {}, {}", bounceCount,
+            log.trace("Before bouncing {}, side {}, motion set to {}, {}, {}", bounceCount,
                     movingobjectposition.getSideHit(),
                     motionX, motionY, motionZ);
 
@@ -228,7 +225,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
             case UP:
                 this.motionY = -this.motionY;
 //                if(this.motionY - gravityVelocity < 0.05) {
-//                    logger.debug("Force stopping entity");
+//                    log.debug("Force stopping entity");
 //                    gravityVelocity = (float) this.motionY;
 //                    forcedStop = true;
 //                }
@@ -256,7 +253,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
                 avoidBlockCollisionAfterBounce(movingobjectposition);
             }
 
-            logger.trace("After bouncing {}  motion set to {}, {}, {}", bounceCount, motionX, motionY, motionZ);
+            log.trace("After bouncing {}  motion set to {}, {}, {}", bounceCount, motionX, motionY, motionZ);
             onBounce(movingobjectposition);
             bounceCount++;
             if(this.isDead) {
@@ -324,13 +321,13 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
         if(!velocityHistory.stream().anyMatch(v -> v > STOP_THRESHOLD)) {
             motionX = motionY = motionZ = 0.0;
             stopped = true;
-            logger.trace("Stopping {}", this);
+            log.trace("Stopping {}", this);
             onStop();
         } else {
             this.motionY -=  (double)currentGravityVelocity;
         }
 
-        logger.trace("Set position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
+        log.trace("Set position to {}, {}, {}, motion {} {} {} ", this.posX, this.posY, this.posZ,
                 motionX, motionY, motionZ);
     }
 
@@ -367,7 +364,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
                 this.posX = projectedXPos;
                 this.posY = projectedYPos;
                 this.posZ = projectedZPos;
-                logger.trace("Found non-intercepting post-bounce position on iteration {}", i);
+                log.trace("Found non-intercepting post-bounce position on iteration {}", i);
                 break;
             }
         }
@@ -394,14 +391,14 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
             CompatibleVec3 projectedPos = new CompatibleVec3(this.posX + dX * (i + 1), this.posY + dY * (i + 1), this.posZ + dZ * (i + 1));
             intercept = axisalignedbb.calculateIntercept(currentPos, projectedPos);
             if(intercept == null) {
-                //logger.debug("Found no-intercept after bounce with offsets {}, {}, {}", dX, dY, dZ);
+                //log.debug("Found no-intercept after bounce with offsets {}, {}, {}", dX, dY, dZ);
 
                 CompatibleBlockState blockState;
 
                 CompatibleBlockPos blockPos = new CompatibleBlockPos(projectedPos);
                 if((blockState = compatibility.getBlockAtPosition(compatibility.world(this), blockPos)) != null
                         && !compatibility.isAirBlock(blockState)) {
-                    logger.debug("Found non-intercept position colliding with block {}", blockState);
+                    log.debug("Found non-intercept position colliding with block {}", blockState);
                     intercept = movingobjectposition;
                 } else {
                 	
@@ -414,11 +411,11 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
                 break;
             }
 
-            //logger.debug("Still intercepting after bounce, adjusting offsets to {}, {}, {}", dX, dY, dZ);
+            //log.debug("Still intercepting after bounce, adjusting offsets to {}, {}, {}", dX, dY, dZ);
         }
 
         if(intercept != null) {
-            logger.debug("Could not find non-intercept position after bounce");
+            log.debug("Could not find non-intercept position after bounce");
         }
     }
 
@@ -477,7 +474,7 @@ public class EntityBounceable extends Entity implements Contextual, CompatibleIE
 
         setPosition(posX, posY, posZ);
 
-        logger.debug("Restoring with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
+        log.debug("Restoring with position {}{}{}, rotation pitch {}, velocity {}, {}, {}",
                 posX, posY, posZ,
                 this.rotationPitch,
                 this.motionX, this.motionY, this.motionZ);

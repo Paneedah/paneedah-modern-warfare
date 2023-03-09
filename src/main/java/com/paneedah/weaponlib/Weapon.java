@@ -27,20 +27,17 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.function.*;
 import java.util.stream.Collectors;
 
+import static com.paneedah.mw.utils.ModReference.log;
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 
 public class Weapon extends CompatibleItem implements PlayerItemInstanceFactory<PlayerWeaponInstance, WeaponState>, 
 AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCrafting {
-
-    private static final Logger logger = LogManager.getLogger(Weapon.class);
 
     public enum ShellCasingEjectDirection { LEFT, RIGHT };
     
@@ -1292,7 +1289,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         PlayerWeaponInstance instance = modContext.getMainHeldWeapon();
         if(instance != null) {
             float recoil = instance.getWeapon().builder.recoil * factor;
-            logger.debug("Changing recoil to {} for instance {}", recoil, instance);
+            log.debug("Changing recoil to {} for instance {}", recoil, instance);
             instance.setRecoil(recoil);
         }
     }
@@ -1503,7 +1500,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
         } else {
             message = compatibility.getLocalizedString("gui.firearmMode.burst");
         }
-        logger.debug("Changed fire mode of {} to {}", instance, result);
+        log.debug("Changed fire mode of {} to {}", instance, result);
 
         modContext.getStatusMessageCenter().addMessage(compatibility.getLocalizedString(
                 "gui.firearmMode", message), 1000);
@@ -1516,7 +1513,7 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
     public long getTotalReloadingDuration() {
     	
 		return builder.renderer.getTotalReloadingDuration();
-        //logger.debug("Total load duration " + builder.renderer.getTotalReloadingDuration());
+        //log.debug("Total load duration " + builder.renderer.getTotalReloadingDuration());
         
     }
     
@@ -1576,9 +1573,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             modContext.getStatusMessageCenter().addMessage(
                     compatibility.getLocalizedString("gui.currentZoom", Math.round(ratio * 100)), 800);
             compatibility.playSound(instance.getPlayer(),  modContext.getZoomSound(), 1F, 1F);
-            logger.debug("Changed optical zoom to {}", instance.getZoom());
+            log.debug("Changed optical zoom to {}", instance.getZoom());
         } else {
-            logger.debug("Cannot change non-optical zoom");
+            log.debug("Cannot change non-optical zoom");
         }
     }
 
@@ -1599,9 +1596,9 @@ AttachmentContainer, Reloadable, Inspectable, Modifiable, Updatable, IModernCraf
             modContext.getStatusMessageCenter().addMessage(
                     compatibility.getLocalizedString("gui.currentZoom", Math.round(ratio * 100)), 800);
             compatibility.playSound(instance.getPlayer(),  modContext.getZoomSound(), 1F, 1F);
-            logger.debug("Changed optical zoom to {}", zoom);
+            log.debug("Changed optical zoom to {}", zoom);
         } else {
-            logger.debug("Cannot change non-optical zoom");
+            log.debug("Cannot change non-optical zoom");
         }
     }
 
