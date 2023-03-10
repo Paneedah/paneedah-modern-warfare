@@ -30,6 +30,9 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
 
+    /**
+     * Static final reference to the Minecraft Client instance.
+     */
     public static final Minecraft mc = Minecraft.getMinecraft();
 
     @Override
