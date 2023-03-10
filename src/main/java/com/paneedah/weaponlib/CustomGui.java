@@ -42,6 +42,7 @@ import org.lwjgl.opengl.GL11;
 
 import static com.paneedah.weaponlib.compatibility.CompatibilityProvider.compatibility;
 import static net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType.*;
+import static com.paneedah.mw.proxies.ClientProxy.mc;
 
 public class CustomGui extends CompatibleGui {
 
@@ -50,7 +51,6 @@ public class CustomGui extends CompatibleGui {
 	private static final int STATUS_BAR_BOTTOM_OFFSET = 15;
 	private static final int STATUS_BAR_TOP_OFFSET = 10;
 
-    private Minecraft mc;
 	private WeaponAttachmentAspect attachmentAspect;
 	private ModContext modContext;
 	private StatusBarPosition statusBarPosition;
@@ -65,7 +65,6 @@ public class CustomGui extends CompatibleGui {
 	
 	
 	public CustomGui(Minecraft mc, ModContext modContext, WeaponAttachmentAspect attachmentAspect) {
-		this.mc = mc;
 		this.modContext = modContext;
 		this.attachmentAspect = attachmentAspect;
 		this.statusBarPosition = modContext.getConfigurationManager().getStatusBarPosition();
@@ -131,8 +130,8 @@ public class CustomGui extends CompatibleGui {
 		
 		
 
-		if(this.mc.player.isRiding() && this.mc.player.getRidingEntity() instanceof EntityVehicle) {
-			EntityVehicle v = (EntityVehicle) this.mc.player.getRidingEntity();
+		if(mc.player.isRiding() && mc.player.getRidingEntity() instanceof EntityVehicle) {
+			EntityVehicle v = (EntityVehicle) mc.player.getRidingEntity();
 			
 			
 			
@@ -151,11 +150,11 @@ public class CustomGui extends CompatibleGui {
 		}
 	    
 		
-		if(compatibility.getEventType(event) == RenderGameOverlayEvent.ElementType.HELMET && this.mc.player.isRiding() && this.mc.player.getRidingEntity() instanceof EntityVehicle) {
+		if(compatibility.getEventType(event) == RenderGameOverlayEvent.ElementType.HELMET && mc.player.isRiding() && mc.player.getRidingEntity() instanceof EntityVehicle) {
 			
 			
 			
-			EntityVehicle vehicle = (EntityVehicle) this.mc.player.getRidingEntity();
+			EntityVehicle vehicle = (EntityVehicle) mc.player.getRidingEntity();
 			vehicleGUIOverlay.renderGUI(vehicle);
 		}
 	}
@@ -201,7 +200,7 @@ public class CustomGui extends CompatibleGui {
 					GL11.glEnable(GL11.GL_BLEND);
 //
 //
-					this.mc.renderEngine.bindTexture(new ResourceLocation(hudTexture));
+					mc.renderEngine.bindTexture(new ResourceLocation(hudTexture));
 //
 					drawTexturedQuadFit(0, 0, screenWidth, screenHeight, -100);
 
@@ -502,7 +501,7 @@ public class CustomGui extends CompatibleGui {
 				GlStateManager.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
 				GlStateManager.disableBlend();
                 
-                this.mc.renderEngine.bindTexture(new ResourceLocation(crosshair));
+                mc.renderEngine.bindTexture(new ResourceLocation(crosshair));
 
                    
                 handleModificationHUD(event, modContext.getMainHeldWeapon(), width, height);
@@ -602,8 +601,8 @@ public class CustomGui extends CompatibleGui {
 
     private void drawShieldIndicator(CustomArmor armor, double capacity, double screenWidth, double screenHeight) {
         
-        if(!compatibility.isStencilEnabled(this.mc.getFramebuffer())) {
-            compatibility.enableStencil(this.mc.getFramebuffer());
+        if(!compatibility.isStencilEnabled(mc.getFramebuffer())) {
+            compatibility.enableStencil(mc.getFramebuffer());
         }
         
         GL11.glEnable(GL11.GL_ALPHA_TEST);
@@ -623,7 +622,7 @@ public class CustomGui extends CompatibleGui {
         GL11.glDepthMask(false);
         GL11.glClear(GL11.GL_STENCIL_BUFFER_BIT); // Clear stencil buffer (0 by default)
         
-        this.mc.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorMaskTextureName()));
+        mc.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorMaskTextureName()));
         
         // 640:328 
         // 427:240
@@ -642,7 +641,7 @@ public class CustomGui extends CompatibleGui {
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         GL11.glEnable(GL11.GL_BLEND);
         
-        this.mc.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorProgressBarTextureName()));
+        mc.renderEngine.bindTexture(new ResourceLocation(armor.getShieldIndicatorProgressBarTextureName()));
 
         drawTexturedQuadFit((armor.getShieldIndicatorPositionX() - 1) * (screenWidth / 640.0), armor.getShieldIndicatorPositionY() * (screenHeight / 328.0), 
                 ((armor.getShieldIndicatorWidth() + 2) * (screenWidth / 640.0)) * capacity, (armor.getShieldIndicatorHeight() + 1) * (screenHeight / 328.0), -101);

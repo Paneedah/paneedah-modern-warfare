@@ -1,13 +1,11 @@
 package com.paneedah.weaponlib.compatibility;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.MathHelper;
 import org.lwjgl.openal.*;
 import paulscode.sound.SoundSystem;
 
 public class CoreSoundInterceptor {
-	
-	public static Minecraft mc;
+
 	public static SoundSystem soundSystem;
 	
 	private static int reverb0;
@@ -25,7 +23,6 @@ public class CoreSoundInterceptor {
     private static int echo0;
     
     public static void init(SoundSystem snds) {
-		mc = mc;
 		soundSystem = snds;
 		try {
 			setup();

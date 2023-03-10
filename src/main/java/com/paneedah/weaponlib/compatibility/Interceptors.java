@@ -643,8 +643,6 @@ public class Interceptors {
     public static boolean nauseaCameraEffect(float partialTicks) {
         boolean allowDefaultEffect = false;
 
-//        Minecraft mc = mc;
-//
 //        float f1 = mc.thePlayer.prevTimeInPortal + (mc.thePlayer.timeInPortal - mc.thePlayer.prevTimeInPortal) * partialTicks;
 //
 //        int i = 1;

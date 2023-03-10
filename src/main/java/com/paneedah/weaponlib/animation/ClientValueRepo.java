@@ -8,7 +8,6 @@ import com.paneedah.weaponlib.compatibility.RecoilParam;
 import com.paneedah.weaponlib.numerical.LerpedValue;
 import com.paneedah.weaponlib.numerical.RandomVector;
 import com.paneedah.weaponlib.numerical.SpringValue;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 
 import static com.paneedah.mw.proxies.ClientProxy.mc;
@@ -26,8 +25,6 @@ public class ClientValueRepo {
 
 	// 20 ticks/s -> 1/20 = 0.05
 	private static final double DELTA_T = 0.05;
-
-	private static final Minecraft MC = mc;
 
 	// This value is added to the "TICKER" every tick.
 	// Don't touch this as it will mess with how things
@@ -156,7 +153,7 @@ public class ClientValueRepo {
 		slidePumpValue.dampen(0.0001);
 		
 		
-		EntityPlayer player = MC.player;
+		EntityPlayer player = mc.player;
 
 		PlayerWeaponInstance pwi = context.getMainHeldWeapon();
 
@@ -167,8 +164,8 @@ public class ClientValueRepo {
 		
 		if(!player.capabilities.isFlying && player.onGround) {
 			// Update movement values
-			if (!MC.player.onGround)
-				jumpingSpring.velocity += MC.player.motionY * JUMP_VELOCITY_MULTIPLIER;
+			if (!mc.player.onGround)
+				jumpingSpring.velocity += mc.player.motionY * JUMP_VELOCITY_MULTIPLIER;
 			if (player.moveForward < 0) {
 				strafe.add(player.moveForward * FORWARD_MOVEMENT_DIVISOR);
 			} else if(!player.isElytraFlying() && !player.capabilities.isFlying) {

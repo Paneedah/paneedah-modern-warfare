@@ -2,7 +2,6 @@ package com.paneedah.weaponlib.render;
 
 import com.paneedah.weaponlib.config.novel.ModernConfigManager;
 import com.paneedah.weaponlib.render.bgl.GLCompatible;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;
@@ -30,10 +29,8 @@ import static com.paneedah.mw.utils.ModReference.log;
  */
 public class Bloom {
 
-	public static final Minecraft MC = mc;
-
-	public static int width = MC.displayWidth;
-	public static int height = MC.displayHeight;
+	public static int width = mc.displayWidth;
+	public static int height = mc.displayHeight;
 	public static boolean hasLoaded = false;
 
 	public static Framebuffer[] buffers;
@@ -53,11 +50,11 @@ public class Bloom {
 
 	public static void setupBloom() {
 
-		// log.info("Creating bloom buffer, MC's Framebuffer is {}, the world is {}",
+		// log.info("Creating bloom buffer, mc's Framebuffer is {}, the world is {}",
 		// mc.getFramebuffer(), mc.world);
 		// log.log(Level.INFO, null, message, p0, p1, p2, p3, p4, p5, p6);
-		width = MC.displayWidth;
-		height = MC.displayHeight;
+		width = mc.displayWidth;
+		height = mc.displayHeight;
 		hasLoaded = true;
 
 		log.debug("Recreating Bloom FBOs at ({} x {})", width, height);
@@ -70,7 +67,7 @@ public class Bloom {
 	}
 
 	public static boolean shouldRecreateFBOs() {
-		return MC.displayWidth != width || MC.displayHeight != height || !hasLoaded;
+		return mc.displayWidth != width || mc.displayHeight != height || !hasLoaded;
 
 	}
 
@@ -99,8 +96,8 @@ public class Bloom {
 
 	public static void recreateFramebuffers() {
 
-		int width = MC.displayWidth;
-		int height = MC.displayHeight;
+		int width = mc.displayWidth;
+		int height = mc.displayHeight;
 
 		if (buffers != null) {
 			for (Framebuffer f : buffers) {
@@ -117,9 +114,9 @@ public class Bloom {
 				GL11.GL_UNSIGNED_SHORT, (IntBuffer) null);
 		data.bindFramebuffer(false);
 
-		OpenGlHelper.glBindRenderbuffer(GLCompatible.GL_RENDERBUFFER, MC.getFramebuffer().depthBuffer);
+		OpenGlHelper.glBindRenderbuffer(GLCompatible.GL_RENDERBUFFER, mc.getFramebuffer().depthBuffer);
 		OpenGlHelper.glFramebufferRenderbuffer(GLCompatible.GL_FRAMEBUFFER, GLCompatible.GL_DEPTH_ATTACHMENT,
-				GLCompatible.GL_RENDERBUFFER, MC.getFramebuffer().depthBuffer);
+				GLCompatible.GL_RENDERBUFFER, mc.getFramebuffer().depthBuffer);
 
 		data.setFramebufferFilter(GL11.GL_LINEAR);
 		data.setFramebufferColor(0, 0, 0, 0);
