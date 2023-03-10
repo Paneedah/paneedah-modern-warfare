@@ -30,13 +30,12 @@ public class ModernWarfareMod {
 
 	private static final String DEFAULT_CONFIG_RESOURCE = "/mw.cfg";
     private static final String MODERN_WARFARE_CONFIG_FILE_NAME = "ModernWarfare.cfg";
-    public static final String MODID = "mw";
 	public static final String VERSION = "@VERSION@";
 
     @SidedProxy(serverSide = "com.paneedah.weaponlib.CommonModContext", clientSide = "com.paneedah.weaponlib.ClientModContext")
     public static ModContext MOD_CONTEXT;
 
-    public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
+    public static final SimpleNetworkWrapper CHANNEL = NetworkRegistry.INSTANCE.newSimpleChannel(ModReference.id);
 
     public static final CreativeTabs ArmorTab = new ArmorTab(CreativeTabs.getNextID(), "ArmorTab");
 	public static final CreativeTabs AssaultRiflesTab = new AssaultRiflesTab(CreativeTabs.getNextID(), "AssaultRifles_tab");
